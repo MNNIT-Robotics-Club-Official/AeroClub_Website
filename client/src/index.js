@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+
+import 'react-bootstrap'
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
+// import Navigbar from './components/Navigbar';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
