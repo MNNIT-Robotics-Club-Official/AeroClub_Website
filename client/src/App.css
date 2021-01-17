@@ -1,6 +1,8 @@
 .App {
-  text-align: center;
-  
+  /* text-align: center; */
+  display: flex;
+  flex-flow: column;
+  width: 100%;
 }
 
 .App-logo {
@@ -38,16 +40,4 @@
   }
 }
 
-.style{
-  background-color: rgba(60, 61, 61, 0.863);
-}
 
-/* @font-face{
-  font-family: 'SEGA LOGO FONT';
-  font-style: normal;
-  font-weight: normal;
-  src: local('SEGA LOGO FONT'), url('SEGA.TTF'), format('TTF');
-} */
-.title{
-  font-family: 'Courier New', Courier, monospace;
-}

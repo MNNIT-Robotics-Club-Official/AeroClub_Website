@@ -2,11 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat';
-  background: linear-gradient(89deg, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+  background: linear-gradient(89deg, rgb(224, 10, 3) 0%, rgb(21, 24, 24) 100%);
 }
 
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */

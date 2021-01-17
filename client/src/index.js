@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 import 'react-bootstrap'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import "../node_modules/bootstrap/dist/js/bootstrap";
+
 // import Navigbar from './components/Navigbar';
 import App from './App';
 
