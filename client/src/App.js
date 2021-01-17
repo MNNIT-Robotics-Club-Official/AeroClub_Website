@@ -6,8 +6,7 @@ import React from "react";
 import Navigbar from './components/Navigbar.js';
 import Footer from './components/Footer.js';
 import Home from './components/Home.js';
-
-import { Modal, Button, Form, FormControl, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import ImgSlider from './Animations/ImgSlider.js';
 
 
 function App() {
@@ -21,6 +20,9 @@ function App() {
         < Home />
       </>
 
+      <>
+        < ImgSlider />
+      </>
 
       {/* Site footer */}
       <>
