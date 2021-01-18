@@ -6,21 +6,12 @@ const requireLogin = require('../middleware/requireLogin')
 
 router.get('/blogs', requireLogin, (req, res) => {
 
-    console.log(req.query)
-
-    res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-    res.header('Content-Range', 'blogs 0-20/20')
-    Blog.find()
+    res.setHeader('Content-Range', 'blogs 0-10/20')
+    Blog.find({})
         .then(blogs => {
-
-            const obj = blogs
-
-            obj.forEach(b => {
-                b["id"] = b["_id"]
-                delete b._id
-            })
-            console.log(obj)
-            res.json({ data: blogs, total: blogs.length })
+            let arr = []
+            blogs.forEach(blog => arr.push(blog.transform()))
+            res.json(arr)
         })
         .catch(e => console.log(e))
 })
