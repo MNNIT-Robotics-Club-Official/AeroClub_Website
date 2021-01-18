@@ -14,14 +14,15 @@ mongoose.connection.on('connected', () => {
 })
 
 // registering models
-require('./routes/blog')
-require('./routes/user')
+require('./models/user')
+require('./models/blog')
 
 // app specific
 app.use(express.json())
 
 //routes
 app.use(require('./routes/auth'))
+app.use(require('./routes/blog'))
 
 app.listen(port, () => {
 	console.log("Server Started!");
