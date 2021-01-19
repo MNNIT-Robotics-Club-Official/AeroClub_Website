@@ -17,7 +17,7 @@ function App() {
           < ImgSlider />
           < Footer />
         </Route>
-        <Route path='/admin'>
+        <Route path='/admin' exact>
           <AdminComp />
         </Route>
       </Switch>

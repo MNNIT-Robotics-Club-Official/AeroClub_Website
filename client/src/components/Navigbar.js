@@ -14,6 +14,7 @@ export default function Navigbar() {
             <Nav.Link href="#link">Blogs</Nav.Link>
             <Nav.Link href="#link">Gallery</Nav.Link>
             <Nav.Link href="#link">Projects</Nav.Link>
+            <Nav.Link href="#link">Alumni</Nav.Link>
             <NavDropdown title="Events" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -21,13 +22,10 @@ export default function Navigbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#link">Login</Nav.Link>
+            <Nav.Link href="https://tsaw.tech/">Our StartUps</Nav.Link>
           </Nav>
-          <Button variant="danger" className="mr-sm-2 my-2">Donate</Button>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2 my-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          <Button href="#link" variant="dark" className="mr-sm-2 my-2">Sponsorship</Button>
+          <Button href="#link" variant="info" className="mr-sm-2 my-2">Login</Button>
         </Navbar.Collapse>
       </Navbar>
     </>
