@@ -15,7 +15,7 @@ router.post('/admin/login', (req, res) => {
         brypt.compare(password, savedUser.password).then(doMatch => {
             if (doMatch) {
                 const token = jwt.sign({ _id: savedUser._id }, process.env.JWT_SECRET)
-                return res.json({ token, msg: 'logged in !' })
+                return res.json({ token, role: savedUser.role })
             }
             res.status(422).json({ error: "Wrong username or password !" })
         })

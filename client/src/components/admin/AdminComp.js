@@ -10,7 +10,7 @@ function AdminComp() {
         if (!options.headers) {
             options.headers = new Headers({ Accept: 'application/json' });
         }
-        const { token } = JSON.parse(localStorage.getItem('adminAuth'));
+        const token = localStorage.getItem('token');
         options.headers.set('Authorization', `Bearer ${token}`);
         return fetchUtils.fetchJson(url, options);
     };
