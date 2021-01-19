@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const Blog = mongoose.model('Blog')
-const requireLogin = require('../middleware/requireLogin')
+const Blog = require('../models/blog')
+const { isSignedIn } = require('../middleware/auth')
 
-router.get('/blogs', requireLogin, (req, res) => {
+router.get('/blogs', isSignedIn, (req, res) => {
 
     res.setHeader('Content-Range', 'blogs 0-10/20')
     Blog.find({})

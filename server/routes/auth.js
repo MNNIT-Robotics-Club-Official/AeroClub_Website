@@ -1,41 +1,27 @@
-const express = require('express')
-const router = express.Router()
-const mongoose = require('mongoose')
-const User = mongoose.model('User')
-const brypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const express = require("express");
+const router = express.Router();
+const { check, validationResult } = require("express-validator");
+const { signout, signup, signin, isSignedIn } = require("../middleware/auth");
 
-router.post('/admin/login', (req, res) => {
+router.post(
+  "/signup",
+  [
+    check("name", "name should be at least 3 char").isLength({ min: 3 }),
+    check("email", "email is required").isEmail(),
+    check("password", "password should be at least 3 char").isLength({ min: 3 })
+  ],
+  signup
+);
 
-    const { username, password } = req.body
+router.post(
+  "/signin",
+  [
+    check("email", "email is required").isEmail(),
+    check("password", "password field is required").isLength({ min: 1 })
+  ],
+  signin
+);
 
-    User.findOne({ username: username }).then(savedUser => {
-        if (!savedUser) return res.status(422).json({ error: "Wrong username or password !" })
+router.get("/signout", signout);
 
-        brypt.compare(password, savedUser.password).then(doMatch => {
-            if (doMatch) {
-                const token = jwt.sign({ _id: savedUser._id }, process.env.JWT_SECRET)
-                return res.json({ token, msg: 'logged in !' })
-            }
-            res.status(422).json({ error: "Wrong username or password !" })
-        })
-    })
-
-})
-
-// router.post('/signup', (req, res) => {
-//     const { username, password } = req.body
-//     brypt.hash(password, 12).then(hashedPassword => {
-//         const user = new User({
-//             password: hashedPassword,
-//             username,
-//             name: 'Admin'
-//         })
-//         user.save().then(user => {
-//             res.json({ msg: 'Saved Succesfully!' })
-//         })
-//             .catch(e => console.log(e))
-//     })
-// })
-
-module.exports = router
+module.exports = router;
