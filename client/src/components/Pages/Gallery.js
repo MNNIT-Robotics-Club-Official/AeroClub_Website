@@ -7,7 +7,7 @@ import Footer from '../Footer.js';
 export default function Gallery() {
     return (
         <>
-            <><Navigbar /></>
+            {/* <><Navigbar /></> */}
 
             <>
                 <main className="grid">
@@ -65,7 +65,7 @@ export default function Gallery() {
                     </div></main>
             </>
 
-            <><Footer /></>
+            {/* <><Footer /></> */}
         </>
     );
 }

@@ -7,25 +7,89 @@ import Footer from '../Footer.js';
 export default function Alumni() {
     return (
         <>
-            <><Navigbar /></>
+            {/* <><Navigbar /></> */}
 
             <>
-                <div className="container">
-                    <div className="gallery">
-                        <a className="gallery-item" href="#"><img src="http://www.placeimg.com/330/265" alt="Headshot of George Washington" /><span className="text-wrapper"><span className="name">George Washington</span><span className="title">Principal</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of John Adams" /><span className="text-wrapper"><span className="name">John Adams</span><span className="title">Chief Financial Officer</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of Thomas Jefferson" /><span className="text-wrapper"><span className="name">Thomas Jefferson</span><span className="title">Chief Operating Officer</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of James Madison" /><span className="text-wrapper"><span className="name">James Madison</span><span className="title">Developer</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of James Monroe" /><span className="text-wrapper"><span className="name">James Monroe</span><span className="title">Developer</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of Andrew Jackson" /><span className="text-wrapper"><span className="name">Andrew Jackson</span><span className="title">Designer</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of John Tyler" /><span className="text-wrapper"><span className="name">John Tyler</span><span className="title">Designer</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of James Polk" /><span className="text-wrapper"><span className="name">James Polk</span><span className="title">Project Manager</span></span></a>
-                        <a className="gallery-item" href="#"><img src="http://placeimg.com/330/265" alt="Headshot of Zachary Taylor" /><span className="text-wrapper"><span className="name">Zachary Taylor</span><span className="title">Project Manager</span></span></a>
+                <main className="grid">
+                    <div className="h1">
+                        <h1 className=" c-black">Our Alumnis</h1>
                     </div>
-                </div>
+                    <div className="galery">
+                        <div className="grid ">
+                            <div className="item1">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item2">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item3">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item4">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item5">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item6">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item7">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item8">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item9">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item10">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item11">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            <div className="item12">
+                                <a className="caption" data-title="Colored landscape"
+                                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
+                            </div>
+                            {/* <div className="item13 caption">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" />
+                            </div>
+                            <div className="item14 caption">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" />
+                            </div>
+                            <div className="item15 caption">
+                                <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" />
+                            </div> */}
+                        </div>
+                    </div></main>
             </>
 
-            <><Footer /></>
+            {/* <><Footer /></> */}
         </>
     );
 }

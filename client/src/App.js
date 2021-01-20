@@ -13,20 +13,26 @@ function App() {
   return (
     <div className="App" >
       <Switch>
-        <Route path='/' exact>
-          < Navigbar />
-          < Home />
-          < ImgSlider />
-          < Footer />
-        </Route>
+
         <Route path='/admin' exact>
           <AdminComp />
         </Route>
-        <Route path='/Gallery' exact>
-          <Gallery />
-        </Route>
-        <Route path='/Alumni' exact>
-          <Alumni />
+
+        <Route>
+          < Navigbar />
+          <Route path='/' exact>
+
+            < Home />
+            < ImgSlider />
+
+          </Route>
+          <Route path='/Gallery' exact>
+            <Gallery />
+          </Route>
+          <Route path='/Alumni' exact>
+            <Alumni />
+          </Route>
+          < Footer />
         </Route>
       </Switch>
     </div>
