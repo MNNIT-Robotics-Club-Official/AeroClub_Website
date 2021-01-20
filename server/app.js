@@ -17,6 +17,7 @@ mongoose.connection.on('connected', () => {
 //My routes
 const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/blog");
+const componentRoutes = require("./routes/component")
 
 // app specific
 app.use(express.json())
@@ -24,6 +25,7 @@ app.use(express.json())
 //Adding routes to the app
 app.use("/api", authRoutes);
 app.use("/api", blogRoutes);
+app.use("/api", componentRoutes);
 
 app.listen(port, () => {
 	console.log(`Server Started at ${port}`);
