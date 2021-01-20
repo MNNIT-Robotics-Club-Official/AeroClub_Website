@@ -7,7 +7,7 @@ import Footer from '../Footer.js';
 export default function Alumni() {
     return (
         <>
-            <><Navigbar /></>
+            {/* <><Navigbar /></> */}
 
             <>
                 <main className="grid">
@@ -89,7 +89,7 @@ export default function Alumni() {
                     </div></main>
             </>
 
-            <><Footer /></>
+            {/* <><Footer /></> */}
         </>
     );
 }

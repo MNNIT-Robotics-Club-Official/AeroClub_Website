@@ -12,12 +12,13 @@ import Alumni from './components/Pages/Alumni.js';
 function App() {
   return (
     <div className="App" >
+    < Navigbar />
       <Switch>
         <Route path='/' exact>
-          < Navigbar />
+          
           < Home />
           < ImgSlider />
-          < Footer />
+          
         </Route>
         <Route path='/admin' exact>
           <AdminComp />
@@ -29,6 +30,7 @@ function App() {
           <Alumni />
         </Route>
       </Switch>
+      < Footer />
     </div>
   );
 }
