@@ -7,6 +7,8 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../node_modules/bootstrap/dist/js/bootstrap";
 import { BrowserRouter as Router } from 'react-router-dom'
 
+
+
 // import Navigbar from './components/Navigbar';
 import App from './App';
 

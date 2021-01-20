@@ -12,3 +12,8 @@
     font-family: 'Courier New', Courier, monospace;
     /* font-weight:bolder; */
 }
+
+/* .linkhover, .linkhover:hover, .linkhover:focus, .linkhover:active{
+    text-decoration: none;
+      color: inherit;
+} */

@@ -1,41 +1,49 @@
 const authProvider = {
     login: ({ username, password }) => {
-
-        const request = new Request('/admin/login', {
+        const request = new Request('/api/signin', {
             method: 'post',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ email: username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' })
         })
         return fetch(request)
             .then(res => {
                 return res.json()
             })
-            .then(data => {
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-                localStorage.setItem('adminAuth', JSON.stringify({ token: data.token }))
+            .then(data1 => {
+                if (data1.error) throw new Error(data1.error);
+
+                return fetch('/api/isAdmin', {
+                    method: 'post',
+                    headers: {
+                        "Authorization": `Bearer ${data1.token}`
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data2 => {
+                        if (data2.error) throw new Error(data2.error)
+                        localStorage.setItem('token', data1.token)
+                    })
             })
             .catch(e => {
                 throw new Error(e)
             })
     },
     checkAuth: () => {
-        return localStorage.getItem('adminAuth') ? Promise.resolve() : Promise.reject()
+        return localStorage.getItem('token') ? Promise.resolve() : Promise.reject()
     },
     logout: () => {
-        localStorage.removeItem('adminAuth')
-        return Promise.resolve('/login')
+        localStorage.removeItem('token')
+        return Promise.resolve()
     },
     checkError: (error) => {
         const status = error.status;
-        if (status === 422) {
-            localStorage.removeItem('adminAuth');
-            return Promise.reject({ redirectTo: '/login' });
+        if (status === 422 || status === 401 || status === 403) {
+            localStorage.removeItem('token')
+            return Promise.reject();
         }
         return Promise.resolve();
     },
-    getPermissions: () => Promise.resolve(),
+    getPermissions: () => Promise.resolve()
 }
 
 export default authProvider
