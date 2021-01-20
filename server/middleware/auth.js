@@ -1,6 +1,6 @@
 const User = require("../models/user");
-const { check, validationResult } = require("express-validator");
-var jwt = require("jsonwebtoken");
+const { validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
@@ -52,6 +52,7 @@ exports.signin = (req, res) => {
     //create token
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
     //put token in cookie
+
     res.cookie("token", token, { expire: new Date() + 9999 });
 
     //send response to front end
@@ -76,15 +77,17 @@ exports.isSignedIn = (req, res, next) => {
 
   const token = authorization.replace("Bearer ", "")
 
+  // verifying jwt token
   jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
 
-      if (err) return res.status(401).json({ error: "You must be logged in" })
-      const { _id } = payload
+    if (err) return res.status(401).json({ error: "You must be logged in" })
+    const { _id } = payload
 
-      User.findById(_id).then(userData => {
-          req.user = userData
-          next()
-      })
+    // finding the user with the id
+    User.findById(_id).then(userData => {
+      req.user = userData
+      next()
+    })
   })
 }
 
