@@ -2,7 +2,7 @@ import React from "react";
 import Hometext from "./hometext.js";
 import "../css/home.css";
 
-export default function Navigbar() {
+export default function Home() {
   return (
     <>
       <div >
