@@ -7,23 +7,24 @@ require('dotenv').config()
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {
 	useNewUrlParser: true,
-	useUnifiedTopology: true
+	useUnifiedTopology: true,
+	useCreateIndex: true
 })
 mongoose.connection.on('connected', () => {
 	console.log('connected to mongodb')
 })
 
-// registering models
-require('./models/user')
-require('./models/blog')
+//My routes
+const authRoutes = require("./routes/auth");
+const blogRoutes = require("./routes/blog");
 
 // app specific
 app.use(express.json())
 
-//routes
-app.use(require('./routes/auth'))
-app.use(require('./routes/blog'))
+//Adding routes to the app
+app.use("/api", authRoutes);
+app.use("/api", blogRoutes);
 
 app.listen(port, () => {
-	console.log("Server Started!");
+	console.log(`Server Started at ${port}`);
 })

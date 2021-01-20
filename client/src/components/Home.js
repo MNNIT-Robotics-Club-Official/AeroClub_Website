@@ -7,10 +7,7 @@ export default function Navigbar() {
     <>
       <div >
         <div className="container-fluid text-center ">
-          {/* <div className="des">
-            <h1>Amir Baig</h1>
-            <p className="fontdes">Front-end Developer</p>
-          </div> */}
+
           <div className="jumbotron ">
 
             <h1>

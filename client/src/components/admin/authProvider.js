@@ -1,21 +1,28 @@
 const authProvider = {
     login: ({ username, password }) => {
-
-        const request = new Request('/admin/login', {
+        const request = new Request('/api/signin', {
             method: 'post',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ email: username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' })
         })
         return fetch(request)
             .then(res => {
                 return res.json()
             })
-            .then(data => {
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-                localStorage.setItem('token', data.token)
-                localStorage.setItem('role', data.role)
+            .then(data1 => {
+                if (data1.error) throw new Error(data1.error);
+
+                return fetch('/api/isAdmin', {
+                    method: 'post',
+                    headers: {
+                        "Authorization": `Bearer ${data1.token}`
+                    }
+                })
+                    .then(res => res.json())
+                    .then(data2 => {
+                        if (data2.error) throw new Error(data2.error)
+                        localStorage.setItem('token', data1.token)
+                    })
             })
             .catch(e => {
                 throw new Error(e)
@@ -26,22 +33,17 @@ const authProvider = {
     },
     logout: () => {
         localStorage.removeItem('token')
-        localStorage.removeItem('role')
-        return Promise.resolve('/login')
+        return Promise.resolve()
     },
     checkError: (error) => {
         const status = error.status;
-        if (status === 422) {
+        if (status === 422 || status === 401 || status === 403) {
             localStorage.removeItem('token')
-            localStorage.removeItem('role')
-            return Promise.reject({ redirectTo: '/login' });
+            return Promise.reject();
         }
         return Promise.resolve();
     },
-    getPermissions: () => {
-        const role = localStorage.getItem('role')
-        role === 'admin' ? Promise.resolve(role) : Promise.reject()
-    },
+    getPermissions: () => Promise.resolve()
 }
 
 export default authProvider
