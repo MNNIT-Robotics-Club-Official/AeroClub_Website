@@ -1,4 +1,4 @@
-const Component = require("../models/component");
+const Component = require("../models/component")
 
 exports.getComponentById = (req, res, next, id) => {
   Component.findById(id).exec((err, comp) => {
@@ -19,7 +19,11 @@ exports.getAllComponents = (req, res) => {
         error: "NO product FOUND",
       });
     }
-    res.json(components);
+
+    let arr = []
+    components.forEach(component => arr.push(component.transform()))
+    res.setHeader('Content-Range', 'components 0-10/20')
+    res.json(arr);
   });
 };
 

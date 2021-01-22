@@ -1,4 +1,4 @@
-import { Create, Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, ImageField, ImageInput, List, required, RichTextField, Show, SimpleForm, SimpleShowLayout, TextField, TextInput } from 'react-admin'
+import { Create, Datagrid, DateField, DateInput, DeleteButton, Edit, EditButton, ImageField, ImageInput, List, required, RichTextField, Show, ShowButton, SimpleForm, SimpleShowLayout, TextField, TextInput } from 'react-admin'
 import RichTextInput from 'ra-input-rich-text'
 
 export const BlogList = (props) => {
@@ -9,6 +9,7 @@ export const BlogList = (props) => {
                 <TextField source='title' />
                 <TextField source='postedBy' label="Posted By" />
                 <DateField source='publishedAt' label='Published At' />
+                <ShowButton basePath="/blogs" />
                 <EditButton basePath='/blogs' />
                 <DeleteButton basePath='/blogs' />
             </Datagrid>
@@ -21,7 +22,7 @@ export const BlogCreate = (props) => {
         <Create {...props}>
             <SimpleForm redirect='/blogs'>
                 <TextInput source="title" label="Title" />
-                <TextInput source="body" label="Body" />
+                <RichTextInput source="body" label="Body" />
                 <TextInput source="postedBy" label="Posted By" />
                 <ImageInput accept="image/*" source="pic">
                     <ImageField source="src" title="title" />
@@ -39,7 +40,7 @@ export const BlogShow = (props) => {
                 <TextField source="title" />
                 <RichTextField source="body" />
                 <TextField source="postedBy" />
-                <ImageField src="pic" />
+                {/* <ImageField src="pic" /> */}
                 <DateField source="publishedAt" />
             </SimpleShowLayout>
         </Show>

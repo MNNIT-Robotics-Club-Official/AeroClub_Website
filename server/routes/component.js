@@ -1,14 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllComponents, addComponent, updateComponent, getComponentById} = require("../middleware/component");
+const { getAllComponents, addComponent, updateComponent, getComponentById } = require("../middleware/component");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 
 //params
 router.param("componentId", getComponentById);
 
 //get routes
-router.get("/component/all", getAllComponents);
+router.get("/components", getAllComponents);
+
+// get a component
+router.get('/components/:componentId', (req, res) => {
+  res.json(req.component.transform())
+})
 
 //create route
 router.post(
@@ -21,10 +26,10 @@ router.post(
 
 //update route
 router.put(
-    "/component/:componentId",
-    isSignedIn,
-    isAdmin,
-    updateComponent
-  );
+  "/component/:componentId",
+  isSignedIn,
+  isAdmin,
+  updateComponent
+);
 
 module.exports = router;
