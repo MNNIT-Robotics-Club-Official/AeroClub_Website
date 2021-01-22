@@ -105,8 +105,8 @@ img {
 	position: relative;
     overflow: hidden;
 	display: inline-block;
-	/* width: 250px; */
-	/* height: 250px; */
+	width: 90%;
+	height: 90%;
     z-index: 10;
     margin: 20px ;
 }
