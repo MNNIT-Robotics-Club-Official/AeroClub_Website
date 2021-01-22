@@ -1,21 +1,16 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema;
 
-const ComponentRequestSchema = new mongoose.Schema({
-    component: {
-      type: ObjectId,
-      ref: "Component"
-    },
-    name: String,
-    count: Number
-  }); 
-
-const ComponentRequest = mongoose.model("IssueRequest", ComponentRequestSchema);
-
-
 const ComponentsIssueSchema = new mongoose.Schema(
     {
-        components: [ComponentRequest],
+        component: {
+          type: ObjectId,
+          ref: "Component"
+        },
+        reason: {
+          type: String,
+          required:true
+        },
         status: {
             type: String,
             default: "Requested",
@@ -24,7 +19,12 @@ const ComponentsIssueSchema = new mongoose.Schema(
         updated: Date,
         user:{
             type:ObjectId,
-            ref:"User"
+            ref:"User",
+            required:true
+        },
+        num:{
+          type:Number,
+          required:true
         }
     },
     {timestamps:true}
@@ -32,4 +32,4 @@ const ComponentsIssueSchema = new mongoose.Schema(
 
 const ComponentsIssue = mongoose.model("ComponentsIssue", ComponentsIssueSchema);
 
-module.exports = { ComponentsIssue, ComponentRequestSchema };
+module.exports = ComponentsIssue ;

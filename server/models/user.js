@@ -24,10 +24,6 @@ var userSchema = new mongoose.Schema(
     role: {
       type: Number,
       default: 0
-    },
-    components: {
-      type: Array,
-      default: []
     }
   },
   { timestamps: true }

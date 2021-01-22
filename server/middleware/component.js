@@ -50,3 +50,18 @@ exports.updateComponent = (req, res) => {
     res.json(updatedComponent);
   });
 };
+
+exports.deleteComponent = (req, res) => {
+  const component = req.component;
+
+  component.remove((err, component) => {
+    if(err){
+      return res.status(400).json({
+        error: "Failed to delete this component"
+      });
+    }
+    res.json({
+      msg: `Successfully deleted ${component.name}`
+    });
+  })
+}
