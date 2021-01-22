@@ -12,25 +12,29 @@ import Alumni from './components/Pages/Alumni.js';
 function App() {
   return (
     <div className="App" >
-    < Navigbar />
       <Switch>
-        <Route path='/' exact>
-          
-          < Home />
-          < ImgSlider />
-          
-        </Route>
+
         <Route path='/admin' exact>
           <AdminComp />
         </Route>
-        <Route path='/Gallery' exact>
-          <Gallery />
-        </Route>
-        <Route path='/Alumni' exact>
-          <Alumni />
+
+        <Route>
+          < Navigbar />
+          <Route path='/' exact>
+
+            < Home />
+            < ImgSlider />
+
+          </Route>
+          <Route path='/Gallery' exact>
+            <Gallery />
+          </Route>
+          <Route path='/Alumni' exact>
+            <Alumni />
+          </Route>
+          < Footer />
         </Route>
       </Switch>
-      < Footer />
     </div>
   );
 }
