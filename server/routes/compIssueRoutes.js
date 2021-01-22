@@ -1,33 +1,43 @@
 const express = require('express');
 const { isSignedIn, isAdmin } = require('../middleware/auth');
 const { getComponentById } = require('../middleware/component');
-const { requestComponent, getAllRequests, updateRequestStatus ,getMyRequests} = require('../middleware/user');
+const { requestComponent, getAllRequests, updateRequestStatus ,getMyRequests, getIssueById} = require('../middleware/user');
 const router = express.Router();
 
 router.param("componentId", getComponentById);
+router.param("issueId", getIssueById);
 
 router.post(
-    "/component/request/:componentId", 
+    "/issue/:componentId", 
     isSignedIn, 
     requestComponent
 );
 //body{num, reason}
 
 router.get(
-    "/component/request/all",
+    "/issue",
     isSignedIn,
     isAdmin,
     getAllRequests
 )
 
 router.get(
-    "/component/request/my",
+    "/issue/:issueId", 
+    isSignedIn, 
+    isAdmin,
+    (req, res) => {
+        return res.json(req.issue.transform())
+    }
+);
+
+router.get(
+    "/issue/my",
     isSignedIn,
     getMyRequests
 )
 
-router.post(
-    "/component/request/update/:requestId", 
+router.put(
+    "/issue/:issueId", 
     isSignedIn, 
     isAdmin,
     updateRequestStatus

@@ -13,13 +13,17 @@ exports.getComponentById = (req, res, next, id) => {
 };
 
 exports.getAllComponents = (req, res) => {
+
+  res.setHeader('Content-Range', 'component 0-10/20')
   Component.find({}).exec((err, components) => {
     if (err) {
       return res.status(400).json({
         error: "NO product FOUND",
       });
     }
-    res.json(components);
+    let arr=[];
+    components.forEach(component => arr.push(component.transform()))
+    res.json(arr);
   });
 };
 

@@ -14,7 +14,7 @@ const ComponentsIssueSchema = new mongoose.Schema(
         status: {
             type: String,
             default: "Requested",
-            enum: ["Requested", "Issued", "Denied","Returned"]
+            enum: ["Requested", "Issued", "Denied","Collected","Returned","Damaged"]
           },
         updated: Date,
         user:{
@@ -29,6 +29,13 @@ const ComponentsIssueSchema = new mongoose.Schema(
     },
     {timestamps:true}
 );
+
+ComponentsIssueSchema.method('transform', function () {
+  let obj = this.toObject()
+  obj.id = obj._id;
+  delete obj._id;
+  return obj;
+});
 
 const ComponentsIssue = mongoose.model("ComponentsIssue", ComponentsIssueSchema);
 
