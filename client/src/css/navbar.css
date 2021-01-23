@@ -14,6 +14,10 @@
     top: 0;
     background-color: rgba(46, 46, 63, 0.952);
 }
+
+.pad{
+    padding-left: 10px;
+}
 /* @font-face{
     font-family: 'SEGA LOGO FONT';
     font-style: normal;
@@ -25,6 +29,36 @@
     font-weight:lighter;
     /* font-weight:bolder; */
 }
+
+.bt{
+    margin-bottom: 0;
+    /* align-items: center; */
+    /* padding-left: 2rem; */
+}
+
+@media (max-width:992px)
+{
+  .bt
+  {
+    padding-left: 3rem;
+  }
+  .pad{
+      padding-left: 3rem;
+  }
+
+}
+
+@media (max-width:349px)
+{
+  .title{
+      font-size: small;
+  }
+
+}
+
+/* button{
+    padding-left: 2em;
+} */
 
 /* .linkhover, .linkhover:hover, .linkhover:focus, .linkhover:active{
     text-decoration: none;

@@ -9,6 +9,7 @@ import AdminComp from "./components/admin/AdminComp.js";
 import ImgSlider from './Animations/ImgSlider.js';
 import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
+import Featuredproject from './components/featured-proj';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 
             < Home />
             < ImgSlider />
+            < Featuredproject/>
 
           </Route>
           <Route path='/Gallery' exact>
@@ -35,6 +37,7 @@ function App() {
           <Route path='/Alumni' exact>
             <Alumni />
           </Route>
+
           < Footer />
         </Route>
       </Switch>

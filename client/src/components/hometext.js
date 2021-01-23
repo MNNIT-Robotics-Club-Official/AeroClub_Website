@@ -9,7 +9,7 @@ class Hometext extends Component {
         return (
             <Typewriter
                 options={{
-                    strings: ['AERO CLUB  MNNIT', 'Hello </> World'],
+                    strings: ['AERO CLUB  MNNIT', 'Wings Of Wisdom'],
                     autoStart: true,
                     loop: true,
                 }}
