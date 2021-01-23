@@ -26,7 +26,7 @@ export default function Navigbar(props) {
             <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link></Nav.Link>
             <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Blog</Link></Nav.Link>
             <Nav.Link ><Link to="/Gallery" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Gallery</Link></Nav.Link>
-            <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link></Nav.Link>
+            <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Project</Link></Nav.Link>
             <Nav.Link ><Link to="/Alumni" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Alumni</Link></Nav.Link>
             <NavDropdown title="Events" id="basic-nav-dropdown" className="pad">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

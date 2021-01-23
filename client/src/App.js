@@ -10,6 +10,7 @@ import ImgSlider from './Animations/ImgSlider.js';
 import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
 import Featuredproject from './components/featured-proj';
+import Testimonials from './components/Testimonials';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             < Home />
             < ImgSlider />
             < Featuredproject/>
+            < Testimonials/>
 
           </Route>
           <Route path='/Gallery' exact>

@@ -3,9 +3,9 @@ import "../css/featured-proj.css";
 
 export default function Featuredproject() {
       return (
-        <div>
+        <div className="cont">
           <div className="main">
-            <h1 className="heading">Featured Projects</h1>
+            <div className="heading white-heading">Featured Projects</div>
             <ul className="cards">
               <li className="cards_item">
                 <div className="card">
@@ -37,7 +37,7 @@ export default function Featuredproject() {
                   </div>
                 </div>
               </li>
-              <li className="cards_item">
+              {/* <li className="cards_item">
                 <div className="card">
                   <div className="card_image"><img src="https://picsum.photos/500/300/?image=14" /></div>
                   <div className="card_content">
@@ -66,7 +66,7 @@ export default function Featuredproject() {
                     <button className="btns card_btns">Read More</button>
                   </div>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
