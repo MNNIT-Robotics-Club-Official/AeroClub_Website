@@ -1,6 +1,7 @@
 import React from "react";
 import Hometext from "./hometext.js";
 import "../css/home.css";
+import logo from "./logo-aero2.png";
 
 export default function Home() {
   return (
@@ -8,9 +9,9 @@ export default function Home() {
       <div >
         <div className="container-fluid text-center ">
 
-          <div className="jumbotron ">
-
-            <h1>
+          <div className="jumbotron">
+          <img src={logo}/>
+            <h1 className="glow">
               < Hometext />
             </h1>
 

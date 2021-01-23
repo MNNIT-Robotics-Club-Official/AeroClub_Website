@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 .des {
-	 background: black;
+	 background: rgba(233, 219, 219, 0);
 	 width: 100%;
 	 height: 100vh;
 	 display: flex;
@@ -8,26 +9,100 @@
 	 justify-content: center;
 	 flex-direction: column;
 }
+
+
+
+.jumbotron{
+  position: relative;
+    /* overflow: hidden; */
+    /* position: absolute; */
+    /* background: transparent;
+    /* background: url('https://media.giphy.com/media/TgJ0KKEY8HByASy6Jt/giphy.gif') center center no-repeat; */
+    /* background-size: cover; */
+	 /* -webkit-background-clip: text;  */
+	 /* -webkit-text-fill-color: transparent; */
+    margin: 0px 0px;
+    width: 100%;
+    /* opacity: 0.3; */
+    display: block;
+    /* flex: 0 0 100%;
+    flex-flow: column; */
+    background-color: rgba(247, 2, 2, 0);
+    
+    height:auto
+}
+
+.jumbotron::after{
+  content: "";
+  background: url('https://media.giphy.com/media/TgJ0KKEY8HByASy6Jt/giphy.gif') center center no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: inherit -100;;
+  width: 100%;
+  height: auto;
+}
+
+.jumbotron img{
+  max-width: 20%;
+  height: auto;
+  box-sizing: border-box;
+}
+
  h1 {
-	 font-family: 'Righteous', cursive;
+	 font-family: 'Audiowide', 'Righteous', cursive;
 	 /* background: url('https://media.giphy.com/media/FE0WTM8BG754I/giphy.gif') center center no-repeat; */
 	 /* -webkit-background-clip: text; */
 	 /* -webkit-text-fill-color: transparent; */
 	 font-size: 4rem;
 	 letter-spacing: 10px;
-	 background-size: cover;
+	 /* background-size: cover; */
 	 margin: 0px;
-	 color:rgb(224, 224, 224);
+   color:rgb(6, 18, 58);
+   /* background: rgba(0, 0, 0, 0); */
+   -webkit-background-clip: text;
+   /* z-index: 10; */
+  
+   /* -webkit-text-fill-color:black; */
+   /* opacity: 1.0; */
 }
+
+.glow {
+  /* font-size: 70px; */
+  /* color: #ffffff; */
+  /* text-align: center; */
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #eec4c4, 0 0 5px #eeb2b2, 
+                 0 0 5px #ec6464, 0 0 5px #ff1d1d, 0 0 5px #441515;
+  }
+  to {
+    text-shadow: 0 0 5px #eeeeee, 0 0 5px #e7e4fc, 0 0 5px #a4b5fd, 0 0 5px #3b8df8, 
+                 0 0 5px #4057ca, 0 0 5px #1500d1, 0 0 5px #010f61;
+  }
+}
+
 .fontdes {
+  
+    /* position: absolute; */
 	 /* font-family: 'Courier New'; */
-	 color: transparent;
+	 /* color: transparent; */
 	 font-size: 1rem;
 	 letter-spacing: 3px;
      margin: 0px;
-     padding: 2rem 0;
-	 background: rgb(224, 224, 224);
-	 -webkit-background-clip: text;
+     padding: 2rem 5rem;
+   color: rgb(218, 232, 252)24);
+   background: rgba(0, 0, 0, 0.2);
+   -webkit-background-clip: text;
+   /* opacity: 1.0; */
 }
  
 
@@ -35,24 +110,30 @@
     margin: 0px 0px;
     width: 100%;
     padding: 0px 0px;
+    
     /* display: block; */
     /* flex-flow: column; */
     /* background-color: rgba(39, 39, 39, 0.658); */
 }
-/* .boxcont{ */
-    /* height: auto; */
-/* } */
 
-.jumbotron{
-    /* position: absolute; */
-    margin: 0px 0px;
-    width: 100%;
-    /* display: flex;
-    flex: 0 0 100%;
-    flex-flow: column; */
-    background-color: rgba(59, 59, 59, 0.541);
-    height:auto
-}
+
+
+/* .demo_wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+  border: 1px dashed green;
+} */
+
+/* .demo_wrap img {
+  
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+} */
 
 .rempad{
     padding: 0 0;
@@ -62,13 +143,15 @@
     height: 90vh;
     width: 90vw;
     margin: 5vh 5vw;
-    background-color: rgba(238, 238, 238, 0);
+    /* background-color: rgba(255, 1, 1, 0.795); */
     background-position: center;
     background-size: cover;
     
-    animation: image 2s infinite alternate;
+    animation: image 3s infinite alternate;
   }
   
+
+
   @keyframes image {
     0% {
       background-image: url('https://unsplash.it/600/600');

@@ -1,8 +1,8 @@
 import React from "react";
 
 import "../../css/Gallery.css";
-import Navigbar from '../Navigbar.js';
-import Footer from '../Footer.js';
+// import Navigbar from '../Navigbar.js';
+// import Footer from '../Footer.js';
 
 export default function Gallery() {
     return (
@@ -12,7 +12,7 @@ export default function Gallery() {
             <>
                 <main className="grid">
                     <div className="h1">
-                        <h1 className=" c-black">Gallerie photos</h1>
+                        <h1 className=" c-black glow">Gallerie photos</h1>
                     </div>
                     <div className="galery">
                         <div className="grid">
