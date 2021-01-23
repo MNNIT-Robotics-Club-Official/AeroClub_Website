@@ -1,3 +1,4 @@
+const { request } = require('express');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
@@ -17,8 +18,8 @@ mongoose.connection.on('connected', () => {
 //My routes
 const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/blog");
-const componentRoutes = require("./routes/component")
-
+const componentRoutes = require("./routes/component");
+const compIssueRoutes = require("./routes/compIssueRoutes");
 // app specific
 app.use(express.json())
 
@@ -26,6 +27,7 @@ app.use(express.json())
 app.use("/api", authRoutes);
 app.use("/api", blogRoutes);
 app.use("/api", componentRoutes);
+app.use("/api", compIssueRoutes);
 
 app.listen(port, () => {
 	console.log(`Server Started at ${port}`);

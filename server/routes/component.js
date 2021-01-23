@@ -1,23 +1,22 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllComponents, addComponent, updateComponent, getComponentById } = require("../middleware/component");
+const { getAllComponents, addComponent, updateComponent, deleteComponent, getComponentById } = require("../middleware/component");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 
 //params
 router.param("componentId", getComponentById);
 
 //get routes
-router.get("/components", getAllComponents);
+router.get("/component", getAllComponents);
 
-// get a component
-router.get('/components/:componentId', (req, res) => {
+router.get('/component/:componentId', isSignedIn, (req, res) => {
   res.json(req.component.transform())
 })
 
 //create route
 router.post(
-  "/component/add",
+  "/component",
   isSignedIn,
   isAdmin,
   addComponent
@@ -30,6 +29,14 @@ router.put(
   isSignedIn,
   isAdmin,
   updateComponent
+);
+
+//delete route
+router.delete(
+  "/component/:componentId",
+  isSignedIn,
+  isAdmin,
+  deleteComponent
 );
 
 module.exports = router;

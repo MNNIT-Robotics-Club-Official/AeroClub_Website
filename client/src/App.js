@@ -8,6 +8,8 @@ import AdminComp from "./components/admin/AdminComp.js";
 import ImgSlider from './Animations/ImgSlider.js';
 import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
+import Blogs from "./components/Pages/Blogs.js";
+import SingleBlog from "./components/Pages/SingleBlog.js";
 
 function App() {
   return (
@@ -17,20 +19,23 @@ function App() {
         <Route path='/admin' exact>
           <AdminComp />
         </Route>
-
         <Route>
           < Navigbar />
           <Route path='/' exact>
-
             < Home />
             < ImgSlider />
-
           </Route>
           <Route path='/Gallery' exact>
             <Gallery />
           </Route>
           <Route path='/Alumni' exact>
             <Alumni />
+          </Route>
+          <Route path='/blogs' exact>
+            <Blogs />
+          </Route>
+          <Route path='/blogs/:blogId' exact>
+            <SingleBlog />
           </Route>
           < Footer />
         </Route>

@@ -13,16 +13,16 @@ exports.getComponentById = (req, res, next, id) => {
 };
 
 exports.getAllComponents = (req, res) => {
+
+  res.setHeader('Content-Range', 'component 0-10/20')
   Component.find({}).exec((err, components) => {
     if (err) {
       return res.status(400).json({
         error: "NO product FOUND",
       });
     }
-
-    let arr = []
+    let arr = [];
     components.forEach(component => arr.push(component.transform()))
-    res.setHeader('Content-Range', 'components 0-10/20')
     res.json(arr);
   });
 };
@@ -54,3 +54,18 @@ exports.updateComponent = (req, res) => {
     res.json(updatedComponent);
   });
 };
+
+exports.deleteComponent = (req, res) => {
+  const component = req.component;
+
+  component.remove((err, component) => {
+    if (err) {
+      return res.status(400).json({
+        error: "Failed to delete this component"
+      });
+    }
+    res.json({
+      msg: `Successfully deleted ${component.name}`
+    });
+  })
+}

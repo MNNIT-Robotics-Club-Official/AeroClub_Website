@@ -3,7 +3,7 @@ import React from "react";
 import "../css/navbar.css";
 
 
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function Navigbar(props) {
@@ -15,7 +15,7 @@ export default function Navigbar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link ><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link></Nav.Link>
-            <Nav.Link href="#link1">Blogs</Nav.Link>
+            <Nav.Link href="/blogs">Blogs</Nav.Link>
             <Nav.Link ><Link to="/Gallery" style={{ color: 'inherit', textDecoration: 'none' }}>Gallery</Link></Nav.Link>
             <Nav.Link href="#link2">Projects</Nav.Link>
             <Nav.Link ><Link to="/Alumni" style={{ color: 'inherit', textDecoration: 'none' }}>Alumni</Link></Nav.Link>
