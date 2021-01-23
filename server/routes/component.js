@@ -8,11 +8,15 @@ const { isSignedIn, isAdmin } = require("../middleware/auth");
 router.param("componentId", getComponentById);
 
 //get routes
-router.get("/component/all", getAllComponents);
+router.get("/component", getAllComponents);
+
+router.get('/component/:componentId', isSignedIn, (req, res) => {
+  res.json(req.component.transform())
+})
 
 //create route
 router.post(
-  "/component/add",
+  "/component",
   isSignedIn,
   isAdmin,
   addComponent

@@ -30,4 +30,11 @@ var componentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+componentSchema.method('transform', function () {
+  let obj = this.toObject()
+  obj.id = obj._id;
+  delete obj._id;
+  return obj;
+});
+
 module.exports = mongoose.model("Component", componentSchema);
