@@ -4,7 +4,7 @@ import "../css/navbar.css";
 import logo from "./circle-cropped.png";
 import { Link } from "react-router-dom";
 
-export default function Navigbar(props) {
+export default function Navigbar() {
   return (
     <>
       <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom">
@@ -25,7 +25,7 @@ export default function Navigbar(props) {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="https://tsaw.tech/"><Link className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</Link></Nav.Link>
+            <Nav.Link href="https://tsaw.tech/" style={{ paddingLeft: '10px' }}>Our StartUps</Nav.Link>
           </Nav>
           <p className="bt"><Button href="#link4" variant="light" className="mr-sm-2 my-2">Sponsorship</Button></p>
           <p className="bt"><Button href="/user/login" variant="info" className="mr-sm-2 my-2">Login</Button></p>
