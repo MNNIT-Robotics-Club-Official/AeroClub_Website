@@ -5,7 +5,7 @@ import '../../css/SingleBlog.css'
 function SingleBlog() {
 
     const { blogId } = useParams()
-    const [blog, setBlog] = useState()
+    const [blog, setBlog] = useState(undefined)
 
     fetch(`/api/blogs/${blogId}`, {
         method: 'get'

@@ -90,4 +90,24 @@ img {
     
     .item1,.item4,.item7,.item10,.item13,.item2,.item5,.item8,.item11,.item14,.item3,.item6,.item9,.item12,.item15 {grid-column: 1;}
 }
-	
+    
+
+.glow {
+    /* font-size: 70px; */
+    /* color: #ffffff; */
+    /* text-align: center; */
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #ffffff, 0 0 5px #ffffff, 0 0 5px #eec4c4, 0 0 5px #eeb2b2, 
+                   0 0 5px #ec6464, 0 0 5px #ff1d1d, 0 0 5px #441515;
+    }
+    to {
+      text-shadow: 0 0 5px #eeeeee, 0 0 5px #e7e4fc, 0 0 5px #a4b5fd, 0 0 5px #3b8df8, 
+                   0 0 5px #4057ca, 0 0 5px #1500d1, 0 0 5px #010f61;
+    }
+  }

@@ -1,10 +1,10 @@
 .site-footer
 {
-  background-color:#26272b3a;
+  background-color:rgb(6, 29, 104);
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
-  color:#737373;
+  color:#949292;
   position:static;
   bottom: 0;
   /* z-index: 1000; */
@@ -29,7 +29,7 @@
 }
 .site-footer a
 {
-  color:#737373;
+  color:#cacaca;
 }
 .site-footer a:hover
 {

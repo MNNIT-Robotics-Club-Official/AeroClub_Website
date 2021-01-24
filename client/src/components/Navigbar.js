@@ -1,16 +1,25 @@
 import { Button, Form, FormControl, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import React from "react";
 import "../css/navbar.css";
+import logo from "./circle-cropped.png";
 
 
 import { Link } from "react-router-dom";
 
+// var Img = <img src={}/>
+// var icon = (
+//   <span class="logo">
+//     <a href="/">
+//       <img src="../../public/logo.jpg" /></a>
+//   </span>
+// );
 
 export default function Navigbar(props) {
   return (
     <>
-      <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style">
-        <Navbar.Brand href="#home" className="title">AERO CLUB MNNIT</Navbar.Brand>
+      <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom">
+        {/* <Navbar className="top-bottom" expand="lg"> */}
+        <Navbar.Brand href="/" className="title"><a><img src={logo} style={{ height: 50, marginRight: 5 }} />AERO CLUB MNNIT</a></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -28,9 +37,10 @@ export default function Navigbar(props) {
             </NavDropdown>
             <Nav.Link href="https://tsaw.tech/">Our StartUps</Nav.Link>
           </Nav>
-          <Button href="#link4" variant="dark" className="mr-sm-2 my-2">Sponsorship</Button>
-          <Button href="#link5" variant="info" className="mr-sm-2 my-2">Login</Button>
+          <Button href="#link4" variant="light" className="mr-sm-2 my-2">Sponsorship</Button>
+          <Button href="/user/login" variant="info" className="mr-sm-2 my-2">Login</Button>
         </Navbar.Collapse>
+        {/* </Navbar> */}
       </Navbar>
     </>
   );

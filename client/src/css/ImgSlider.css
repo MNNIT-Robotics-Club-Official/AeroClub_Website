@@ -14,13 +14,13 @@
 
 .frame {
     height: 60vh;
-    width: 100vw;
+    width: 100%;
     margin: 0vh 0vw;
     background-color: #eee;
     background-position: center;
     background-size: cover;
     
-    animation: image 3s infinite alternate;
+    animation: image 3s ease-in-out infinite alternate;
   }
   
   @keyframes image {

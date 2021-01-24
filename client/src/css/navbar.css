@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
 .style{
-    background-color: rgba(51, 50, 50, 0.76);
+    background-color:rgb(6, 29, 104);
+
+    padding: 0;
+    /* background-color:rgba(51, 50, 50, 0.76); */
 }
 
+.top-bottom{
+    /* padding : 3% 0; */
+    position: sticky;
+    top: 0;
+    background-color: rgba(46, 46, 63, 0.952);
+}
 /* @font-face{
     font-family: 'SEGA LOGO FONT';
     font-style: normal;
@@ -9,7 +21,8 @@
     src: local('SEGA LOGO FONT'), url('SEGA.TTF'), format('TTF');
 } */
 .title{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Audiowide', 'Righteous', cursive;
+    font-weight:lighter;
     /* font-weight:bolder; */
 }
 
