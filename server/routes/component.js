@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllComponents, addComponent, updateComponent, deleteComponent, getComponentById} = require("../middleware/component");
+const { getAllComponents, addComponent, updateComponent, deleteComponent, getComponentById } = require("../middleware/component");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 
 //params
@@ -25,18 +25,18 @@ router.post(
 
 //update route
 router.put(
-    "/component/:componentId",
-    isSignedIn,
-    isAdmin,
-    updateComponent
-  );
+  "/component/:componentId",
+  isSignedIn,
+  isAdmin,
+  updateComponent
+);
 
-  //delete route
-  router.delete(
-    "/component/:componentId",
-    isSignedIn,
-    isAdmin,
-    deleteComponent
-  );
+//delete route
+router.delete(
+  "/component/:componentId",
+  isSignedIn,
+  isAdmin,
+  deleteComponent
+);
 
 module.exports = router;

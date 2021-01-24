@@ -11,17 +11,8 @@
 	 flex-direction: column;
 }
 
-
-
 .jumbotron{
   position: relative;
-    /* overflow: hidden; */
-    /* position: absolute; */
-    /* background: transparent;
-    /* background: url('https://media.giphy.com/media/TgJ0KKEY8HByASy6Jt/giphy.gif') center center no-repeat; */
-    /* background-size: cover; */
-	 /* -webkit-background-clip: text;  */
-	 /* -webkit-text-fill-color: transparent; */
     margin: 0px 0px;
     width: 100%;
     /* opacity: 0.3; */

@@ -7,32 +7,10 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../node_modules/bootstrap/dist/js/bootstrap";
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App.js';
-import Particles from 'react-particles-js';
-
-
-
-const particlesOptions = {
-  particles: {
-    number: {
-      value: 150,
-      density: {
-        enable: true,
-        value_area: 2000
-      }
-    }
-  }
-}
-
-// import Navigbar from './components/Navigbar';
-
 
 ReactDOM.render(
   <React.StrictMode>
-  
-  
     <Router>
-    <Particles className='particles'
-        params={particlesOptions} />
       <App />
     </Router>
   </React.StrictMode>,

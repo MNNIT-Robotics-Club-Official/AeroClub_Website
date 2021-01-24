@@ -1,15 +1,15 @@
 const express = require('express');
 const { isSignedIn, isAdmin } = require('../middleware/auth');
 const { getComponentById } = require('../middleware/component');
-const { requestComponent, getAllRequests, updateRequestStatus ,getMyRequests, getIssueById} = require('../middleware/user');
+const { requestComponent, getAllRequests, updateRequestStatus, getMyRequests, getIssueById } = require('../middleware/user');
 const router = express.Router();
 
 router.param("componentId", getComponentById);
 router.param("issueId", getIssueById);
 
 router.post(
-    "/issue/:componentId", 
-    isSignedIn, 
+    "/issue/:componentId",
+    isSignedIn,
     requestComponent
 );
 //body{num, reason}
@@ -22,8 +22,8 @@ router.get(
 )
 
 router.get(
-    "/issue/:issueId", 
-    isSignedIn, 
+    "/issue/:issueId",
+    isSignedIn,
     isAdmin,
     (req, res) => {
         return res.json(req.issue.transform())
@@ -37,8 +37,8 @@ router.get(
 )
 
 router.put(
-    "/issue/:issueId", 
-    isSignedIn, 
+    "/issue/:issueId",
+    isSignedIn,
     isAdmin,
     updateRequestStatus
 );

@@ -1,4 +1,4 @@
-const Component = require("../models/component");
+const Component = require("../models/component")
 
 exports.getComponentById = (req, res, next, id) => {
   Component.findById(id).exec((err, comp) => {
@@ -21,7 +21,7 @@ exports.getAllComponents = (req, res) => {
         error: "NO product FOUND",
       });
     }
-    let arr=[];
+    let arr = [];
     components.forEach(component => arr.push(component.transform()))
     res.json(arr);
   });
@@ -59,7 +59,7 @@ exports.deleteComponent = (req, res) => {
   const component = req.component;
 
   component.remove((err, component) => {
-    if(err){
+    if (err) {
       return res.status(400).json({
         error: "Failed to delete this component"
       });
