@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
 .des {
 	 background: rgba(233, 219, 219, 0);
 	 width: 100%;
@@ -38,21 +39,23 @@
 }
 
 .jumbotron img{
-  max-width: 20%;
+  max-width: 17em;
   height: auto;
   box-sizing: border-box;
 }
 
- h1 {
-	 font-family: 'Audiowide', 'Righteous', cursive;
+.head {
+	 font-family:  'Audiowide', 'El Messiri', 'Righteous',  sans-serif;
 	 /* background: url('https://media.giphy.com/media/FE0WTM8BG754I/giphy.gif') center center no-repeat; */
 	 /* -webkit-background-clip: text; */
 	 /* -webkit-text-fill-color: transparent; */
-	 font-size: 4rem;
-	 letter-spacing: 10px;
+   font-size: 3rem;
+   /* font-weight: bolder; */
+   letter-spacing: 7px;
+   text-shadow: 2px 2px 2px rgb(250, 110, 110);
 	 /* background-size: cover; */
 	 margin: 0px;
-   color:rgb(6, 18, 58);
+   color:rgb(56, 55, 55);
    /* background: rgba(0, 0, 0, 0); */
    -webkit-background-clip: text;
    /* z-index: 10; */
@@ -89,7 +92,7 @@
 	 font-size: 1rem;
 	 letter-spacing: 3px;
      margin: 0px;
-     padding: 2rem 5rem;
+     padding: 2rem 20px;
    color: rgb(218, 232, 252)24);
    background: rgba(0, 0, 0, 0.2);
    -webkit-background-clip: text;
@@ -107,24 +110,6 @@
     /* background-color: rgba(39, 39, 39, 0.658); */
 }
 
-
-
-/* .demo_wrap {
-  position: relative;
-  overflow: hidden;
-  padding: 16px;
-  border: 1px dashed green;
-} */
-
-/* .demo_wrap img {
-  
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-  opacity: 0.6;
-} */
 
 .rempad{
     padding: 0 0;

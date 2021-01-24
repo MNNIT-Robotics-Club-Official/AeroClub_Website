@@ -10,7 +10,7 @@ function Login() {
 					<div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
 						<div className="card card-signin my-5">
 							<div className="card-body">
-								<h5 className="card-title text-center font-weight-bold">Account Signin</h5>
+								<h5 className="card-title text-center font-weight-bold">Account login</h5>
 								<form className="form-signin">
 									<div className="form-label-group">
 										<input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
@@ -28,7 +28,6 @@ function Login() {
 									</div>
 									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
 									<hr className="my-4" />
-									<button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2"></i> Sign in with Google</button>
 									<div className="para">
 										<p>Don't have an account? <Link to="/user/signup">Signup</Link></p>
 									</div>

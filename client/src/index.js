@@ -7,19 +7,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "../node_modules/bootstrap/dist/js/bootstrap";
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App.js';
-import Particles from 'react-particles-js';
 
-const particlesOptions = {
-  particles: {
-    number: {
-      value: 150,
-      density: {
-        enable: true,
-        value_area: 2000
-      }
-    }
-  }
-}
 ReactDOM.render(
   <React.StrictMode>
     <Router>
