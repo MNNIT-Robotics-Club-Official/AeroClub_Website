@@ -7,7 +7,6 @@ import {
   Edit,
   EditButton,
   ImageField,
-  ImageInput,
   List,
   required,
   RichTextField,
@@ -17,7 +16,6 @@ import {
   SimpleShowLayout,
   TextField,
   TextInput,
-  UrlField,
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
 
@@ -42,7 +40,20 @@ export const BlogCreate = (props) => {
     <Create {...props}>
       <SimpleForm redirect="/blogs">
         <TextInput source="title" label="Title" />
-        <RichTextInput source="body" label="Body" />
+        <RichTextInput source="body" label="Body"
+          toolbar={[['bold', 'italic', 'underline', 'strike'],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'size': ['small', false, 'large', 'huge'] }],
+          [{ 'font': [] }],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+          [{ 'script': 'sub' }, { 'script': 'super' }],
+          ['blockquote', 'code-block'],
+          [{ 'indent': '-1' }, { 'indent': '+1' }],
+          [{ 'direction': 'rtl' }],
+          [{ 'align': [] }],
+          ['image'],
+          ['clean']]} />
         <TextInput source="postedBy" label="Posted By" />
         <TextInput source="pic" label="Image Link" />
         <DateInput
@@ -75,7 +86,26 @@ export const BlogEdit = (props) => {
       <SimpleForm redirect="/blogs">
         <TextInput disabled label="Id" source="id" />
         <TextInput source="title" validate={required()} label="Title" />
-        <RichTextInput source="body" validate={required()} />
+        <RichTextInput source="body" validate={required()}
+          modules={{
+            imageResize: {
+              displaySize: true
+            }
+          }}
+          toolbar={[['bold', 'italic', 'underline', 'strike'],
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'size': ['small', false, 'large', 'huge'] }],
+          [{ 'font': [] }],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+          [{ 'script': 'sub' }, { 'script': 'super' }],
+          ['blockquote', 'code-block'],
+          [{ 'indent': '-1' }, { 'indent': '+1' }],
+          [{ 'direction': 'rtl' }],
+          [{ 'align': [] }],
+          ['link', 'image', 'video'],
+          ['clean']]}
+        />
         <TextInput source="postedBy" validate={required()} label="Posted By" />
         <TextInput source="pic" label="Image Link" />
         <DateInput

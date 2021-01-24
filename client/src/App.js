@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/App.css";
 import Navigbar from './components/Navigbar.js';
 import Footer from './components/Footer.js';
 import Home from './components/Home.js';
@@ -14,21 +13,9 @@ import Login from "./components/Pages/Login";
 import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
-import Particles from 'react-particles-js'
+
 
 function App() {
-
-  const particlesOptions = {
-    particles: {
-      number: {
-        value: 150,
-        density: {
-          enable: true,
-          value_area: 2000
-        }
-      }
-    }
-  }
 
   return (
     <div className="App" >
@@ -43,8 +30,6 @@ function App() {
           <Signup />
         </Route>
         <Route>
-          <Particles className='particles'
-            params={particlesOptions} />
           < Navigbar />
           <Route path='/' exact>
             < Home />
