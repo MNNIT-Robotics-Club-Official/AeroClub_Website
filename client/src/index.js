@@ -23,7 +23,6 @@ const particlesOptions = {
   }
 }
 
-// import Navigbar from './components/Navigbar';
 
 
 ReactDOM.render(
