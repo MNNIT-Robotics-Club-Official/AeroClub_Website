@@ -1,19 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import '../../css/SingleBlog.css'
+import Loading from '../../Animations/Loading'
 
 function SingleBlog() {
 
     const { blogId } = useParams()
     const [blog, setBlog] = useState(undefined)
 
-    fetch(`/api/blogs/${blogId}`, {
-        method: 'get'
-    }).then(res => res.json())
-        .then(data => setBlog(data))
+    useEffect(() => {
+        fetch(`/api/blogs/${blogId}`, {
+            method: 'get'
+        }).then(res => res.json())
+            .then(data => setBlog(data))
+
+    }, [])
 
     return (
         <div>
+            <Loading />
+
             <header className="masthead" id="header" style={{ background: `url(${blog?.pic})` }}>
                 <div className="overlay"></div>
                 <div className="container">
@@ -37,6 +43,8 @@ function SingleBlog() {
                     </div>
                 </div>
             </article>
+
+
         </div>
     )
 }

@@ -15,9 +15,9 @@ export default function Navigbar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link></Nav.Link>
-            <Nav.Link ><Link to="/blogs" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Blog</Link></Nav.Link>
+            <Nav.Link ><Link to="/blogs" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Blogs</Link></Nav.Link>
             <Nav.Link ><Link to="/Gallery" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Gallery</Link></Nav.Link>
-            <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Project</Link></Nav.Link>
+            <Nav.Link ><Link to="/" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</Link></Nav.Link>
             <Nav.Link ><Link to="/Alumni" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Alumni</Link></Nav.Link>
             <NavDropdown title="Events" id="basic-nav-dropdown" className="pad">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -31,7 +31,7 @@ export default function Navigbar(props) {
             <Nav.Link href="https://tsaw.tech/" style={{ paddingLeft: '10px' }}>Our StartUps</Nav.Link>
           </Nav>
           <p className="bt"><Button href="#link4" variant="light" className="mr-sm-2 my-2">Sponsorship</Button></p>
-          <p className="bt"><Button href="#link5" variant="info" className="mr-sm-2 my-2">Login</Button></p>
+          <p className="bt"><Button href="/user/login" variant="info" className="mr-sm-2 my-2">Login</Button></p>
         </Navbar.Collapse>
       </Navbar>
     </>

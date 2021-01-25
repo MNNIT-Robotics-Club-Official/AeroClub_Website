@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navigbar from './components/Navigbar.js';
 import Footer from './components/Footer.js';
 import Home from './components/Home.js';
@@ -13,12 +13,14 @@ import Login from "./components/Pages/Login";
 import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
+import Loading from "./Animations/Loading.js";
 
 
 function App() {
 
   return (
     <div className="App" >
+      < Navigbar />
       <Switch>
         <Route path='/admin' exact>
           <AdminComp />
@@ -30,7 +32,6 @@ function App() {
           <Signup />
         </Route>
         <Route>
-          < Navigbar />
           <Route path='/' exact>
             < Home />
             < ImgSlider />
