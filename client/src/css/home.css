@@ -11,8 +11,6 @@
 	 flex-direction: column;
 }
 
-
-
 .jumbotron{
   position: relative;
     /* overflow: hidden; */
@@ -145,3 +143,4 @@
       background-image: url('https://unsplash.it/601/601');
     }
   }
+

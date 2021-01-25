@@ -1,15 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import 'react-bootstrap'
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import "../node_modules/bootstrap/dist/js/bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App.js';
-import Particles from 'react-particles-js';
-
-
+import Particles from 'react-particles-js'
 
 const particlesOptions = {
   particles: {
@@ -23,14 +18,15 @@ const particlesOptions = {
   }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> b5a38902e2628cc4bea0ef673ea19412855f1273
 ReactDOM.render(
   <React.StrictMode>
-  
-  
     <Router>
-    <Particles className='particles'
+      <Particles className='particles'
         params={particlesOptions} />
       <App />
     </Router>

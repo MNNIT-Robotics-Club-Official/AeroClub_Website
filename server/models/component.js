@@ -9,22 +9,22 @@ var componentSchema = new mongoose.Schema(
       trim: true,
       unique: true
     },
-    type:{
-        type:String,
-        required:true,
-        trim:true
+    type: {
+      type: String,
+      required: true,
+      trim: true
     },
-    image_url:{
-        type:String,
-        required:true,
+    image_url: {
+      type: String,
+      required: true,
     },
     available: {
-        type: Number,
-        required:true
+      type: Number,
+      required: true
     },
-    issued:{
-        type: Number,
-        default: 0
+    issued: {
+      type: Number,
+      default: 0
     }
   },
   { timestamps: true }
