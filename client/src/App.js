@@ -29,6 +29,7 @@ function App() {
         <Route path='/user/signup' exact>
           <Signup />
         </Route>
+
         <Route>
           < Navigbar />
           <Route path='/' exact>
@@ -49,6 +50,7 @@ function App() {
           <Route path='/blogs/:blogId' exact>
             <SingleBlog />
           </Route>
+
           < Footer />
         </Route>
       </Switch>

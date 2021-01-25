@@ -36,6 +36,7 @@ function Signup() {
                                     <hr className="my-4" />
                                     <div className="para">
                                         <p>Already have an account? <Link to="/user/login">Signin</Link></p>
+                                        <button type="button" class="btn btn-dark"><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link></button>
                                     </div>
                                 </form>
                             </div>

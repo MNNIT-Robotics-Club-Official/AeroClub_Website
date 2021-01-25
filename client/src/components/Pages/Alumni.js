@@ -11,7 +11,7 @@ export default function Alumni() {
 
             <>
                 <main className="grid">
-                    <div className="h1 glow">
+                    <div className="h1">
                         <h1 className=" c-black">Our Alumnis</h1>
                     </div>
                     <div className="galery">

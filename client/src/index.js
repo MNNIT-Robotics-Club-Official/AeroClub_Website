@@ -18,11 +18,8 @@ const particlesOptions = {
   }
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> b5a38902e2628cc4bea0ef673ea19412855f1273
 ReactDOM.render(
   <React.StrictMode>
     <Router>
