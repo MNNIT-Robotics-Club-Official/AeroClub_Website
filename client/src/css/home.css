@@ -64,7 +64,7 @@
 	 margin: 0px;
    color:rgb(56, 55, 55);
    /* background: rgba(0, 0, 0, 0); */
-   -webkit-background-clip: text;
+   /* -webkit-background-clip: text; */
    /* z-index: 10; */
   
    /* -webkit-text-fill-color:black; */

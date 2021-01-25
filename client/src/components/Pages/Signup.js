@@ -10,7 +10,7 @@ function Signup() {
                     <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                         <div className="card card-signin mt-5 mb-3">
                             <div className="card-body">
-                                <h5 className="card-title text-center font-weight-bold">Account Signup</h5>
+                                <h5 className="card-title text-center font-weight-bold" id="heading">Account Signup</h5>
                                 <form className="form-signin">
                                     <div className="form-label-group">
                                         <input type="text" id="inputname" className="form-control" placeholder="Name" required autoFocus />
@@ -36,6 +36,7 @@ function Signup() {
                                     <hr className="my-4" />
                                     <div className="para">
                                         <p>Already have an account? <Link to="/user/login">Signin</Link></p>
+                                        <button type="button" className="btn btn-dark"><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Back to Home</Link></button>
                                     </div>
                                 </form>
                             </div>

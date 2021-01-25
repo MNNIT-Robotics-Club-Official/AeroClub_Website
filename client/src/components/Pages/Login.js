@@ -10,7 +10,7 @@ function Login() {
 					<div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
 						<div className="card card-signin my-5">
 							<div className="card-body">
-								<h5 className="card-title text-center font-weight-bold">Account login</h5>
+								<h5 className="card-title text-center font-weight-bold" id="heading">Account login</h5>
 								<form className="form-signin">
 									<div className="form-label-group">
 										<input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
@@ -30,6 +30,7 @@ function Login() {
 									<hr className="my-4" />
 									<div className="para">
 										<p>Don't have an account? <Link to="/user/signup">Signup</Link></p>
+										<button type="button" className="btn btn-dark"><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Back to Home</Link></button>
 									</div>
 								</form>
 							</div>

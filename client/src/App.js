@@ -20,7 +20,6 @@ function App() {
 
   return (
     <div className="App" >
-      < Navigbar />
       <Switch>
         <Route path='/admin' exact>
           <AdminComp />
@@ -31,7 +30,9 @@ function App() {
         <Route path='/user/signup' exact>
           <Signup />
         </Route>
+
         <Route>
+          < Navigbar />
           <Route path='/' exact>
             < Home />
             < ImgSlider />
@@ -50,6 +51,7 @@ function App() {
           <Route path='/blogs/:blogId' exact>
             <SingleBlog />
           </Route>
+
           < Footer />
         </Route>
       </Switch>

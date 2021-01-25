@@ -26,12 +26,10 @@ export default function Navigbar(props) {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="https://tsaw.tech/"><Link className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</Link></Nav.Link>
-
-            <Nav.Link href="https://tsaw.tech/" style={{ paddingLeft: '10px' }}>Our StartUps</Nav.Link>
+            <Nav.Link href="https://tsaw.tech/"><span className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</span></Nav.Link>
           </Nav>
-          <p className="bt"><Button href="#link4" variant="light" className="mr-sm-2 my-2">Sponsorship</Button></p>
-          <p className="bt"><Button href="/user/login" variant="info" className="mr-sm-2 my-2">Login</Button></p>
+          <p className="bt"><Button href="/sponsor" variant="light" className="mr-sm-2 my-2">Sponsorship</Button></p>
+          <p className="bt"><Button variant="info" className="mr-sm-2 my-2"><Link to="/user/login" style={{ color: 'inherit', textDecoration: 'none' }}>Login</Link></Button></p>
         </Navbar.Collapse>
       </Navbar>
     </>

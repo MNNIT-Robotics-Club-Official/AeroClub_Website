@@ -7,14 +7,19 @@
     height: 100vh; 
     background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,.6)) , url('../components/Pages/aeroclub.jpg') center center no-repeat;
     background-size: cover;
+    color: rgb(226, 222, 222);
   }
   
   .card-signin {
+    position: relative;
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    background: transparent;
+
   }
-  
+
   .card-signin .card-title {
     margin-bottom: 2rem;
     font-weight: 300;
@@ -31,7 +36,7 @@
   
   .form-signin .btn {
     font-size: 80%;
-    border-radius: 5rem;
+    border-radius: 1rem;
     letter-spacing: .1rem;
     font-weight: bold;
     padding: 1rem;
@@ -45,7 +50,7 @@
   
   .form-label-group input {
     height: auto;
-    border-radius: 2rem;
+    border-radius: 1rem;
   }
   
   .form-label-group>input,
@@ -122,3 +127,8 @@
     font-size: medium;
     text-align: center;
 }  
+
+#heading{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}

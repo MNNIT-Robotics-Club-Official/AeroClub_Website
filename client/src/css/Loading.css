@@ -5,9 +5,10 @@
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: rgb(61, 55, 55);
-    opacity: .8;
+	background: black;
+    opacity: .85;
     display: flex;
+    flex-direction: column;
 }
 
 svg {
@@ -20,7 +21,7 @@ svg {
 
   .propeller {
     animation-name: spin;
-    animation-duration: 0.3s;
+    animation-duration: 0.01s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     transform-origin: 50% 50%;
@@ -49,6 +50,7 @@ svg {
   #drone {
     transition: transform 1s ease-in-out;
     margin: auto;
+    fill: #7560e8;
   }
   
   @keyframes spin {
@@ -58,13 +60,6 @@ svg {
     to {
       transform: rotate(360deg);
     }
-  }
-  .drone-front {
-    animation-name: bounce;
-    animation-direction: alternate;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
   }
 
   @keyframes fadeOut {
@@ -87,43 +82,7 @@ svg {
       transform: translateY(10px) rotate(2deg) scale(1.05);
     }
   }
-  .beam {
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-  }
-  .beam--1 {
-    animation-name: inout1;
-  }
-  .beam--2 {
-    animation-name: inout2;
-  }
-  
-  .zaps {
-    animation-name: inout3;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-  }
-  
-  @keyframes inout1 {
-    0% {
-      opacity: 0;
-    }
-    5% {
-      opacity: 0;
-    }
-    30% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    95% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+
   @keyframes inout2 {
     0% {
       opacity: 0;
@@ -138,23 +97,6 @@ svg {
       opacity: 1;
     }
     85% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes inout3 {
-    0% {
-      opacity: 0;
-    }
-    25% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    75% {
       opacity: 0;
     }
     100% {
