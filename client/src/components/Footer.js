@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/footer.css"
+import { SocialIcon } from 'react-social-icons'
 
 export default function Footer() {
   return (
@@ -51,10 +52,10 @@ export default function Footer() {
               </div>
               <div className="col-md-4 col-sm-6 col-xs-12">
                 <ul className="social-icons">
-                  <li><a className="facebook" href="#"><i className="fa fa-facebook" /></a></li>
-                  <li><a className="twitter" href="#"><i className="fa fa-twitter" /></a></li>
-                  <li><a className="dribbble" href="#"><i className="fa fa-dribbble" /></a></li>
-                  <li><a className="linkedin" href="#"><i className="fa fa-linkedin" /></a></li>
+                  <SocialIcon url="http://twitter.com/jaketrent" />
+                  <SocialIcon url="http://facebook.com/jaketrent" />
+                  <SocialIcon url="http://github.com/jaketrent" />
+                  <SocialIcon url="http://youtube.com/jaketrent" />
                 </ul>
               </div>
             </div>

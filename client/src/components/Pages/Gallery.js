@@ -1,5 +1,5 @@
 import React from "react";
-
+import Loading from "../../Animations/Loading";
 import "../../css/Gallery.css";
 // import Navigbar from '../Navigbar.js';
 // import Footer from '../Footer.js';
@@ -8,12 +8,18 @@ export default function Gallery() {
     return (
         <>
             {/* <><Navigbar /></> */}
+            <Loading />
 
             <>
-                <main className="grid">
-                    <div className="h1">
-                        <h1 className=" c-black">Gallerie photos</h1>
+                <div className=" pagesg">
+                    <div className="overlayg">
+                        <div className="pageTitleg titleBoldg">
+                            GALLERY
+                            </div>
                     </div>
+                </div>
+                <main className="grid">
+
                     <div className="galery">
                         <div className="grid">
                             <div className="item1">

@@ -89,11 +89,6 @@ export const BlogEdit = (props) => {
         <TextInput disabled label="Id" source="id" />
         <TextInput source="title" validate={required()} label="Title" />
         <RichTextInput source="body" validate={required()}
-          modules={{
-            imageResize: {
-              displaySize: true
-            }
-          }}
           toolbar={[['bold', 'italic', 'underline', 'strike'],
           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
           [{ 'size': ['small', false, 'large', 'huge'] }],

@@ -6,10 +6,15 @@ export default function Alumni() {
     return (
         <>
             <Loading />
-            <main className="grid">
-                <div className="h1">
-                    <h1 className=" c-black">Our Alumnis</h1>
+            <div className=" pagesa">
+                <div className="overlaya">
+                    <div className="pageTitlea titleBolda">
+                        ALUMNI
+                            </div>
                 </div>
+            </div>
+            <main className="grid">
+
                 <div className="galery">
                     <div className="grid ">
                         <div className="item1">

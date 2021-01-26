@@ -28,7 +28,7 @@ export default function Navigbar(props) {
             </NavDropdown>
             <Nav.Link href="https://tsaw.tech/"><span className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</span></Nav.Link>
           </Nav>
-          <p className="bt"><Button href="/sponsor" variant="light" className="mr-sm-2 my-2">Sponsorship</Button></p>
+          <p className="bt"><Button href="/sponsor" variant="light" className="mr-sm-2 my-2">Donate</Button></p>
           <p className="bt"><Button variant="info" className="mr-sm-2 my-2"><Link to="/user/login" style={{ color: 'inherit', textDecoration: 'none' }}>Login</Link></Button></p>
         </Navbar.Collapse>
       </Navbar>

@@ -21,7 +21,6 @@ function SingleBlog() {
             <Loading />
 
             <header id="header" style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${blog?.pic})` }}>
-                <div className="overlay"></div>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-10 mx-auto">

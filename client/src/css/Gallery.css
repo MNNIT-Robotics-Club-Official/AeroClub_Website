@@ -1,6 +1,10 @@
 /* STRUCTURE */
 /* body {margin: 0; padding-top: 10vh;}  */
 /*Le P-top si header en position fixed/absolu*/
+
+@import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
 body * {box-sizing: border-box;}
 
 /* CUSTOM */
@@ -19,6 +23,48 @@ img {
     width: 100%;
 }
 
+/* div {
+    display: block;
+} */
+
+.pagesg {
+    height: 40vh;
+    width: 100%;
+    margin: 0vh 0vw;
+
+    /* background-image: url('https://unsplash.it/600/600'); */
+    background-size: cover;
+    padding-bottom: 0px;
+
+    background-color: #eee;
+    background-position: center;
+    /* background-size: cover; */
+    
+    animation: image 3s ease-in-out infinite alternate;
+  }
+
+  .overlayg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    padding-bottom: 80px;
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.titleBoldg {
+    font-weight: 600;
+}
+.pageTitleg {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 45px;
+    text-align: center;
+    padding-top: 2em;
+}
+
 /* GALLERY */
 
 .galery{
@@ -32,6 +78,9 @@ img {
 }
 
 .h1 {
+    font-family:  'Audiowide', 'El Messiri', 'Righteous',  sans-serif;
+    letter-spacing: 7px;
+    text-shadow: 2px 2px 2px rgb(250, 110, 110);
     grid-column: 1 / 13;
     grid-row: 1;
     display: flex;

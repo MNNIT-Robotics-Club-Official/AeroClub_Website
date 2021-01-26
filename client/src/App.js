@@ -13,6 +13,7 @@ import Login from "./components/Pages/Login";
 import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
+import EventHome from "./Animations/EventsHome";
 import Loading from "./Animations/Loading.js";
 
 
@@ -38,6 +39,7 @@ function App() {
             < ImgSlider />
             < Featuredproject />
             < Testimonials />
+            < EventHome />
           </Route>
           <Route path='/gallery' exact>
             <Gallery />
