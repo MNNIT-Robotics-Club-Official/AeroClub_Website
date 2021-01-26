@@ -5,4 +5,59 @@
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.post-heading{
+    margin-top: 2rem;
+}
+
+.body
+{
+    font-size: x-large;
+}
+
+article{
+    margin: auto;
+}
+
+.body a{
+    color: #a54141 !important;
+    font-weight: 500;
+}
+
+@media only screen and (max-width:800px)
+{
+    #header{
+        height: 55vh;
+    }
+    #header h1 {
+        font-size: x-large;
+    }
+    .post-heading h5{
+        font-size: large;
+    }
+    .post-heading span{
+        font-size: smaller;
+    }
+    .body{
+        font-size: medium;
+        width: 80vw;
+    }
+}
+@media only screen and (max-width:450px)
+{
+    #header{
+        height: 40vh;
+    }
+    .post-heading h5{
+        font-size: small;
+    }
+    .post-heading span{
+        font-size: xx-small;
+    }
 }

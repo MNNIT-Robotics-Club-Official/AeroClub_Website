@@ -51,7 +51,6 @@ function App() {
           <Route path='/blogs/:blogId' exact>
             <SingleBlog />
           </Route>
-
           < Footer />
         </Route>
       </Switch>
