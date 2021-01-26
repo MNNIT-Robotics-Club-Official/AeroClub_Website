@@ -6,9 +6,9 @@ export default function Alumni() {
     return (
         <>
             <Loading />
-            <div className=" pages">
-                <div className="overlay">
-                    <div className="pageTitle titleBold">
+            <div className=" pagesa">
+                <div className="overlaya">
+                    <div className="pageTitlea titleBolda">
                         ALUMNI
                             </div>
                 </div>

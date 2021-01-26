@@ -7,6 +7,16 @@
     /* z-index:-1 ; */
     /* border-radius: 0.3rem; */
 /* }  */
+.container-fluid{
+    margin: 0px 0px;
+    width: 100%;
+    padding: 0px 0px;
+    display: flex; 
+    flex-flow: column;
+    /* z-index:-1 ; */
+    /* border-radius: 0.3rem; */
+}
+
 
 .rempad{
     padding: 0 0;
@@ -51,9 +61,9 @@
     line-height: 24px;
 }
 
-div {
+/* div {
     display: block;
-}
+} */
 
 .pages {
     /* height: 80vh; */

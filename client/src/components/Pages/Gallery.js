@@ -11,9 +11,9 @@ export default function Gallery() {
             <Loading />
 
             <>
-                <div className=" pages">
-                    <div className="overlay">
-                        <div className="pageTitle titleBold">
+                <div className=" pagesg">
+                    <div className="overlayg">
+                        <div className="pageTitleg titleBoldg">
                             GALLERY
                             </div>
                     </div>
