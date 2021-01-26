@@ -7,6 +7,7 @@
     height: 100vh; 
     background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,.6)) , url('../components/Pages/aeroclub.jpg') center center no-repeat;
     background-size: cover;
+    background-position: center;
     color: rgb(226, 222, 222);
   }
   

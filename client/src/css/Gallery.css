@@ -23,6 +23,48 @@ img {
     width: 100%;
 }
 
+/* div {
+    display: block;
+} */
+
+.pages {
+    height: 40vh;
+    width: 100%;
+    margin: 0vh 0vw;
+
+    /* background-image: url('https://unsplash.it/600/600'); */
+    background-size: cover;
+    padding-bottom: 0px;
+
+    background-color: #eee;
+    background-position: center;
+    /* background-size: cover; */
+    
+    animation: image 3s ease-in-out infinite alternate;
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    padding-bottom: 80px;
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.titleBold {
+    font-weight: 600;
+}
+.pageTitle {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 45px;
+    text-align: center;
+    padding-top: 2em;
+}
+
 /* GALLERY */
 
 .galery{
