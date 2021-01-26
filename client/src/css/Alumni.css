@@ -5,6 +5,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 
+@import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+
 body * {box-sizing: border-box;}
 
 /* CUSTOM */
@@ -38,6 +42,9 @@ img {
 }
 
 .h1 {
+    font-family:  'Audiowide', 'El Messiri', 'Righteous',  sans-serif;
+    letter-spacing: 7px;
+    text-shadow: 2px 2px 2px rgb(250, 110, 110);
     grid-column: 1 / 13;
     grid-row: 1;
     display: flex;
