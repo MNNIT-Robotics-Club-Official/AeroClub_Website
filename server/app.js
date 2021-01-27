@@ -20,6 +20,7 @@ const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/blog");
 const componentRoutes = require("./routes/component");
 const compIssueRoutes = require("./routes/compIssueRoutes");
+const projectRoutes = require("./routes/project");
 // app specific
 app.use(express.json())
 
@@ -28,6 +29,7 @@ app.use("/api", authRoutes);
 app.use("/api", blogRoutes);
 app.use("/api", componentRoutes);
 app.use("/api", compIssueRoutes);
+app.use("/api", projectRoutes);
 
 app.listen(port, () => {
 	console.log(`Server Started at ${port}`);
