@@ -155,7 +155,7 @@ img {
     z-index: 10;
     margin: 20px ;
 }
-
+/* 
 .caption::before {
 	content: attr(data-title);
 	position: absolute;
@@ -177,7 +177,7 @@ img {
 	-ms-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-}
+} */
 
 .caption::after {
 	content: attr(data-description);

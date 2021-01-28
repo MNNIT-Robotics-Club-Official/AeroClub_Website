@@ -28,7 +28,7 @@ router.get('/projects/:id', (req, res) => {
 router.post('/projects', isSignedIn, isAdmin, (req, res) => {
 
     const project = new Project(req.body)
-    console.log(req.body)
+    // console.log(req.body)
     project.save().then(project => {
         const { id, title, teamname, description, objective, pic, status, member, issuedon } = project.transform()
         res.json({ id: id.toString(), title, teamname, description, objective, pic, status, member, issuedon })
