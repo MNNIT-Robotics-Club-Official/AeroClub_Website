@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import '../../css/Login.css'
 
@@ -7,6 +7,7 @@ function Login() {
 
 	const email = useRef()
 	const password = useRef()
+	const history = useHistory()
 
 	const handleSubmit = (e) => {
 
@@ -25,7 +26,11 @@ function Login() {
 			.then(res => res.json())
 			.then(data => {
 				if (data.error) toast.warn(data.error)
-				else toast.success(data.message)
+				else {
+					localStorage.setItem('jwtToken', data.token)
+					toast.success(data.message)
+					history.push('/user/dashboard')
+				}
 			})
 	}
 
