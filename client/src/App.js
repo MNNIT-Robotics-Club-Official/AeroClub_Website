@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navigbar from './components/Navigbar.js';
 import Footer from './components/Footer.js';
 import Home from './components/Home.js';
@@ -14,13 +14,16 @@ import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
 import EventHome from "./Animations/EventsHome";
-import Loading from "./Animations/Loading.js";
-
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+import ForgetPassword from "./components/Pages/ForgetPassword";
+import PasswordReset from "./components/Pages/PasswordReset.js";
 
 function App() {
 
   return (
     <div className="App" >
+      <ToastContainer autoClose={4000} hideProgressBar={true} pauseOnHover closeOnClick />
       <Switch>
         <Route path='/admin' exact>
           <AdminComp />
@@ -30,6 +33,12 @@ function App() {
         </Route>
         <Route path='/user/signup' exact>
           <Signup />
+        </Route>
+        <Route path='/user/forgotpassword' exact>
+          <ForgetPassword />
+        </Route>
+        <Route path='/user/resetpassword/:token' exact>
+          <PasswordReset />
         </Route>
 
         <Route>

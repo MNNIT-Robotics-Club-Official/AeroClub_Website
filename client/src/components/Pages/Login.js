@@ -1,8 +1,34 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import '../../css/Login.css'
 
 function Login() {
+
+	const email = useRef()
+	const password = useRef()
+
+	const handleSubmit = (e) => {
+
+		e.preventDefault()
+
+		fetch('/api/signin', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				email: email.current.value,
+				password: password.current.value,
+			})
+		})
+			.then(res => res.json())
+			.then(data => {
+				if (data.error) toast.warn(data.error)
+				else toast.success(data.message)
+			})
+	}
+
 	return (
 		<div className="login">
 			<div className="container">
@@ -13,22 +39,23 @@ function Login() {
 								<h5 className="card-title text-center font-weight-bold" id="heading">Account login</h5>
 								<form className="form-signin">
 									<div className="form-label-group">
-										<input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
-										<label htmlFor="inputEmail">Email address</label>
+										<input type="email" id="inputEmail" className="form-control" placeholder="Gsuite Email Address" required autoFocus ref={email} />
+										<label htmlFor="inputEmail">Gsuite Email Address</label>
 									</div>
 
 									<div className="form-label-group">
-										<input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
+										<input type="password" id="inputPassword" className="form-control" placeholder="Password" required ref={password} />
 										<label htmlFor="inputPassword">Password</label>
 									</div>
 
-									<div className="custom-control custom-checkbox mb-3">
+									{/* <div className="custom-control custom-checkbox mb-3">
 										<input type="checkbox" className="custom-control-input" id="customCheck1" />
 										<label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
-									</div>
-									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+									</div> */}
+									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={handleSubmit}>Sign in</button>
 									<hr className="my-4" />
 									<div className="para">
+										<p><Link to="/user/forgotpassword">Forgot Password ?</Link></p>
 										<p>Don't have an account? <Link to="/user/signup">Signup</Link></p>
 										<button type="button" className="btn btn-dark"><Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Back to Home</Link></button>
 									</div>
@@ -39,6 +66,7 @@ function Login() {
 				</div>
 			</div>
 		</div>
+
 	)
 }
 

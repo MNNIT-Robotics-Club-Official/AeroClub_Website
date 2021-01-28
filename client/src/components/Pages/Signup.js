@@ -1,9 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import '../../css/Login.css'
+import { toast } from 'react-toastify'
 
 function Signup() {
+
+    const name = useRef()
+    const email = useRef()
+    const password = useRef()
+    const confirmPassword = useRef()
+    const history = useHistory()
+
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault()
+
+        if (password.current.value !== confirmPassword.current.value) {
+            toast.warn('passwords do not match !')
+            return
+        }
+
+        fetch('/api/signup', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name.current.value,
+                email: email.current.value,
+                password: password.current.value,
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) toast.warn(data.error)
+                else {
+                    toast.success(data.message)
+                    history.push('/user/login')
+                }
+            })
+    }
+
     return (
+
         <div className="login">
             <div className="container">
                 <div className="row">
@@ -13,26 +53,26 @@ function Signup() {
                                 <h5 className="card-title text-center font-weight-bold" id="heading">Account Signup</h5>
                                 <form className="form-signin">
                                     <div className="form-label-group">
-                                        <input type="text" id="inputname" className="form-control" placeholder="Name" required autoFocus />
+                                        <input type="text" id="inputname" className="form-control" placeholder="Name" required autoFocus ref={name} />
                                         <label htmlFor="inputname">Name</label>
                                     </div>
                                     <div className="form-label-group">
-                                        <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
-                                        <label htmlFor="inputEmail">Email address</label>
+                                        <input type="email" id="inputEmail" className="form-control" placeholder="Gsuite Email Address" required autoFocus ref={email} />
+                                        <label htmlFor="inputEmail">Gsuite Email Address</label>
                                     </div>
                                     <div className="form-label-group">
-                                        <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
+                                        <input type="password" id="inputPassword" className="form-control" placeholder="Password" required ref={password} />
                                         <label htmlFor="inputPassword">Password</label>
                                     </div>
                                     <div className="form-label-group">
-                                        <input type="password" id="inputretypePassword" className="form-control" placeholder="Retype Password" required />
+                                        <input type="password" id="inputretypePassword" className="form-control" placeholder="Retype Password" required ref={confirmPassword} />
                                         <label htmlFor="inputretypePassword">Retype Password</label>
                                     </div>
                                     <div className="custom-control custom-checkbox mb-3">
                                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
                                         <label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
                                     </div>
-                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button>
+                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={handleSubmit}>Sign up</button>
                                     <hr className="my-4" />
                                     <div className="para">
                                         <p>Already have an account? <Link to="/user/login">Signin</Link></p>
