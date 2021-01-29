@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ForgetPassword from "./components/Pages/ForgetPassword";
 import PasswordReset from "./components/Pages/PasswordReset.js";
+import Dashboard from "./components/Pages/Dashboard.js";
 
 function App() {
 
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route path='/gallery' exact>
             <Gallery />
+          </Route>
+          <Route path='/user/dashboard' exact>
+            <Dashboard />
           </Route>
           <Route path='/alumni' exact>
             <Alumni />

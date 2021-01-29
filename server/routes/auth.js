@@ -27,8 +27,7 @@ router.post(
 
 router.post('/forget-password', forgetPassword)
 router.post('/reset-password', resetPassword)
-
-router.get("/signout", signout);
+router.post("/signout", signout);
 
 router.post('/isAdmin', isSignedIn, isAdmin, (req, res) => {
     return res.json({ msg: "Welcome to Admin Panel" })

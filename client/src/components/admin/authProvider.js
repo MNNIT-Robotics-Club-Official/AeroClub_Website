@@ -21,7 +21,7 @@ const authProvider = {
                     .then(res => res.json())
                     .then(data2 => {
                         if (data2.error) throw new Error(data2.error)
-                        localStorage.setItem('token', data1.token)
+                        localStorage.setItem('jwtToken', data1.token)
                     })
             })
             .catch(e => {
@@ -29,16 +29,16 @@ const authProvider = {
             })
     },
     checkAuth: () => {
-        return localStorage.getItem('token') ? Promise.resolve() : Promise.reject()
+        return localStorage.getItem('jwtToken') ? Promise.resolve() : Promise.reject()
     },
     logout: () => {
-        localStorage.removeItem('token')
+        localStorage.removeItem('jwtToken')
         return Promise.resolve()
     },
     checkError: (error) => {
         const status = error.status;
         if (status === 422 || status === 401 || status === 403) {
-            localStorage.removeItem('token')
+            localStorage.removeItem('jwtToken')
             return Promise.reject();
         }
         return Promise.resolve();
