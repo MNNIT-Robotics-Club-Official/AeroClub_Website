@@ -32,7 +32,7 @@ export const ProjectList = (props) => {
                 <TextField source="id" />
                 <TextField source="title" />
                 <TextField source="teamname" label="Team Name" />
-                <DateField source="issuedOn" label="Issued On" />
+                <DateField source="issuedon" label="Issued On" />
                 <TextField source="status" />
                 <ShowButton basePath='/projects' />
                 <EditButton basePath="/projects" />
@@ -82,7 +82,7 @@ export const ProjectCreate = (props) => {
                 <TextInput source="status" label="Status" />
                 <ArrayInput source="member" label="Members">
                     <SimpleFormIterator >
-                        <TextInput source="member" label="Member" />
+                        <TextInput source="member"/>
                     </SimpleFormIterator>
                 </ArrayInput>
                 <DateInput
@@ -107,7 +107,7 @@ export const ProjectShow = (props) => {
                 <ImageField source="pic" label="Image" />
                 <TextField source="status" label="Status" />
                 {/* <ArrayInput source="member" label="Team Members" /> */}
-                <ArrayField source="member" label="Members">
+                <ArrayField source="member">
                     <Datagrid>
                         <TextField source="member" />
                     </Datagrid>
