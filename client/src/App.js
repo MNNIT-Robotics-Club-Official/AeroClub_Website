@@ -21,6 +21,7 @@ import { ToastContainer } from 'react-toastify';
 import ForgetPassword from "./components/Pages/ForgetPassword";
 import PasswordReset from "./components/Pages/PasswordReset.js";
 import Dashboard from "./components/Pages/Dashboard.js";
+import Confirmation from "./components/Pages/Confirmation.js";
 
 function App() {
 
@@ -36,6 +37,9 @@ function App() {
         </Route>
         <Route path='/user/signup' exact>
           <Signup />
+        </Route>
+        <Route path='/user/confirm/:token' exact>
+          <Confirmation />
         </Route>
         <Route path='/user/forgotpassword' exact>
           <ForgetPassword />

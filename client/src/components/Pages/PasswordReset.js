@@ -54,7 +54,7 @@ function PasswordReset() {
                                         <input type="password" id="inputretypePassword" className="form-control" placeholder="Retype Password" required ref={confirmPassword} />
                                         <label htmlFor="inputretypePassword">Retype Password</label>
                                     </div>
-                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={handleSubmit}>Send mail</button>
+                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={handleSubmit}>Update Password</button>
                                     <hr className="my-4" />
                                 </form>
                             </div>

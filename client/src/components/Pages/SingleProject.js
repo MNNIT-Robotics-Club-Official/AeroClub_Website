@@ -44,7 +44,7 @@ function SingleProject() {
                 </div>
             </header>
 
-            <Jumbotron fluid style={{ background: 'white', width: '100vw', margin: 'auto', paddingBottom: '1rem' }}>
+            <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>
                 <Container>
                     <h4>Description:</h4>
                     <p dangerouslySetInnerHTML={{ __html: project?.description }}></p>

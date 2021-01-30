@@ -20,13 +20,18 @@ var userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    confirmed: {
+      type: Boolean,
+      default: false,
+    },
     salt: String,
     role: {
       type: Number,
       default: 0
     },
     token: String,
-    expireToken: Date
+    verifyToken: String,
+    expireToken: Date,
   },
   { timestamps: true }
 );

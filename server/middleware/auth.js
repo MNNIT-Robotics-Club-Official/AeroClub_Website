@@ -3,7 +3,6 @@ const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer')
 const crypto = require('crypto')
-const emailExistence = require('email-existence')
 
 const smtp = nodemailer.createTransport({
   service: 'gmail',
@@ -22,20 +21,67 @@ exports.signup = (req, res) => {
     });
   }
 
-  emailExistence.check(req.body.email, (e, response) => {
-    if (!response) return res.status(400).json({ error: "Invalid email address !" });
-    else {
-      const user = new User(req.body)
-      user.save((err, u) => {
-        if (err) return res.status(400).json({ error: "Email already exists !" });
-        res.status(400).json({ message: "Signed up successsfully !" });
-      })
-    }
-  });
+  crypto.randomBytes(32, (e, buffer) => {
+    if (e) console.log(e)
+    const token = buffer.toString('hex')
+    req.body.verifyToken = token
+    smtp.sendMail({
+      from: process.env.USER,
+      to: req.body.email,
+      subject: 'Confirmation@aeroclubmnnit',
+      html: `<h2>You requested for password reset</h2>
+        <p>Click on this <a href="http://localhost:3000/user/confirm/${token}">link</a> to verify<p>`,
+    })
+    const user = new User(req.body)
+    user.save((err, u) => {
+      console.log(err)
+      if (err) return res.status(400).json({ error: "Email address already exists !" });
+      res.status(400).json({ message: "Signedup success...Verify your email address!" });
+    })
+  })
 
 };
 
+exports.confirm = (req, res) => {
+  const { token } = req.body
+  console.log(token)
+  User.findOne({ verifyToken: token }, (err, user) => {
+    if (err || !user)
+      return res.status(400).json({
+        error: 'User does not exists'
+      });
+    user.confirmed = true
+    user.verifyToken = undefined
+
+    user.save().then(result => {
+      return res.json({
+        message: 'User Confirmed successfully !'
+      });
+    })
+  })
+}
+
+exports.Adminlogin = (req, res) => {
+  const { email, password } = req.body
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res.status(400).json({
+        error: "Email or password do not match !"
+      });
+    }
+    if (!user.autheticate(password)) {
+      return res.status(401).json({
+        error: "Email or password do not match !"
+      });
+    }
+
+    res.json({ role: user.role, message: "Admin loggedIn successfully !" })
+
+  })
+}
+
 exports.signin = (req, res) => {
+
   const errors = validationResult(req)
   const { email, password } = req.body
 
@@ -48,9 +94,13 @@ exports.signin = (req, res) => {
   User.findOne({ email }, (err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: "USER email does not exists !"
+        error: "Email or password do not match !"
       });
     }
+
+    if (!user.confirmed) return res.status(400).json({
+      error: "You need to verify your email before login !"
+    });
 
     if (!user.autheticate(password)) {
       return res.status(401).json({
@@ -86,16 +136,14 @@ exports.forgetPassword = (req, res) => {
             to: req.body.email,
             subject: 'Password-Reset@aeroclubmnnit',
             html: `<h2>You requested for password reset</h2>
-          <p>Click on this <a href="http://localhost:5000/user/resetpassword/${token}">link</a> to reset password<p>`,
+          <p>Click on this <a href="http://localhost:3000/user/resetpassword/${token}">link</a> to reset password<p>`,
           }).then(() => {
             res.json({ message: 'Checkout your registered email !' });
           }
           ).catch(e => console.log(e))
-
         })
       })
   })
-
 }
 
 exports.resetPassword = (req, res) => {
