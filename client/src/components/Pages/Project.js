@@ -16,17 +16,17 @@ function Projects() {
     }, [])
 
     return (
-        
+
         <div className="cont">
-        <div className=" pagesg">
-                    <div className="overlayg">
-                        <div className="pageTitleg titleBoldg">
-                            PROJECTS
+            <div className=" pagesg">
+                <div className="overlayg">
+                    <div className="pageTitleg titleBoldg">
+                        PROJECTS
                             </div>
-                    </div>
                 </div>
+            </div>
             <div className="main">
-            
+
                 <ul className="cards">
                     <Loading />
 
@@ -39,12 +39,12 @@ function Projects() {
                                 <div className="card">
                                     <div className="card_image"><img src={project.pic} /></div>
                                     <div className="card_content">
-                                        <h2 className="card_title" style={{fontSize:23}}>{project.title}</h2>
-                                        <p className="card_text" style={{marginTop:0, marginBottom:0}}>By {project.teamname}</p>
-                                        <p className="card_text" style={{marginTop:0, marginBottom:0}}>Project Status : {project.status}</p>
-                                        <p className="card_text" style={{marginTop:0, marginBottom:0}}>Issued on {new Date(project.issuedon).toDateString()}</p>
+                                        <h2 className="card_title" style={{ fontSize: 23 }}>{project.title}</h2>
+                                        <p className="card_text" style={{ marginTop: 0, marginBottom: 0 }}>By {project.teamname}</p>
+                                        <p className="card_text" style={{ marginTop: 0, marginBottom: 0 }}>Project Status : {project.status}</p>
+                                        <p className="card_text" style={{ marginTop: 0, marginBottom: 0 }}>Issued on {new Date(project.issuedon).toDateString()}</p>
 
-                                        <Button className="btns card_btns" href={`projects/${project.id}`} style={{marginTop:10}}>Read More</Button>
+                                        <Button className="btns card_btns" href={`projects/${project.id}`} style={{ marginTop: 10 }}>Read More</Button>
                                     </div>
                                 </div>
                             </li>
