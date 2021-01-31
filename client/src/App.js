@@ -15,7 +15,7 @@ import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
 import EventHome from "./Animations/EventsHome";
 import Loading from "./Animations/Loading.js";
-
+import CompIssue from "./components/CompIssue";
 
 function App() {
 
@@ -52,6 +52,9 @@ function App() {
           </Route>
           <Route path='/blogs/:blogId' exact>
             <SingleBlog />
+          </Route>
+          <Route path='/components' exact>
+            <CompIssue />
           </Route>
           < Footer />
         </Route>
