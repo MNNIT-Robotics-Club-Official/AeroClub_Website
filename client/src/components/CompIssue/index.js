@@ -4,7 +4,7 @@ import Loading from "../../Animations/Loading";
 import CompCard from "./CompCard";
 
 export default function CompIssue() {
-  const [components, setComponents] = useState({});
+  const [components, setComponents] = useState([]);
   const [types, setTypes] = useState([]);
   const [key, setKey] = useState("electronics");
 
@@ -15,8 +15,9 @@ export default function CompIssue() {
       .then((res) => res.json())
       .then((data) => {
         setComponents(data);
+        console.log(data);
+        setTypes(Object.keys(data));
       });
-      setTypes(Object.keys(components));
   }, []);
 
   return (
@@ -28,15 +29,12 @@ export default function CompIssue() {
         onSelect={(k) => setKey(k)}
       >
         {types.map((type) => (
-          <Tab
-            eventKey={type}
-            title={type}
-            style={{ display: "flex", flexWrap: "wrap" }}
-            key={type}
-          >
-            {components[type].map((comp) => (
-              <CompCard comp={comp}/>
-            ))}
+          <Tab eventKey={type} title={type} key={type}>
+            <div className="d-flex flex-wrap">
+              {components[type].map((comp) => (
+                <CompCard comp={comp} />
+              ))}
+            </div>
           </Tab>
         ))}
       </Tabs>

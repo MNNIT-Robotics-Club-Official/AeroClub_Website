@@ -9,7 +9,7 @@ export default function CompCard(props) {
     <div style={{}}>
       <p>{comp.name}</p>
       <div style={{ display: "flex" }}>
-        <img src={comp.image_url} fluid />
+        <img src={comp.image_url}  style={{width: "180px", height:"auto"}}/>
         <div>
           <div>Total quantity: {comp.available + comp.issued}</div>
           <div>In Stock: {comp.available}</div>
@@ -23,11 +23,8 @@ export default function CompCard(props) {
             onHide={() => setModalShow(false)}
             comp={comp}
           />
-          
         </div>
       </div>
     </div>
   );
 }
-
-
