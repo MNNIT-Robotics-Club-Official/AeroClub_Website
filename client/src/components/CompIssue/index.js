@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Tab, Tabs } from "react-bootstrap";
+import { Tabs, Tab } from "react-bootstrap";
+import Loading from "../../Animations/Loading";
+import CompCard from "./CompCard";
 
 export default function CompIssue() {
-  const [components, setComponents] = useState([]);
+  const [components, setComponents] = useState({});
   const [types, setTypes] = useState([]);
+  const [key, setKey] = useState("electronics");
 
   useEffect(() => {
     fetch("/api/component/filter", {
@@ -12,18 +15,31 @@ export default function CompIssue() {
       .then((res) => res.json())
       .then((data) => {
         setComponents(data);
-        setTypes(Object.keys(components));
-        console.log(components);
       });
+      setTypes(Object.keys(components));
   }, []);
 
   return (
-    <Tabs defaultActiveKey={components[0]} id="uncontrolled-tab-example">
-      {types.map((type) => {
-        <Tab eventKey={type} title={type.toUpperCase()}>
-            
-        </Tab>
-      })}
-    </Tabs>
+    <>
+      <Loading />
+      <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+      >
+        {types.map((type) => (
+          <Tab
+            eventKey={type}
+            title={type}
+            style={{ display: "flex", flexWrap: "wrap" }}
+            key={type}
+          >
+            {components[type].map((comp) => (
+              <CompCard comp={comp}/>
+            ))}
+          </Tab>
+        ))}
+      </Tabs>
+    </>
   );
 }
