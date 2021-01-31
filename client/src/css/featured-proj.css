@@ -86,7 +86,8 @@
 }
 
 img {
-  height: auto;
+  height:35vh;
+  max-height: 100%;
   max-width: 100%;
   vertical-align: middle;
 }

@@ -1,44 +1,41 @@
-const authProvider = {
-    login: ({ username, password }) => {
-        const request = new Request('/api/signin', {
-            method: 'post',
-            body: JSON.stringify({ email: username, password }),
-            headers: new Headers({ 'Content-Type': 'application/json' })
-        })
-        return fetch(request)
-            .then(res => {
-                return res.json()
-            })
-            .then(data1 => {
-                if (data1.error) throw new Error(data1.error);
+import { HttpError } from "react-admin"
 
-                return fetch('/api/isAdmin', {
-                    method: 'post',
-                    headers: {
-                        "Authorization": `Bearer ${data1.token}`
+const authProvider = {
+
+    login: ({ username, password }) => {
+        return localStorage.getItem('jwtToken') ?
+            fetch('/api/adminlogin', {
+                method: 'post',
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`,
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify({ email: username, password })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.error) throw new Error(data.error)
+                    else {
+                        localStorage.setItem('role', data.role)
                     }
                 })
-                    .then(res => res.json())
-                    .then(data2 => {
-                        if (data2.error) throw new Error(data2.error)
-                        localStorage.setItem('token', data1.token)
-                    })
-            })
-            .catch(e => {
-                throw new Error(e)
-            })
+            :
+            Promise.reject(new HttpError('User must be logged in !', 401))
+        // notify('User must be logged in !')
+        // // throw new HttpError(, 401)
     },
     checkAuth: () => {
-        return localStorage.getItem('token') ? Promise.resolve() : Promise.reject()
+        return localStorage.getItem('role') ? Promise.resolve() : Promise.reject()
     },
     logout: () => {
-        localStorage.removeItem('token')
+        localStorage.removeItem('role')
         return Promise.resolve()
     },
     checkError: (error) => {
         const status = error.status;
         if (status === 422 || status === 401 || status === 403) {
-            localStorage.removeItem('token')
+            localStorage.removeItem('role')
             return Promise.reject();
         }
         return Promise.resolve();

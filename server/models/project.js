@@ -25,7 +25,7 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
     member: {
-        type: [{type: Object}],
+        type: [{ type: Object }],
         required: true
     },
     issuedon: {

@@ -2,8 +2,6 @@
 
 # Completed :-
 
-1) Home
-2) Gallery
-3) Alumni
-3) CRUD for blog
-4) CRUD for component
+frontend - home,gallery,login,signup,admin-panel,alumni,blogs,projects,components.
+
+backend - CRUD for blog,component,projects; authentication and authorization for login ,signup.
