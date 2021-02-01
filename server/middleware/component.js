@@ -1,4 +1,4 @@
-const Component = require("../models/component")
+const Component = require("../models/component");
 
 exports.getComponentById = (req, res, next, id) => {
   Component.findById(id).exec((err, comp) => {
@@ -13,8 +13,7 @@ exports.getComponentById = (req, res, next, id) => {
 };
 
 exports.getAllComponents = (req, res) => {
-
-  res.setHeader('Content-Range', 'component 0-10/20')
+  res.setHeader("Content-Range", "component 0-10/20");
   Component.find({}).exec((err, components) => {
     if (err) {
       return res.status(400).json({
@@ -22,8 +21,25 @@ exports.getAllComponents = (req, res) => {
       });
     }
     let arr = [];
-    components.forEach(component => arr.push(component.transform()))
+    components.forEach((component) => arr.push(component.transform()));
     res.json(arr);
+  });
+};
+
+exports.getAllComponentsFilter = (req, res) => {
+  res.setHeader("Content-Range", "component 0-10/20");
+  Component.find({}).exec((err, dataList) => {
+    if (err) {
+      return res.status(400).json({
+        error: "NO product FOUND",
+      });
+    }
+    let comps = {};
+    dataList.forEach((comp) => {
+      if (comps[comp.type] === undefined) comps[comp.type] = [];
+      comps[comp.type].push(comp);
+    });
+    res.json(comps);
   });
 };
 
@@ -48,7 +64,7 @@ exports.updateComponent = (req, res) => {
   component.save((err, updatedComponent) => {
     if (err) {
       return res.status(400).json({
-        error: "Failed to update Component"
+        error: "Failed to update Component",
       });
     }
     res.json(updatedComponent);
@@ -61,11 +77,11 @@ exports.deleteComponent = (req, res) => {
   component.remove((err, component) => {
     if (err) {
       return res.status(400).json({
-        error: "Failed to delete this component"
+        error: "Failed to delete this component",
       });
     }
     res.json({
-      msg: `Successfully deleted ${component.name}`
+      msg: `Successfully deleted ${component.name}`,
     });
-  })
-}
+  });
+};

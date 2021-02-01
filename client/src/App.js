@@ -17,11 +17,14 @@ import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
 import EventHome from "./Animations/EventsHome";
+import Loading from "./Animations/Loading.js";
+import CompIssue from "./components/CompIssue";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ForgetPassword from "./components/Pages/ForgetPassword";
 import PasswordReset from "./components/Pages/PasswordReset.js";
 import Dashboard from "./components/Pages/Dashboard.js";
+import Confirmation from "./components/Pages/Confirmation.js";
 
 function App() {
 
@@ -37,6 +40,9 @@ function App() {
         </Route>
         <Route path='/user/signup' exact>
           <Signup />
+        </Route>
+        <Route path='/user/confirm/:token' exact>
+          <Confirmation />
         </Route>
         <Route path='/user/forgotpassword' exact>
           <ForgetPassword />
@@ -75,6 +81,9 @@ function App() {
           </Route>
           <Route path='/blogs/:blogId' exact>
             <SingleBlog />
+          </Route>
+          <Route path='/components' exact>
+            <CompIssue />
           </Route>
           < Footer />
         </Route>
