@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllComponents, addComponent, updateComponent, deleteComponent, getComponentById } = require("../middleware/component");
+const { getAllComponents, addComponent, updateComponent, deleteComponent, getComponentById, getAllComponentsFilter } = require("../middleware/component");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 
 //params
@@ -9,6 +9,7 @@ router.param("componentId", getComponentById);
 
 //get routes
 router.get("/component", getAllComponents);
+router.get("/component/filter", getAllComponentsFilter);
 
 router.get('/component/:componentId', isSignedIn, (req, res) => {
   res.json(req.component.transform())

@@ -9,6 +9,7 @@ import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
 import Featuredproject from './components/featured-proj';
 import Testimonials from './components/Testimonials';
+import Contactus from './components/ContactUs';
 import Login from "./components/Pages/Login";
 import Projects from "./components/Pages/Project";
 import SingleProject from "./components/Pages/SingleProject";
@@ -16,6 +17,7 @@ import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
 import EventHome from "./Animations/EventsHome";
+import CompIssue from "./components/CompIssue";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ForgetPassword from "./components/Pages/ForgetPassword";
@@ -72,6 +74,7 @@ function App() {
               < ImgSlider />
               < Featuredproject />
               < Testimonials />
+              < Contactus />
               < EventHome />
             </Route>
             <Route path='/gallery' exact>
@@ -94,6 +97,9 @@ function App() {
             </Route>
             <Route path='/blogs/:blogId' exact>
               <SingleBlog />
+            </Route>
+            <Route path='/components' exact>
+              <CompIssue />
             </Route>
             <Route path='/news' exact>
               <News />

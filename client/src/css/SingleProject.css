@@ -10,26 +10,29 @@
     align-items: center;
     justify-content: center;
     color: white;
+    width: 100%;
 }
 
-
 .pagesp {
-    height: 40vh;
+    height: 60vh;
     width: 100%;
     margin: 0vh 0vw;
 
     /* background-image: url('https://unsplash.it/600/600'); */
-    background-size: cover;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    /* background-size: cover; */
     padding-bottom: 0px;
 
     background-color: #eee;
-    background-position: center;
+    /* background-position: center; */
     /* background-size: cover; */
     
     /* animation: image 3s ease-in-out infinite alternate; */
   }
 
-  .overlayp {
+.overlayp {
     width: 100%;
     height: 100%;
     position: relative;
@@ -43,11 +46,11 @@
 .titleBoldp {
     font-weight: 600;
 }
-.pageTitlegp {
+.pageTitlep {
     text-transform: uppercase;
     font-weight: 300;
     font-size: 45px;
-    text-align: center;
+    padding-left: 4rem;
     padding-top: 2em;
 }
 
@@ -72,8 +75,10 @@ article{
 
 @media only screen and (max-width:800px)
 {
+
     #header{
         height: 55vh;
+        padding-left: 2rem;
     }
     #header h1 {
         font-size: x-large;
@@ -86,13 +91,24 @@ article{
     }
     .body{
         font-size: medium;
-        width: 80vw;
+        width: 100%;
+        /* padding-left: 4rem; */
     }
 }
-@media only screen and (max-width:450px)
+@media (max-width:450px)
 {
     #header{
         height: 40vh;
+    }
+    #header h1 {
+        font-size:large;
+    }
+    .pagesp{
+        height: auto;
+    }
+    .pageTitlep{
+        padding-left: 2rem;
+        font-size: 30px;
     }
     .post-heading h5{
         font-size: small;

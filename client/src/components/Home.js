@@ -10,7 +10,7 @@ export default function Home() {
         <div className="container-fluid text-center ">
 
           <div className="jumbotron">
-          <img src={logo}/>
+          <img className="homologo" src={logo}/>
             <h1 className="head">
               < Hometext />
             </h1>

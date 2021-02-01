@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import '../../css/SingleBlog.css'
 import Loading from '../../Animations/Loading'
+import { Container, Jumbotron } from 'react-bootstrap'
 
 function SingleBlog() {
 
     const { blogId } = useParams()
     const [blog, setBlog] = useState(undefined)
+    const history = useHistory()
 
     useEffect(() => {
         fetch(`/api/blogs/${blogId}`, {
             method: 'get'
         }).then(res => res.json())
-            .then(data => setBlog(data))
+            .then(data => {
+                if (data.error) history.push('/404')
+                else setBlog(data)
+            })
 
     }, [])
 
@@ -20,28 +25,26 @@ function SingleBlog() {
         <div>
             <Loading />
 
-            <header id="header" style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${blog?.pic})` }}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8 col-md-10 mx-auto">
-                            <h1>{blog?.title}</h1>
-                            <div className="post-heading">
-                                <h5>Problems look mighty small from 150 miles up</h5>
-                                <span className="meta"><em>Posted by {blog?.postedBy} on {new Date(blog?.publishedAt).toLocaleDateString()}</em></span>
-                            </div>
-                        </div>
+            <div className=" pagesp" style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${blog?.pic})` }}>
+                <div className="overlayp">
+                    <div className="pageTitlep titleBoldp">
+                        {blog?.title}
+                        {/* <div className="post-heading"> */}
+                        {/* <h5 style={{fontSize:'1rem'}}>By {project?.teamname}</h5> */}
+                        <p className="meta" ><em style={{ fontSize: '0.8rem' }}>Posted by {blog?.postedBy} on {new Date(blog?.publishedAt).toLocaleDateString()}</em></p>
+                        {/* </div> */}
                     </div>
                 </div>
-            </header>
-
-            <div className="container my-5">
-                <div className="row mb-5">
-                    <article>
-                        <div className="col-lg-10 col-md-8 mx-auto body" dangerouslySetInnerHTML={{ __html: blog?.body }}>
-                        </div>
-                    </article>
-                </div>
             </div>
+
+            <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem', paddingLeft: '2rem' }}>
+                <Container >
+                    <h4>Content:</h4>
+                    <p dangerouslySetInnerHTML={{ __html: blog?.body }}></p>
+
+                </Container>
+                <hr />
+            </Jumbotron>
 
 
         </div>

@@ -1,9 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .header {
-    font-family: 'Montserrat Alternates', sans-serif;;
+    font-family: 'Roboto', sans-serif;;
     text-align: center;
     color: #454343;
     font-size: 30px;

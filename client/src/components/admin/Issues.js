@@ -31,6 +31,7 @@ export const IssueList = (props) => {
         <TextField source="component.name" label="Component" />
         <TextField source="num" label="Quantity" />
         <TextField source="status" />
+        <TextField source="reason" />
         <EditButton basePath="/issue" />
       </Datagrid>
     </List>

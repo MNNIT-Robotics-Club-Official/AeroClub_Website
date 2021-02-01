@@ -17,8 +17,14 @@ router.get('/blogs', (req, res) => {
 
 // fetching a blog with id
 router.get('/blogs/:id', (req, res) => {
-    Blog.findOne({ _id: req.params.id })
+
+    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+        return res.json({ error: 'not found !' })
+    }
+
+    Blog.findById(req.params.id)
         .then(blog => {
+            if (!blog) return res.json({ error: 'not found !' })
             res.json(blog.transform())
         })
         .catch(e => console.log(e))

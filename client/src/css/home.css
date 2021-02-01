@@ -132,6 +132,15 @@
     
     animation: image 3s infinite alternate;
   }
+
+  @media (max-width:460px){
+    .jumbotron img{
+      width:60%;
+    }
+    .head{
+      font-size: 2rem;
+    }
+  }
   
 
 

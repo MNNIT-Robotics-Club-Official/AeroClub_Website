@@ -5,7 +5,7 @@ export default function Featuredproject() {
       return (
         <div className="cont">
           <div className="main">
-            <div className="heading white-heading">Featured Projects</div>
+            <div className="pageTitle titleBold header white-heading padtop">Featured Projects</div>
             <ul className="cards">
               <li className="cards_item">
                 <div className="card">
@@ -46,8 +46,8 @@ export default function Featuredproject() {
                     <button className="btns card_btns">Read More</button>
                   </div>
                 </div>
-              </li>
-              <li className="cards_item">
+              </li> */}
+              {/*<li className="cards_item">
                 <div className="card">
                   <div className="card_image"><img src="https://picsum.photos/500/300/?image=17" /></div>
                   <div className="card_content">
