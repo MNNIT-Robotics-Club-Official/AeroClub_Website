@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+
 /* Design */
 *,
 *::before,
@@ -9,20 +10,29 @@
   box-sizing: border-box;
 }
 
-.padtop{
-  padding-top: 50px;
+.cent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iframecont {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-.cont{
+.contc{
     position: relative;
     /* background-color: rgb(240, 240, 240); */
     /* opacity: 0.4; */
 }
 
-.cont:after {
+.contc:after {
     content:'';
-    background: url(https://media.giphy.com/media/o3HczNTgxqNIk/giphy.gif) center center no-repeat;
+    background: rgb(48, 48, 71);
     background-size: cover;
     position: absolute;
     top:0px;
@@ -30,21 +40,21 @@
     width:100%;
     height:100%;
     z-index:-1;
-    opacity: 0.4; /* Here is your opacity */
+    /* opacity: 0.4; Here is your opacity */
 }
 
-.main{
-  max-width: 1200px;
+.mainc{
+  max-width: 1400px;
   margin: 0rem auto;
   padding-bottom: 2rem;
   /* background-color: rgb(194, 194, 194); */
   /* background-size: cover; */
 }
 
-.heading {
-    font-family: 'Roboto', sans-serif;;
+.headingc {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
-    color: #454343;
+    color: #f6f7ff;
     font-size: 30px;
     font-weight: 700;
     position: relative;
@@ -53,11 +63,11 @@
     z-index: 999;
     padding-top: 2rem;
 }
-.white-heading{
+.white-headingc{
     color: rgb(56, 55, 55);
 }
 
-.heading:after {
+.headingc:after {
     content: ' ';
     position: absolute;
     top: 100%;
@@ -71,19 +81,19 @@
     background-position: center;
 }
 
-.white-heading:after {
+.white-headingc:after {
     background: url(https://i.ibb.co/d7tSD1R/heading-line-white.png);
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.header span {
+.headerc span {
     font-size: 18px;
     display: block;
     font-weight: 500;
 }
 
-.white-heading span {
+.white-headingc span {
     color: #ffffff;
 }
 
@@ -94,7 +104,7 @@ img {
   vertical-align: middle;
 }
 
-.btns {
+.btnsc {
   color: #ffffff;
   padding: 0.8rem;
   font-size: 14px;
@@ -108,55 +118,73 @@ img {
   background: transparent;
 }
 
-.btns:hover {
+.btnsc:hover {
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-.cards {
+.cardsc {
   display: flex;
-  /* justify-content: center; */
+  justify-content: space-around;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.cards_item {
+.cards_itemc {
   display: flex;
-  padding: 1rem;
+  padding: 2.5rem;
+  width: auto;
 }
+
+@media (min-width: 25rem) {
+    .cards_itemc {
+      width: 70%;
+      /* padding: 4rem; */
+    }
+  
+  }
+  
 
 @media (min-width: 40rem) {
-  .cards_item {
-    width: 50%;
+  .cards_itemc {
+    width: 45%;
+    /* padding: 4rem; */
+  }
+
+}
+
+
+
+@media (min-width: 62rem) {
+  .cards_itemc {
+    width: 35%;
   }
 }
 
-@media (min-width: 56rem) {
-  .cards_item {
-    width: 33.3333%;
-  }
-}
-
-.card {
+.cardc {
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: column;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* align-items: center; */
   overflow: hidden;
 }
 
-.card_content {
+.card_contentc {
   padding: 1rem;
   background: transparent;
   /* background: linear-gradient(to left, rgb(51, 60, 97), #d1d1d1 100%); */
-  background-color: rgb(48, 48, 71);
+  background-color: rgb(225, 225, 248);
   /* opacity: 0.; */
 }
 
-.card_title {
-  color: #ffffff;
+.card_titlec {
+  color: rgb(48, 48, 71);
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -164,14 +192,14 @@ img {
   margin: 0px;
 }
 
-.card_text {
-  color: #ffffff;
+.card_textc {
+  color: rgb(48, 48, 71);
   font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
 }
-.made_by{
+.made_byc{
   font-weight: 400;
   font-size: 13px;
   margin-top: 35px;

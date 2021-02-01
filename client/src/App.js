@@ -9,6 +9,7 @@ import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
 import Featuredproject from './components/featured-proj';
 import Testimonials from './components/Testimonials';
+import Contactus from './components/ContactUs';
 import Login from "./components/Pages/Login";
 import Projects from "./components/Pages/Project";
 import SingleProject from "./components/Pages/SingleProject";
@@ -51,6 +52,7 @@ function App() {
             < ImgSlider />
             < Featuredproject />
             < Testimonials />
+            < Contactus />
             < EventHome />
           </Route>
           <Route path='/gallery' exact>

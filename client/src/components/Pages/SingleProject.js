@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import '../../css/SingleBlog.css'
+import '../../css/SingleProject.css'
 import Loading from '../../Animations/Loading'
 import { Button, Card, Container, Jumbotron } from 'react-bootstrap'
 
@@ -18,39 +18,29 @@ function SingleProject() {
     }, [])
 
     return (
-        <div>
-            <div className=" pagesp">
-                <div className="overlayp">
-                    <div className="pageTitlep titleBoldp">
-
-                    </div>
-                </div>
-            </div>
+        <div >
+            
             <Loading />
-
-            <header id="header" style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${project?.pic})` }} >
-                {/* <div style={{ background: `rgba(0, 0, 0, 0.7)` }}> */}
-                <div className="container" >
-                    <div className="row">
-                        <div className="col-lg-8 col-md-10 mx-auto">
-                            <h1 >{project?.title}</h1>
-                            <div className="post-heading">
-                                <h5>By {project?.teamname}</h5>
-                                <span className="meta"><em>Issued on {new Date(project?.issuedon).toLocaleDateString()}</em></span>
+            <div className=" pagesp" style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${project?.pic})` }}>
+                    <div className="overlayp">
+                        <div className="pageTitlep titleBoldp">
+                            {project?.title}
+                            {/* <div className="post-heading"> */}
+                                <h5 style={{fontSize:'1rem'}}>By {project?.teamname}</h5>
+                                <span className="meta" ><em style={{fontSize: '0.8rem'}}>Issued on {new Date(project?.issuedon).toLocaleDateString()}</em></span>
+                            {/* </div> */}
                             </div>
-                        </div>
                     </div>
-                    {/* </div> */}
-                </div>
-            </header>
+            </div>
 
-            <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>
-                <Container>
+
+            <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem', paddingLeft:'2rem' }}>
+                <Container >
                     <h4>Description:</h4>
                     <p dangerouslySetInnerHTML={{ __html: project?.description }}></p>
                     <h4>Objective:</h4>
                     <p dangerouslySetInnerHTML={{ __html: project?.objective }}></p>
-                    <p ><img src={project?.pic} /></p>
+                    <p ><img style={{width:'60vw'}} src={project?.pic} /></p>
                     <h4>Project Status:</h4>
                     <p dangerouslySetInnerHTML={{ __html: project?.status }}></p>
 
