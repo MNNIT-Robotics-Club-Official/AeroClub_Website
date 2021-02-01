@@ -23,25 +23,20 @@ function SingleBlog() {
 
     return (
         <div>
-            <Loading />
+            <Loading time={1.5} />
 
             <div className=" pagesp" style={{ background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${blog?.pic})` }}>
                 <div className="overlayp">
                     <div className="pageTitlep titleBoldp">
                         {blog?.title}
-                        {/* <div className="post-heading"> */}
-                        {/* <h5 style={{fontSize:'1rem'}}>By {project?.teamname}</h5> */}
                         <p className="meta" ><em style={{ fontSize: '0.8rem' }}>Posted by {blog?.postedBy} on {new Date(blog?.publishedAt).toLocaleDateString()}</em></p>
-                        {/* </div> */}
                     </div>
                 </div>
             </div>
 
             <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem', paddingLeft: '2rem' }}>
                 <Container >
-                    <h4>Content:</h4>
                     <p dangerouslySetInnerHTML={{ __html: blog?.body }}></p>
-
                 </Container>
                 <hr />
             </Jumbotron>

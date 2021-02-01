@@ -37,7 +37,7 @@ function Blogs() {
             </div>
 
             <div style={{ background: 'white' }}>
-                <Loading />
+                <Loading time={2} />
                 {
                     currBlogs.map(blog => (
                         <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog.id}>

@@ -28,13 +28,9 @@ function Projects() {
             <div className="main">
 
                 <ul className="cards">
-                    <Loading />
-
+                    <Loading time={2} />
                     {
-
                         projects?.map(project => (
-
-
                             <li className="cards_item">
                                 <div className="card">
                                     <div className="card_image"><img src={project.pic} /></div>
@@ -48,10 +44,7 @@ function Projects() {
                                     </div>
                                 </div>
                             </li>
-
-
                         ))
-
                     }
                 </ul>
             </div>
