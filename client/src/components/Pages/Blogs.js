@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
 import Loading from '../../Animations/Loading'
 import PaginationComp from '../PaginationComp'

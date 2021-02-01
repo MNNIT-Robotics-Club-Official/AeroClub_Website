@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import '../../css/Login.css'
 import { toast } from 'react-toastify'
@@ -11,6 +11,9 @@ function Signup() {
     const confirmPassword = useRef()
     const history = useHistory()
 
+    useEffect(() => {
+        if (localStorage.getItem('jwtToken')) history.push('/404')
+    }, [])
 
     const handleSubmit = (e) => {
 

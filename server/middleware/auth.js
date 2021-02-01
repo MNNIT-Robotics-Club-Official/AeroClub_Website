@@ -2,7 +2,6 @@ const User = require("../models/user");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const nodemailer = require('nodemailer')
-const crypto = require('crypto')
 
 const smtp = nodemailer.createTransport({
   service: 'gmail',
@@ -21,42 +20,41 @@ exports.signup = (req, res) => {
     });
   }
 
-  crypto.randomBytes(32, (e, buffer) => {
-    if (e) console.log(e)
-    const token = buffer.toString('hex')
-    req.body.verifyToken = token
-    smtp.sendMail({
-      from: process.env.USER,
-      to: req.body.email,
-      subject: 'Confirmation@aeroclubmnnit',
-      html: `<h2>You requested for password reset</h2>
-        <p>Click on this <a href="http://localhost:3000/user/confirm/${token}">link</a> to verify<p>`,
-    })
-    const user = new User(req.body)
-    user.save((err, u) => {
-      console.log(err)
-      if (err) return res.status(400).json({ error: "Email address already exists !" });
-      res.status(400).json({ message: "Signedup success...Verify your email address!" });
-    })
+  const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    expiresIn: '1h'
+  })
+  smtp.sendMail({
+    from: process.env.USER,
+    to: req.body.email,
+    subject: 'Confirmation@aeroclubmnnit',
+    html: `<h2>You requested for password reset</h2>
+      <p>Click on this <a href="http://localhost:3000/user/confirm/${jwtToken}">link</a> to verify<p>`,
+  })
+  const user = new User(req.body)
+  user.save((err, u) => {
+    console.log(err)
+    if (err) return res.status(400).json({ error: "Email address already exists !" });
+    res.status(400).json({ message: "Signedup success...Verify your email address!" });
   })
 
 };
 
 exports.confirm = (req, res) => {
-  const { token } = req.body
-  console.log(token)
-  User.findOne({ verifyToken: token }, (err, user) => {
-    if (err || !user)
-      return res.status(400).json({
-        error: 'User does not exists'
-      });
-    user.confirmed = true
-    user.verifyToken = undefined
+  const { authorization } = req.headers
+  const token = authorization.replace("Bearer ", "")
 
-    user.save().then(result => {
-      return res.json({
-        message: 'User Confirmed successfully !'
-      });
+  jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+    if (err) return res.status(422).json({ error: err })
+    const { _id } = payload
+    User.findById(_id).then(user => {
+
+      if (user.confirmed) return res.json({ error: 'User already confirmed !' })
+
+      if (!user) return res.json({ error: 'User does not exists !' })
+      user.confirmed = true
+      user.save().then(savedUser => {
+        return res.json({ message: "User Confirmed successfully !" })
+      })
     })
   })
 }
@@ -118,59 +116,53 @@ exports.signin = (req, res) => {
 
 exports.forgetPassword = (req, res) => {
 
-  crypto.randomBytes(32, (e, buffer) => {
-    if (e) console.log(e)
-    const token = buffer.toString('hex')
-    User.findOne({ email: req.body.email })
-      .then(user => {
+  User.findOne({ email: req.body.email })
+    .then(user => {
+      if (!user) return res.status(422).json({ error: "Email is not registered !" })
 
-        if (!user) return res.status(422).json({ error: "Email is not registered !" })
-
-        user.resetToken = token
-        user.expireToken = Date.now() + 3600000
-        user.save().then(result => {
-
-          // nodemailer
-          smtp.sendMail({
-            from: process.env.USER,
-            to: req.body.email,
-            subject: 'Password-Reset@aeroclubmnnit',
-            html: `<h2>You requested for password reset</h2>
-          <p>Click on this <a href="http://localhost:3000/user/resetpassword/${token}">link</a> to reset password<p>`,
-          }).then(() => {
-            res.json({ message: 'Checkout your registered email !' });
-          }
-          ).catch(e => console.log(e))
-        })
+      const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: '1h'
       })
-  })
+
+      user.reset_pass_session = true
+      user.save().then(u => {
+        // nodemailer
+        smtp.sendMail({
+          from: process.env.USER,
+          to: req.body.email,
+          subject: 'Password-Reset@aeroclubmnnit',
+          html: `<h2>You requested for password reset</h2>
+        <p>Click on this <a href="http://localhost:3000/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
+        })
+        res.json({ message: 'Checkout your registered email !' });
+      })
+    })
 }
 
 exports.resetPassword = (req, res) => {
 
   const newPassword = req.body.password
-  const sentToken = req.body.token
+  const { authorization } = req.headers
+  const token = authorization.replace("Bearer ", "")
 
-  User.findOne({ resetToken: sentToken, expireToken: { $gt: Date.now() } })
-    .then(user => {
-
-      if (!user) return res.status(422).json({ error: 'Session has expired...Try Again !' })
-
+  jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+    if (err) return res.status(422).json({ error: err })
+    const { _id } = payload
+    User.findById(_id).then(user => {
+      if (!user) return res.json({ error: 'User does not exists !' })
       user.password = newPassword
-      user.resetToken = undefined
-      user.expireToken = undefined
-
+      user.reset_pass_session = false
       user.save().then(savedUser => {
-        res.json({ message: "Password updated successfully !" })
-      }).catch(e => console.log(e))
-
-    }).catch(e => console.log(e))
+        return res.json({ message: "Password updated successfully !" })
+      })
+    })
+  })
 }
 
 exports.signout = (req, res) => {
   res.clearCookie("token");
   res.json({
-    message: "User signout successfully"
+    message: "User signout successfully !"
   });
 };
 
@@ -178,26 +170,43 @@ exports.signout = (req, res) => {
 exports.isSignedIn = (req, res, next) => {
 
   const { authorization } = req.headers
-
-  if (!authorization) return res.status(401).json({ error: "You must be logged in" })
-
+  if (!authorization) return res.status(401).json({ error: "You must be logged in !" })
   const token = authorization.replace("Bearer ", "")
 
   // verifying jwt token
   jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
 
-    if (err) return res.status(401).json({ error: "You must be logged in" })
+    if (err) return res.status(401).json({ error: "You must be logged in !" })
     const { _id } = payload
 
     // finding the user with the id
-    User.findById(_id).then(userData => {
-      req.user = userData
+    User.findById(_id).then(user => {
+      req.user = user
+      next()
+    })
+  })
+}
+
+exports.resetVerify = (req, res, next) => {
+
+  const { authorization } = req.headers
+  const token = authorization.replace("Bearer ", "")
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
+    if (err) {
+      return res.status(422).json({ error: err })
+    }
+    const { _id } = payload
+
+    User.findById(_id).then(user => {
+      if (!user.reset_pass_session) return res.status(422).json({ error: 'Session has expired...try again !' })
       next()
     })
   })
 }
 
 exports.isAdmin = (req, res, next) => {
+
   if (req.user.role === 0) {
     return res.status(403).json({
       error: "You are not ADMIN, Access denied"

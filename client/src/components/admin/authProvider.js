@@ -1,32 +1,34 @@
-import { HttpError } from "react-admin"
-
 const authProvider = {
 
     login: ({ username, password }) => {
-        return localStorage.getItem('jwtToken') ?
-            fetch('/api/adminlogin', {
-                method: 'post',
-                headers: {
-                    "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`,
-                    "Content-Type": 'application/json'
-                },
-                body: JSON.stringify({ email: username, password })
+        return fetch('/api/adminlogin', {
+            method: 'post',
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`,
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify({ email: username, password })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) throw new Error(data.error)
+                else {
+                    localStorage.setItem('role', data.role)
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.error) throw new Error(data.error)
-                    else {
-                        localStorage.setItem('role', data.role)
-                    }
-                })
-            :
-            Promise.reject(new HttpError('User must be logged in !', 401))
-        // notify('User must be logged in !')
-        // // throw new HttpError(, 401)
     },
     checkAuth: () => {
-        return localStorage.getItem('role') ? Promise.resolve() : Promise.reject()
+        return localStorage.getItem('role') && localStorage.getItem('jwtToken')
+            ? fetch('/api/isAdmin', {
+                method: 'post',
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`
+                }
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.error) throw new Error(data.error)
+                })
+            : Promise.reject()
     },
     logout: () => {
         localStorage.removeItem('role')

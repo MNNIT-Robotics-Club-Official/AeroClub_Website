@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useRef } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import '../../css/Login.css'
 
@@ -8,6 +8,21 @@ function PasswordReset() {
     const password = useRef()
     const confirmPassword = useRef()
     const history = useHistory()
+    const { token } = useParams()
+
+    useEffect(() => {
+
+        fetch('/api/resetverify', {
+            method: 'post',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) history.push('/404')
+            })
+    }, [])
 
     const handleSubmit = (e) => {
 
@@ -21,6 +36,7 @@ function PasswordReset() {
         fetch('/api/reset-password', {
             method: 'post',
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -31,7 +47,8 @@ function PasswordReset() {
             .then(data => {
                 if (data.error) toast.warn(data.error)
                 else {
-                    toast.success(data.message)
+                    if (data.message) toast.success(data.message)
+                    else toast.warn('Your session has expired...try again !')
                     history.push('/user/login')
                 }
             })

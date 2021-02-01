@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { check, body } = require("express-validator");
-const { forgetPassword, resetPassword, signout, signup, signin, isAdmin, isSignedIn, confirm, Adminlogin } = require("../middleware/auth");
+const { forgetPassword, resetPassword, signout, signup, signin, isAdmin, isSignedIn, confirm, Adminlogin, resetVerify } = require("../middleware/auth");
 
 router.post(
     "/signup",
@@ -28,7 +28,11 @@ router.post(
 router.post('/user/confirm', confirm)
 router.post('/forget-password', forgetPassword)
 router.post('/reset-password', resetPassword)
-router.post("/signout", signout);
+router.post("/signout", signout)
+router.post('/resetverify', resetVerify)
 router.post('/adminlogin', isSignedIn, isAdmin, Adminlogin)
+router.post('/isAdmin', isSignedIn, isAdmin, (req, res) => {
+    res.json({ message: 'admin authorized successfully !' })
+})
 
 module.exports = router;

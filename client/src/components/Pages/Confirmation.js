@@ -12,12 +12,12 @@ export default function Confirmation() {
             fetch('/api/user/confirm', {
                 method: 'post',
                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ token })
+                    'Authorization': `Bearer ${token}`
+                }
             }).then(res => res.json())
                 .then(data => {
                     if (data.error) {
+                        toast.success(data.error)
                         history.push('/')
                     }
                     else {

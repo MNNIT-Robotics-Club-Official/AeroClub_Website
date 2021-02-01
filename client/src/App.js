@@ -2,7 +2,7 @@ import React from "react";
 import Navigbar from './components/Navigbar.js';
 import Footer from './components/Footer.js';
 import Home from './components/Home.js';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import AdminComp from "./components/admin/AdminComp.js";
 import ImgSlider from './Animations/ImgSlider.js';
 import Gallery from './components/Pages/Gallery.js';
@@ -22,6 +22,8 @@ import ForgetPassword from "./components/Pages/ForgetPassword";
 import PasswordReset from "./components/Pages/PasswordReset.js";
 import Dashboard from "./components/Pages/Dashboard.js";
 import Confirmation from "./components/Pages/Confirmation.js";
+import NotFound from "./components/Pages/NotFound.js";
+import News from "./components/Pages/News.js";
 
 function App() {
 
@@ -29,55 +31,77 @@ function App() {
     <div className="App" >
       <ToastContainer autoClose={4000} hideProgressBar={true} pauseOnHover closeOnClick />
       <Switch>
-        <Route path='/admin' exact>
-          <AdminComp />
-        </Route>
+        {
+          localStorage.getItem('jwtToken') &&
+          <Route path='/admin' exact>
+            <AdminComp />
+          </Route>
+        }
+
         <Route path='/user/login' exact>
-          <Login />
+          {
+            !localStorage.getItem('jwtToken') ? <Login /> : <Redirect to='/404' />
+          }
         </Route>
         <Route path='/user/signup' exact>
-          <Signup />
+          {
+            !localStorage.getItem('jwtToken') ? <Signup /> : <Redirect to='/404' />
+          }
         </Route>
         <Route path='/user/confirm/:token' exact>
-          <Confirmation />
-        </Route>
-        <Route path='/user/forgotpassword' exact>
-          <ForgetPassword />
+          {
+            !localStorage.getItem('jwtToken') ? <Confirmation /> : <Redirect to='/404' />
+          }
         </Route>
         <Route path='/user/resetpassword/:token' exact>
-          <PasswordReset />
+          {
+            !localStorage.getItem('jwtToken') ? <PasswordReset /> : <Redirect to='/404' />
+          }
         </Route>
-
+        <Route path='/user/forgotpassword' exact>
+          {
+            !localStorage.getItem('jwtToken') ? <ForgetPassword /> : <Redirect to='/404' />
+          }
+        </Route>
+        <Route path='/404' exact component={NotFound} />
         <Route>
           < Navigbar />
-          <Route path='/' exact>
-            < Home />
-            < ImgSlider />
-            < Featuredproject />
-            < Testimonials />
-            < EventHome />
-          </Route>
-          <Route path='/gallery' exact>
-            <Gallery />
-          </Route>
-          <Route path='/user/dashboard' exact>
-            <Dashboard />
-          </Route>
-          <Route path='/alumni' exact>
-            <Alumni />
-          </Route>
-          <Route path='/projects' exact>
-            <Projects />
-          </Route>
-          <Route path='/projects/:projectId' exact>
-            <SingleProject />
-          </Route>
-          <Route path='/blogs' exact>
-            <Blogs />
-          </Route>
-          <Route path='/blogs/:blogId' exact>
-            <SingleBlog />
-          </Route>
+          <Switch>
+            <Route path='/' exact>
+              < Home />
+              < ImgSlider />
+              < Featuredproject />
+              < Testimonials />
+              < EventHome />
+            </Route>
+            <Route path='/gallery' exact>
+              <Gallery />
+            </Route>
+            <Route path='/user/dashboard' exact>
+              <Dashboard />
+            </Route>
+            <Route path='/alumni' exact>
+              <Alumni />
+            </Route>
+            <Route path='/projects' exact>
+              <Projects />
+            </Route>
+            <Route path='/projects/:projectId' exact>
+              <SingleProject />
+            </Route>
+            <Route path='/blogs' exact>
+              <Blogs />
+            </Route>
+            <Route path='/blogs/:blogId' exact>
+              <SingleBlog />
+            </Route>
+            <Route path='/news' exact>
+              <News />
+            </Route>
+            <Route >
+              <Redirect to='/404' />
+            </Route>
+          </Switch>
           < Footer />
         </Route>
       </Switch>

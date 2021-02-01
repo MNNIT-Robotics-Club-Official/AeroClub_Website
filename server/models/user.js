@@ -29,9 +29,7 @@ var userSchema = new mongoose.Schema(
       type: Number,
       default: 0
     },
-    token: String,
-    verifyToken: String,
-    expireToken: Date,
+    reset_pass_session: Boolean
   },
   { timestamps: true }
 );
