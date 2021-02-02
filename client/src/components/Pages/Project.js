@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, Container, Jumbotron } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Loading from '../../Animations/Loading';
 import '../../css/featured-proj.css';
 import '../../css/Gallery.css';
@@ -15,6 +15,10 @@ function Projects() {
             .then(data => SetProjects(data))
     }, [])
 
+    const [page, SetPage] = useState(1)
+    const projects_per_page = 1
+    const no_of_pages = Math.ceil(projects.length / projects_per_page)
+
     return (
 
         <div className="cont">
@@ -25,12 +29,12 @@ function Projects() {
                             </div>
                 </div>
             </div>
-            <div className="main">
+            <div className="main" style={{ overflow: 'hidden' }}>
 
                 <ul className="cards">
                     <Loading time={2} />
                     {
-                        projects?.map(project => (
+                        projects.slice((page - 1) * projects_per_page, page * projects_per_page).map(project => (
                             <li className="cards_item">
                                 <div className="card">
                                     <div className="card_image"><img src={project.pic} /></div>
@@ -47,6 +51,20 @@ function Projects() {
                         ))
                     }
                 </ul>
+                <div className='float-right mr-5 mb-3 mt-5'>
+                    {
+
+                        (page > 1) && <Button className='mx-1' onClick={() => {
+                            SetPage(page => page - 1)
+                        }}>🡨 Previous</Button>
+
+                    }
+                    {
+                        (page < no_of_pages) && <Button className='mx-1' onClick={() => {
+                            SetPage(page => page + 1)
+                        }}>Next 🡪</Button>
+                    }
+                </div>
             </div>
         </div>
     )
