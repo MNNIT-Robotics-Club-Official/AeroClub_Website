@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
 import Loading from '../../Animations/Loading'
-import PaginationComp from '../PaginationComp'
 
 function Blogs() {
 
     const [blogs, SetBlogs] = useState([])
-    const [blogsPerPage, SetBlogsPerPage] = useState(2)
-    const [currentPage, setCurrentPage] = useState(1)
 
     useEffect(() => {
         fetch('/api/blogs', {
@@ -16,15 +13,9 @@ function Blogs() {
             .then(data => SetBlogs(data))
     }, [])
 
-    const indexOfLastBlog = currentPage * blogsPerPage
-    const indexOfFirstBlog = indexOfLastBlog - blogsPerPage
-    console.log(indexOfLastBlog, indexOfFirstBlog)
-
-    const currBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog)
-
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber)
-    }
+    const [page, SetPage] = useState(1)
+    const blogs_per_page = 1
+    const no_of_pages = Math.ceil(blogs.length / blogs_per_page)
 
     return (
         <div>
@@ -36,21 +27,37 @@ function Blogs() {
                 </div>
             </div>
 
-            <div style={{ background: 'white' }}>
-                <Loading />
-                {
-                    currBlogs.map(blog => (
-                        <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog.id}>
-                            <Container>
-                                <h2>{blog.title}</h2>
-                                <p>Posted by {blog.postedBy} on {new Date(blog.publishedAt).toDateString()}</p>
-                                <Button href={`blogs/${blog.id}`}>See More</Button>
-                            </Container>
-                            <hr />
-                        </Jumbotron>
-                    ))
-                }
-                <PaginationComp elemsPerPage={blogsPerPage} totalElems={blogs.length} paginate={paginate} />
+            <div style={{ background: 'white', overflow: 'hidden' }} >
+                <Loading time={2} />
+                <div>
+
+                    {
+                        blogs.slice((page - 1) * blogs_per_page, page * blogs_per_page).map(blog => (
+                            <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog.id}>
+                                <Container>
+                                    <h2>{blog.title}</h2>
+                                    <p>Posted by {blog.postedBy} on {new Date(blog.publishedAt).toDateString()}</p>
+                                    <Button href={`blogs/${blog.id}`}>See More</Button>
+                                </Container>
+                                <hr />
+                            </Jumbotron>
+                        ))
+                    }
+                    <div className='float-right mr-5 mb-5'>
+                        {
+
+                            (page > 1) && <Button className='mx-1' onClick={() => {
+                                SetPage(page => page - 1)
+                            }}>🡨 Previous</Button>
+
+                        }
+                        {
+                            (page < no_of_pages) && <Button className='mx-1' onClick={() => {
+                                SetPage(page => page + 1)
+                            }}>Next 🡪</Button>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     )
