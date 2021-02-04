@@ -11,6 +11,7 @@ import {
   List,
   required,
   RichTextField,
+  SelectInput,
   Show,
   ShowButton,
   SimpleForm,
@@ -29,6 +30,7 @@ export const BlogList = (props) => {
         <TextField source="title" />
         <TextField source="postedBy" label="Posted By" />
         <DateField source="publishedAt" label="Published At" />
+        <TextField source="accepted" />
         <ShowButton basePath='/blogs' />
         <EditButton basePath="/blogs" />
         <DeleteButton basePath="/blogs" />
@@ -63,6 +65,13 @@ export const BlogCreate = (props) => {
           label="Published At"
           defaultValue={new Date()}
         />
+        <SelectInput
+          source="accepted"
+          choices={[
+            { id: "yes", name: "Yes" },
+            { id: "no", name: "No" },
+          ]}
+        />
       </SimpleForm>
     </Create>
   );
@@ -77,6 +86,7 @@ export const BlogShow = (props) => {
         <TextField source="postedBy" label="Posted By" />
         <ImageField source="pic" label="Image" />
         <DateField source="publishedAt" label="Published At" />
+        <TextField source="accepted" />
       </SimpleShowLayout>
     </Show>
   );
@@ -109,6 +119,13 @@ export const BlogEdit = (props) => {
           source="publishedAt"
           label="Published At"
           validate={required()}
+        />
+        <SelectInput
+          source="accepted"
+          choices={[
+            { id: "Yes", name: "Yes" },
+            { id: "No", name: "No" },
+          ]}
         />
       </SimpleForm>
     </Edit>

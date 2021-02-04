@@ -34,5 +34,8 @@ router.post('/adminlogin', isSignedIn, isAdmin, Adminlogin)
 router.post('/isAdmin', isSignedIn, isAdmin, (req, res) => {
     res.json({ message: 'admin authorized successfully !' })
 })
+router.post('/isSignedIn', isSignedIn, (req, res) => {
+    res.json({ user: req.user })
+})
 
 module.exports = router;

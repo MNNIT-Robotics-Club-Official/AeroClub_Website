@@ -26,6 +26,7 @@ import Dashboard from "./components/Pages/Dashboard.js";
 import Confirmation from "./components/Pages/Confirmation.js";
 import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
+import CreateBlog from "./components/Pages/CreateBlog.js";
 
 function App() {
 
@@ -79,6 +80,9 @@ function App() {
             </Route>
             <Route path='/gallery' exact>
               <Gallery />
+            </Route>
+            <Route path='/user/createblog' exact>
+              <CreateBlog />
             </Route>
             <Route path='/user/dashboard' exact>
               <Dashboard />

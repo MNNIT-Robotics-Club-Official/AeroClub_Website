@@ -18,6 +18,11 @@ const blogSchema = new mongoose.Schema({
     },
     publishedAt: {
         type: Date
+    },
+    accepted: {
+        type: String,
+        default: "No",
+        enum: ["Yes", "No"]
     }
 }, { timestamps: true })
 

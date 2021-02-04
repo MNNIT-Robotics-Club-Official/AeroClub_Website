@@ -20,6 +20,7 @@ const Login = () => {
     }).then(res => res.json())
       .then(data => {
         localStorage.removeItem('jwtToken')
+        localStorage.removeItem('role')
         setLoggedIn(false)
         toast.success(data.message)
         history.push('/')
