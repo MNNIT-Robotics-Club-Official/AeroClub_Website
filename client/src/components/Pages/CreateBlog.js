@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import ReactQuill from 'react-quill'
+import ReactQuill, { Quill } from 'react-quill'
+import ImageResize from 'quill-image-resize'
 import 'react-quill/dist/quill.snow.css'
 import '../../css/CreateBlog.css'
 import { Button, Container, Jumbotron, Tab, Tabs } from 'react-bootstrap'
+Quill.register('modules/imageResize', ImageResize)
 
 export default function CreateBlog() {
 
@@ -53,8 +55,8 @@ export default function CreateBlog() {
             body: JSON.stringify({
                 title,
                 body,
-                pic:
-                    postedBy,
+                pic,
+                postedBy,
                 publishedAt: Date.now()
             })
         }).then(res => res.json())
@@ -95,7 +97,15 @@ export default function CreateBlog() {
                                     [{ 'direction': 'rtl' }],
                                     [{ 'align': [] }],
                                     ['link', 'image', 'video'],
-                                    ['clean']]
+                                    ['clean']],
+                                    imageResize: {
+                                        displayStyles: {
+                                            backgroundColor: 'black',
+                                            border: 'none',
+                                            color: 'white'
+                                        },
+                                        modules: ['Resize', 'DisplaySize', 'Toolbar']
+                                    }
                                 }
                             }
                             value={body}
@@ -121,7 +131,7 @@ export default function CreateBlog() {
                             </div>
                         </div>
 
-                        <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem', paddingLeft: '2rem' }}>
+                        <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem', paddingLeft: '2rem', overflow: 'auto' }}>
                             <Container >
                                 <p dangerouslySetInnerHTML={{ __html: body }}></p>
                             </Container>
