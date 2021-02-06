@@ -66,6 +66,7 @@ function Signup() {
                                     <div className="form-label-group">
                                         <input type="password" id="inputPassword" className="form-control" placeholder="Password" required ref={password} />
                                         <label htmlFor="inputPassword">Password</label>
+                                        <em style={{ fontSize: "xx-small" }}>* password must between 8-15 characters containing at least one lowercase and one uppercase letter, one numeric digit, and one special character</em>
                                     </div>
                                     <div className="form-label-group">
                                         <input type="password" id="inputretypePassword" className="form-control" placeholder="Retype Password" required ref={confirmPassword} />
