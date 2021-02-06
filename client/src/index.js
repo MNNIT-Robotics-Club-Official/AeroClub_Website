@@ -21,8 +21,8 @@ const particlesOptions = {
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Particles className='particles'
-        params={particlesOptions} />
+      {/* <Particles className='particles'
+        params={particlesOptions} /> */}
       <App />
     </Router>
   </React.StrictMode>,

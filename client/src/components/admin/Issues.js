@@ -1,26 +1,13 @@
 import {
-  Create,
   Datagrid,
-  DateField,
-  DateInput,
-  DeleteButton,
   Edit,
   EditButton,
-  ImageField,
-  ImageInput,
   List,
-  number,
-  NumberInput,
-  required,
-  RichTextField,
   SelectInput,
-  Show,
   SimpleForm,
-  SimpleShowLayout,
   TextField,
   TextInput,
 } from "react-admin";
-import RichTextInput from "ra-input-rich-text";
 
 export const IssueList = (props) => {
   return (

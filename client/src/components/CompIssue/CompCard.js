@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import Popup from "./Popup";
 
@@ -9,7 +9,7 @@ export default function CompCard(props) {
     <div style={{}}>
       <p>{comp.name}</p>
       <div style={{ display: "flex" }}>
-        <img src={comp.image_url}  style={{width: "180px", height:"auto"}}/>
+        <img src={comp.image_url} style={{ width: "180px", height: "auto" }} />
         <div>
           <div>Total quantity: {comp.available + comp.issued}</div>
           <div>In Stock: {comp.available}</div>

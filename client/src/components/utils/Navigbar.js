@@ -1,13 +1,10 @@
 import { Button, Navbar, Nav, NavDropdown, DropdownButton } from 'react-bootstrap';
 import React, { useState } from "react";
-import "../css/navbar.css";
-import logo from "./circle-cropped.png";
+import "../../css/navbar.css";
+import logo from "../../images/utils/circle-cropped.png";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { Link as Scroll } from 'react-scroll';
-
-// const ScrollLink = Scroll.ScrollLink;
-
 
 const Login = () => {
 
@@ -24,6 +21,7 @@ const Login = () => {
         setLoggedIn(false)
         toast.success(data.message)
         history.push('/')
+        window.location.reload()
       })
   }
 
@@ -62,13 +60,13 @@ export default function Navigbar() {
               <NavDropdown.Item href="#action/3.4">PROSANG</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="More" id="basic-nav-dropdown" className="pad">
-              <NavDropdown.Item ><Link to="/Alumni" style={{ color: 'inherit', textDecoration: 'none' }}>Our Alumnis</Link></NavDropdown.Item>
+              <NavDropdown.Item ><Link to="/Alumni" style={{ color: 'inherit', textDecoration: 'none' }}>Our Members</Link></NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/news">News Section</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="https://tsaw.tech/">Our StartUps</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Our Sponsors</NavDropdown.Item>
+              {/* <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Our Sponsors</NavDropdown.Item> */}
             </NavDropdown>
             <Nav.Link><Scroll
               to="contact"

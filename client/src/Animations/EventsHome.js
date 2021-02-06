@@ -1,31 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import '../css/Eventhome.css';
-import { Navbar } from 'react-bootstrap';
+import { Accordion, Card } from 'react-bootstrap';
 
-class EventHome extends React.Component {
-  render() {
-    return (
+export default function EventHome() {
 
-      <div class="container-fluid">
-        <div className="pages">
-          <div className="jumbotron overlay">
-            <div className="pageTitle titleBold">
-              PROSANG
+  const [news, SetNews] = useState([])
+
+  useEffect(() => {
+    fetch('/api/news', {
+      method: 'get'
+    }).then(res => res.json())
+      .then(data => SetNews(data))
+  }, [])
+  return (
+
+    <div class="container-fluid">
+      <div className="pages">
+        <div className="jumbotron overlay">
+          <div className="pageTitle titleBold">
+            Updates
             </div>
-            <div className="miniSep"></div>
-            <p className="leftText pageTextCont">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <div className="miniSep"></div>
+          <div className='containernews leftText pageTextCont' style={{background: 'transparent'}}>
 
-            <div className="pageTitle titleBold">
-              AVISHKAR
-            </div>
-            <div className="miniSep"></div>
-            <p className="leftText pageTextCont">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <Accordion style={{background: 'transparent'}}>
+              {
+                news.map(singleNews => (
+                  <Card key={singleNews.id} style={{background: 'transparent'}}>
+                    <Card.Header className="card-cont" style={{ cursor: 'pointer'}}>
+                      <Accordion.Toggle as={Card.Header} eventKey={singleNews.id}>
+                        <div>
+                          {singleNews.title}
+                          <em className='float-right'>published on
+                                                {
+                              new Date(singleNews.publishedAt).toLocaleDateString()
+                            }
+                          </em>
+                        </div>
+                      </Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey={singleNews.id}>
+                      <Card.Body dangerouslySetInnerHTML={{ __html: singleNews.body }} style={{color: 'white'}}></Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                ))
+              }
+            </Accordion>
           </div>
+
         </div>
       </div>
+    </div>
 
-    )
-  }
+  )
 }
-
-export default EventHome;

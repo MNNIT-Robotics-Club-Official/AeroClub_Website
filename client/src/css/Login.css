@@ -5,22 +5,24 @@
   
   .login {
     height: 100vh; 
-    background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0,0,0,.6)) , url('../components/Pages/aeroclub.jpg') center center no-repeat;
+    background: url('../images/utils/wave.svg') rgb(166, 173, 233);
     background-size: cover;
     background-position: center;
-    color: rgb(226, 222, 222);
+    color: grey;
+    overflow: auto;
   }
   
   .card-signin {
+    border-radius: 20px !important;
     position: relative;
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+    background-color:rgb(29, 9, 37) !important;
     background: transparent;
-
+    
   }
-
+  
   .card-signin .card-title {
     margin-bottom: 2rem;
     font-weight: 300;
@@ -135,5 +137,14 @@
 }
 
 @media only screen and (max-width:400px){
-
+  .card-signin{
+    height: auto;
+    margin-top: 10% !important;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .login{
+    background: none !important;
+    height: 100%;
+  }
 }

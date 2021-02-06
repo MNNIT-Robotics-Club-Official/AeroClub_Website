@@ -47,6 +47,15 @@
     /* margin-top: 15px; */
 }
 
+.containernews {
+    background: transparent;
+    color: black;
+}
+
+.card-cont {
+    background-color:rgba(255, 255, 255, 0.897)
+}
+
 .leftText {
     width: calc(100% - 200px);
     margin-left: 100px;
@@ -74,7 +83,7 @@
     background-size: cover;
     padding-bottom: 0px;
 
-    background-color: #eee;
+    background-color: rgb(238, 238, 238);
     background-position: center;
     /* background-size: cover; */
     

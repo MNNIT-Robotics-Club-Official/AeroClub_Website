@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, Card } from 'react-bootstrap'
+import { Button, Container, Jumbotron } from 'react-bootstrap'
 
 export default function News() {
 
@@ -15,33 +16,43 @@ export default function News() {
     return (
         <div>
 
-            <h1>News and Announcements</h1>
-            <div className='container' style={{ minHeight: '60vh' }}>
-
-                <Accordion>
-                    {
-                        news.map(singleNews => (
-                            <Card key={singleNews.id}>
-                                <Card.Header style={{ cursor: 'pointer' }}>
-                                    <Accordion.Toggle as={Card.Header} eventKey={singleNews.id}>
-                                        <div>
-                                            {singleNews.title}
-                                            <em className='float-right'>published on
-                                                {
-                                                    new Date(singleNews.publishedAt).toLocaleDateString()
-                                                }
-                                            </em>
-                                        </div>
-                                    </Accordion.Toggle>
-                                </Card.Header>
-                                <Accordion.Collapse eventKey={singleNews.id}>
-                                    <Card.Body dangerouslySetInnerHTML={{ __html: singleNews.body }}></Card.Body>
-                                </Accordion.Collapse>
-                            </Card>
-                        ))
-                    }
-                </Accordion>
+            <div className="pagesg">
+                <div className="overlayg">
+                    <div className="pageTitleg titleBoldg">
+                        Updates
+                            </div>
+                </div>
             </div>
+            <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>
+                <Container>
+                    <div className='container' >
+
+                        <Accordion>
+                            {
+                                news.map(singleNews => (
+                                    <Card key={singleNews.id}>
+                                        <Card.Header style={{ cursor: 'pointer' }}>
+                                            <Accordion.Toggle as={Card.Header} eventKey={singleNews.id}>
+                                                <div>
+                                                    {singleNews.title}
+                                                    <em className='float-right'>published on
+                                                {
+                                                            new Date(singleNews.publishedAt).toLocaleDateString()
+                                                        }
+                                                    </em>
+                                                </div>
+                                            </Accordion.Toggle>
+                                        </Card.Header>
+                                        <Accordion.Collapse eventKey={singleNews.id}>
+                                            <Card.Body dangerouslySetInnerHTML={{ __html: singleNews.body }}></Card.Body>
+                                        </Accordion.Collapse>
+                                    </Card>
+                                ))
+                            }
+                        </Accordion>
+                    </div>
+                </Container>
+            </Jumbotron>
         </div>
     )
 }
