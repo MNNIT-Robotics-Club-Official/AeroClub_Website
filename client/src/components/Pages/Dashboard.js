@@ -11,7 +11,22 @@ function Dashboard() {
         if (!localStorage.getItem('jwtToken')) {
             history.push('/user/login')
             toast.warn('You must be logged in !')
+            return
         }
+
+        fetch('/api/isSignedIn', {
+            method: 'post',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+            }
+        }).then(res => res.json())
+            .then(data => {
+                if (data.eror) {
+                    history.push('/user/login')
+                    toast.warn(data.error)
+                }
+            })
+
     }, [])
 
     return (

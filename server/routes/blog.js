@@ -3,14 +3,23 @@ const router = express.Router()
 const Blog = require('../models/blog')
 const { isSignedIn, isAdmin } = require('../middleware/auth')
 
-// fetching all blogs
-router.get('/blogs', (req, res) => {
+// fetching all blogs through admin
+router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
     res.setHeader('Content-Range', 'blogs 0-10/20')
-    Blog.find({})
+    Blog.find({}).sort('-createdAt')
         .then(blogs => {
             let arr = []
             blogs.forEach(blog => arr.push(blog.transform()))
             res.json(arr)
+        })
+        .catch(e => console.log(e))
+})
+
+// fetching all accepted blogs to the frontend
+router.get('/blogs/toUI', (req, res) => {
+    Blog.find({ accepted: 'Yes' }).sort('-createdAt')
+        .then(blogs => {
+            res.json(blogs)
         })
         .catch(e => console.log(e))
 })
@@ -31,7 +40,7 @@ router.get('/blogs/:id', (req, res) => {
 })
 
 // creating a blog
-router.post('/blogs', isSignedIn, isAdmin, (req, res) => {
+router.post('/blogs', isSignedIn, (req, res) => {
 
     const blog = new Blog(req.body)
     blog.save().then(blog => {

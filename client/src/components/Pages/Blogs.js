@@ -7,7 +7,7 @@ function Blogs() {
     const [blogs, SetBlogs] = useState([])
 
     useEffect(() => {
-        fetch('/api/blogs', {
+        fetch('/api/blogs/toUI', {
             method: 'get'
         }).then(res => res.json())
             .then(data => SetBlogs(data))
@@ -33,16 +33,21 @@ function Blogs() {
 
                     {
                         blogs.slice((page - 1) * blogs_per_page, page * blogs_per_page).map(blog => (
-                            <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog.id}>
+                            <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog._id}>
                                 <Container>
                                     <h2>{blog.title}</h2>
                                     <p>Posted by {blog.postedBy} on {new Date(blog.publishedAt).toDateString()}</p>
-                                    <Button href={`blogs/${blog.id}`}>See More</Button>
+                                    <Button href={`blogs/${blog._id}`}>See More</Button>
                                 </Container>
                                 <hr />
                             </Jumbotron>
                         ))
                     }
+
+                    {
+                        !blogs.length && <h3 className='text-center mt-5'>No blogs available...!</h3>
+                    }
+
                     <div className='float-right mr-5 mb-5'>
                         {
 
