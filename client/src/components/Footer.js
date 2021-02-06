@@ -1,6 +1,8 @@
 import React from "react";
 import "../css/footer.css"
+import { Link } from "react-router-dom";
 import { SocialIcon } from 'react-social-icons';
+import { Link as Scroll } from 'react-scroll';
 
 export default function Footer() {
   return (
@@ -19,12 +21,19 @@ export default function Footer() {
                 <div className="col-xs-6 col-md-auto">
                   <h6>Quick-Links</h6>
                   <ul className="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#home">About Us</a></li>
+                    <li><Link to="/" >Home</Link></li>
+                    {/* <li><a href="#home">About Us</a></li> */}
                     <li><a href="#home">MNNIT</a></li>
-                    <li><a href="#home">Terms of Services</a></li>
-                    <li><a href="#home">Private Policy</a></li>
-                    <li><a href="#home">Contact Us</a></li>
+                    <li><a href="#home">Web Team</a></li>
+                    {/* <li><a href="#home">Terms of Services</a></li> */}
+                    {/* <li><a href="#home">Private Policy</a></li> */}
+                    <li><Scroll
+                      to="contact"
+                      spy={true}
+                      style={{cursor:"pointer"}}
+                      smooth={true}
+                      duration={1000}>Contacts</Scroll>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -32,11 +41,11 @@ export default function Footer() {
                 <div className="col-xs-6 col-md-auto">
                   <h6>Contributions</h6>
                   <ul className="footer-links">
-                    <li><a href="#home">Projects</a></li>
-                    <li><a href="#home">Blogs</a></li>
-                    <li><a href="#home">Gallery</a></li>
-                    <li><a href="#home">Videos</a></li>
-                    <li><a href="#home">Alumni</a></li>
+                    <li><Link to="/Projects" >Projects</Link></li>
+                    <li><Link to="/blogs" >Blogs</Link></li>
+                    <li><Link to="/Gallery" >Gallery</Link></li>
+                    <li><Link to="/news" >Updates</Link></li>
+                    <li><Link to="/Alumni" >Alumni</Link></li>
                   </ul>
                 </div>
               </div>
