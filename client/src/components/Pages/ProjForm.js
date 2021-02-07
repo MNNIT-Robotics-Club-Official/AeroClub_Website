@@ -35,7 +35,7 @@ export default function ProjForm(props) {
                 description: "",
                 objective: "",
               });
-              props.setnumProj(props.numProj+1)
+              props.setr(props.r+1)
           })
           .catch((err) => {
             console.log("error");

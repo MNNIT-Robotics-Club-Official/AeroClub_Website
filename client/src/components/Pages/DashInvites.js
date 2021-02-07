@@ -3,10 +3,12 @@ import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 
 export default function Dashprojects(props) {
+  const [numInvites, setnumInvites] = useState(0)
   const [projects, setProjects] = useState([]);
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
+    console.log("inv"+props.r);
     fetch("/api/my/invites", {
       method: "get",
       headers: {
@@ -18,8 +20,9 @@ export default function Dashprojects(props) {
       .then((data) => {
         console.log(data);
         setProjects(data);
+        setnumInvites(data.length)
       });
-  }, []);
+  }, [numInvites, props.r]);
 
   return (
     <div>
@@ -67,7 +70,7 @@ export default function Dashprojects(props) {
                               );
                             } else {
                               if ((member.user._id === props.user._id)) {
-                                badge = <LoadingButton projectId={project._id}/>;
+                                badge = <LoadingButton projectId={project._id} numInvites={numInvites} setnumInvites={numInvites} setr={props.setr} r={props.r}/>;
                               } else
                                 badge = (
                                   <span class="badge badge-pill badge-warning">
@@ -111,6 +114,7 @@ function LoadingButton(props) {
         }).then((res) => {
           setLoading(false);
           setDone(true);
+          props.setr(props.r+1);
         });
       }
     }, [isLoading]);
