@@ -19,33 +19,23 @@ exports.signup = (req, res) => {
       error: errors.array()[0].msg,
     });
   }
-  const user = new User(req.body);
-  user.save((err, u) => {
-    if (err)
-      return res.status(400).json({ error: "Email address already exists !" });
-    res
-      .status(400)
-      .json({ message: "Signedup success...Verify your email address!" });
-  });
-  const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-    expiresIn: "1h",
-  });
-  smtp.sendMail(
-    {
+
+  const user = new User(req.body)
+  user.save((err, newUser) => {
+    if (!newUser) return res.status(400).json({ error: "Email address already exists !" });
+    const jwtToken = jwt.sign({ _id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: '1h'
+    })
+    smtp.sendMail({
       from: process.env.USER,
       to: req.body.email,
-      subject: "Confirmation@aeroclubmnnit",
+      subject: 'Confirmation@aeroclubmnnit',
       html: `<h2>You requested for password reset</h2>
       <p>Click on this <a href="http://localhost:3000/user/confirm/${jwtToken}">link</a> to verify<p>`,
-    },
-    (err, info) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log("Email sent: " + info.response);
-      }
-    }
-  );
+    })
+    res.status(400).json({ message: "Signedup success...Verify your email address!" });
+  })
+
 };
 
 exports.confirm = (req, res) => {

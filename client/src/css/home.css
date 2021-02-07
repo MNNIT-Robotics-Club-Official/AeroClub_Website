@@ -33,7 +33,7 @@
 
 .jumbotron::after{
   content: "";
-  background: url('https://media.giphy.com/media/TgJ0KKEY8HByASy6Jt/giphy.gif') center center no-repeat;
+  /* background: url('https://media.giphy.com/media/TgJ0KKEY8HByASy6Jt/giphy.gif') center center no-repeat; */
   background-size: cover;
   opacity: 0.3;
   

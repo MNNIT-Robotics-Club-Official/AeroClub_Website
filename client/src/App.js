@@ -1,15 +1,15 @@
 import React from "react";
-import Navigbar from './components/Navigbar.js';
-import Footer from './components/Footer.js';
-import Home from './components/Home.js';
+import Navigbar from './components/utils/Navigbar.js';
+import Footer from './components/utils/Footer.js';
+import Home from './components/utils/Home.js';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import AdminComp from "./components/admin/AdminComp.js";
 import ImgSlider from './Animations/ImgSlider.js';
 import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
-import Featuredproject from './components/featured-proj';
+import Featuredproject from './components/utils/featured-proj';
 import Testimonials from './components/Testimonials';
-import Contactus from './components/ContactUs';
+import Contactus from './components/utils/ContactUs';
 import Login from "./components/Pages/Login";
 import Projects from "./components/Pages/Project";
 import SingleProject from "./components/Pages/SingleProject";
@@ -26,6 +26,7 @@ import Dashboard from "./components/Pages/Dashboard.js";
 import Confirmation from "./components/Pages/Confirmation.js";
 import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
+import CreateBlog from "./components/Pages/CreateBlog.js";
 
 function App() {
 
@@ -79,6 +80,9 @@ function App() {
             </Route>
             <Route path='/gallery' exact>
               <Gallery />
+            </Route>
+            <Route path='/user/createblog' exact>
+              <CreateBlog />
             </Route>
             <Route path='/user/dashboard' exact>
               <Dashboard />

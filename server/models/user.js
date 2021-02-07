@@ -16,6 +16,18 @@ var userSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    registration_no: {
+      type: String,
+      default: 'xxxxxxxx'
+    },
+    year: {
+      type: String,
+      default: 'x'
+    },
+    linkedin_url: {
+      type: String,
+      default: 'https://www.linkedin.com/in/username/'
+    },
     encry_password: {
       type: String,
       required: true,
