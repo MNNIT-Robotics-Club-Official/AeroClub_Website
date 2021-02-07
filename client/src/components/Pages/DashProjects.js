@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
+import ProjForm from './ProjForm';
 
 export default function Dashprojects(props) {
   const [projects, setProjects] = useState([]);
+  const [numProj, setnumProj] = useState(0)
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
@@ -18,8 +20,9 @@ export default function Dashprojects(props) {
       .then((data) => {
         console.log(data);
         setProjects(data);
+        setnumProj(data.length)
       });
-  }, []);
+  }, [numProj]);
 
   return (
     <div>
@@ -98,6 +101,20 @@ export default function Dashprojects(props) {
               </Card>
             );
           })}
+          <Card key="newProj">
+                <Card.Header style={{ cursor: "pointer" }}>
+                  <Accordion.Toggle as={Card.Header} eventKey="newProj">
+                    <h6>
+                      Create New Project
+                    </h6>
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey="newProj">
+                  <Card.Body>
+                    <ProjForm setnumProj={setnumProj} numProj={numProj}/>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
         </Accordion>
       </div>
     </div>
