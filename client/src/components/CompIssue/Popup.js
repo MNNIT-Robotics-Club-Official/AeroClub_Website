@@ -7,7 +7,6 @@ export default function Popup(props) {
   return (
     <Modal
       {...props}
-      size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -18,23 +17,26 @@ export default function Popup(props) {
       </Modal.Header>
       <Modal.Body>
         <div style={{ display: "flex" }}>
-          <img src={props.comp.image_url} fluid />
+          <img src={props.comp.image_url} style={{width:"150px", height:"150px"}} />
           <div>
             <div>
               Total quantity: {props.comp.available + props.comp.issued}
             </div>
             <div>In Stock: {props.comp.available}</div>
             <div>Issued: {props.comp.issued}</div>
-            <Button onClick={() => (num > 0 ? setnum(num - 1) : 0)}>-</Button>
-            <span>{num}</span>
-            <Button
+            <button className="btn btn-light" onClick={() => (num > 0 ? setnum(num - 1) : 0)}>-</button>
+            <span className="px-3">{num}</span>
+            <button
+            className="btn btn-light"
               onClick={() => (num < props.comp.available ? setnum(num + 1) : 0)}
             >
               +
-            </Button>
+            </button>
             <div>
               <input
+              className="form-control my-2"
                 type="text"
+                placeholder="Reason for request."
                 value={reason}
                 onChange={(event) => {
                   setreason(event.target.value);
@@ -75,7 +77,7 @@ function LoadingButton(props) {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
         },
         body: JSON.stringify(props.body),
       }).then((res) => {

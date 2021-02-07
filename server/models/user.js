@@ -8,17 +8,17 @@ var userSchema = new mongoose.Schema(
       type: String,
       required: true,
       maxlength: 32,
-      trim: true
+      trim: true,
     },
     email: {
       type: String,
       trim: true,
       required: true,
-      unique: true
+      unique: true,
     },
     encry_password: {
       type: String,
-      required: true
+      required: true,
     },
     confirmed: {
       type: Boolean,
@@ -27,9 +27,15 @@ var userSchema = new mongoose.Schema(
     salt: String,
     role: {
       type: Number,
-      default: 0
+      default: 0,
     },
-    reset_pass_session: Boolean
+    projects: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project",
+      },
+    ],
+    reset_pass_session: Boolean,
   },
   { timestamps: true }
 );
@@ -60,7 +66,7 @@ userSchema.methods = {
     } catch (err) {
       return "";
     }
-  }
+  },
 };
 
 module.exports = mongoose.model("User", userSchema);
