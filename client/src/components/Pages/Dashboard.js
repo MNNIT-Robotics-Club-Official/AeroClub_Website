@@ -10,8 +10,10 @@ import DashProfile from "./DashProfile";
 function Dashboard() {
   const history = useHistory();
   const [user, setuser] = useState({})
+  const [r, setr] = useState(0)
 
   useEffect(() => {
+    console.log("db" + r);
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
@@ -27,7 +29,7 @@ function Dashboard() {
       .then((data) => {
         setuser(data);
       });
-  }, []);
+  }, [r]);
 
   return (
     <div class="container">
@@ -105,7 +107,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects user={user} />
+          <DashProjects user={user} r={r} setr={setr} />
         </div>
         <div
           class="tab-pane fade"
@@ -113,7 +115,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites user={user} />
+          <DashInvites user={user} r={r} setr={setr} />
         </div>
         <div
           class="tab-pane fade"
@@ -121,7 +123,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-components-tab"
         >
-          <DashComp />
+          <DashComp r={r} setr={setr} />
         </div>
         <div
           class="tab-pane fade"

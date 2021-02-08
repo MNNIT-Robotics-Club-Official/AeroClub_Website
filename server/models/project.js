@@ -53,6 +53,10 @@ const projectSchema = new mongoose.Schema(
     issuedon: {
       type: Date,
     },
+    leader: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   { timestamps: true }
 );

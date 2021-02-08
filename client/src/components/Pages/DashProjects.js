@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
+import ProjForm from "./ProjForm";
 
 export default function Dashprojects(props) {
   const [projects, setProjects] = useState([]);
+  const [numProj, setnumProj] = useState(0);
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export default function Dashprojects(props) {
         console.log(data);
         setProjects(data);
       });
-  }, []);
+  }, [props.r]);
 
   return (
     <div>
@@ -54,9 +56,18 @@ export default function Dashprojects(props) {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        <Button onClick = {()=>{setModalShow(true)}}>
-                          Invite
-                        </Button>
+                        {props.user._id == project.leader ? (
+                          <Button
+                            onClick={() => {
+                              setModalShow(true);
+                            }}
+                          >
+                            Invite
+                          </Button>
+                        ) : (
+                          <span></span>
+                        )}
+
                         <ul>
                           {project.members.map((member) => {
                             let badge;
@@ -69,8 +80,8 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if ((member.user._id === props.user._id)) {
-                                badge = <LoadingButton projectId={project._id}/>;
+                              if (member.user._id === props.user._id) {
+                                badge = <spna></spna>;
                               } else
                                 badge = (
                                   <span class="badge badge-pill badge-warning">
@@ -94,10 +105,24 @@ export default function Dashprojects(props) {
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   projectId={project._id}
+                  r={props.r}
+                  setr={props.setr}
                 />
               </Card>
             );
           })}
+          <Card key="newProj">
+            <Card.Header style={{ cursor: "pointer" }}>
+              <Accordion.Toggle as={Card.Header} eventKey="newProj">
+                <h6>Create New Project</h6>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="newProj">
+              <Card.Body>
+                <ProjForm setr={props.setr} r={props.r} />
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
         </Accordion>
       </div>
     </div>
@@ -136,8 +161,10 @@ function MyVerticallyCenteredModal(props) {
             }).then((res) => {
               console.log(res);
               props.onHide();
-              if (res.status == 200) toast.success("USER INVITED");
-              else {
+              if (res.status == 200) {
+                toast.success("USER INVITED");
+                props.setr(props.r + 1);
+              } else {
                 res.json().then((data) => {
                   toast.error(data.error);
                 });
@@ -170,33 +197,3 @@ function MyVerticallyCenteredModal(props) {
     </Modal>
   );
 }
-function LoadingButton(props) {
-    const [isLoading, setLoading] = useState(false);
-  
-    useEffect(() => {
-      if (isLoading) {
-        fetch(`/api/my/invites/accept/${props.projectId}`, {
-          method: "get",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-          },
-        }).then((res) => {
-          setLoading(false);
-        });
-      }
-    }, [isLoading]);
-  
-    const handleClick = () => setLoading(true);
-  
-    return (
-      <Button
-        variant="primary"
-        disabled={isLoading}
-        onClick={!isLoading ? handleClick : null}
-      >
-        {isLoading ? "Loading…" : "Accept"}
-      </Button>
-    );
-  }
-  

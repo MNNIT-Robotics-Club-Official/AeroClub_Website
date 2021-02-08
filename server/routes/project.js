@@ -33,6 +33,7 @@ router.get("/projects/:id", (req, res) => {
 
 // creating a project
 router.post("/projects", isSignedIn, (req, res) => {
+  req.body.leader=req.user._id;
   const project = new Project(req.body);
   // console.log(req.body)
   project.members.push(
@@ -114,7 +115,7 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
       });
     }
     userId = user._id;
-    console.log(user);
+    // console.log(user);
     Project.findById(projectId).exec((err, project) => {
       if (err || !project) {
         return res.status(400).json({
