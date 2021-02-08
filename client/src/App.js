@@ -8,7 +8,7 @@ import ImgSlider from './Animations/ImgSlider.js';
 import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
 import Featuredproject from './components/utils/featured-proj';
-import Testimonials from './components/Testimonials';
+import Testimonials from './components/utils/Testimonials';
 import Contactus from './components/utils/ContactUs';
 import Login from "./components/Pages/Login";
 import Projects from "./components/Pages/Project";
