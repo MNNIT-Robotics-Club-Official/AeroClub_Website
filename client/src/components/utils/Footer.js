@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/footer.css"
+import "../../css/footer.css"
 import { Link } from "react-router-dom";
 import { SocialIcon } from 'react-social-icons';
 import { Link as Scroll } from 'react-scroll';
@@ -30,7 +30,7 @@ export default function Footer() {
                     <li><Scroll
                       to="contact"
                       spy={true}
-                      style={{cursor:"pointer"}}
+                      style={{ cursor: "pointer" }}
                       smooth={true}
                       duration={1000}>Contacts</Scroll>
                     </li>

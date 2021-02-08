@@ -1,13 +1,10 @@
 import { Button, Navbar, Nav, NavDropdown, DropdownButton } from 'react-bootstrap';
 import React, { useState } from "react";
-import "../css/navbar.css";
-import logo from "./circle-cropped.png";
+import "../../css/navbar.css";
+import logo from "../../images/utils/circle-cropped.png";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { Link as Scroll } from 'react-scroll';
-
-// const ScrollLink = Scroll.ScrollLink;
-
 
 const Login = () => {
 
@@ -24,6 +21,7 @@ const Login = () => {
         setLoggedIn(false)
         toast.success(data.message)
         history.push('/')
+        window.location.reload()
       })
   }
 

@@ -9,7 +9,8 @@ require('dotenv').config()
 mongoose.connect(process.env.MONGO_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
-	useCreateIndex: true
+	useCreateIndex: true,
+	useFindAndModify: false
 })
 mongoose.connection.on('connected', () => {
 	console.log('connected to mongodb')
@@ -19,7 +20,8 @@ mongoose.connection.on('connected', () => {
 const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/blog");
 const componentRoutes = require("./routes/component");
-const compIssueRoutes = require("./routes/compIssueRoutes");
+const issueRoutes = require("./routes/issue");
+const userRoutes = require("./routes/user");
 const projectRoutes = require("./routes/project");
 const newsRoutes = require('./routes/news')
 
@@ -30,9 +32,11 @@ app.use(express.json())
 app.use("/api", authRoutes);
 app.use("/api", blogRoutes);
 app.use("/api", componentRoutes);
-app.use("/api", compIssueRoutes);
+app.use("/api", issueRoutes);
 app.use("/api", projectRoutes);
 app.use('/api', newsRoutes);
+app.use('/api', userRoutes);
+
 
 app.listen(port, () => {
 	console.log(`Server Started at ${port}`);

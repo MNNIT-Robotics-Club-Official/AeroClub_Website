@@ -40,6 +40,7 @@ function Login() {
 					localStorage.setItem('jwtToken', data.token)
 					toast.success(data.message)
 					history.push('/user/dashboard')
+					window.location.reload()
 				}
 			})
 	}

@@ -30,12 +30,6 @@ router.get(
     }
 );
 
-router.get(
-    "/issue/my",
-    isSignedIn,
-    getMyRequests
-)
-
 router.put(
     "/issue/:issueId",
     isSignedIn,

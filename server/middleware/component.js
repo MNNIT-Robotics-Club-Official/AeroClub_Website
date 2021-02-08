@@ -17,7 +17,7 @@ exports.getAllComponents = (req, res) => {
   Component.find({}).exec((err, components) => {
     if (err) {
       return res.status(400).json({
-        error: "NO product FOUND",
+        error: "Not FOUND",
       });
     }
     let arr = [];
@@ -31,7 +31,7 @@ exports.getAllComponentsFilter = (req, res) => {
   Component.find({}).exec((err, dataList) => {
     if (err) {
       return res.status(400).json({
-        error: "NO product FOUND",
+        error: "Not FOUND",
       });
     }
     let comps = {};

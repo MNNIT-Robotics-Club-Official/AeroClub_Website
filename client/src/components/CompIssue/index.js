@@ -21,7 +21,7 @@ export default function CompIssue() {
   }, []);
 
   return (
-    <>
+    <div className="container">
       <Loading />
       <Tabs
         id="controlled-tab-example"
@@ -29,7 +29,7 @@ export default function CompIssue() {
         onSelect={(k) => setKey(k)}
       >
         {types.map((type) => (
-          <Tab eventKey={type} title={type} key={type}>
+          <Tab eventKey={type} title={type.toUpperCase()} key={type}>
             <div className="d-flex flex-wrap">
               {components[type].map((comp) => (
                 <CompCard comp={comp} />
@@ -38,6 +38,6 @@ export default function CompIssue() {
           </Tab>
         ))}
       </Tabs>
-    </>
+    </div>
   );
 }

@@ -23,7 +23,7 @@
 
 .cont:after {
     content:'';
-    background-image: url('../components/dronepic.jpg') center center no-repeat;
+    background-image: url('../images/utils/dronepic.jpg') center center no-repeat;
     background-size: cover;
     position: absolute;
     top:0px;
