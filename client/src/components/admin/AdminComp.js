@@ -8,6 +8,7 @@ import { ProjectCreate, ProjectEdit, ProjectList, ProjectShow } from './Project'
 import simpleRestProvider from 'ra-data-simple-rest';
 import { fetchUtils } from 'react-admin';
 import { NewsCreate, NewsEdit, NewsList, NewsShow } from './News'
+import { UserList, UserShow } from './Users'
 
 function AdminComp() {
 
@@ -24,6 +25,7 @@ function AdminComp() {
         <Admin
             authProvider={authProvider}
             dataProvider={simpleRestProvider('http://localhost:3000/api', httpClient)}>
+            <Resource name='users' list={UserList} show={UserShow} />
             <Resource name='projects' list={ProjectList} create={ProjectCreate} edit={ProjectEdit} show={ProjectShow} />
             <Resource name='blogs' list={BlogList} create={BlogCreate} edit={BlogEdit} show={BlogShow} />
             <Resource name='issue' list={IssueList} edit={IssueEdit} />

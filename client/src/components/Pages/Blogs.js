@@ -23,14 +23,13 @@ function Blogs() {
                 <div className="overlayg">
                     <div className="pageTitleg titleBoldg">
                         BLOGS
-                            </div>
+                    </div>
                 </div>
             </div>
 
             <div style={{ background: 'white', overflow: 'hidden' }} >
                 <Loading time={2} />
                 <div>
-
                     {
                         blogs.slice((page - 1) * blogs_per_page, page * blogs_per_page).map(blog => (
                             <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog._id}>
@@ -43,11 +42,9 @@ function Blogs() {
                             </Jumbotron>
                         ))
                     }
-
                     {
                         !blogs.length && <h3 className='text-center mt-5'>No blogs available...!</h3>
                     }
-
                     <div className='float-right mr-5 mb-5'>
                         {
 

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  ChipField,
   Create,
   Datagrid,
   DateField,
@@ -9,6 +10,7 @@ import {
   EditButton,
   ImageField,
   List,
+  ReferenceField,
   required,
   RichTextField,
   SelectInput,
@@ -28,8 +30,10 @@ export const BlogList = (props) => {
       <Datagrid>
         <TextField source="id" />
         <TextField source="title" />
-        <TextField source="postedBy" label="Posted By" />
-        <DateField source="publishedAt" label="Published At" />
+        <ReferenceField label="Posted By" source="postedBy" reference="users" linkType="show">
+          <ChipField source="name" />
+        </ReferenceField>
+        <DateField source="publishedAt" label="Published On" />
         <TextField source="accepted" />
         <ShowButton basePath='/blogs' />
         <EditButton basePath="/blogs" />

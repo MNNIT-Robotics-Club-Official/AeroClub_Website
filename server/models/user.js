@@ -47,6 +47,12 @@ var userSchema = new mongoose.Schema(
         ref: "Project",
       },
     ],
+    blogs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Blog",
+      },
+    ],
     reset_pass_session: Boolean,
   },
   { timestamps: true }
@@ -80,5 +86,15 @@ userSchema.methods = {
     }
   },
 };
+
+userSchema.method('transform', function () {
+  let obj = this.toObject()
+  obj.id = obj._id;
+  delete obj._id;
+  delete obj.role;
+  delete obj.salt;
+  delete obj.encry_password;
+  return obj;
+});
 
 module.exports = mongoose.model("User", userSchema);

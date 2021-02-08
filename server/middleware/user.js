@@ -3,8 +3,37 @@ const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
 
+exports.getAllUsers = (req, res) => {
+  res.setHeader('Content-Range', 'users 0-10/20')
+  user.find({}).sort('-createdAt')
+    .then(users => {
+      let arr = []
+      users.forEach(user => arr.push(user.transform()))
+      res.json(arr)
+    })
+    .catch(e => console.log(e))
+}
 
-exports.requestComponent = (req, res, next) => {
+exports.getSingleUser = (req, res) => {
+  if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.json({ error: 'not found !' })
+  }
+  user.findById(req.params.id)
+    .then(user => {
+      if (!user) return res.json({ error: 'not found !' })
+      res.json(user.transform())
+    })
+    .catch(e => console.log(e))
+}
+
+exports.deleteUser = (req, res) => {
+  user.findByIdAndDelete(req.params.id, (err, user) => {
+    if (err) return res.status(500).send(err)
+    return res.json({ user })
+  })
+}
+
+exports.requestComponent = (req, res) => {
   let component = req.component;
   if (component.available < req.body.num) {
     return res.status(400).json({
