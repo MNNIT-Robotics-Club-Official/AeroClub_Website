@@ -91,7 +91,6 @@ userSchema.method('transform', function () {
   let obj = this.toObject()
   obj.id = obj._id;
   delete obj._id;
-  delete obj.role;
   delete obj.salt;
   delete obj.encry_password;
   return obj;

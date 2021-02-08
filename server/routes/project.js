@@ -18,6 +18,19 @@ router.get("/projects", (req, res) => {
     .catch((e) => console.log(e));
 });
 
+router.get("/projects/approved", (req, res) => {
+  Project.find({approved: true })
+    .populate({ path: 'members.user', select: 'name' })
+    .exec((err, projects) => {
+      if (err) {
+        return res.status(400).json({
+          error: err.message
+        })
+      }
+      res.json(projects);
+    });
+});
+
 // fetching a projects with id
 router.get("/projects/:id", (req, res) => {
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
@@ -25,6 +38,7 @@ router.get("/projects/:id", (req, res) => {
   }
 
   Project.findOne({ _id: req.params.id })
+  .populate({ path: 'members.user'})
     .then((project) => {
       res.json(project.transform());
     })

@@ -27,6 +27,7 @@ import Confirmation from "./components/Pages/Confirmation.js";
 import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
 import CreateBlog from "./components/Pages/CreateBlog.js";
+import Events from "./components/Pages/Events";
 
 function App() {
 
@@ -107,6 +108,9 @@ function App() {
             </Route>
             <Route path='/news' exact>
               <News />
+            </Route>
+            <Route path='/events' exact>
+              <Events />
             </Route>
             <Route >
               <Redirect to='/404' />

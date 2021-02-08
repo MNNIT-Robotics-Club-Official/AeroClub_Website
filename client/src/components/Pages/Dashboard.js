@@ -13,7 +13,6 @@ function Dashboard() {
   const [r, setr] = useState(0)
 
   useEffect(() => {
-    console.log("db" + r);
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");

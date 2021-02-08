@@ -9,14 +9,14 @@ function Projects() {
     const [projects, SetProjects] = useState([])
 
     useEffect(() => {
-        fetch('/api/projects', {
+        fetch('/api/projects/approved', {
             method: 'get'
         }).then(res => res.json())
-            .then(data => SetProjects(data))
+            .then(data => {console.log(data) ;return SetProjects(data)})
     }, [])
 
     const [page, SetPage] = useState(1)
-    const projects_per_page = 1
+    const projects_per_page = 6
     const no_of_pages = Math.ceil(projects.length / projects_per_page)
 
     return (
@@ -36,7 +36,7 @@ function Projects() {
                     {
                         projects.slice((page - 1) * projects_per_page, page * projects_per_page).map(project => (
                             <li className="cards_item">
-                                <div className="card">
+                                <div className="card cardproj">
                                     <div className="card_image"><img src={project.pic} /></div>
                                     <div className="card_content">
                                         <h2 className="card_title" style={{ fontSize: 23 }}>{project.title}</h2>
@@ -44,7 +44,7 @@ function Projects() {
                                         <p className="card_text" style={{ marginTop: 0, marginBottom: 0 }}>Project Status : {project.status}</p>
                                         <p className="card_text" style={{ marginTop: 0, marginBottom: 0 }}>Issued on {new Date(project.issuedon).toDateString()}</p>
 
-                                        <Button className="btns card_btns" href={`projects/${project.id}`} style={{ marginTop: 10 }}>Read More</Button>
+                                        <Button className="btns card_btns" href={`projects/${project._id}`} style={{ marginTop: 10 }}>Read More</Button>
                                     </div>
                                 </div>
                             </li>

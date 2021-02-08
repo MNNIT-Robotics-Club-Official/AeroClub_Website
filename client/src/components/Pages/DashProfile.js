@@ -8,6 +8,7 @@ export default function DashProfile({ user, setUser }) {
     const [regis_no, setRegis_no] = useState('')
     const [year, setYear] = useState(-1)
     const [linkedin, setLinkedin] = useState('')
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setName(user.name)
@@ -17,29 +18,33 @@ export default function DashProfile({ user, setUser }) {
     }, [user])
 
     const handleSaveChange = () => {
-        setDisabled(true)
-
-        fetch('/api/my/updateProfile', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
-            },
-            body: JSON.stringify({
-                name,
-                email: user.email,
-                registration_no: regis_no,
-                year,
-                linkedin_url: linkedin
-            })
-        }).then(res => res.json())
-            .then(data => {
-                if (data.error) toast.warn(data.error)
-                else {
-                    setUser(data.user)
-                    toast.success('Profile updated successfully !')
-                }
-            })
+        if (year <= 4) {
+            setDisabled(true)
+            setLoading(true)
+            fetch('/api/my/updateProfile', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
+                },
+                body: JSON.stringify({
+                    name,
+                    email: user.email,
+                    registration_no: regis_no,
+                    year,
+                    linkedin_url: linkedin
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.error) toast.warn(data.error)
+                    else {
+                        setUser(data.user)
+                        toast.success('Profile updated successfully !')
+                        setLoading(false)
+                    }
+                })
+        }
+        else toast.warn('Year must be between 1-4 !')
     }
 
     return (
@@ -65,7 +70,7 @@ export default function DashProfile({ user, setUser }) {
             <div className="mb-3 row">
                 <label htmlFor="year" className="col-sm-2 col-form-label">Year : </label>
                 <div className="col-sm-10">
-                    <input type="number" min={1} max={4} className="form-control" id="year" value={year} disabled={disabled} onChange={(e) => setYear(e.target.value)} />
+                    <input type="number" min="1" max="4" maxLength="1" className="form-control" id="year" value={year} disabled={disabled} onChange={(e) => setYear(e.target.value)} />
                 </div>
             </div>
             <div className="mb-3 row">
@@ -76,7 +81,7 @@ export default function DashProfile({ user, setUser }) {
             </div>
             {
                 disabled ?
-                    <button className="btn btn-primary" onClick={() => setDisabled(false)}>Edit Profile</button>
+                    <button className="btn btn-primary" onClick={() => setDisabled(false)}>{loading ? 'loading...' : 'Edit Changes'}</button>
                     :
                     <button className="btn btn-primary" onClick={handleSaveChange}>Save Changes</button>
             }

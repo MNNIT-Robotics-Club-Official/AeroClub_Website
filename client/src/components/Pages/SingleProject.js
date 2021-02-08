@@ -46,8 +46,9 @@ function SingleProject() {
                     <p dangerouslySetInnerHTML={{ __html: project?.status }}></p>
 
                     <h4>Members:</h4>
-                    <p> {project?.member.map(function (d, idx) {
-                        return (<li key={idx}>{d.member}</li>)
+                    <p> {project?.members.map(function (d, idx) {
+                        console.log(d);
+                        return (<li key={idx}>{d.user.name}</li>)
                     })}</p>
                 </Container>
                 <hr />

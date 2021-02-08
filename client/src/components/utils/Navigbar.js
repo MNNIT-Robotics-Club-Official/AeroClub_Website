@@ -54,11 +54,12 @@ export default function Navigbar() {
             <Nav.Link><Link to="/blogs" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Blogs</Link></Nav.Link>
             <Nav.Link ><Link to="/Gallery" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Gallery</Link></Nav.Link>
             <Nav.Link ><Link to="/projects" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</Link></Nav.Link>
-            <NavDropdown title="Events" id="basic-nav-dropdown" className="pad">
+            <Nav.Link ><Link to="/Events" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Events</Link></Nav.Link>
+            {/* <NavDropdown title="Events" id="basic-nav-dropdown" className="pad">
               <NavDropdown.Item href="#action/3.3">AVISHKAR</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">PROSANG</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <NavDropdown title="More" id="basic-nav-dropdown" className="pad">
               <NavDropdown.Item ><Link to="/Alumni" style={{ color: 'inherit', textDecoration: 'none' }}>Our Members</Link></NavDropdown.Item>
               <NavDropdown.Divider />
@@ -68,7 +69,8 @@ export default function Navigbar() {
               {/* <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Our Sponsors</NavDropdown.Item> */}
             </NavDropdown>
-            <Nav.Link><Scroll
+            <Nav.Link><Link to="/Workshop" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Workshops</Link></Nav.Link>
+            {/* <Nav.Link><Scroll
               to="contact"
               spy={true}
               smooth={true}
@@ -76,7 +78,7 @@ export default function Navigbar() {
               className="pad"
               style={{ color: 'inherit', textDecoration: 'none' }}
             > Contact
-            </Scroll></Nav.Link>
+            </Scroll></Nav.Link> */}
             {/* <Nav.Link href="https://tsaw.tech/"><span className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</span></Nav.Link> */}
           </Nav>
           <p className="bt"><Button href="/sponsor" variant="light" className="mr-sm-2 my-2">Donate</Button></p>

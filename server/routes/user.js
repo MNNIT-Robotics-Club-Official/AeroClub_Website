@@ -3,7 +3,6 @@ const { isSignedIn, isAdmin } = require("../middleware/auth");
 const { getMyRequests, getMyProjects, getMyInvites, acceptInvite, getMyDetails, updateMyProfile, getAllUsers, getSingleUser, deleteUser } = require("../middleware/user");
 const router = express.Router();
 
-
 router.get('/users', getAllUsers)
 router.get('/users/:id', getSingleUser)
 router.delete('/users/:id', isSignedIn, isAdmin, deleteUser)
