@@ -5,6 +5,7 @@ import "../../css/Dashboard.css";
 import DashComp from "./DashComp";
 import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
+import DashProfile from "./DashProfile";
 
 function Dashboard() {
   const history = useHistory();
@@ -96,7 +97,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          {user.name}
+          <DashProfile user={user} setUser={setuser} />
         </div>
         <div
           class="tab-pane fade"
@@ -104,7 +105,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects user = {user}/>
+          <DashProjects user={user} />
         </div>
         <div
           class="tab-pane fade"
@@ -112,7 +113,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites user = {user}/>
+          <DashInvites user={user} />
         </div>
         <div
           class="tab-pane fade"

@@ -3,6 +3,7 @@ const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
 
+
 exports.requestComponent = (req, res, next) => {
   let component = req.component;
   if (component.available < req.body.num) {
@@ -143,7 +144,7 @@ exports.getMyRequests = (req, res) => {
 exports.getMyProjects = (req, res) => {
   user
     .findOne({ _id: req.user._id })
-    .populate({ path: 'projects' ,populate: { path: 'members.user', select: 'name'}})
+    .populate({ path: 'projects', populate: { path: 'members.user', select: 'name' } })
     .exec((err, user) => {
       if (err) {
         return res.status(400).json({
@@ -155,17 +156,28 @@ exports.getMyProjects = (req, res) => {
 };
 
 exports.getMyInvites = (req, res) => {
-  Project.find({ members: { $elemMatch: {user: req.user._id, accepted: false} } })
-  .populate({ path: 'members.user', select: 'name'})
-  .exec((err, projects) => {
-    if(err){
-      return res.status(400).json({
-        error: err.message
-      })
-    }
-    res.json(projects);
-  });
+  Project.find({ members: { $elemMatch: { user: req.user._id, accepted: false } } })
+    .populate({ path: 'members.user', select: 'name' })
+    .exec((err, projects) => {
+      if (err) {
+        return res.status(400).json({
+          error: err.message
+        })
+      }
+      res.json(projects);
+    });
 };
+
+exports.updateMyProfile = (req, res) => {
+  user.findOneAndUpdate({ _id: req.user._id }, req.body, { new: true }, (e, updatedUser) => {
+
+    if (e) return res.status(400).json({
+      error: 'User cannot be updated !'
+    })
+
+    return res.json({ user: updatedUser })
+  })
+}
 exports.getMyDetails = (req, res) => {
   res.json(req.user);
 };
@@ -173,16 +185,16 @@ exports.getMyDetails = (req, res) => {
 exports.acceptInvite = (req, res) => {
   const projectId = req.params.projectId;
   const userId = req.user._id;
-  Project.findOne({_id: projectId})
-    .exec((err, project)=>{
+  Project.findOne({ _id: projectId })
+    .exec((err, project) => {
       if (err || !project) {
         return res.status(400).json({
           error: "Project not found in DB",
         });
       }
       let isInvited = false;
-      let i=0;
-      for (;i<project.members.length;i++) {
+      let i = 0;
+      for (; i < project.members.length; i++) {
         if (JSON.stringify(project.members[i].user) === JSON.stringify(userId)) {
           isInvited = true;
           break;

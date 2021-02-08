@@ -21,8 +21,8 @@ var userSchema = new mongoose.Schema(
       default: 'xxxxxxxx'
     },
     year: {
-      type: String,
-      default: 'x'
+      type: Number,
+      default: -1
     },
     linkedin_url: {
       type: String,
