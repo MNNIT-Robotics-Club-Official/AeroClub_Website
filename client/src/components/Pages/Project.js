@@ -36,7 +36,7 @@ function Projects() {
                     {
                         projects.slice((page - 1) * projects_per_page, page * projects_per_page).map(project => (
                             <li className="cards_item">
-                                <div className="card">
+                                <div className="card cardproj">
                                     <div className="card_image"><img src={project.pic} /></div>
                                     <div className="card_content">
                                         <h2 className="card_title" style={{ fontSize: 23 }}>{project.title}</h2>

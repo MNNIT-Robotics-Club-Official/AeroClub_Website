@@ -8,7 +8,7 @@ export default function Featuredproject() {
             <div className="pageTitle titleBold header white-heading padtop">Featured Projects</div>
             <ul className="cards">
               <li className="cards_item">
-                <div className="card">
+                <div className="card cardproj">
                   <div className="card_image"><img src="https://picsum.photos/500/300/?image=10" /></div>
                   <div className="card_content">
                     <h2 className="card_title">Card Grid Layout</h2>
@@ -18,7 +18,7 @@ export default function Featuredproject() {
                 </div>
               </li>
               <li className="cards_item">
-                <div className="card">
+                <div className="card cardproj">
                   <div className="card_image"><img src="https://picsum.photos/500/300/?image=5" /></div>
                   <div className="card_content">
                     <h2 className="card_title">Card Grid Layout</h2>
@@ -28,7 +28,7 @@ export default function Featuredproject() {
                 </div>
               </li>
               <li className="cards_item">
-                <div className="card">
+                <div className="card cardproj">
                   <div className="card_image"><img src="https://picsum.photos/500/300/?image=11" /></div>
                   <div className="card_content">
                     <h2 className="card_title">Card Grid Layout</h2>

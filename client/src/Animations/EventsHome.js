@@ -14,38 +14,35 @@ export default function EventHome() {
   }, [])
   return (
 
+
     <div class="container-fluid">
       <div className="pages">
         <div className="jumbotron overlay">
-          <div className="pageTitle titleBold">
+          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white' }}>
             Updates
             </div>
-          <div className="miniSep"></div>
-          <div className='containernews leftText pageTextCont' style={{background: 'transparent'}}>
-
-            <Accordion style={{background: 'transparent'}}>
-              {
-                news.map(singleNews => (
-                  <Card key={singleNews.id} style={{background: 'transparent'}}>
-                    <Card.Header className="card-cont" style={{ cursor: 'pointer'}}>
-                      <Accordion.Toggle as={Card.Header} eventKey={singleNews.id}>
-                        <div>
-                          {singleNews.title}
-                          <em className='float-right'>published on
-                                                {
+          {/* <div className="miniSep"></div> */}
+          <div className='containernews leftText pageTextCont' style={{ background: 'transparent' }}>
+          
+            <div className="tickerv-wrap">
+            
+            <ul>
+            {
+            news.map(singleNews =>(
+              <div style={{padding:'10px'}}>
+              <li style={{fontSize:'21px'}}>{singleNews.title}<span className='float-right' style={{fontSize:'15px'}}> .. -published on{
                               new Date(singleNews.publishedAt).toLocaleDateString()
-                            }
-                          </em>
-                        </div>
-                      </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey={singleNews.id}>
-                      <Card.Body dangerouslySetInnerHTML={{ __html: singleNews.body }} style={{color: 'white'}}></Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                ))
-              }
-            </Accordion>
+                            }</span></li>
+                            </div>
+            ))
+            }
+            </ul>
+            </div>
+            <p className="cent">
+                        <a class="btn btn-info" href="/news" role="button" style={{margin: '10px'}}>
+                            Details
+                    </a></p>
+          
           </div>
 
         </div>

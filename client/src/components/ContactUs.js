@@ -34,7 +34,7 @@ export default function Featuredproject() {
                     </li>
 
                 </ul>
-                <div className="jumbotron">
+                {/* <div className="jumbotron">
                     <p className="cent">
                         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Write Us!
@@ -48,7 +48,7 @@ export default function Featuredproject() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
         </Element>
