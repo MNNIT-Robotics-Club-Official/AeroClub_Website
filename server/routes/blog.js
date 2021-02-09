@@ -17,7 +17,16 @@ router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
 
 // fetching all accepted blogs to the frontend
 router.get('/blogs/toUI', (req, res) => {
-    Blog.find({ accepted: 'Yes' }).sort('-createdAt').populate('postedBy', 'name registration_no year linkedin_url')
+    Blog.find({ accepted: true }).sort('-createdAt').populate('postedBy', 'name registration_no year linkedin_url')
+        .then(blogs => {
+            res.json(blogs)
+        })
+        .catch(e => console.log(e))
+})
+
+// fetching all blogs of a user
+router.get('/blogs/toUser', isSignedIn, (req, res) => {
+    Blog.find({ postedBy: req.user._id }).sort('-createdAt').populate('postedBy', 'email')
         .then(blogs => {
             res.json(blogs)
         })

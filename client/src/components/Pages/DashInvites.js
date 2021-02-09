@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
-import { toast } from "react-toastify";
+import { Accordion, Card, Button } from "react-bootstrap";
 
 export default function Dashprojects(props) {
   const [numInvites, setnumInvites] = useState(0)
   const [projects, setProjects] = useState([]);
-  const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
-    console.log("inv"+props.r);
+    console.log("inv" + props.r);
     fetch("/api/my/invites", {
       method: "get",
       headers: {
@@ -70,7 +68,7 @@ export default function Dashprojects(props) {
                               );
                             } else {
                               if ((member.user._id === props.user._id)) {
-                                badge = <LoadingButton projectId={project._id} numInvites={numInvites} setnumInvites={numInvites} setr={props.setr} r={props.r}/>;
+                                badge = <LoadingButton projectId={project._id} numInvites={numInvites} setnumInvites={numInvites} setr={props.setr} r={props.r} />;
                               } else
                                 badge = (
                                   <span class="badge badge-pill badge-warning">
@@ -93,6 +91,11 @@ export default function Dashprojects(props) {
               </Card>
             );
           })}
+
+          {
+            projects.length === 0 && <p className='text-center'>No invites available ...!</p>
+          }
+
         </Accordion>
       </div>
     </div>
@@ -100,35 +103,34 @@ export default function Dashprojects(props) {
 }
 
 function LoadingButton(props) {
-    const [isLoading, setLoading] = useState(false);
-    const [isdone, setDone] = useState(false);
-  
-    useEffect(() => {
-      if (isLoading) {
-        fetch(`/api/my/invites/accept/${props.projectId}`, {
-          method: "get",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-          },
-        }).then((res) => {
-          setLoading(false);
-          setDone(true);
-          props.setr(props.r+1);
-        });
-      }
-    }, [isLoading]);
-  
-    const handleClick = () => setLoading(true);
-  
-    return (
-      <Button
-        variant="primary"
-        disabled={isdone}
-        onClick={!isLoading ? handleClick : null}
-      >
-        {isLoading ? "Loading…" : isdone ? "Accepted" :"Accept"}
-      </Button>
-    );
-  }
-  
+  const [isLoading, setLoading] = useState(false);
+  const [isdone, setDone] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      fetch(`/api/my/invites/accept/${props.projectId}`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+        },
+      }).then((res) => {
+        setLoading(false);
+        setDone(true);
+        props.setr(props.r + 1);
+      });
+    }
+  }, [isLoading]);
+
+  const handleClick = () => setLoading(true);
+
+  return (
+    <Button
+      variant="primary"
+      disabled={isdone}
+      onClick={!isLoading ? handleClick : null}
+    >
+      {isLoading ? "Loading…" : isdone ? "Accepted" : "Accept"}
+    </Button>
+  );
+}

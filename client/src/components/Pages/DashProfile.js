@@ -81,7 +81,7 @@ export default function DashProfile({ user, setUser }) {
             </div>
             {
                 disabled ?
-                    <button className="btn btn-primary" onClick={() => setDisabled(false)}>{loading ? 'loading...' : 'Edit Changes'}</button>
+                    <button className="btn btn-primary" onClick={() => setDisabled(false)}>{loading ? 'loading...' : 'Edit Profile'}</button>
                     :
                     <button className="btn btn-primary" onClick={handleSaveChange}>Save Changes</button>
             }

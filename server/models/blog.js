@@ -21,9 +21,8 @@ const blogSchema = new mongoose.Schema({
         type: Date
     },
     accepted: {
-        type: String,
-        default: "No",
-        enum: ["Yes", "No"]
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true })
 

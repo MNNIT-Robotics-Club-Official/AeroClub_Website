@@ -42,7 +42,7 @@ function Blogs() {
                                 <Container>
                                     <h2>{blog.title}</h2>
                                     <p>Posted by {blog.postedBy.linkedin_url !== "https://www.linkedin.com/in/username/" ? <a href={blog.postedBy.linkedin_url} target='_blank'>{blog.postedBy.name}</a> : blog.postedBy.name} {`(reg. no :- ${blog.postedBy.registration_no == 'xxxxxxxx' ? 'NA' : blog.postedBy.registration_no}, ${blog.postedBy.year == -1 ? 'year - NA' : year[blog.postedBy.year]})`} on {new Date(blog.publishedAt).toLocaleDateString()}</p>
-                                    <Button href={`blogs/${blog._id}`}>See More</Button>
+                                    <Button href={`/blogs/${blog._id}`}>See More</Button>
                                 </Container>
                                 <hr />
                             </Jumbotron>

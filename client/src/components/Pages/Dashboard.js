@@ -6,6 +6,7 @@ import DashComp from "./DashComp";
 import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
+import DashBlogs from "./DashBlogs";
 
 function Dashboard() {
   const history = useHistory();
@@ -130,7 +131,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-blogs-tab"
         >
-          blogs
+          <DashBlogs user={user} />
         </div>
       </div>
     </div>
