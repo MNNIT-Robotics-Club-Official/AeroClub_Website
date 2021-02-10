@@ -3,15 +3,15 @@ import { Accordion, Card } from 'react-bootstrap'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
 
 export default function News() {
-  const [news, SetNews] = useState([]);
+    const [news, SetNews] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/news", {
-      method: "get",
-    })
-      .then((res) => res.json())
-      .then((data) => SetNews(data));
-  }, []);
+    useEffect(() => {
+        fetch("/api/news", {
+            method: "get",
+        })
+            .then((res) => res.json())
+            .then((data) => SetNews(data));
+    }, []);
 
     useEffect(() => {
         fetch('/api/news', {

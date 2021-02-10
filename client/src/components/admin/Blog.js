@@ -1,5 +1,8 @@
 import React from "react";
 import {
+  BooleanField,
+  BooleanInput,
+  ChipField,
   Create,
   Datagrid,
   DateField,
@@ -9,6 +12,7 @@ import {
   EditButton,
   ImageField,
   List,
+  ReferenceField,
   required,
   RichTextField,
   SelectInput,
@@ -28,9 +32,11 @@ export const BlogList = (props) => {
       <Datagrid>
         <TextField source="id" />
         <TextField source="title" />
-        <TextField source="postedBy" label="Posted By" />
-        <DateField source="publishedAt" label="Published At" />
-        <TextField source="accepted" />
+        <ReferenceField label="Posted By" source="postedBy" reference="users" linkType="show">
+          <ChipField source="name" />
+        </ReferenceField>
+        <DateField source="publishedAt" label="Published On" />
+        <BooleanField source="accepted" />
         <ShowButton basePath='/blogs' />
         <EditButton basePath="/blogs" />
         <DeleteButton basePath="/blogs" />
@@ -65,13 +71,7 @@ export const BlogCreate = (props) => {
           label="Published At"
           defaultValue={new Date()}
         />
-        <SelectInput
-          source="accepted"
-          choices={[
-            { id: "yes", name: "Yes" },
-            { id: "no", name: "No" },
-          ]}
-        />
+        <BooleanInput source="accepted" />
       </SimpleForm>
     </Create>
   );
@@ -86,7 +86,7 @@ export const BlogShow = (props) => {
         <TextField source="postedBy" label="Posted By" />
         <ImageField source="pic" label="Image" />
         <DateField source="publishedAt" label="Published At" />
-        <TextField source="accepted" />
+        <BooleanField source="accepted" />
       </SimpleShowLayout>
     </Show>
   );
@@ -120,13 +120,7 @@ export const BlogEdit = (props) => {
           label="Published At"
           validate={required()}
         />
-        <SelectInput
-          source="accepted"
-          choices={[
-            { id: "Yes", name: "Yes" },
-            { id: "No", name: "No" },
-          ]}
-        />
+        <BooleanInput source="accepted" />
       </SimpleForm>
     </Edit>
   );

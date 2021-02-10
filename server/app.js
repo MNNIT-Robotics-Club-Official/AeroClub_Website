@@ -24,6 +24,7 @@ const issueRoutes = require("./routes/issue");
 const userRoutes = require("./routes/user");
 const projectRoutes = require("./routes/project");
 const newsRoutes = require('./routes/news')
+const workshopRoutes = require('./routes/workshop');
 
 // app specific
 app.use(express.json())
@@ -36,6 +37,7 @@ app.use("/api", issueRoutes);
 app.use("/api", projectRoutes);
 app.use('/api', newsRoutes);
 app.use('/api', userRoutes);
+app.use('/api', workshopRoutes);
 
 
 app.listen(port, () => {

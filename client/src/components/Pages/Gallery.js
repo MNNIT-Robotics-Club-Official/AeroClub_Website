@@ -9,7 +9,7 @@ export default function Gallery() {
     const imgs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     const imgs_per_page = 6
     const no_of_pages = Math.ceil(imgs.length / imgs_per_page)
-    var checkp=0;
+    var checkp = 0;
 
     const imglink = ["https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/bridge.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/park.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/tunnel.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/traffic.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/rails.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/coast.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/traffic.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/rails.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/coast.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/bridge.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/park.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/tunnel.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/traffic.jpg", "https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/rails.jpg"]
 
@@ -29,15 +29,15 @@ export default function Gallery() {
                 <div class="row">
 
                     {
-                        
+
                         imgs.slice((page - 1) * imgs_per_page, page * imgs_per_page).map(k => (
-                            
+
                             <div class="col-sm-12 col-md-4">
-                            
-                                <a className="lightbox" href={imglink[k-1]}>
-                                    <img className="gallery-imageg" src={imglink[k-1]} alt="bridge" />
+
+                                <a className="lightbox" href={imglink[k - 1]}>
+                                    <img className="gallery-imageg" src={imglink[k - 1]} alt="bridge" />
                                 </a>
-                                
+
                             </div>
 
                         ))
@@ -52,14 +52,14 @@ export default function Gallery() {
 
                     (page > 1) && <Button className='mx-1' onClick={() => {
                         SetPage(page => page - 1)
-                        checkp-=1;
+                        checkp -= 1;
                     }}>🡨 Previous</Button>
 
                 }
                 {
                     (page < no_of_pages) && <Button className='mx-1' onClick={() => {
                         SetPage(page => page + 1)
-                        checkp+=1;
+                        checkp += 1;
                     }}>Next 🡪</Button>
                 }
             </div>

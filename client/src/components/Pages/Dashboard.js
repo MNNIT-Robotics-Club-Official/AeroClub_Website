@@ -6,6 +6,7 @@ import DashComp from "./DashComp";
 import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
+import DashBlogs from "./DashBlogs";
 
 function Dashboard() {
   const history = useHistory();
@@ -13,7 +14,6 @@ function Dashboard() {
   const [r, setr] = useState(0)
 
   useEffect(() => {
-    console.log("db" + r);
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
@@ -131,7 +131,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-blogs-tab"
         >
-          blogs
+          <DashBlogs user={user} />
         </div>
       </div>
     </div>

@@ -17,7 +17,16 @@ router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
 
 // fetching all accepted blogs to the frontend
 router.get('/blogs/toUI', (req, res) => {
-    Blog.find({ accepted: 'Yes' }).sort('-createdAt')
+    Blog.find({ accepted: true }).sort('-createdAt').populate('postedBy', 'name registration_no year linkedin_url')
+        .then(blogs => {
+            res.json(blogs)
+        })
+        .catch(e => console.log(e))
+})
+
+// fetching all blogs of a user
+router.get('/blogs/toUser', isSignedIn, (req, res) => {
+    Blog.find({ postedBy: req.user._id }).sort('-createdAt').populate('postedBy', 'email')
         .then(blogs => {
             res.json(blogs)
         })
@@ -32,6 +41,21 @@ router.get('/blogs/:id', (req, res) => {
     }
 
     Blog.findById(req.params.id)
+        .then(blog => {
+            if (!blog) return res.json({ error: 'not found !' })
+            res.json(blog.transform())
+        })
+        .catch(e => console.log(e))
+})
+
+// fetching a blog with id to the frontend
+router.get('/blogstoUI/:id', (req, res) => {
+
+    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+        return res.json({ error: 'not found !' })
+    }
+
+    Blog.findById(req.params.id).populate('postedBy', 'name registration_no year linkedin_url')
         .then(blog => {
             if (!blog) return res.json({ error: 'not found !' })
             res.json(blog.transform())

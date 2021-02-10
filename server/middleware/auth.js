@@ -212,7 +212,6 @@ exports.resetVerify = (req, res, next) => {
 };
 
 exports.isAdmin = (req, res, next) => {
-  console.log(req.user);
   if (req.user.role === 0) {
     return res.status(403).json({
       error: "You are not ADMIN, Access denied",
