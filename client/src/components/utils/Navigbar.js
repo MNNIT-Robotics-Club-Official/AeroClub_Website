@@ -81,7 +81,7 @@ export default function Navigbar() {
             </Scroll></Nav.Link> */}
             {/* <Nav.Link href="https://tsaw.tech/"><span className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</span></Nav.Link> */}
           </Nav>
-          <p className="bt"><Button href="/sponsor" variant="light" className="mr-sm-2 my-2">Donate</Button></p>
+          {/* <p className="bt"><Button href="/sponsor" variant="light" className="mr-sm-2 my-2">Donate</Button></p> */}
           <Login />
         </Navbar.Collapse>
       </Navbar>

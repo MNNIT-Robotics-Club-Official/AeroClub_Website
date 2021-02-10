@@ -201,7 +201,7 @@
 }
 .testimonial4_slide:after {
     content:'';
-    background-color: #2f344e;
+    background-color: rgb(32, 32, 32);;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
     background-size: cover;
     position: absolute;
@@ -233,13 +233,13 @@
     -webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
 }
 .testimonial4_slide p {
-    color: #c6c6ff;
+    color: #ffffff;
     font-size: 20px;
     line-height: 1.4;
     margin: 40px 0 20px 0;
 }
 .testimonial4_slide h4 {
-  color: #d1dcfd;
+  color: rgb(32, 32, 32);
   font-size: 22px;
 }
 

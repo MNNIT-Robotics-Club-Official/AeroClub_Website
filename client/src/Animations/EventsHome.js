@@ -30,7 +30,7 @@ export default function EventHome() {
             {
             news.map(singleNews =>(
               <div style={{padding:'10px'}}>
-              <li style={{fontSize:'21px'}}>{singleNews.title}<span className='float-right' style={{fontSize:'15px'}}> .. -published on{
+              <li className='font-change1' style={{fontSize:'21px'}}>{singleNews.title}<span className='float-right font-change2' style={{fontSize:'15px'}}> -on {
                               new Date(singleNews.publishedAt).toLocaleDateString()
                             }</span></li>
                             </div>

@@ -33,12 +33,12 @@ export default function Events() {
                         <div className="container">
                             <div className="row">
                                 <div className="col-xs-12 col-sm-4">
-                                    <div className="card">
+                                    <div className="card cardev">
                                         <a className="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
                                             <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
                                         </a>
-                                        <div className="card-content">
-                                            <h4 className="card-title">
+                                        <div className="card-content cardev-content">
+                                            <h4 className="card-title cardev-title">
                                                 <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
                                                 </a>
                                             </h4>
@@ -54,12 +54,12 @@ export default function Events() {
                                     </div>
                                 </div>
                                 <div className="col-xs-12 col-sm-4">
-                                    <div className="card">
+                                    <div className="card cardev">
                                         <a className="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
                                             <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
                                         </a>
-                                        <div className="card-content">
-                                            <h4 className="card-title">
+                                        <div className="card-content cardev-content">
+                                            <h4 className="card-title cardev-title">
                                                 <a href="http://www.fostrap.com/2016/02/awesome-material-design-responsive-menu.html"> Material Design Responsive Menu
                                                 </a>
                                             </h4>
@@ -75,12 +75,12 @@ export default function Events() {
                                     </div>
                                 </div>
                                 <div className="col-xs-12 col-sm-4">
-                                    <div className="card">
+                                    <div className="card cardev">
                                         <a className="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
                                             <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
                                         </a>
-                                        <div className="card-content">
-                                            <h4 className="card-title">
+                                        <div className="card-content cardev-content">
+                                            <h4 className="card-title cardev-title">
                                                 <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">5  Button Hover Animation Effects
                                                 </a>
                                             </h4>
@@ -120,14 +120,14 @@ export default function Events() {
                 <div className="collapse" id="collapseExample2">
                     <div className="content">
                         <div className="container">
-                            <div className="row">
+                        <div className="row">
                                 <div className="col-xs-12 col-sm-4">
-                                    <div className="card">
+                                    <div className="card cardev">
                                         <a className="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
                                             <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
                                         </a>
-                                        <div className="card-content">
-                                            <h4 className="card-title">
+                                        <div className="card-content cardev-content">
+                                            <h4 className="card-title cardev-title">
                                                 <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
                                                 </a>
                                             </h4>
@@ -143,12 +143,12 @@ export default function Events() {
                                     </div>
                                 </div>
                                 <div className="col-xs-12 col-sm-4">
-                                    <div className="card">
+                                    <div className="card cardev">
                                         <a className="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
                                             <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
                                         </a>
-                                        <div className="card-content">
-                                            <h4 className="card-title">
+                                        <div className="card-content cardev-content">
+                                            <h4 className="card-title cardev-title">
                                                 <a href="http://www.fostrap.com/2016/02/awesome-material-design-responsive-menu.html"> Material Design Responsive Menu
                                                 </a>
                                             </h4>
@@ -164,12 +164,12 @@ export default function Events() {
                                     </div>
                                 </div>
                                 <div className="col-xs-12 col-sm-4">
-                                    <div className="card">
+                                    <div className="card cardev">
                                         <a className="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
                                             <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
                                         </a>
-                                        <div className="card-content">
-                                            <h4 className="card-title">
+                                        <div className="card-content cardev-content">
+                                            <h4 className="card-title cardev-title">
                                                 <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">5  Button Hover Animation Effects
                                                 </a>
                                             </h4>

@@ -38,7 +38,7 @@
   max-width: 1400px;
   margin: 1rem auto;
   padding: 0 3rem 2rem 3rem;
-  background-color: rgba(43, 45, 61, 0.144);
+  /* background-color: rgba(255, 0, 0, 0.144); */
   border-radius: 1.5rem;
   /* background-size: cover; */
 }
@@ -153,7 +153,7 @@ img {
   padding: 1rem;
   background: transparent;
   /* background: linear-gradient(to left, rgb(51, 60, 97), #d1d1d1 100%); */
-  background-color: rgb(48, 48, 71);
+  background-color:  rgb(48, 48, 71);
   /* opacity: 0.; */
 }
 

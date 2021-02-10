@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Loading from '../../Animations/Loading';
 import '../../css/featured-proj.css';
-import '../../css/Gallery.css';
+// import '../../css/Gallery.css';
 
 function Projects() {
 

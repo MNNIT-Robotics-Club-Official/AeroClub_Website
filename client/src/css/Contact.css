@@ -32,7 +32,7 @@
 
 .contc:after {
     content:'';
-    background: rgb(48, 48, 71);
+    background:  rgb(48, 48, 71);
     background-size: cover;
     position: absolute;
     top:0px;
