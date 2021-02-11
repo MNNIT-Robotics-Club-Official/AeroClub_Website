@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
+import baseURL from "../../baseURL"
 import Loading from '../../Animations/Loading';
 import '../../css/featured-proj.css';
 // import '../../css/Gallery.css';
@@ -9,7 +10,7 @@ function Projects() {
     const [projects, SetProjects] = useState([])
 
     useEffect(() => {
-        fetch('/api/projects/approved', {
+        fetch(`${baseURL}/api/projects/approved`, {
             method: 'get'
         }).then(res => res.json())
             .then(data => {console.log(data) ;return SetProjects(data)})

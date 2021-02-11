@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
+import baseURL from "../../baseURL"
+
 
 export default function News() {
     const [news, SetNews] = useState([]);
 
     useEffect(() => {
-        fetch("/api/news", {
+        fetch(`${baseURL}/api/news`, {
             method: "get",
         })
             .then((res) => res.json())
-            .then((data) => SetNews(data));
+            .then((data) => {
+                return SetNews(data)
+            });
     }, []);
 
     useEffect(() => {
-        fetch('/api/news', {
+        fetch(`${baseURL}/api/news`, {
             method: 'get'
         }).then(res => res.json())
             .then(data => SetNews(data))

@@ -7,6 +7,7 @@ import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
+import baseURL from "../../baseURL";
 
 function Dashboard() {
   const history = useHistory();
@@ -18,7 +19,7 @@ function Dashboard() {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
-    fetch("/api/my/details", {
+    fetch(`${baseURL}/api/my/details`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",

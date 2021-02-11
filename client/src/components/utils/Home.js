@@ -2,8 +2,10 @@ import React from "react";
 import Hometext from "./hometext.js";
 import "../../css/home.css";
 import logo from "../../images/utils/logo-aero2.png";
+import baseURL from '../../baseURL'
 
 export default function Home() {
+  console.log(baseURL);
   return (
     <>
       <div >

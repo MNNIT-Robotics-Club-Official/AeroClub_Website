@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import baseURL from "../../baseURL"
 
 export default function Popup(props) {
   const [num, setnum] = useState(0);
@@ -73,7 +74,7 @@ function LoadingButton(props) {
 
   useEffect(() => {
     if (isLoading) {
-      fetch(`/api/issue/${props.id}`, {
+      fetch(`${baseURL}/api/issue/${props.id}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

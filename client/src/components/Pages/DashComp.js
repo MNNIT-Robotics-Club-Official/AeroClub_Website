@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import baseURL from "../../baseURL"
 
 export default function DashComp() {
   const history = useHistory();
@@ -10,7 +11,7 @@ export default function DashComp() {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
-    fetch("/api/my/issue", {
+    fetch(`${baseURL}/api/my/issue` , {
       method: "get",
       headers: {
         "Content-Type": "application/json",

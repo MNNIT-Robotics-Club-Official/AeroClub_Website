@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import baseURL from "../../baseURL"
+
 import '../../css/Login.css'
 
 function ForgetPassword() {
@@ -12,7 +14,7 @@ function ForgetPassword() {
 
         e.preventDefault()
 
-        fetch('/api/forget-password', {
+        fetch(`${baseURL}/api/forget-password`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'

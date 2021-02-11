@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
+import baseURL from "../../baseURL"
 import Loading from '../../Animations/Loading'
 
 function Blogs() {
@@ -7,7 +8,7 @@ function Blogs() {
     const [blogs, SetBlogs] = useState([])
 
     useEffect(() => {
-        fetch('/api/blogs/toUI', {
+        fetch(`${baseURL}/api/blogs/toUI`, {
             method: 'get'
         }).then(res => res.json())
             .then(data => SetBlogs(data))

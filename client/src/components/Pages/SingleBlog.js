@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import '../../css/SingleBlog.css'
 import Loading from '../../Animations/Loading'
 import { Container, Jumbotron } from 'react-bootstrap'
+import baseURL from "../../baseURL"
 
 function SingleBlog() {
 
@@ -18,7 +19,7 @@ function SingleBlog() {
     }
 
     useEffect(() => {
-        fetch(`/api/blogstoUI/${blogId}`, {
+        fetch(`${baseURL}/api/blogstoUI/${blogId}`, {
             method: 'get'
         }).then(res => res.json())
             .then(data => {

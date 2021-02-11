@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import baseURL from "../../baseURL"
+
 import '../../css/Login.css'
 
 function PasswordReset() {
@@ -12,7 +14,7 @@ function PasswordReset() {
 
     useEffect(() => {
 
-        fetch('/api/resetverify', {
+        fetch(`${baseURL}/api/resetverify`, {
             method: 'post',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -33,7 +35,7 @@ function PasswordReset() {
             return
         }
 
-        fetch('/api/reset-password', {
+        fetch(`${baseURL}/api/reset-password`, {
             method: 'post',
             headers: {
                 'Authorization': `Bearer ${token}`,

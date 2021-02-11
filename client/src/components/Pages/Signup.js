@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import '../../css/Login.css'
 import { toast } from 'react-toastify'
+import baseURL from "../../baseURL"
 
 function Signup() {
 
@@ -24,7 +25,7 @@ function Signup() {
             return
         }
 
-        fetch('/api/signup', {
+        fetch(`${baseURL}/api/signup`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'

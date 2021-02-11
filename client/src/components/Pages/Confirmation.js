@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import baseURL from '../../baseURL'
 
 export default function Confirmation() {
 
@@ -9,7 +10,7 @@ export default function Confirmation() {
 
     useEffect(() => {
         if (token) {
-            fetch('/api/user/confirm', {
+            fetch(`${baseURL}/api/user/confirm`, {
                 method: 'post',
                 headers: {
                     'Authorization': `Bearer ${token}`

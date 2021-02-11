@@ -5,6 +5,7 @@ import logo from "../../images/utils/circle-cropped.png";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { Link as Scroll } from 'react-scroll';
+import baseURL from '../../baseURL';
 
 const Login = () => {
 
@@ -12,7 +13,7 @@ const Login = () => {
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('jwtToken') ? true : false)
 
   const handleLogout = () => {
-    fetch('/api/signout', {
+    fetch(`${baseURL}/api/signout`, {
       method: 'post'
     }).then(res => res.json())
       .then(data => {
