@@ -1,6 +1,7 @@
 const { request } = require('express');
 const express = require('express');
 const app = express();
+var cors = require('cors');
 const mongoose = require('mongoose')
 const port = 5000;
 require('dotenv').config()
@@ -28,6 +29,7 @@ const workshopRoutes = require('./routes/workshop');
 
 // app specific
 app.use(express.json())
+app.use(cors())
 
 //Adding routes to the app
 app.use("/api", authRoutes);
