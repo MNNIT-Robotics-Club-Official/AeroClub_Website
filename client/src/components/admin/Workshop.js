@@ -16,6 +16,7 @@ import {
     SimpleShowLayout,
     TextField,
     TextInput,
+    UrlField,
 } from "react-admin";
 
 import RichTextInput from "ra-input-rich-text";
@@ -40,7 +41,7 @@ export const WorkshopCreate = (props) => {
         <Create {...props}>
             <SimpleForm redirect="/workshop">
                 <TextInput source="name" label="Name" />
-                <TextInput source="brochure" label="Brochure_Link" />
+                <TextInput source="brochure" label="Brochure Link" />
                 <RichTextInput source="about" label="About"
                     toolbar={[['bold', 'italic', 'underline', 'strike'],
                     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
@@ -70,6 +71,7 @@ export const WorkshopShow = (props) => {
         <Show {...props} title="Workshop Show">
             <SimpleShowLayout>
                 <TextField source="name" label="Name" />
+                <UrlField source="brochure" label="Brochure Link" />
                 <RichTextField source="about" label="About" />
                 <DateField source="date" label="date" />
             </SimpleShowLayout>

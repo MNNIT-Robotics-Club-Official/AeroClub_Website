@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../css/Eventhome.css';
-
+import { baseURL, baseTitle } from "../baseUtils"
 export default function EventHome() {
 
   const [news, SetNews] = useState([])
   const history = useHistory()
 
   useEffect(() => {
-    fetch('/api/news', {
+    fetch(`${baseURL}/api/news`, {
       method: 'get'
     }).then(res => res.json())
       .then(data => SetNews(data))
