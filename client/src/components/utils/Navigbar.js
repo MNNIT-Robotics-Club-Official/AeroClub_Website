@@ -69,7 +69,7 @@ export default function Navigbar() {
               {/* <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Our Sponsors</NavDropdown.Item> */}
             </NavDropdown>
-            <Nav.Link><Link to="/Workshop" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Workshops</Link></Nav.Link>
+            <Nav.Link><Link to="/workshop" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Workshops</Link></Nav.Link>
             {/* <Nav.Link><Scroll
               to="contact"
               spy={true}

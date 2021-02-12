@@ -28,6 +28,7 @@ import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
 import CreateBlog from "./components/Pages/CreateBlog.js";
 import Events from "./components/Pages/Events";
+import Workshop from "./components/Pages/Workshop";
 
 function App() {
 
@@ -111,6 +112,9 @@ function App() {
             </Route>
             <Route path='/events' exact>
               <Events />
+            </Route>
+            <Route path='/workshop' exact>
+              <Workshop />
             </Route>
             <Route >
               <Redirect to='/404' />

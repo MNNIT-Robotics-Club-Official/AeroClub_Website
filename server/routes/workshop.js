@@ -4,7 +4,7 @@ const router = express.Router()
 const Workshop = require('../models/worksop')
 
 router.get("/workshop", (req, res)=>{
-    res.setHeader('Content-Range', 'blogs 0-10/20')
+    res.setHeader('Content-Range', 'workshops 0-10/20')
     Workshop.find({}).sort('date')
         .then(workshops => {
             let arr = []
