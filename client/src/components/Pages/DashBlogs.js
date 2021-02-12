@@ -80,6 +80,9 @@ export default function DashBlogs({ user }) {
                     ))
                 }
             </Accordion>
+            <div className="d-flex justify-content-center align-items-center mt-5">
+                <Button size='lg' href='/user/createblog'>Create Blog</Button>
+            </div>
         </div>
     )
 }
