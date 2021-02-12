@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import '../../css/SingleProject.css'
 import Loading from '../../Animations/Loading'
 import { Container, Jumbotron } from 'react-bootstrap'
+import { baseURL } from "../../baseUtils"
 
 function SingleProject() {
 
@@ -11,7 +12,7 @@ function SingleProject() {
     const history = useHistory()
 
     useEffect(() => {
-        fetch(`/api/projects/${projectId}`, {
+        fetch(`${baseURL}/api/projects/${projectId}`, {
             method: 'get'
         }).then(res => res.json())
             .then(data => {

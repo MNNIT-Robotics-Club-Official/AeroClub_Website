@@ -6,9 +6,12 @@ import ImageResize from 'quill-image-resize'
 import 'react-quill/dist/quill.snow.css'
 import '../../css/CreateBlog.css'
 import { Button, Container, Jumbotron, Tab, Tabs } from 'react-bootstrap'
+import { baseURL, baseTitle } from '../../baseUtils'
 Quill.register('modules/imageResize', ImageResize)
 
 export default function CreateBlog() {
+
+    document.title = `${baseTitle} | CreateBlog`
 
     const history = useHistory()
     const [title, setTitle] = useState('')
@@ -23,7 +26,7 @@ export default function CreateBlog() {
             return
         }
 
-        fetch(`/api/isSignedIn`, {
+        fetch(`${baseURL}/api/isSignedIn`, {
             method: 'post',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`
@@ -46,7 +49,7 @@ export default function CreateBlog() {
             return
         }
 
-        fetch(`/api/blogs`, {
+        fetch(`${baseURL}/api/blogs`, {
             method: 'post',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,

@@ -1,6 +1,10 @@
 import React from 'react'
+import { baseTitle } from '../../baseUtils'
 
 export default function NotFound() {
+
+    document.title = `${baseTitle} - 404`
+
     return (
         <div className='d-flex flex-column justify-content-center align-items-center' style={{ height: '100vh' }}>
             <h1 className='fw-bold'>404 error ...!</h1>

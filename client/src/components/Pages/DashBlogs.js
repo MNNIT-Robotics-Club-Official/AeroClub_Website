@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, Badge, Button, Card, Container, Jumbotron } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { baseURL } from "../../baseUtils"
 
 export default function DashBlogs({ user }) {
 
@@ -14,7 +15,7 @@ export default function DashBlogs({ user }) {
     }
 
     useEffect(() => {
-        fetch('/api/blogs/toUser', {
+        fetch(`${baseURL}/api/blogs/toUser`, {
             method: 'get',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,

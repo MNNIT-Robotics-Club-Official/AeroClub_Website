@@ -10,6 +10,7 @@ import { fetchUtils } from 'react-admin';
 import { NewsCreate, NewsEdit, NewsList, NewsShow } from './News'
 import { WorkshopCreate, WorkshopEdit, WorkshopList, WorkshopShow } from './Workshop'
 import { UserList, UserShow } from './Users'
+import { baseURL } from '../../baseUtils'
 
 function AdminComp() {
 
@@ -25,7 +26,7 @@ function AdminComp() {
     return (
         <Admin
             authProvider={authProvider}
-            dataProvider={simpleRestProvider('http://localhost:3000/api', httpClient)}>
+            dataProvider={simpleRestProvider(`${baseURL}/api`, httpClient)}>
             <Resource name='users' list={UserList} show={UserShow} />
             <Resource name='projects' list={ProjectList} create={ProjectCreate} edit={ProjectEdit} show={ProjectShow} />
             <Resource name='blogs' list={BlogList} create={BlogCreate} edit={BlogEdit} show={BlogShow} />

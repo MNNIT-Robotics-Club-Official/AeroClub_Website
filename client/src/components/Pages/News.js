@@ -3,14 +3,18 @@ import { Accordion, Card } from 'react-bootstrap'
 import { Container, Jumbotron } from 'react-bootstrap'
 import { animateScroll as scroll } from 'react-scroll'
 import createHistory from 'history/createBrowserHistory'
+import { baseTitle, baseURL } from '../../baseUtils'
 
 export default function News() {
+
+    document.title = `${baseTitle} | Updates`
+
     const [news, SetNews] = useState([]);
     const [eventKey, setEventKey] = useState('')
 
     useEffect(() => {
 
-        fetch("/api/news", {
+        fetch(`${baseURL}/api/news`, {
             method: "get",
         })
             .then((res) => res.json())

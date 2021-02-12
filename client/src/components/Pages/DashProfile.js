@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
+import { baseURL } from "../../baseUtils"
+
 
 export default function DashProfile({ user, setUser }) {
 
@@ -21,7 +23,7 @@ export default function DashProfile({ user, setUser }) {
         if (year <= 4) {
             setDisabled(true)
             setLoading(true)
-            fetch('/api/my/updateProfile', {
+            fetch(`${baseURL}/api/my/updateProfile`, {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',

@@ -30,7 +30,7 @@ export default function EventHome() {
               <ul>
                 {
                   news.map(singleNews => (
-                    <div style={{ padding: '10px', cursor: 'pointer' }} onClick={() => {
+                    <div style={{ padding: '10px', cursor: 'pointer' }} key={singleNews.id} onClick={() => {
                       history.push({
                         pathname: '/news',
                         state: {

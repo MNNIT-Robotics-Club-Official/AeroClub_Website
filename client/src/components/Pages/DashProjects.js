@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
+import { baseURL } from "../../baseUtils"
 
 export default function Dashprojects(props) {
   const [projects, setProjects] = useState([]);
@@ -9,7 +10,7 @@ export default function Dashprojects(props) {
   const [modalShow, setModalShow] = React.useState(false);
 
   useEffect(() => {
-    fetch("/api/my/projects", {
+    fetch(`${baseURL}/api/my/projects`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -65,8 +66,8 @@ export default function Dashprojects(props) {
                             Invite
                           </Button>
                         ) : (
-                          <span></span>
-                        )}
+                            <span></span>
+                          )}
 
                         <ul>
                           {project.members.map((member) => {
@@ -148,7 +149,7 @@ function MyVerticallyCenteredModal(props) {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-            fetch(`/api/projects/invite`, {
+            fetch(`${baseURL}/api/projects/invite`, {
               method: "post",
               headers: {
                 "Content-Type": "application/json",

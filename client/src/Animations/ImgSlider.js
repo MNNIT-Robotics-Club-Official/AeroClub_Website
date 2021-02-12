@@ -4,7 +4,7 @@ import '../css/ImgSlider.css';
 class ImgSlider extends React.Component {
   render() {
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <div className="frame"></div>
       </div>
     )
