@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../css/Eventhome.css';
-import { baseURL, baseTitle } from "../../baseUtils"
+import { baseURL, baseTitle } from "../baseUtils"
 export default function EventHome() {
 
   const [news, SetNews] = useState([])
