@@ -29,7 +29,7 @@ const Login = () => {
     <>
       {
         loggedIn ?
-          <Dropdown>
+          <Dropdown className="pad">
             <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2'>
               Profile
             </Dropdown.Toggle>
@@ -44,7 +44,7 @@ const Login = () => {
           //   <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
           // </DropdownButton>
           :
-          <p className="bt"><Button variant="info" className="mr-sm-2 my-2"><Link to="/user/login" style={{ color: 'inherit', textDecoration: 'none' }}>Login</Link></Button></p>
+          <p className="bt pad"><Button variant="info" className="mr-sm-2 my-2"><Link to="/user/login" style={{ color: 'inherit', textDecoration: 'none' }}>Login</Link></Button></p>
       }
     </>
   )
@@ -76,10 +76,6 @@ export default function Navigbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="https://tsaw.tech/" eventKey='startups'>Our StartUps</NavDropdown.Item>
             </NavDropdown>
-<<<<<<< HEAD
-            <Nav.Link><Link to="/workshop" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Workshops</Link></Nav.Link>
-=======
->>>>>>> 70837eb501da4ea41fa752c4976f5a43e699791b
             {/* <Nav.Link><Scroll
               to="contact"
               spy={true}
@@ -90,8 +86,9 @@ export default function Navigbar() {
             > Contact
             </Scroll></Nav.Link> */}
             {/* <Nav.Link href="https://tsaw.tech/"><span className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</span></Nav.Link> */}
+            <Login />
           </Nav>
-          <Login />
+         
         </Navbar.Collapse>
       </Navbar>
     </>
