@@ -9,6 +9,8 @@ const { findById } = require("../models/user");
 // fetching all projects
 router.get("/projects", (req, res) => {
   res.setHeader("Content-Range", "projects 0-10/20");
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+
   Project.find({})
     .then((projects) => {
       let arr = [];

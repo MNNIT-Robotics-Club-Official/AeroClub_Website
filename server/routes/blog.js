@@ -6,6 +6,7 @@ const { isSignedIn, isAdmin } = require('../middleware/auth')
 // fetching all blogs through admin
 router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
     res.setHeader('Content-Range', 'blogs 0-10/20')
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
     Blog.find({}).sort('-createdAt')
         .then(blogs => {
             let arr = []
