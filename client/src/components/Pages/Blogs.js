@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
+import { baseURL, baseTitle } from "../../baseUtils"
 import Loading from '../../Animations/Loading'
 
 function Blogs() {
 
     const [blogs, SetBlogs] = useState([])
+    document.title = `${baseTitle} | Blogs`
 
     useEffect(() => {
-        fetch('/api/blogs/toUI', {
+        fetch(`${baseURL}/api/blogs/toUI`, {
             method: 'get'
         }).then(res => res.json())
             .then(data => SetBlogs(data))

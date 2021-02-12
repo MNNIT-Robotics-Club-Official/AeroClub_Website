@@ -1,8 +1,13 @@
 import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
+import { baseTitle } from '../../baseUtils'
+
 
 export default function Alumni() {
+
+    document.title = `${baseTitle} | Our Members`
+
     return (
         <>
             <Loading />

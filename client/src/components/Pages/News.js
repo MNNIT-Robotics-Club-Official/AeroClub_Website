@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, Card } from 'react-bootstrap'
-import { Button, Container, Jumbotron } from 'react-bootstrap'
+import { Container, Jumbotron } from 'react-bootstrap'
+import { animateScroll as scroll } from 'react-scroll'
+import createHistory from 'history/createBrowserHistory'
+import { baseTitle, baseURL } from '../../baseUtils'
 
 export default function News() {
+
+    document.title = `${baseTitle} | Updates`
+
     const [news, SetNews] = useState([]);
+    const [eventKey, setEventKey] = useState('')
 
     useEffect(() => {
-        fetch("/api/news", {
+
+        fetch(`${baseURL}/api/news`, {
             method: "get",
         })
             .then((res) => res.json())
             .then((data) => SetNews(data));
-    }, []);
 
-    useEffect(() => {
-        fetch('/api/news', {
-            method: 'get'
-        }).then(res => res.json())
-            .then(data => SetNews(data))
-    }, [])
+        const history = createHistory()
+        if (history.location.state && history.location.state.key && news.length) {
+            setEventKey(history.location.state.key)
+            console.log(document.getElementById(history.location.state.key).clientTop)
+            scroll.scrollTo(document.getElementById(history.location.state.key).getBoundingClientRect().top - 56)
+            let state = { ...history.location.state };
+            delete state.key;
+            history.replace({ ...history.location, state });
+        }
+
+    }, [news]);
 
     return (
         <div>
@@ -32,18 +44,17 @@ export default function News() {
             </div>
             <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>
                 <Container>
-                    <div className='container' >
-
-                        <Accordion>
+                    <div className='container' id='123456789'>
+                        <Accordion activeKey={eventKey} onSelect={e => setEventKey(e)}>
                             {
                                 news.map(singleNews => (
-                                    <Card key={singleNews.id}>
+                                    <Card key={singleNews.id} id={singleNews.id}>
                                         <Card.Header style={{ cursor: 'pointer' }}>
                                             <Accordion.Toggle as={Card.Header} eventKey={singleNews.id}>
                                                 <div>
                                                     {singleNews.title}
                                                     <em className='float-right'>published on
-                                                {
+                                                        {
                                                             new Date(singleNews.publishedAt).toLocaleDateString()
                                                         }
                                                     </em>

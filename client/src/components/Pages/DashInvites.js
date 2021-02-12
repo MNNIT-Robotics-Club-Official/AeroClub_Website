@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
+import { baseURL } from "../../baseUtils"
+
 
 export default function Dashprojects(props) {
   const [numInvites, setnumInvites] = useState(0)
@@ -7,7 +9,7 @@ export default function Dashprojects(props) {
 
   useEffect(() => {
     console.log("inv" + props.r);
-    fetch("/api/my/invites", {
+    fetch(`${baseURL}/api/my/invites`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +110,7 @@ function LoadingButton(props) {
 
   useEffect(() => {
     if (isLoading) {
-      fetch(`/api/my/invites/accept/${props.projectId}`, {
+      fetch(`${baseURL}/api/my/invites/accept/${props.projectId}`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",

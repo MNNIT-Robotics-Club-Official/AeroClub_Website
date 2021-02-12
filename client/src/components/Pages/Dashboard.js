@@ -7,18 +7,21 @@ import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
+import { baseURL, baseTitle } from "../../baseUtils";
 
 function Dashboard() {
   const history = useHistory();
   const [user, setuser] = useState({})
   const [r, setr] = useState(0)
 
+  document.title = `${baseTitle} | Dashboard`
+
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
-    fetch("/api/my/details", {
+    fetch(`${baseURL}/api/my/details`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",

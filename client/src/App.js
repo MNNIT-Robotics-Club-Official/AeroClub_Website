@@ -28,9 +28,15 @@ import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
 import CreateBlog from "./components/Pages/CreateBlog.js";
 import Events from "./components/Pages/Events";
+<<<<<<< HEAD
 import Workshop from "./components/Pages/Workshop";
+=======
+import { baseTitle } from "./baseUtils.js";
+>>>>>>> 70837eb501da4ea41fa752c4976f5a43e699791b
 
 function App() {
+
+  document.title = `${baseTitle}`
 
   return (
     <div className="App" >

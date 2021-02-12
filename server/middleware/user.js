@@ -5,6 +5,7 @@ const user = require("../models/user");
 
 exports.getAllUsers = (req, res) => {
   res.setHeader('Content-Range', 'users 0-10/20')
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
   user.find({}).sort('-createdAt')
     .then(users => {
       let arr = []
@@ -62,6 +63,7 @@ exports.requestComponent = (req, res) => {
 
 exports.getAllRequests = (req, res) => {
   res.setHeader("Content-Range", "issue 0-10/20");
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
   ComponentsIssue.find({})
     .populate("user")
     .populate("component")

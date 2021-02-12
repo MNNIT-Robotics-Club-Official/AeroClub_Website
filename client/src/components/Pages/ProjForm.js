@@ -1,4 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import { baseURL } from "../../baseUtils"
+
 export default function ProjForm(props) {
   const [formData, setformData] = useState({
     title: "",
@@ -12,7 +14,7 @@ export default function ProjForm(props) {
       onSubmit={(e) => {
         e.preventDefault();
         setLoading(true);
-        fetch(`/api/projects`, {
+        fetch(`${baseURL}/api/projects`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -30,12 +32,12 @@ export default function ProjForm(props) {
             console.log(res);
             setLoading(false);
             setformData({
-                title: "",
-                teamname: "",
-                description: "",
-                objective: "",
-              });
-              props.setr(props.r+1)
+              title: "",
+              teamname: "",
+              description: "",
+              objective: "",
+            });
+            props.setr(props.r + 1)
           })
           .catch((err) => {
             console.log("error");
@@ -58,10 +60,12 @@ export default function ProjForm(props) {
           id="title"
           required
           value={formData.title}
-          onChange={(e)=>{setformData(prev => ({
+          onChange={(e) => {
+            setformData(prev => ({
               ...prev,
-              title:e.target.value
-          }))}}
+              title: e.target.value
+            }))
+          }}
         />
       </div>
       <div className="form-floating mb-3">
@@ -73,10 +77,12 @@ export default function ProjForm(props) {
           id="teamName"
           required
           value={formData.teamname}
-          onChange={(e)=>{setformData(prev => ({
+          onChange={(e) => {
+            setformData(prev => ({
               ...prev,
-              teamname:e.target.value
-          }))}}
+              teamname: e.target.value
+            }))
+          }}
         />
       </div>
       <div class="form-floating mb-3">
@@ -87,10 +93,12 @@ export default function ProjForm(props) {
           id="description"
           required
           value={formData.description}
-          onChange={(e)=>{setformData(prev => ({
+          onChange={(e) => {
+            setformData(prev => ({
               ...prev,
-              description:e.target.value
-          }))}}
+              description: e.target.value
+            }))
+          }}
         ></textarea>
       </div>
       <div className="form-floating mb-3">
@@ -102,10 +110,12 @@ export default function ProjForm(props) {
           id="objective"
           required
           value={formData.objective}
-          onChange={(e)=>{setformData(prev => ({
+          onChange={(e) => {
+            setformData(prev => ({
               ...prev,
-              objective:e.target.value
-          }))}}
+              objective: e.target.value
+            }))
+          }}
         />
       </div>
       <button type="submit" class="btn btn-primary">

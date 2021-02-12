@@ -1,7 +1,9 @@
+import { baseURL } from "../../baseUtils"
+
 const authProvider = {
 
     login: ({ username, password }) => {
-        return fetch('/api/adminlogin', {
+        return fetch(`${baseURL}/api/adminlogin`, {
             method: 'post',
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`,
@@ -19,7 +21,7 @@ const authProvider = {
     },
     checkAuth: () => {
         return localStorage.getItem('role') && localStorage.getItem('jwtToken')
-            ? fetch('/api/isAdmin', {
+            ? fetch(`${baseURL}/api/isAdmin`, {
                 method: 'post',
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`

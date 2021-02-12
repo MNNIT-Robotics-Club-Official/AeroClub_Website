@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { baseURL, baseTitle } from '../../baseUtils'
 
 export default function Confirmation() {
 
     const { token } = useParams()
     const history = useHistory()
+    document.title = `${baseTitle} | Confirmation`
 
     useEffect(() => {
         if (token) {
-            fetch('/api/user/confirm', {
+            fetch(`${baseURL}/api/user/confirm`, {
                 method: 'post',
                 headers: {
                     'Authorization': `Bearer ${token}`
