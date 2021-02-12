@@ -18,6 +18,7 @@ function AdminComp() {
         if (!options.headers) {
             options.headers = new Headers({ Accept: 'application/json' });
         }
+        options.headers.set('Access-Control-Expose-Headers', 'Content-Range');
         const token = localStorage.getItem('jwtToken');
         options.headers.set('Authorization', `Bearer ${token}`);
         return fetchUtils.fetchJson(url, options);

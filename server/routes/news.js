@@ -6,6 +6,8 @@ const { isSignedIn, isAdmin } = require('../middleware/auth')
 // fetching all news
 router.get('/news', (req, res) => {
     res.setHeader('Content-Range', 'news 0-10/20')
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+    
     News.find({}).sort('-createdAt')
         .then(news => {
             let arr = []

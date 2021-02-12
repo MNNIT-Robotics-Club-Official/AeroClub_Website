@@ -14,6 +14,7 @@ exports.getComponentById = (req, res, next, id) => {
 
 exports.getAllComponents = (req, res) => {
   res.setHeader("Content-Range", "component 0-10/20");
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
   Component.find({}).exec((err, components) => {
     if (err) {
       return res.status(400).json({
@@ -28,6 +29,7 @@ exports.getAllComponents = (req, res) => {
 
 exports.getAllComponentsFilter = (req, res) => {
   res.setHeader("Content-Range", "component 0-10/20");
+  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
   Component.find({}).exec((err, dataList) => {
     if (err) {
       return res.status(400).json({
