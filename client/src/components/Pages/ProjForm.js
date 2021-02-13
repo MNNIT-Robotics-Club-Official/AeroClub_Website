@@ -28,8 +28,6 @@ export default function ProjForm(props) {
           }),
         })
           .then((res) => {
-            console.log("done");
-            console.log(res);
             setLoading(false);
             setformData({
               title: "",
@@ -40,8 +38,6 @@ export default function ProjForm(props) {
             props.setr(props.r + 1)
           })
           .catch((err) => {
-            console.log("error");
-            console.log(err);
             setLoading(false);
             setformData({
               title: "",
@@ -53,10 +49,10 @@ export default function ProjForm(props) {
       }}
     >
       <div className="form-floating mb-3">
-        <label for="title">Title</label>
+        <label htmlFor="title">Title</label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="title"
           required
           value={formData.title}
@@ -69,11 +65,11 @@ export default function ProjForm(props) {
         />
       </div>
       <div className="form-floating mb-3">
-        <label for="teamName">Team Name</label>
+        <label htmlFor="teamName">Team Name</label>
 
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="teamName"
           required
           value={formData.teamname}
@@ -85,11 +81,11 @@ export default function ProjForm(props) {
           }}
         />
       </div>
-      <div class="form-floating mb-3">
-        <label for="description">Description</label>
+      <div className="form-floating mb-3">
+        <label htmlFor="description">Description</label>
 
         <textarea
-          class="form-control"
+          className="form-control"
           id="description"
           required
           value={formData.description}
@@ -102,11 +98,11 @@ export default function ProjForm(props) {
         ></textarea>
       </div>
       <div className="form-floating mb-3">
-        <label for="objective">Objective</label>
+        <label htmlFor="objective">Objective</label>
 
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="objective"
           required
           value={formData.objective}
@@ -118,7 +114,7 @@ export default function ProjForm(props) {
           }}
         />
       </div>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         {loading ? "loading..." : "Submit"}
       </button>
     </form>

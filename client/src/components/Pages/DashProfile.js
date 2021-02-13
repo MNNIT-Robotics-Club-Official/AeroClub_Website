@@ -57,13 +57,13 @@ export default function DashProfile({ user, setUser }) {
                     <input type="text" className="form-control" id="name" value={name} disabled={disabled} onChange={(e) => setName(e.target.value)} />
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div className="mb-3 row">
                 <label htmlFor="email" className="col-sm-2 col-form-label">Email : </label>
                 <div className="col-sm-10">
                     <input type="email" className="form-control" id="email" value={user.email} disabled />
                 </div>
             </div>
-            <div class="mb-3 row">
+            <div className="mb-3 row">
                 <label htmlFor="regis" className="col-sm-2 col-form-label">Registration no. : </label>
                 <div className="col-sm-10">
                     <input type="text" className="form-control" id="regis" value={regis_no} disabled={disabled} onChange={(e) => setRegis_no(e.target.value)} maxLength={8} />

@@ -1,8 +1,8 @@
 import { Button, Navbar, Nav, NavDropdown, DropdownButton, Dropdown } from 'react-bootstrap';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/navbar.css";
 import logo from "../../images/utils/circle-cropped.png";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { baseURL } from '../../baseUtils';
 
@@ -29,8 +29,8 @@ const Login = () => {
     <>
       {
         loggedIn ?
-          <Dropdown className="pad">
-            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2'>
+          <Dropdown className="pad right-btn">
+            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2' size='lg'>
               Profile
             </Dropdown.Toggle>
 
@@ -39,12 +39,8 @@ const Login = () => {
               <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          // <DropdownButton title='Profile' variant='info' className="mr-sm-2 my-2">
-          //   <NavDropdown.Item href="/user/dashboard">Dashboard</NavDropdown.Item>
-          //   <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-          // </DropdownButton>
           :
-          <p className="bt pad"><Button variant="info" className="mr-sm-2 my-2"><Link to="/user/login" style={{ color: 'inherit', textDecoration: 'none' }}>Login</Link></Button></p>
+          <Button className="mr-sm-2 my-2 right-btn" href='/user/login' size='lg'>Login</Button>
       }
     </>
   )
@@ -52,43 +48,48 @@ const Login = () => {
 
 export default function Navigbar() {
 
+  useEffect(() => {
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+
+  }, [])
+
+  let prevScrollpos = window.pageYOffset
+
+  const handleScroll = () => {
+    const currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-100px";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+
   return (
     <>
-      <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom">
-        <Navbar.Brand href="/" className="title"><a><img src={logo} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</a></Navbar.Brand>
+      <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom" id='navbar'>
+        <Navbar.Brand href="/" className="title"><img src={logo} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link eventKey='blogs'><Link to="/blogs" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Blogs</Link></Nav.Link>
-            <Nav.Link eventKey='gallery'><Link to="/gallery" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Gallery</Link></Nav.Link>
-            <Nav.Link eventKey='projects'><Link to="/projects" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Projects</Link></Nav.Link>
-            <Nav.Link eventKey='events'><Link to="/events" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Events</Link></Nav.Link>
-            {/* <NavDropdown title="Events" id="basic-nav-dropdown" className="pad">
-              <NavDropdown.Item href="#action/3.3">AVISHKAR</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">PROSANG</NavDropdown.Item>
-            </NavDropdown> */}
-            <Nav.Link eventKey='workshop'><Link to="/workshop" className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Workshops</Link></Nav.Link>
+            <Nav.Link eventKey='blogs' href='/blogs' className='nav-items'>Blogs</Nav.Link>
+            <Nav.Link eventKey='blogs' href='/projects' className='nav-items'>Projects</Nav.Link>
+            <Nav.Link eventKey='blogs' href='/alumni' className='nav-items'>Our Team</Nav.Link>
+            <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link>
+            <Nav.Link eventKey='blogs' href='/workshop' className='nav-items'>Jigyasa</Nav.Link>
             <NavDropdown title="More" id="basic-nav-dropdown" className="pad">
-              <NavDropdown.Item eventKey='members'><Link to="/alumni" style={{ color: 'inherit', textDecoration: 'none' }}>Our Members</Link></NavDropdown.Item>
+              <NavDropdown.Item eventKey='members' href='/gallery'>Gallery</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/news" eventKey='news'>News Section</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="https://tsaw.tech/" eventKey='startups'>Our StartUps</NavDropdown.Item>
             </NavDropdown>
-            {/* <Nav.Link><Scroll
-              to="contact"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              className="pad"
-              style={{ color: 'inherit', textDecoration: 'none' }}
-            > Contact
-            </Scroll></Nav.Link> */}
-            {/* <Nav.Link href="https://tsaw.tech/"><span className="pad" style={{ color: 'inherit', textDecoration: 'none' }}>Our StartUps</span></Nav.Link> */}
-            <Login />
           </Nav>
-         
+          <Login />
+
         </Navbar.Collapse>
       </Navbar>
     </>

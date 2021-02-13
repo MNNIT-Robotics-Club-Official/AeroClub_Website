@@ -8,8 +8,12 @@
     /* background-color:rgba(51, 50, 50, 0.76); */
 }
 
+#navbar{
+    transition: top 0.4s ease-in-out;
+}
+
 .top-bottom{
-    /* padding : 3% 0; */
+    padding : 10px 0;
     position: sticky;
     top: 0;
     background-color: rgba(46, 46, 63, 0.952);
@@ -18,22 +22,28 @@
 .pad{
     padding-left: 10px;
 }
-/* @font-face{
-    font-family: 'SEGA LOGO FONT';
-    font-style: normal;
-    font-weight: normal;
-    src: local('SEGA LOGO FONT'), url('SEGA.TTF'), format('TTF');
-} */
+
 .title{
     font-family: 'Audiowide', 'Righteous', cursive;
     font-weight:lighter;
-    /* font-weight:bolder; */
+    margin-left: 2.7rem;
 }
 
 .bt{
     margin-bottom: 0;
-    /* align-items: center; */
-    /* padding-left: 2rem; */
+}
+
+#basic-navbar-nav{
+    margin-left: 4rem;
+}
+
+.right-btn{
+    margin-right: 3rem !important;
+}
+
+.nav-items{
+    margin: 0px 0.7rem;
+    color: white;
 }
 
 @media (max-width:992px)
@@ -42,26 +52,17 @@
   {
     padding-left: 3rem;
   }
-  .pad{
-      padding-left: 3rem;
+  .title{
+    margin-left: 0px;
   }
-
 }
 
-@media (max-width:349px)
+@media (max-width:400px)
 {
   .title{
       font-size: small;
   }
-  
-
+  .dropdown-menu.show{
+    display: inline-block;
+    }
 }
-
-/* button{
-    padding-left: 2em;
-} */
-
-/* .linkhover, .linkhover:hover, .linkhover:focus, .linkhover:active{
-    text-decoration: none;
-      color: inherit;
-} */

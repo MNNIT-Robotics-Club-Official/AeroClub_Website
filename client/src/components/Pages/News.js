@@ -23,8 +23,7 @@ export default function News() {
         const history = createHistory()
         if (history.location.state && history.location.state.key && news.length) {
             setEventKey(history.location.state.key)
-            console.log(document.getElementById(history.location.state.key).clientTop)
-            scroll.scrollTo(document.getElementById(history.location.state.key).getBoundingClientRect().top - 56)
+            scroll.scrollTo(document.getElementById(history.location.state.key).getBoundingClientRect().top)
             let state = { ...history.location.state };
             delete state.key;
             history.replace({ ...history.location, state });
@@ -34,12 +33,11 @@ export default function News() {
 
     return (
         <div>
-
             <div className="pagesg">
                 <div className="overlayg">
                     <div className="pageTitleg titleBoldg">
                         Updates
-                            </div>
+                    </div>
                 </div>
             </div>
             <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>

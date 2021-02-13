@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../css/Eventhome.css';
-
+import { baseURL } from "../baseUtils"
 export default function EventHome() {
 
   const [news, SetNews] = useState([])
   const history = useHistory()
 
   useEffect(() => {
-    fetch('/api/news', {
+    fetch(`${baseURL}/api/news`, {
       method: 'get'
     }).then(res => res.json())
       .then(data => SetNews(data))
@@ -16,17 +16,12 @@ export default function EventHome() {
   return (
 
 
-    <div class="container-fluid">
+    <div className="container-fluid">
       <div className="pages">
         <div className="jumbotron overlay">
-          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white' }}>
-            Updates
-            </div>
-          {/* <div className="miniSep"></div> */}
+          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white' }}>Updates</div>
           <div className='containernews leftText pageTextCont' style={{ background: 'transparent' }}>
-
             <div className="tickerv-wrap">
-
               <ul>
                 {
                   news.map(singleNews => (
@@ -47,12 +42,8 @@ export default function EventHome() {
               </ul>
             </div>
             <p className="cent">
-              <a class="btn btn-info" href="/news" role="button" style={{ margin: '10px' }}>
-                Details
-                    </a></p>
-
+              <a className="btn btn-info" href="/news" role="button" style={{ margin: '10px' }}>Details</a></p>
           </div>
-
         </div>
       </div>
     </div>

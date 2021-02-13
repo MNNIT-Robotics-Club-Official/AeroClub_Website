@@ -35,11 +35,11 @@ function Dashboard() {
   }, [r]);
 
   return (
-    <div class="container">
+    <div className="container">
       <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a
-            class="nav-item nav-link active"
+            className="nav-item nav-link active"
             id="nav-profile-tab"
             data-toggle="tab"
             href="#nav-profile"
@@ -50,7 +50,7 @@ function Dashboard() {
             Profile
           </a>
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             id="nav-projects-tab"
             data-toggle="tab"
             href="#nav-projects"
@@ -61,7 +61,7 @@ function Dashboard() {
             Projects
           </a>
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             id="nav-invites-tab"
             data-toggle="tab"
             href="#nav-invites"
@@ -72,7 +72,7 @@ function Dashboard() {
             Invites
           </a>
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             id="nav-components-tab"
             data-toggle="tab"
             href="#nav-components"
@@ -83,7 +83,7 @@ function Dashboard() {
             Components
           </a>
           <a
-            class="nav-item nav-link"
+            className="nav-item nav-link"
             id="nav-blogs-tab"
             data-toggle="tab"
             href="#nav-blogs"
@@ -95,9 +95,9 @@ function Dashboard() {
           </a>
         </div>
       </nav>
-      <div class="tab-content" id="nav-tabContent">
+      <div className="tab-content" id="nav-tabContent">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="nav-profile"
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
@@ -105,7 +105,7 @@ function Dashboard() {
           <DashProfile user={user} setUser={setuser} />
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="nav-projects"
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
@@ -113,7 +113,7 @@ function Dashboard() {
           <DashProjects user={user} r={r} setr={setr} />
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="nav-invites"
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
@@ -121,7 +121,7 @@ function Dashboard() {
           <DashInvites user={user} r={r} setr={setr} />
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="nav-components"
           role="tabpanel"
           aria-labelledby="nav-components-tab"
@@ -129,7 +129,7 @@ function Dashboard() {
           <DashComp r={r} setr={setr} />
         </div>
         <div
-          class="tab-pane fade"
+          className="tab-pane fade"
           id="nav-blogs"
           role="tabpanel"
           aria-labelledby="nav-blogs-tab"
