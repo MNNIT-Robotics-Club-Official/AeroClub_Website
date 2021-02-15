@@ -5,7 +5,7 @@
   
   .login {
     height: 100vh; 
-    background: url('../images/utils/wave.svg') rgb(166, 173, 233);
+    background: url('localhost:5000/images/utils/wave.svg') rgb(166, 173, 233);
     background-size: cover;
     background-position: center;
     color: grey;

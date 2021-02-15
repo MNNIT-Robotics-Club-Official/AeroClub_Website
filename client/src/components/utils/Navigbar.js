@@ -1,7 +1,6 @@
 import { Button, Navbar, Nav, NavDropdown, DropdownButton, Dropdown } from 'react-bootstrap';
 import React, { useEffect, useState } from "react";
 import "../../css/navbar.css";
-import logo from "../../images/utils/circle-cropped.png";
 import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { baseURL } from '../../baseUtils';
@@ -71,7 +70,7 @@ export default function Navigbar() {
   return (
     <>
       <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom" id='navbar'>
-        <Navbar.Brand href="/" className="title"><img src={logo} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</Navbar.Brand>
+        <Navbar.Brand href="/" className="title"><img src={`${baseURL}/images/utils/circle-cropped.png`} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

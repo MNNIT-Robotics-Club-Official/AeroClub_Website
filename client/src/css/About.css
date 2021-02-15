@@ -1,0 +1,21 @@
+.about-us{
+    background-color: white;
+    padding: 3rem 0;
+}
+
+.content{
+    padding: 2px 2rem;
+}
+
+.main-content{
+    font-family: sans-serif;
+}
+
+.img img{
+    border-radius: 1.5rem;
+}
+
+@media (max-width:1000px)
+{
+    
+}

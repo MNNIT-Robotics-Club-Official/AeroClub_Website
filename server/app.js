@@ -30,6 +30,7 @@ const workshopRoutes = require('./routes/workshop');
 // app specific
 app.use(express.json())
 app.use(cors())
+app.use('/images', express.static('images'))
 
 //Adding routes to the app
 app.use("/api", authRoutes);

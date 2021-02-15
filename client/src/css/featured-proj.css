@@ -23,7 +23,7 @@
 
 .cont:after {
     content:'';
-    background-image: url('../images/utils/dronepic.jpg') center center no-repeat;
+    background-image: url('localhost:5000/images/utils/dronepic.jpg') center center no-repeat;
     background-size: cover;
     position: absolute;
     top:0px;

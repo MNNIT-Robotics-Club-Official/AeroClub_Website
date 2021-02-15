@@ -4,12 +4,11 @@ import Footer from './components/utils/Footer.js';
 import Home from './components/utils/Home.js';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import AdminComp from "./components/admin/AdminComp.js";
-import ImgSlider from './Animations/ImgSlider.js';
+import Landing from './Animations/Landing.js';
 import Gallery from './components/Pages/Gallery.js';
 import Alumni from './components/Pages/Alumni.js';
 import Featuredproject from './components/utils/featured-proj';
 import Testimonials from './components/utils/Testimonials';
-import Contactus from './components/utils/ContactUs';
 import Login from "./components/Pages/Login";
 import Projects from "./components/Pages/Project";
 import SingleProject from "./components/Pages/SingleProject";
@@ -30,6 +29,8 @@ import CreateBlog from "./components/Pages/CreateBlog.js";
 import Events from "./components/Pages/Events";
 import Workshop from "./components/Pages/Workshop";
 import { baseTitle } from "./baseUtils.js";
+import About from './components/utils/About'
+import ContactUs from "./components/utils/ContactUs.js";
 
 function App() {
 
@@ -76,12 +77,13 @@ function App() {
           < Navigbar />
           <Switch>
             <Route path='/' exact>
-              < Home />
-              < ImgSlider />
+              {/* < Home /> */}
+              < Landing />
+              <About />
+              < EventHome />
               < Featuredproject />
               < Testimonials />
-              < Contactus />
-              < EventHome />
+              <ContactUs />
             </Route>
             <Route path='/gallery' exact>
               <Gallery />

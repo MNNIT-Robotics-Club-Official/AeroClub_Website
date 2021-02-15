@@ -1,7 +1,7 @@
 import React from "react";
 import Hometext from "./hometext.js";
 import "../../css/home.css";
-import logo from "../../images/utils/logo-aero2.png";
+import { baseURL } from "../../baseUtils.js";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
         <div className="container-fluid text-center ">
 
           <div className="jumbotron">
-            <img className="homologo" src={logo} />
+            <img className="homologo" src={`${baseURL}/images/utils/logo-aero2.png`} />
             <h1 className="head">
               < Hometext />
             </h1>

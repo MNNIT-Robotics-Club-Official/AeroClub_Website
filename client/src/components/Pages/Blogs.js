@@ -58,13 +58,13 @@ function Blogs() {
 
                             (page > 1) && <Button className='mx-1' onClick={() => {
                                 SetPage(page => page - 1)
-                            }}>🡨 Previous</Button>
+                            }}><i class="fa fa-angle-double-left"></i> Previous</Button>
 
                         }
                         {
                             (page < no_of_pages) && <Button className='mx-1' onClick={() => {
                                 SetPage(page => page + 1)
-                            }}>Next 🡪</Button>
+                            }}>Next <i class="fa fa-angle-double-right"></i></Button>
                         }
                     </div>
                 </div>

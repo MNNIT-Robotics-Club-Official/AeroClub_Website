@@ -1,3 +1,9 @@
+.footer-logo img{ 
+  border-radius: 1rem;
+  height: 10rem;
+  width: 15rem;
+}
+
 .site-footer
 {
   background-color:rgb(6, 29, 104);
@@ -36,6 +42,10 @@
   color:#3366cc;
   text-decoration:none;
 }
+#footer-logo{
+  size: 6rem;
+}
+
 .footer-links
 {
   padding-left:0;
@@ -165,6 +175,31 @@
     font-weight:600
   }
 }
+@media (max-width:998px)
+{
+  .quick-links{
+    display: none;
+  }
+  .footer-logo{
+    display: none;
+  }
+  .information{
+    margin-top: 2rem;
+    margin-bottom: -2rem;
+    text-align: center;
+  }
+}
+
+@media (max-width:500px)
+{
+  .information h2{
+    font-size: 1.5rem;
+  }
+  .information p{
+    font-size: small;
+  }
+}
+
 
 .topBottomMargin{
     padding : 3% 0;
@@ -172,7 +207,6 @@
 }
 
 .wrap{
-    /* display: flex; */
     padding: 0 4%;
     align-items: center;
 }
@@ -186,3 +220,4 @@
 .mar{
     margin: 0% 10px;
 }
+

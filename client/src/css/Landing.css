@@ -1,0 +1,60 @@
+.container-fluid{
+    margin: 0px 0px;
+    width: 100%;
+    padding: 0px 0px;
+    display: flex; 
+    flex-flow: column;
+}
+
+.rempad{
+    padding: 0 0;
+}
+
+.landing {
+    height: 90vh;
+    width: 100%;
+    margin: 0vh 0vw;
+    background:linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0,.4)), url(http://localhost:5000/images/utils/dronepic.jpg) top center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: white;
+  }
+
+.landing-logo{
+  position: relative;
+    right: 4rem;
+}
+
+@media (max-width:995px){
+  .landing-logo{
+    right: 0;
+  }
+  .landing-about{
+    margin-top: 3rem;
+    text-align: center;
+  }
+}
+
+@media (max-width:770px)
+{
+  .landing-logo{
+    height: 14rem;
+    width: 21rem;
+    margin-bottom: -12rem;
+  }
+  .landing-about h1{
+    font-size: larger;
+  }
+  .landing-about h2{
+    font-size: large;
+  }
+}
+@media (max-width:450px)
+{
+  .landing-logo{
+    height: 9rem;
+    width: 15rem;
+    margin-bottom: -20rem;
+  }
+}
