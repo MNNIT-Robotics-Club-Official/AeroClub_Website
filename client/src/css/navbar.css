@@ -16,13 +16,8 @@
     margin-left: 1rem;
 }
 
-<<<<<<< HEAD
-.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:hover {
-    color: rgba(240, 6, 6, 0.877);
-=======
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
     color: rgba(240, 6, 6, 0.877) !important;
->>>>>>> af21659eb5a8c148822c3f750217e8450f0f500c
 }
 .navbar-light .navbar-brand {
     color: rgb(0, 0, 0);

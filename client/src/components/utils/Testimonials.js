@@ -7,7 +7,7 @@ export default function Testimonials() {
     <section className="testimonial text-center">
       <div className="container">
         <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down">
-          Testimonial
+          Testimonials
             </div>
         <div id="testimonial4" className="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval={5000} data-duration={2000} data-aos="zoom-in-down">
           <div className="carousel-inner" role="listbox">
