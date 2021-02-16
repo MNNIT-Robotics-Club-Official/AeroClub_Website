@@ -29,7 +29,7 @@ const Login = () => {
       {
         loggedIn ?
           <Dropdown className="pad right-btn">
-            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2' size='lg'>
+            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2 btn-danger' size='lg'>
               Profile
             </Dropdown.Toggle>
 
@@ -39,7 +39,7 @@ const Login = () => {
             </Dropdown.Menu>
           </Dropdown>
           :
-          <Button className="mr-sm-2 my-2 right-btn" href='/user/login' size='lg'>Login</Button>
+          <Button className="mr-sm-2 my-2 right-btn btn-danger" href='/user/login' size='lg'>Login</Button>
       }
     </>
   )
@@ -70,9 +70,9 @@ export default function Navigbar() {
   return (
     <>
       <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom" id='navbar'>
-        <Navbar.Brand href="/" className="title"><img src={`${baseURL}/images/utils/circle-cropped.png`} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Brand href="/" className="title-nav"><img src={`${baseURL}/images/utils/circle-cropped.png`} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav" style={{color: 'red'}}>
           <Nav className="mr-auto">
             <Nav.Link eventKey='blogs' href='/blogs' className='nav-items'>Blogs</Nav.Link>
             <Nav.Link eventKey='blogs' href='/projects' className='nav-items'>Projects</Nav.Link>

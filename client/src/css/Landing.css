@@ -14,9 +14,13 @@
     height: 90vh;
     width: 100%;
     margin: 0vh 0vw;
-    background:linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0,.4)), url(http://localhost:5000/images/utils/dronepic.jpg) top center;
+    background:linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0,.4)), url(http://localhost:5000/images/utils/dronepic.jpg) center center no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    margin: 0vh 0vw;
+    /* background-color: #eee; */
+    background-position: center;
+    background-size: cover;
+    /* background-attachment: fixed; */
     position: relative;
     color: white;
   }
@@ -26,7 +30,7 @@
     right: 4rem;
 }
 
-@media (max-width:995px){
+@media (max-width:1050px){
   .landing-logo{
     right: 0;
   }
@@ -35,13 +39,21 @@
     text-align: center;
   }
 }
-
+@media (max-width:992px)
+{
+  .landing{
+    height:70vh ;
+  }
+}
 @media (max-width:770px)
 {
+  .landing{
+    height: 55vh;
+  }
   .landing-logo{
-    height: 14rem;
-    width: 21rem;
-    margin-bottom: -12rem;
+    height: 10rem;
+    width: auto;
+    /* margin-bottom: -rem; */
   }
   .landing-about h1{
     font-size: larger;
@@ -50,11 +62,20 @@
     font-size: large;
   }
 }
-@media (max-width:450px)
+@media (max-width:400px)
 {
+  .landing{
+    height: 50vh;
+  }
   .landing-logo{
-    height: 9rem;
-    width: 15rem;
-    margin-bottom: -20rem;
+    height: 5rem;
+    width: auto;
+    margin-bottom: -2rem;
+  }
+  .landing-about h1{
+    font-size: 1rem;
+  }
+  .landing-about h2{
+    font-size: large;
   }
 }
