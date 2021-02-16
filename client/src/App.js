@@ -31,6 +31,7 @@ import Workshop from "./components/Pages/Workshop";
 import { baseTitle } from "./baseUtils.js";
 import About from './components/utils/About'
 import ContactUs from "./components/utils/ContactUs.js";
+import Faculty from "./components/Pages/Faculty.js";
 
 function App() {
 
@@ -96,6 +97,9 @@ function App() {
             </Route>
             <Route path='/alumni' exact>
               <Alumni />
+            </Route>
+            <Route path='/faculty' exact>
+              <Faculty />
             </Route>
             <Route path='/projects' exact>
               <Projects />

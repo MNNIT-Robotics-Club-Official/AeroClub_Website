@@ -2,10 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 .style{
-    background-color:rgb(6, 29, 104);
+    /* background-color:rgb(255, 255, 255); */
 
     padding: 0;
     /* background-color:rgba(51, 50, 50, 0.76); */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(255, 1, 1, 0.877) !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(31, 31, 31) !important;
+    margin-left: 1rem;
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: rgba(240, 6, 6, 0.877) !important;
+}
+.navbar-light .navbar-brand {
+    color: rgb(0, 0, 0);
+}
+
+
+.navbar-light .navbar-toggler {
+    color: rgba(255, 0, 0, 0.808) !important;
 }
 
 #navbar{
@@ -16,38 +36,44 @@
     padding : 10px 0;
     position: sticky;
     top: 0;
-    background-color: rgba(46, 46, 63, 0.952);
+    background-color: rgb(255, 255, 255);
 }
 
 .pad{
     padding-left: 10px;
 }
 
-.title{
+.title-nav{
     font-family: 'Audiowide', 'Righteous', cursive;
     font-weight:lighter;
-    margin-left: 2.7rem;
+    margin-left: 0.7rem;
 }
+
+.title-nav:hover{
+    color: rgb(185, 0, 0) !important;
+}
+
+.navbar-light button.navbar-toggler.collapsed span.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(240, 6, 6,1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 
 .bt{
     margin-bottom: 0;
 }
 
 #basic-navbar-nav{
-    margin-left: 4rem;
+    margin-left: 1.5rem;
 }
 
 .right-btn{
     margin-right: 3rem !important;
 }
 
-.nav-items{
-    margin: 0px 0.7rem;
-    color: white;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+@media (max-width: 1050px){
+    .right-btn{
+        margin-right: 1rem !important;
+    }
 }
 
 .dropdown .dropdown-menu {
@@ -64,7 +90,7 @@
 }
 
 .dropdown.show .dropdown-menu {
-    max-height: 300px;
+    max-height: 500px;
     opacity: 1;
 }
 
@@ -81,10 +107,10 @@
 
 @media (max-width:400px)
 {
-  .title{
-      font-size: small;
-  }
-  .dropdown-menu.show{
-    display: inline-block;
-    }
+    /* .navbar-dark .navbar-brand img { */
+        /* display: none; */
+    /* } */
+  /* .dropdown-menu.show{
+    display: flex;
+    } */
 }

@@ -6,11 +6,11 @@
 
 .site-footer
 {
-  background-color:rgb(6, 29, 104);
+  background-color:rgb(245, 0, 0);
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
-  color:#949292;
+  color:#dfd2d2;
   position:static;
   bottom: 0;
   /* z-index: 1000; */
