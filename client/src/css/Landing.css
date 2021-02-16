@@ -23,6 +23,7 @@
     /* background-attachment: fixed; */
     position: relative;
     color: white;
+    text-shadow: 5px 2px 2px rgb(75, 0, 0);
   }
 
 .landing-logo{
@@ -53,6 +54,7 @@
   .landing-logo{
     height: 10rem;
     width: auto;
+    padding-right: 4px;
     /* margin-bottom: -rem; */
   }
   .landing-about h1{
@@ -60,6 +62,7 @@
   }
   .landing-about h2{
     font-size: large;
+    padding: 2px;
   }
 }
 @media (max-width:400px)
@@ -68,12 +71,12 @@
     height: 50vh;
   }
   .landing-logo{
-    height: 5rem;
+    height: 8.5rem;
     width: auto;
-    margin-bottom: -2rem;
+    /* margin-bottom: -2rem; */
   }
   .landing-about h1{
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .landing-about h2{
     font-size: large;

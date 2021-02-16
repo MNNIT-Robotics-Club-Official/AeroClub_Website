@@ -44,7 +44,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="col-lg-4 col-md-6 footer-logo">
-                  <img src={`${baseURL}/images/utils/aero.png`} alt="mnnit" />
+                  <img src={`${baseURL}/images/utils/aerologofix.png`} alt="mnnit" />
                 </div>
               </div>
               <br />

@@ -15,7 +15,7 @@
     color: rgb(31, 31, 31);
 }
 
-.navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:hover {
     color: rgba(240, 6, 6, 0.877);
 }
 .navbar-dark .navbar-brand {

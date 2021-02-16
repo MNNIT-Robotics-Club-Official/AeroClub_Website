@@ -44,7 +44,7 @@
 }
 
 .heading {
-    font-family: 'Roboto', sans-serif;;
+    /* font-family: 'Roboto', sans-serif; */
     text-align: center;
     color: #454343;
     font-size: 30px;
@@ -90,10 +90,21 @@
 }
 
 img {
+  /* display: block; */
   height:35vh;
   max-height: 100%;
   max-width: 100%;
   vertical-align: middle;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+  max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+img:hover {
+  transform: scale(1.15);
 }
 
 .btns {
@@ -113,6 +124,7 @@ img {
 .btns:hover {
   background-color: rgba(255, 255, 255, 0.12);
 }
+
 
 .cards {
   display: flex;
@@ -153,7 +165,7 @@ img {
   padding: 1rem;
   background: transparent;
   /* background: linear-gradient(to left, rgb(51, 60, 97), #d1d1d1 100%); */
-  background-color:  rgb(48, 48, 71);
+  background-color:  rgb(204, 67, 67);
   /* opacity: 0.; */
 }
 
