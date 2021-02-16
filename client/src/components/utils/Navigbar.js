@@ -1,14 +1,16 @@
-import { Button, Navbar, Nav, NavDropdown, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Button, Navbar, Nav, NavDropdown, Dropdown } from 'react-bootstrap';
 import React, { useEffect, useState } from "react";
 import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { baseURL } from '../../baseUtils';
+import $ from 'jquery'
 
 const Login = () => {
 
   const history = useHistory()
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('jwtToken') ? true : false)
+  const [show, setShow] = useState(false)
 
   const handleLogout = () => {
     fetch(`${baseURL}/api/signout`, {
@@ -28,8 +30,13 @@ const Login = () => {
     <>
       {
         loggedIn ?
-          <Dropdown className="pad right-btn">
-            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2' size='lg'>
+          <Dropdown className="pad right-btn"
+            show={show}
+          >
+            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2' size='lg'
+              onMouseEnter={() => setShow(true)}
+              onMouseLeave={() => setShow(false)}
+            >
               Profile
             </Dropdown.Toggle>
 
@@ -47,6 +54,8 @@ const Login = () => {
 
 export default function Navigbar() {
 
+  const [show, setShow] = useState(false)
+
   useEffect(() => {
 
     window.addEventListener('scroll', handleScroll)
@@ -58,6 +67,9 @@ export default function Navigbar() {
   let prevScrollpos = window.pageYOffset
 
   const handleScroll = () => {
+
+    if (document.getElementById('basic-navbar-nav').classList.contains('show')) return
+
     const currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
       document.getElementById("navbar").style.top = "0";
@@ -79,7 +91,11 @@ export default function Navigbar() {
             <Nav.Link eventKey='blogs' href='/alumni' className='nav-items'>Our Team</Nav.Link>
             <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link>
             <Nav.Link eventKey='blogs' href='/workshop' className='nav-items'>Jigyasa</Nav.Link>
-            <NavDropdown title="More" id="basic-nav-dropdown" className="pad">
+            <NavDropdown title="More" id="basic-nav-dropdown" className="pad"
+              onMouseEnter={() => setShow(true)}
+              onMouseLeave={() => setShow(false)}
+              show={show}
+            >
               <NavDropdown.Item eventKey='members' href='/gallery'>Gallery</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/news" eventKey='news'>News Section</NavDropdown.Item>
