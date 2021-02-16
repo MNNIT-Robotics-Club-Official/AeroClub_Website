@@ -6,11 +6,19 @@
 
 .site-footer
 {
+<<<<<<< HEAD
   background-color:rgb(204, 67, 67);
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
   color:#ebebeb;
+=======
+  background-color:rgb(245, 0, 0);
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#dfd2d2;
+>>>>>>> af21659eb5a8c148822c3f750217e8450f0f500c
   position:static;
   bottom: 0;
   /* z-index: 1000; */

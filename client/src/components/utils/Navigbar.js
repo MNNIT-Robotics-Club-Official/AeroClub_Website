@@ -1,14 +1,16 @@
-import { Button, Navbar, Nav, NavDropdown, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Button, Navbar, Nav, NavDropdown, Dropdown } from 'react-bootstrap';
 import React, { useEffect, useState } from "react";
 import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { baseURL } from '../../baseUtils';
+import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 
 const Login = () => {
 
   const history = useHistory()
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('jwtToken') ? true : false)
+  const [show, setShow] = useState(false)
 
   const handleLogout = () => {
     fetch(`${baseURL}/api/signout`, {
@@ -28,8 +30,14 @@ const Login = () => {
     <>
       {
         loggedIn ?
-          <Dropdown className="pad right-btn">
-            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2 btn-danger' size='lg'>
+          <Dropdown className="pad right-btn"
+            show={show}
+            onMouseEnter={() => setShow(true)}
+            onMouseLeave={() => setShow(false)}
+          >
+            <Dropdown.Toggle id="dropdown-basic" className='mr-sm-2 my-2' size='lg'
+              variant='danger'
+            >
               Profile
             </Dropdown.Toggle>
 
@@ -47,6 +55,9 @@ const Login = () => {
 
 export default function Navigbar() {
 
+  const [show1, setShow1] = useState(false)
+  const [show2, setShow2] = useState(false)
+
   useEffect(() => {
 
     window.addEventListener('scroll', handleScroll)
@@ -58,6 +69,9 @@ export default function Navigbar() {
   let prevScrollpos = window.pageYOffset
 
   const handleScroll = () => {
+
+    if (document.getElementById('responsive-navbar-nav').classList.contains('show')) return
+
     const currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
       document.getElementById("navbar").style.top = "0";
@@ -69,17 +83,35 @@ export default function Navigbar() {
 
   return (
     <>
-      <Navbar sticky="top" collapseOnSelect expand="lg" variant="dark" className="style top-bottom" id='navbar'>
+      <Navbar sticky="top" collapseOnSelect expand="lg" variant="light" className="style top-bottom" id='navbar'>
         <Navbar.Brand href="/" className="title-nav"><img src={`${baseURL}/images/utils/circle-cropped.png`} style={{ height: 50, marginRight: 5, marginLeft: 8 }} />AERO CLUB MNNIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" style={{color: 'red'}}>
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link eventKey='blogs' href='/blogs' className='nav-items'>Blogs</Nav.Link>
             <Nav.Link eventKey='blogs' href='/projects' className='nav-items'>Projects</Nav.Link>
-            <Nav.Link eventKey='blogs' href='/alumni' className='nav-items'>Our Team</Nav.Link>
+            <NavDropdown title="Our Team" id="basic-nav-dropdown"
+              onMouseEnter={() => setShow1(true)}
+              onMouseLeave={() => setShow1(false)}
+              show={show1}
+            >
+              <NavDropdown.Item href="/faculty">Faculty Corner</NavDropdown.Item>
+              <NavDropdown.Item href="/coordinators">Coordinators</NavDropdown.Item>
+              <NavDropdown.Item href="/">Non-Tech Members</NavDropdown.Item>
+              <NavDropdown drop='right' title="Dropdown" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+              </NavDropdown>
+            </NavDropdown>
             <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link>
             <Nav.Link eventKey='blogs' href='/workshop' className='nav-items'>Jigyasa</Nav.Link>
-            <NavDropdown title="More" id="basic-nav-dropdown" className="pad">
+            <NavDropdown title="More" id="basic-nav-dropdown" className="pad"
+              onMouseEnter={() => setShow2(true)}
+              onMouseLeave={() => setShow2(false)}
+              show={show2}
+            >
               <NavDropdown.Item eventKey='members' href='/gallery'>Gallery</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/news" eventKey='news'>News Section</NavDropdown.Item>

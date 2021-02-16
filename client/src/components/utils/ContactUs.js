@@ -1,6 +1,5 @@
 import React from "react";
 import "../../css/Contact.css";
-import { Element } from 'react-scroll';
 import { baseURL } from "../../baseUtils";
 
 const ContactUs = () => {
