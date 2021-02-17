@@ -5,7 +5,8 @@ export default function Featuredproject() {
   return (
     <div className="cont">
       <div className="main">
-        <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down">Featured Projects</div>
+        <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down" style={{marginBottom:'5px'}} >Featured Projects</div>
+        <div className="miniSep" style={{marginBottom:'20px'}} ></div>
         <ul className="cards">
           <li className="cards_item" data-aos="fade-right">
             <div className="card">

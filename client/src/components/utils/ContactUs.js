@@ -5,8 +5,8 @@ import { baseURL } from "../../baseUtils";
 const ContactUs = () => {
     return (
         <div className="contact-us">
-            <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-up">CONTACT US</div>
-
+            <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-up" style={{marginBottom:'5px'}}>CONTACT US</div>
+            <div className="miniSep" style={{marginBottom:'25px'}} ></div>
             <div className="d-flex flex-column justify-content-center align-items-center" >
                 <div className="contact-map col-sm-12 col-md-10 col-lg-10" data-aos="flip-left"
                     data-aos-easing="ease-out-cubic"

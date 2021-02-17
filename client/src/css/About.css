@@ -32,7 +32,7 @@ body{
     order: -1;
   }
   .col-text{
-      background-color: rgb(204, 67, 67);
+      background-color: rgb(41, 41, 41);
     display: flex;
     align-items: center;
     justify-content: center;

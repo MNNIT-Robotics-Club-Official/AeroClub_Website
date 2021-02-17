@@ -19,7 +19,8 @@ export default function EventHome() {
     <div className="container-fluid">
       <div className="pages">
         <div className="jumbotron overlay">
-          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white' }} data-aos="fade-down">Updates</div>
+          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white', marginBottom:'10px'  }} data-aos="fade-down">Updates</div>
+          <div className="miniSep"></div>
           <div className='containernews leftText pageTextCont' style={{ background: 'transparent' }} data-aos="fade-down">
             <div className="tickerv-wrap" data-aos="zoom-in-down">
               <ul>
