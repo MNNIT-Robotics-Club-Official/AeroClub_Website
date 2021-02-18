@@ -98,12 +98,7 @@ export default function Navigbar() {
               <NavDropdown.Item href="/faculty">Faculty Corner</NavDropdown.Item>
               <NavDropdown.Item href="/coordinators">Coordinators</NavDropdown.Item>
               <NavDropdown.Item href="/non-tech">Non-Tech Members</NavDropdown.Item>
-              <NavDropdown drop='right' title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
+              <NavDropdown.Item href="/alumni">Our Alumni</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link>
             <Nav.Link eventKey='blogs' href='/workshop' className='nav-items'>Jigyasa</Nav.Link>

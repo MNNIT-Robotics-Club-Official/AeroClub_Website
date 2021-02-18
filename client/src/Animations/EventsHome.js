@@ -19,9 +19,10 @@ export default function EventHome() {
     <div className="container-fluid">
       <div className="pages">
         <div className="jumbotron overlay">
-          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white' }}>Updates</div>
-          <div className='containernews leftText pageTextCont' style={{ background: 'transparent' }}>
-            <div className="tickerv-wrap">
+          <div className="pageTitle titleBold headingc white-headingc" style={{ color: 'white', marginBottom:'10px'  }} data-aos="fade-down">Updates</div>
+          <div className="miniSep"></div>
+          <div className='containernews leftText pageTextCont' style={{ background: 'transparent' }} data-aos="fade-down">
+            <div className="tickerv-wrap" data-aos="zoom-in-down">
               <ul>
                 {
                   news.map(singleNews => (
@@ -42,7 +43,7 @@ export default function EventHome() {
               </ul>
             </div>
             <p className="cent">
-              <a className="btn btn-info" href="/news" role="button" style={{ margin: '10px' }}>Details</a></p>
+              <a className="btn btn-danger" href="/news" role="button" style={{ marginTop: '20px' }}>Details</a></p>
           </div>
         </div>
       </div>
