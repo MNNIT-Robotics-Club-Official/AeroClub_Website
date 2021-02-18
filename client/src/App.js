@@ -32,6 +32,8 @@ import { baseTitle } from "./baseUtils.js";
 import About from './components/utils/About'
 import ContactUs from "./components/utils/ContactUs.js";
 import Faculty from "./components/Pages/Faculty.js";
+import Coordinators from './components/Pages/Coordinators.js'
+import Nontech from "./components/Pages/Nontech.js";
 
 function App() {
 
@@ -100,6 +102,12 @@ function App() {
             </Route>
             <Route path='/faculty' exact>
               <Faculty />
+            </Route>
+            <Route path='/coordinators' exact>
+              <Coordinators />
+            </Route>
+            <Route path='/non-tech' exact>
+              <Nontech />
             </Route>
             <Route path='/projects' exact>
               <Projects />

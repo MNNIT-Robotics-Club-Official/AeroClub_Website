@@ -18,23 +18,22 @@ img {
     box-sizing: border-box
 }
 
-.pagesa {
+.pagesa 
+{
     height: 40vh;
     width: 100%;
     margin: 0vh 0vw;
 
-    /* background-image: url('https://unsplash.it/600/600'); */
     background-size: cover;
     padding-bottom: 0px;
 
     background-color: #eee;
     background-position: center;
-    /* background-size: cover; */
     
     animation: image 3s ease-in-out infinite alternate;
-  }
+}
 
-  .overlaya {
+.overlaya {
     width: 100%;
     height: 100%;
     position: relative;
@@ -57,16 +56,17 @@ img {
 }
 /* GRID */
 .grid {
+    margin: auto;
     padding: 0 8vw;
     display: grid;
     grid-template-columns: repeat(auto, 1fr);
-    grid-template-rows: repeat(auto, 1fr);/*Hauteur des lignes*/
-    grid-gap: 20px;
-    width: 100%;
+    grid-template-rows: repeat(auto, 1fr);      /*Hauteur des lignes*/
+    grid-gap: 50px;
+    width: 92%;
+    height: 100%;
 }
 
 /* GALLERY */
-
 .galery{
     grid-column: 1 / 13;
     margin-bottom: 5vh;
@@ -97,7 +97,6 @@ img {
 .item7,.item8,.item9 {grid-row: 3 ;}
 .item10,.item11,.item12 {grid-row: 4 ;}
 .item13,.item14,.item15 {grid-row: 5 ;}
-
 .item1,.item4,.item7,.item10,.item13 {grid-column: 1 / 5;}
 .item2,.item5,.item8,.item11,.item14 {grid-column: 5 / 9;}
 .item3,.item6,.item9,.item12,.item15 {grid-column: 9 / 13;}
@@ -108,8 +107,6 @@ img {
     height: 100%;
     object-fit: cover;
     transition: transform 400ms ease-out;
-    /* width: 100%;
-	height: 100%; */
   border: solid 10px rgb(179, 179, 179);
 }
 
@@ -117,10 +114,9 @@ img {
     transform: scale(1.15);
 }
 
-
 @media screen and (max-width:619px) 
 {
-	    /* GALLERY */
+	/* GALLERY */
     .galery .grid {
         grid-template-columns: repeat(1, 1fr) !important;
         grid-template-rows: repeat(2, 50vh);
@@ -141,7 +137,6 @@ img {
     .item13 {grid-row: 13 ;}
     .item14 {grid-row: 14 ;}
     .item15 {grid-row: 15 ;}
-    
     .item1,.item4,.item7,.item10,.item13,.item2,.item5,.item8,.item11,.item14,.item3,.item6,.item9,.item12,.item15 {grid-column: 1;}
 }
 	
@@ -180,14 +175,15 @@ img {
 } */
 
 .caption::after {
-	content: attr(data-description);
+    content: attr(data-name);
+    font-weight: bold;
 	position: absolute;
 	bottom: -50%;
 	left: 0;
 	width: 100%;
-	height: 30%;
-  padding: 10px;
-  font-family: 'Poiret One', cursive;
+	height: 40%;
+    padding: 10px;
+    font-family: 'Poiret One', cursive;
 	font-size: .9em;
 	font-weight: 400;
 	line-height: 1.4em;
