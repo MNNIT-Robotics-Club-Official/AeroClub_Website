@@ -11,11 +11,15 @@ import { NewsCreate, NewsEdit, NewsList, NewsShow } from './News'
 import { WorkshopCreate, WorkshopEdit, WorkshopList, WorkshopShow } from './Workshop'
 import { UserList, UserShow, UserEdit } from './Users'
 import { baseURL } from '../../baseUtils'
-import { UserContext } from '../../UserProvider'
+import { UserContext } from '../../App'
 
 function AdminComp() {
 
     const [user,] = useContext(UserContext)
+
+    useEffect(() => {
+        console.log(user)
+    }, [])
 
     const httpClient = (url, options = {}) => {
         if (!options.headers) {
@@ -26,16 +30,14 @@ function AdminComp() {
         options.headers.set('Authorization', `Bearer ${token}`);
         return fetchUtils.fetchJson(url, options);
     };
-    useEffect(() => {
-        console.log(user)
-    }, [])
 
     return (
+
         < Admin
             authProvider={authProvider}
             dataProvider={simpleRestProvider(`${baseURL}/api`, httpClient)
             }>
-            <Resource name='users' list={UserList} show={UserShow} edit={user?.role === 'Super-admin' ? UserEdit : null} />
+            <Resource name='users' list={UserList} show={UserShow} edit={user.role === 'Super-admin' ? UserEdit : null} />
             <Resource name='projects' list={ProjectList} create={ProjectCreate} edit={ProjectEdit} show={ProjectShow} />
             <Resource name='blogs' list={BlogList} create={BlogCreate} edit={BlogEdit} show={BlogShow} />
             <Resource name='issue' list={IssueList} edit={IssueEdit} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import Navigbar from './components/utils/Navigbar.js';
 import Footer from './components/utils/Footer.js';
 import Home from './components/utils/Home.js';
@@ -32,117 +32,121 @@ import { baseTitle } from "./baseUtils.js";
 import About from './components/utils/About'
 import ContactUs from "./components/utils/ContactUs.js";
 import Faculty from "./components/Pages/Faculty.js";
-import ResearchThemes from "./components/utils/ResearchThemes.js";
 import Coordinators from './components/Pages/Coordinators.js'
 import Nontech from "./components/Pages/Nontech.js";
+
+export const UserContext = createContext()
 
 function App() {
 
   document.title = `${baseTitle}`
+  const [user, setUser] = useState(null)
 
   return (
-    <div className="App" >
-      <ToastContainer autoClose={4000} hideProgressBar={true} pauseOnHover closeOnClick />
-      <Switch>
-        {
-          localStorage.getItem('jwtToken') &&
-          <Route path='/admin' exact>
-            <AdminComp />
-          </Route>
-        }
 
-        <Route path='/user/login' exact>
+    <UserContext.Provider value={[user, setUser]}>
+      <div className="App" >
+        <ToastContainer autoClose={4000} hideProgressBar={true} pauseOnHover closeOnClick />
+        <Switch>
           {
-            !localStorage.getItem('jwtToken') ? <Login /> : <Redirect to='/404' />
+            localStorage.getItem('jwtToken') &&
+            <Route path='/admin' exact>
+              <AdminComp />
+            </Route>
           }
-        </Route>
-        <Route path='/user/signup' exact>
-          {
-            !localStorage.getItem('jwtToken') ? <Signup /> : <Redirect to='/404' />
-          }
-        </Route>
-        <Route path='/user/confirm/:token' exact>
-          {
-            !localStorage.getItem('jwtToken') ? <Confirmation /> : <Redirect to='/404' />
-          }
-        </Route>
-        <Route path='/user/resetpassword/:token' exact>
-          {
-            !localStorage.getItem('jwtToken') ? <PasswordReset /> : <Redirect to='/404' />
-          }
-        </Route>
-        <Route path='/user/forgotpassword' exact>
-          {
-            !localStorage.getItem('jwtToken') ? <ForgetPassword /> : <Redirect to='/404' />
-          }
-        </Route>
-        <Route path='/404' exact component={NotFound} />
-        <Route>
-          < Navigbar />
-          <Switch>
-            <Route path='/' exact>
-              {/* < Home /> */}
-              < Landing />
-              <About />
-              < EventHome />
-              < Featuredproject />
-              < ResearchThemes/>
-              < Testimonials />
-              <ContactUs />
-            </Route>
-            <Route path='/gallery' exact>
-              <Gallery />
-            </Route>
-            <Route path='/user/createblog' exact>
-              <CreateBlog />
-            </Route>
-            <Route path='/user/dashboard' exact>
-              <Dashboard />
-            </Route>
-            <Route path='/alumni' exact>
-              <Alumni />
-            </Route>
-            <Route path='/faculty' exact>
-              <Faculty />
-            </Route>
-            <Route path='/coordinators' exact>
-              <Coordinators />
-            </Route>
-            <Route path='/non-tech' exact>
-              <Nontech />
-            </Route>
-            <Route path='/projects' exact>
-              <Projects />
-            </Route>
-            <Route path='/projects/:projectId' exact>
-              <SingleProject />
-            </Route>
-            <Route path='/blogs' exact>
-              <Blogs />
-            </Route>
-            <Route path='/blogs/:blogId' exact>
-              <SingleBlog />
-            </Route>
-            <Route path='/components' exact>
-              <CompIssue />
-            </Route>
-            <Route path='/news' exact>
-              <News />
-            </Route>
-            <Route path='/events' exact>
-              <Events />
-            </Route>
-            <Route path='/workshop' exact>
-              <Workshop />
-            </Route>
-            <Route >
-              <Redirect to='/404' />
-            </Route>
-          </Switch>
-          < Footer />
-        </Route>
-      </Switch>
-    </div >
+
+          <Route path='/user/login' exact>
+            {
+              !localStorage.getItem('jwtToken') ? <Login /> : <Redirect to='/404' />
+            }
+          </Route>
+          <Route path='/user/signup' exact>
+            {
+              !localStorage.getItem('jwtToken') ? <Signup /> : <Redirect to='/404' />
+            }
+          </Route>
+          <Route path='/user/confirm/:token' exact>
+            {
+              !localStorage.getItem('jwtToken') ? <Confirmation /> : <Redirect to='/404' />
+            }
+          </Route>
+          <Route path='/user/resetpassword/:token' exact>
+            {
+              !localStorage.getItem('jwtToken') ? <PasswordReset /> : <Redirect to='/404' />
+            }
+          </Route>
+          <Route path='/user/forgotpassword' exact>
+            {
+              !localStorage.getItem('jwtToken') ? <ForgetPassword /> : <Redirect to='/404' />
+            }
+          </Route>
+          <Route path='/404' exact component={NotFound} />
+          <Route>
+            < Navigbar />
+            <Switch>
+              <Route path='/' exact>
+                {/* < Home /> */}
+                < Landing />
+                <About />
+                < EventHome />
+                < Featuredproject />
+                < Testimonials />
+                <ContactUs />
+              </Route>
+              <Route path='/gallery' exact>
+                <Gallery />
+              </Route>
+              <Route path='/user/createblog' exact>
+                <CreateBlog />
+              </Route>
+              <Route path='/user/dashboard' exact>
+                <Dashboard />
+              </Route>
+              <Route path='/alumni' exact>
+                <Alumni />
+              </Route>
+              <Route path='/faculty' exact>
+                <Faculty />
+              </Route>
+              <Route path='/coordinators' exact>
+                <Coordinators />
+              </Route>
+              <Route path='/non-tech' exact>
+                <Nontech />
+              </Route>
+              <Route path='/projects' exact>
+                <Projects />
+              </Route>
+              <Route path='/projects/:projectId' exact>
+                <SingleProject />
+              </Route>
+              <Route path='/blogs' exact>
+                <Blogs />
+              </Route>
+              <Route path='/blogs/:blogId' exact>
+                <SingleBlog />
+              </Route>
+              <Route path='/components' exact>
+                <CompIssue />
+              </Route>
+              <Route path='/news' exact>
+                <News />
+              </Route>
+              <Route path='/events' exact>
+                <Events />
+              </Route>
+              <Route path='/workshop' exact>
+                <Workshop />
+              </Route>
+              <Route >
+                <Redirect to='/404' />
+              </Route>
+            </Switch>
+            < Footer />
+          </Route>
+        </Switch>
+      </div >
+    </UserContext.Provider>
   );
 }
 

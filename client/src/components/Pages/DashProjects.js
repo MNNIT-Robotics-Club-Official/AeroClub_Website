@@ -3,22 +3,15 @@ import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
 import { baseURL } from "../../baseUtils"
-import { UserContext } from '../../UserProvider'
+import { UserContext } from '../../App'
 import { useHistory } from "react-router-dom";
 
 export default function Dashprojects(props) {
   const [modalShow, setModalShow] = React.useState(false);
-  const [user,] = useContext(UserContext)
+  const [user, setUser] = useContext(UserContext)
   const history = useHistory()
 
   useEffect(() => {
-
-    if (!localStorage.getItem("jwtToken")) {
-      history.push("/user/login");
-      toast.warn("You must be logged in !");
-      return
-    }
-
     fetch(`${baseURL}/api/isSignedIn`, {
       method: "post",
       headers: {
@@ -79,8 +72,9 @@ export default function Dashprojects(props) {
                         ) : (
                             <span></span>
                           )}
+
                         <ul>
-                          {project.members?.map((member) => {
+                          {project.members.map((member) => {
                             let badge;
                             if (member.accepted && member.leader) {
                               badge = <span>👑</span>;

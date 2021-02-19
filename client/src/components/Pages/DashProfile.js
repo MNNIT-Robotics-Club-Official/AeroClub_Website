@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { baseURL } from "../../baseUtils"
-import { UserContext } from '../../UserProvider'
+import { UserContext } from '../../App'
+import { useHistory } from 'react-router-dom'
 
 export default function DashProfile() {
 
@@ -12,6 +13,7 @@ export default function DashProfile() {
     const [year, setYear] = useState(-1)
     const [linkedin, setLinkedin] = useState('')
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     useEffect(() => {
         if (user) {
@@ -92,7 +94,14 @@ export default function DashProfile() {
             }
 
             {
-                user?.role !== 'User' && <a className='btn btn-danger' href='/admin'>Go to Admin Panel</a>
+                user?.role !== 'User' && <a className='btn btn-danger'
+                    onClick={() => {
+                        history.push({
+                            pathname: '/admin',
+                            state: user?.role
+                        })
+                    }}
+                >Go to Admin Panel</a>
             }
 
 

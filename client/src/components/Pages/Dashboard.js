@@ -8,7 +8,7 @@ import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
 import { baseURL, baseTitle } from "../../baseUtils";
-import { UserContext } from '../../UserProvider'
+import { UserContext } from '../../App'
 
 function Dashboard() {
   const history = useHistory()
@@ -23,6 +23,20 @@ function Dashboard() {
       toast.warn("You must be logged in !");
     }
 
+    fetch(`${baseURL}/api/isSignedIn`, {
+      method: 'post',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
+      }
+    }).then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          toast.warn(data.error)
+          history.push("/user/login")
+          return
+        }
+      })
+
     fetch(`${baseURL}/api/my/details`, {
       method: "get",
       headers: {
@@ -32,7 +46,7 @@ function Dashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setUser(data)
+        setUser(data);
       });
   }, [r]);
 
