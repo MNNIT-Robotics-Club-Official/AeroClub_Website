@@ -40,7 +40,9 @@ function Blogs() {
                 <div>
                     {
                         blogs.slice((page - 1) * blogs_per_page, page * blogs_per_page).map(blog => (
-                            <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog._id}>
+                            <Jumbotron fluid style={{ background: 'white', width: '80vw', margin: 'auto', paddingBottom: '1rem' }} key={blog._id} data-aos="fade-down"
+                                data-aos-easing="linear"
+                                data-aos-duration="1500">
                                 <Container>
                                     <h2>{blog.title}</h2>
                                     <p>Posted by {blog.postedBy.linkedin_url !== "https://www.linkedin.com/in/username/" ? <a href={blog.postedBy.linkedin_url} target='_blank'>{blog.postedBy.name}</a> : blog.postedBy.name} {`(reg. no :- ${blog.postedBy.registration_no == 'xxxxxxxx' ? 'NA' : blog.postedBy.registration_no}, ${blog.postedBy.year == -1 ? 'year - NA' : year[blog.postedBy.year]})`} on {new Date(blog.publishedAt).toLocaleDateString()}</p>

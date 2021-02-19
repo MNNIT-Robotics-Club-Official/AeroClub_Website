@@ -37,7 +37,9 @@ function Projects() {
                     <Loading time={2} />
                     {
                         projects.slice((page - 1) * projects_per_page, page * projects_per_page).map(project => (
-                            <li className="cards_item">
+                            <li className="cards_item"  data-aos="fade-down"
+                                data-aos-easing="linear"
+                                data-aos-duration="1500">
                                 <div className="card cardproj">
                                     <div className="card_image"><img src={project.pic} /></div>
                                     <div className="card_content">

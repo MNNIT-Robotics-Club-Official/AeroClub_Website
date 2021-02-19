@@ -43,15 +43,15 @@ export default function News() {
             <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>
                 <Container>
                     <div className='container' id='123456789'>
-                        <Accordion activeKey={eventKey} onSelect={e => setEventKey(e)}>
+                        <Accordion activeKey={eventKey} onSelect={e => setEventKey(e)} style={{margin:'1.5rem'}}>
                             {
                                 news.map(singleNews => (
-                                    <Card key={singleNews.id} id={singleNews.id}>
+                                    <Card key={singleNews.id} id={singleNews.id} style={{padding:'0.15rem'}} data-aos="fade-up" data-aos-duration="1000">
                                         <Card.Header style={{ cursor: 'pointer' }}>
-                                            <Accordion.Toggle as={Card.Header} eventKey={singleNews.id}>
+                                            <Accordion.Toggle as={Card.Header} eventKey={singleNews.id} style={{fontSize:'1.3rem' }}>
                                                 <div>
                                                     {singleNews.title}
-                                                    <em className='float-right'>published on
+                                                    <em className='float-right' style={{fontSize:'small'}}>
                                                         {
                                                             new Date(singleNews.publishedAt).toLocaleDateString()
                                                         }

@@ -60,10 +60,10 @@ export default function Footer() {
               </div>
               <div className="col-md-4 col-sm-6 col-xs-12">
                 <ul className="social-icons">
-                  <SocialIcon url="http://twitter.com/jaketrent" />
-                  <SocialIcon url="http://facebook.com/jaketrent" />
-                  <SocialIcon url="http://github.com/jaketrent" />
-                  <SocialIcon url="http://youtube.com/jaketrent" />
+                  <SocialIcon url="http://twitter.com/" />
+                  <SocialIcon url="http://facebook.com/" />
+                  <SocialIcon url="http://github.com/" />
+                  <SocialIcon url="http://youtube.com/" />
                 </ul>
               </div>
             </div>
