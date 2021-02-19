@@ -155,9 +155,10 @@ img {
     z-index: 10;
     margin: 20px ;
 }
-/* 
-.caption::before {
-	content: attr(data-title);
+
+.caption::after {
+    display: block !important;;
+	content: "qwerty";
 	position: absolute;
 	top: -50%;
 	left: 0;
@@ -177,9 +178,10 @@ img {
 	-ms-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-} */
+}
 
-.caption::after {
+
+.caption::before {
 	content: attr(data-description);
 	position: absolute;
 	bottom: -50%;
@@ -202,10 +204,10 @@ img {
 	transition: all 0.3s ease;
 }
 
-.caption:hover::before {
+.caption:hover::after {
 	top: 0;
 }
 
-.caption:hover::after {
+.caption:hover::before {
 	bottom: 0;
 }

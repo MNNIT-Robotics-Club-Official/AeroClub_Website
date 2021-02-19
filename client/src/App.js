@@ -32,6 +32,7 @@ import { baseTitle } from "./baseUtils.js";
 import About from './components/utils/About'
 import ContactUs from "./components/utils/ContactUs.js";
 import Faculty from "./components/Pages/Faculty.js";
+import ResearchThemes from "./components/utils/ResearchThemes.js";
 
 function App() {
 
@@ -83,6 +84,7 @@ function App() {
               <About />
               < EventHome />
               < Featuredproject />
+              < ResearchThemes/>
               < Testimonials />
               <ContactUs />
             </Route>

@@ -96,7 +96,7 @@ export default function Navigbar() {
               show={show1}
             >
               <NavDropdown.Item href="/faculty">Faculty Corner</NavDropdown.Item>
-              <NavDropdown.Item href="/coordinators">Coordinators</NavDropdown.Item>
+              <NavDropdown.Item href="/alumni">Alumni</NavDropdown.Item>
               <NavDropdown.Item href="/">Non-Tech Members</NavDropdown.Item>
               <NavDropdown drop='right' title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

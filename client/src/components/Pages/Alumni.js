@@ -35,6 +35,7 @@ export default function Alumni() {
                             <div className="galery">
                                 <div className="grid ">
                                     <div className="item1">
+                                   
                                         <a className="caption" data-title="Colored landscape"
                                             data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id sapien condimentum, sagittis erat rhoncus, bibendum nisi.">
                                             <img className="gallery-image img" src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80" alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer" /></a>
