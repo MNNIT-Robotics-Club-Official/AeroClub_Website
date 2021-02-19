@@ -10,7 +10,7 @@ export default function Alumni() {
 
     return (
         <>
-            <Loading />
+            <Loading time={2} />
             <div className="pagesa">
                 <div className="overlaya">
                     <div className="pageTitlea titleBolda">
@@ -20,7 +20,7 @@ export default function Alumni() {
             </div>
             <div className="pageTitle titleBold header white-heading padtop">ALUMNI</div>
 
-            <div class="container mb-5">
+            <div class="container alumni-container mb-5">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">

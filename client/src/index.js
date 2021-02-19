@@ -4,7 +4,7 @@ import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App.js';
-import Particles from 'react-particles-js'
+import { UserProvider } from './UserProvider';
 
 const particlesOptions = {
   particles: {
@@ -21,9 +21,9 @@ const particlesOptions = {
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      {/* <Particles className='particles'
-        params={particlesOptions} /> */}
-      <App />
+      <UserProvider >
+        <App />
+      </UserProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

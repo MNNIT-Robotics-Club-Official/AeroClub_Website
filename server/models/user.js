@@ -38,8 +38,9 @@ var userSchema = new mongoose.Schema(
     },
     salt: String,
     role: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "User",
+      enum: ["Super-admin", "Admin", "User"]
     },
     projects: [
       {
@@ -93,6 +94,8 @@ userSchema.method('transform', function () {
   delete obj._id;
   delete obj.salt;
   delete obj.encry_password;
+  delete obj.createdAt;
+  delete obj.updatedAt;
   return obj;
 });
 

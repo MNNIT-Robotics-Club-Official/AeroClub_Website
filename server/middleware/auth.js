@@ -184,10 +184,13 @@ exports.isSignedIn = (req, res, next) => {
     const { _id } = payload;
 
     // finding the user with the id
-    User.findById(_id).then((user) => {
-      req.user = user;
-      next();
-    });
+    User.findById(_id)
+      .populate('blogs')
+      .populate({ path: 'projects', populate: { path: 'members.user', select: 'name' } })
+      .then((user) => {
+        req.user = user.transform();
+        next();
+      });
   });
 };
 
@@ -212,7 +215,7 @@ exports.resetVerify = (req, res, next) => {
 };
 
 exports.isAdmin = (req, res, next) => {
-  if (req.user.role === 0) {
+  if (req.user.role === 'User') {
     return res.status(403).json({
       error: "You are not ADMIN, Access denied",
     });

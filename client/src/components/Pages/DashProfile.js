@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { baseURL } from "../../baseUtils"
+import { UserContext } from '../../UserProvider'
 
+export default function DashProfile() {
 
-export default function DashProfile({ user, setUser }) {
-
+    const [user, setUser] = useContext(UserContext)
     const [disabled, setDisabled] = useState(true)
     const [name, setName] = useState('')
     const [regis_no, setRegis_no] = useState('')
@@ -13,10 +14,12 @@ export default function DashProfile({ user, setUser }) {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        setName(user.name)
-        setRegis_no(user.registration_no)
-        setYear(user.year)
-        setLinkedin(user.linkedin_url)
+        if (user) {
+            setName(user.name)
+            setRegis_no(user.registration_no)
+            setYear(user.year)
+            setLinkedin(user.linkedin_url)
+        }
     }, [user])
 
     const handleSaveChange = () => {
@@ -60,7 +63,7 @@ export default function DashProfile({ user, setUser }) {
             <div className="mb-3 row">
                 <label htmlFor="email" className="col-sm-2 col-form-label">Email : </label>
                 <div className="col-sm-10">
-                    <input type="email" className="form-control" id="email" value={user.email} disabled />
+                    <input type="email" className="form-control" id="email" value={user?.email} disabled />
                 </div>
             </div>
             <div className="mb-3 row">
@@ -87,6 +90,12 @@ export default function DashProfile({ user, setUser }) {
                     :
                     <button className="btn btn-primary" onClick={handleSaveChange}>Save Changes</button>
             }
+
+            {
+                user?.role !== 'User' && <a className='btn btn-danger' href='/admin'>Go to Admin Panel</a>
+            }
+
+
         </div>
     )
 }

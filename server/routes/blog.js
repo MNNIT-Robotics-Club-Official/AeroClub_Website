@@ -6,7 +6,7 @@ const { isSignedIn, isAdmin } = require('../middleware/auth')
 // fetching all blogs through admin
 router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
     res.setHeader('Content-Range', 'blogs 0-10/20')
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
     Blog.find({}).sort('-createdAt')
         .then(blogs => {
             let arr = []
@@ -19,15 +19,6 @@ router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
 // fetching all accepted blogs to the frontend
 router.get('/blogs/toUI', (req, res) => {
     Blog.find({ accepted: true }).sort('-createdAt').populate('postedBy', 'name registration_no year linkedin_url')
-        .then(blogs => {
-            res.json(blogs)
-        })
-        .catch(e => console.log(e))
-})
-
-// fetching all blogs of a user
-router.get('/blogs/toUser', isSignedIn, (req, res) => {
-    Blog.find({ postedBy: req.user._id }).sort('-createdAt').populate('postedBy', 'email')
         .then(blogs => {
             res.json(blogs)
         })

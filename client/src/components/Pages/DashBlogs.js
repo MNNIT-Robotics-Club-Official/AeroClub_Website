@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Accordion, Badge, Button, Card, Container, Jumbotron } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import { baseURL } from "../../baseUtils"
+import { UserContext } from '../../UserProvider'
 
-export default function DashBlogs({ user }) {
+export default function DashBlogs() {
 
-    const [blogs, setBlogs] = useState([])
+    const [user,] = useContext(UserContext)
     const history = useHistory()
     const year = {
         1: "1st year",
@@ -15,24 +17,34 @@ export default function DashBlogs({ user }) {
     }
 
     useEffect(() => {
-        fetch(`${baseURL}/api/blogs/toUser`, {
-            method: 'get',
+
+        if (!localStorage.getItem("jwtToken")) {
+            history.push("/user/login");
+            toast.warn("You must be logged in !");
+            return
+        }
+
+        fetch(`${baseURL}/api/isSignedIn`, {
+            method: "post",
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
-            }
+                Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+            },
         })
-            .then(res => res.json())
-            .then(data => {
-                setBlogs(data)
-            })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.error) {
+                    localStorage.removeItem('jwtToken')
+                    toast.warn(data.error)
+                    history.push('/user/login')
+                }
+            });
     }, [])
 
     return (
         <div className='container'>
             <Accordion>
-
                 {
-                    blogs.map(blog => (
+                    user?.blogs.map(blog => (
                         <Card className="rounded" key={blog._id}>
                             <Card.Header style={{ cursor: 'pointer' }}>
                                 <Accordion.Toggle as={Card.Header} variant="link" eventKey={blog._id}>

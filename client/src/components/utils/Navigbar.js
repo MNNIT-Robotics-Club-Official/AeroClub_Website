@@ -4,7 +4,6 @@ import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { baseURL } from '../../baseUtils';
-import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
 
 const Login = () => {
 
@@ -70,15 +69,18 @@ export default function Navigbar() {
 
   const handleScroll = () => {
 
-    if (document.getElementById('responsive-navbar-nav').classList.contains('show')) return
+    if (document.getElementById('responsive-navbar-nav')?.classList.contains('show')) return
 
     const currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("navbar").style.top = "0";
-    } else {
-      document.getElementById("navbar").style.top = "-100px";
+
+    if (document.getElementById("navbar")) {
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
     }
-    prevScrollpos = currentScrollPos;
   }
 
   return (

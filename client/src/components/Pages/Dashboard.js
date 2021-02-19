@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../css/Dashboard.css";
@@ -8,10 +8,11 @@ import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
 import { baseURL, baseTitle } from "../../baseUtils";
+import { UserContext } from '../../UserProvider'
 
 function Dashboard() {
-  const history = useHistory();
-  const [user, setuser] = useState({})
+  const history = useHistory()
+  const [user, setUser] = useContext(UserContext)
   const [r, setr] = useState(0)
 
   document.title = `${baseTitle} | Dashboard`
@@ -21,6 +22,7 @@ function Dashboard() {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
+
     fetch(`${baseURL}/api/my/details`, {
       method: "get",
       headers: {
@@ -30,7 +32,7 @@ function Dashboard() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setuser(data);
+        setUser(data)
       });
   }, [r]);
 
@@ -102,7 +104,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          <DashProfile user={user} setUser={setuser} />
+          <DashProfile />
         </div>
         <div
           className="tab-pane fade"
@@ -110,7 +112,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects user={user} r={r} setr={setr} />
+          <DashProjects r={r} setr={setr} />
         </div>
         <div
           className="tab-pane fade"
@@ -118,7 +120,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites user={user} r={r} setr={setr} />
+          <DashInvites r={r} setr={setr} />
         </div>
         <div
           className="tab-pane fade"
@@ -134,7 +136,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-blogs-tab"
         >
-          <DashBlogs user={user} />
+          <DashBlogs />
         </div>
       </div>
     </div>

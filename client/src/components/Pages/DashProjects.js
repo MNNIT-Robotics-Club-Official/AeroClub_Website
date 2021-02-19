@@ -1,34 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
 import { baseURL } from "../../baseUtils"
+import { UserContext } from '../../UserProvider'
+import { useHistory } from "react-router-dom";
 
 export default function Dashprojects(props) {
-  const [projects, setProjects] = useState([]);
-  const [numProj, setnumProj] = useState(0);
   const [modalShow, setModalShow] = React.useState(false);
+  const [user,] = useContext(UserContext)
+  const history = useHistory()
 
   useEffect(() => {
-    fetch(`${baseURL}/api/my/projects`, {
-      method: "get",
+
+    if (!localStorage.getItem("jwtToken")) {
+      history.push("/user/login");
+      toast.warn("You must be logged in !");
+      return
+    }
+
+    fetch(`${baseURL}/api/isSignedIn`, {
+      method: "post",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setProjects(data);
+        if (data.error) {
+          localStorage.removeItem('jwtToken')
+          toast.warn(data.error)
+          history.push('/user/login')
+        }
       });
-  }, [props.r]);
+  }, []);
 
   return (
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
         <Accordion>
-          {projects.map((project) => {
+          {user?.projects.map((project) => {
             let badge;
             if (project.status === "Ongoing")
               badge = (
@@ -57,7 +68,7 @@ export default function Dashprojects(props) {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {props.user._id == project.leader ? (
+                        {user.id == project.leader ? (
                           <Button
                             onClick={() => {
                               setModalShow(true);
@@ -68,9 +79,8 @@ export default function Dashprojects(props) {
                         ) : (
                             <span></span>
                           )}
-
                         <ul>
-                          {project.members.map((member) => {
+                          {project.members?.map((member) => {
                             let badge;
                             if (member.accepted && member.leader) {
                               badge = <span>👑</span>;
@@ -81,8 +91,8 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === props.user._id) {
-                                badge = <spna></spna>;
+                              if (member.user._id === user.id) {
+                                badge = <span></span>;
                               } else
                                 badge = (
                                   <span class="badge badge-pill badge-warning">

@@ -45,7 +45,7 @@ exports.requestComponent = (req, res) => {
   const componentIssue = new ComponentsIssue({
     component: req.component._id,
     reason: req.body.reason,
-    user: req.user._id,
+    user: req.user.id,
     num: req.body.num,
   });
 
@@ -160,7 +160,7 @@ exports.getIssueById = (req, res, next, id) => {
 };
 
 exports.getMyRequests = (req, res) => {
-  ComponentsIssue.find({ user: req.user._id })
+  ComponentsIssue.find({ user: req.user.id })
     .populate("component")
     .exec((err, myRequests) => {
       if (err) {
@@ -172,22 +172,8 @@ exports.getMyRequests = (req, res) => {
     });
 };
 
-exports.getMyProjects = (req, res) => {
-  user
-    .findOne({ _id: req.user._id })
-    .populate({ path: 'projects', populate: { path: 'members.user', select: 'name' } })
-    .exec((err, user) => {
-      if (err) {
-        return res.status(400).json({
-          error: "Cannot find your requests.",
-        });
-      }
-      res.json(user.projects);
-    });
-};
-
 exports.getMyInvites = (req, res) => {
-  Project.find({ members: { $elemMatch: { user: req.user._id, accepted: false } } })
+  Project.find({ members: { $elemMatch: { user: req.user.id, accepted: false } } })
     .populate({ path: 'members.user', select: 'name' })
     .exec((err, projects) => {
       if (err) {
@@ -200,14 +186,18 @@ exports.getMyInvites = (req, res) => {
 };
 
 exports.updateMyProfile = (req, res) => {
-  user.findOneAndUpdate({ _id: req.user._id }, req.body, { new: true }, (e, updatedUser) => {
+  user.findOneAndUpdate({ _id: req.user.id }, req.body, { new: true })
+    .populate('blogs')
+    .populate({ path: 'projects', populate: { path: 'members.user', select: 'name' } })
+    .then(updatedUser => {
 
-    if (e) return res.status(400).json({
-      error: 'User cannot be updated !'
+      if (!updatedUser) return res.status(400).json({
+        error: 'User cannot be updated !'
+      })
+
+      return res.json({ user: updatedUser })
     })
-
-    return res.json({ user: updatedUser })
-  })
+    .catch(e => console.log(e))
 }
 exports.getMyDetails = (req, res) => {
   res.json(req.user);
@@ -215,7 +205,7 @@ exports.getMyDetails = (req, res) => {
 
 exports.acceptInvite = (req, res) => {
   const projectId = req.params.projectId;
-  const userId = req.user._id;
+  const userId = req.user.id;
   Project.findOne({ _id: projectId })
     .exec((err, project) => {
       if (err || !project) {

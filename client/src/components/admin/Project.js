@@ -82,7 +82,7 @@ export const ProjectCreate = (props) => {
                 <TextInput source="status" label="Status" />
                 <ArrayInput source="member" label="Members">
                     <SimpleFormIterator >
-                        <TextInput source="member"/>
+                        <TextInput source="member" />
                     </SimpleFormIterator>
                 </ArrayInput>
                 <DateInput
@@ -106,7 +106,6 @@ export const ProjectShow = (props) => {
 
                 <ImageField source="pic" label="Image" />
                 <TextField source="status" label="Status" />
-                {/* <ArrayInput source="member" label="Team Members" /> */}
                 <ArrayField source="member">
                     <Datagrid>
                         <TextField source="member" />

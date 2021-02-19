@@ -5,7 +5,7 @@ import '../../css/Alumni.css'
 export default function Faculty() {
     return (
         <>
-            <Loading />
+            <Loading time={2} />
             <div className=" pagesa">
                 <div className="overlaya">
                     <div className="pageTitlea titleBolda">

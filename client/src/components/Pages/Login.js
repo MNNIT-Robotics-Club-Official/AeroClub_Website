@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { baseTitle, baseURL } from "../../baseUtils"
-
 import '../../css/Login.css'
 
 function Login() {
@@ -20,7 +19,6 @@ function Login() {
 	const handleSubmit = (e) => {
 
 		e.preventDefault()
-
 
 		if (localStorage.getItem('jwtToken')) {
 			toast.success('User logged In successfully !')
@@ -67,11 +65,6 @@ function Login() {
 										<input type="password" id="inputPassword" className="form-control" placeholder="Password" required ref={password} />
 										<label htmlFor="inputPassword">Password</label>
 									</div>
-
-									{/* <div className="custom-control custom-checkbox mb-3">
-										<input type="checkbox" className="custom-control-input" id="customCheck1" />
-										<label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
-									</div> */}
 									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={handleSubmit}>Sign in</button>
 									<hr className="my-4" />
 									<div className="para">
