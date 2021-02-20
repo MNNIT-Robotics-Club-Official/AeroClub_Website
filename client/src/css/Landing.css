@@ -4,17 +4,18 @@
     padding: 0px 0px;
     display: flex; 
     flex-flow: column;
-}
-
-.pagesl {
-  height: 90vh;
-  width: 100%;
-  margin: 0vh 0vw;
-
-  background:url(http://localhost:5000/images/utils/dronepic.jpg) center center no-repeat;
-  background-size: cover;
-  padding-bottom: 0px;
-
+  }
+  
+  .pagesl {
+    height: 90vh;
+    width: 100%;
+    margin: 0vh 0vw;
+    
+    background:url(http://localhost:5000/images/utils/drone-1.jpg) center center no-repeat;
+    background-size: cover;
+    padding-bottom: 0px;
+    background-attachment: fixed;
+    
   background-color: #eee;
   background-position: center;
   /* background-size: cover; */
@@ -41,17 +42,11 @@
     height: 90vh;
     width: 100%;
     margin: 0vh 0vw;
-    /* background:linear-gradient(rgba(0,0,0, 0.4), rgba(0,0,0,.4)), url(http://localhost:5000/images/utils/dronepic.jpg) center center no-repeat; */
-    background-size: cover;
     margin: 0vh 0vw;
-    /* background-color: #eee; */
-    background-position: center;
-    background-size: cover;
-    /* background-attachment: fixed; */
     position: relative;
     color: white;
     text-shadow: 5px 2px 2px rgb(41, 41, 41);
-  }
+}
 
 .landing-logo{
   position: relative;

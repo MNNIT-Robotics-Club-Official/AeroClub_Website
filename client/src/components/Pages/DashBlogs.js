@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Accordion, Badge, Button, Card, Container, Jumbotron } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { baseURL } from "../../baseUtils"
-import { UserContext } from '../../UserProvider'
+import { UserContext } from '../../App'
 
 export default function DashBlogs() {
 
