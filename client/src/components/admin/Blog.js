@@ -13,6 +13,7 @@ import {
   ImageField,
   List,
   ReferenceField,
+  ReferenceInput,
   required,
   RichTextField,
   SelectInput,
@@ -32,12 +33,17 @@ export const BlogList = (props) => {
       <Datagrid>
         <TextField source="id" />
         <TextField source="title" />
-        <ReferenceField label="Posted By" source="postedBy" reference="users" linkType="show">
+        <ReferenceField
+          label="Posted By"
+          source="postedBy"
+          reference="users"
+          linkType="show"
+        >
           <ChipField source="name" />
         </ReferenceField>
         <DateField source="publishedAt" label="Published On" />
         <BooleanField source="accepted" />
-        <ShowButton basePath='/blogs' />
+        <ShowButton basePath="/blogs" />
         <EditButton basePath="/blogs" />
         <DeleteButton basePath="/blogs" />
       </Datagrid>
@@ -50,21 +56,28 @@ export const BlogCreate = (props) => {
     <Create {...props}>
       <SimpleForm redirect="/blogs">
         <TextInput source="title" label="Title" />
-        <RichTextInput source="body" label="Body"
-          toolbar={[['bold', 'italic', 'underline', 'strike'],
-          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-          [{ 'size': ['small', false, 'large', 'huge'] }],
-          [{ 'font': [] }],
-          [{ 'color': [] }, { 'background': [] }],
-          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-          [{ 'script': 'sub' }, { 'script': 'super' }],
-          ['blockquote', 'code-block'],
-          [{ 'indent': '-1' }, { 'indent': '+1' }],
-          [{ 'direction': 'rtl' }],
-          [{ 'align': [] }],
-          ['image'],
-          ['clean']]} />
-        <TextInput source="postedBy" label="Posted By" />
+        <RichTextInput
+          source="body"
+          label="Body"
+          toolbar={[
+            ["bold", "italic", "underline", "strike"],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ font: [] }],
+            [{ color: [] }, { background: [] }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            ["blockquote", "code-block"],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ align: [] }],
+            ["image"],
+            ["clean"],
+          ]}
+        />
+        <ReferenceInput label="Posted By" source="postedBy" reference="users">
+          <SelectInput optionText="name" />
+        </ReferenceInput>
         <TextInput source="pic" label="Image Link" />
         <DateInput
           source="publishedAt"
@@ -85,7 +98,14 @@ export const BlogShow = (props) => {
         <RichTextField source="body" label="Body" />
         <TextField source="postedBy" label="Posted By" />
         <ImageField source="pic" label="Image" />
-        <DateField source="publishedAt" label="Published At" />
+        <ReferenceField
+          label="Posted By"
+          source="postedBy"
+          reference="users"
+          linkType="show"
+        >
+          <ChipField source="name" />
+        </ReferenceField>
         <BooleanField source="accepted" />
       </SimpleShowLayout>
     </Show>
@@ -98,22 +118,28 @@ export const BlogEdit = (props) => {
       <SimpleForm redirect="/blogs">
         <TextInput disabled label="Id" source="id" />
         <TextInput source="title" validate={required()} label="Title" />
-        <RichTextInput source="body" validate={required()}
-          toolbar={[['bold', 'italic', 'underline', 'strike'],
-          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-          [{ 'size': ['small', false, 'large', 'huge'] }],
-          [{ 'font': [] }],
-          [{ 'color': [] }, { 'background': [] }],
-          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-          [{ 'script': 'sub' }, { 'script': 'super' }],
-          ['blockquote', 'code-block'],
-          [{ 'indent': '-1' }, { 'indent': '+1' }],
-          [{ 'direction': 'rtl' }],
-          [{ 'align': [] }],
-          ['link', 'image', 'video'],
-          ['clean']]}
+        <RichTextInput
+          source="body"
+          validate={required()}
+          toolbar={[
+            ["bold", "italic", "underline", "strike"],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ font: [] }],
+            [{ color: [] }, { background: [] }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            ["blockquote", "code-block"],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ align: [] }],
+            ["link", "image", "video"],
+            ["clean"],
+          ]}
         />
-        <TextInput source="postedBy" validate={required()} label="Posted By" />
+        <ReferenceInput label="Posted By" source="postedBy" reference="users">
+          <SelectInput optionText="name" />
+        </ReferenceInput>
         <TextInput source="pic" label="Image Link" />
         <DateInput
           source="publishedAt"

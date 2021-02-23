@@ -1,14 +1,12 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useReducer } from "react";
+import { reducer } from "./UserReducer";
+export const UserContext = createContext();
 
-export const UserContext = createContext()
-
-export const UserProvider = props => {
-
-    const [user, setUser] = useState(null)
-
-    return (
-        <UserContext.Provider value={[user, setUser]}>
-            {props.children}
-        </UserContext.Provider>
-    )
+export default function UserProvider(props) {
+  const [state, dispatch] = useReducer(reducer, null);
+  return (
+    <UserContext.Provider value={{ state, dispatch }}>
+      {props.children}
+    </UserContext.Provider>
+  );
 }

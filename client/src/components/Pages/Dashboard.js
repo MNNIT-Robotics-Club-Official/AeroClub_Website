@@ -8,14 +8,14 @@ import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
 import { baseURL, baseTitle } from "../../baseUtils";
-import { UserContext } from '../../App'
+import { UserContext } from "../../UserProvider";
 
 function Dashboard() {
-  const history = useHistory()
-  const [user, setUser] = useContext(UserContext)
-  const [r, setr] = useState(0)
+  const history = useHistory();
+  const { user, dispatch } = useContext(UserContext);
+  const [r, setr] = useState(0);
 
-  document.title = `${baseTitle} | Dashboard`
+  document.title = `${baseTitle} | Dashboard`;
 
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
@@ -24,30 +24,34 @@ function Dashboard() {
     }
 
     fetch(`${baseURL}/api/isSignedIn`, {
-      method: 'post',
+      method: "post",
       headers: {
-        'Authorization': `Bearer ${localStorage.getItem("jwtToken")}`
-      }
-    }).then(res => res.json())
-      .then(data => {
-        if (data.error) {
-          toast.warn(data.error)
-          history.push("/user/login")
-          return
-        }
-      })
-
-    fetch(`${baseURL}/api/my/details`, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        setUser(data);
+        if (data.error) {
+          toast.warn(data.error);
+          history.push("/user/login");
+          return;
+        }
       });
+
+    if (!user) {
+      fetch(`${baseURL}/api/my/details`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          localStorage.setItem("user", JSON.stringify(data));
+          dispatch({ type: "SET", payload: data });
+        });
+    }
   }, [r]);
 
   return (

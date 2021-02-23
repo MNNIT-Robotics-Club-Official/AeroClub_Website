@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
-import { baseURL } from "../../baseUtils"
-import { UserContext } from '../../App'
+import { baseURL } from "../../baseUtils";
+import { UserContext } from "../../UserProvider";
 import { useHistory } from "react-router-dom";
 
 export default function Dashprojects(props) {
   const [modalShow, setModalShow] = React.useState(false);
-  const [user, setUser] = useContext(UserContext)
-  const history = useHistory()
+  const { state } = useContext(UserContext);
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`${baseURL}/api/isSignedIn`, {
@@ -21,9 +21,9 @@ export default function Dashprojects(props) {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-          localStorage.removeItem('jwtToken')
-          toast.warn(data.error)
-          history.push('/user/login')
+          localStorage.removeItem("jwtToken");
+          toast.warn(data.error);
+          history.push("/user/login");
         }
       });
   }, []);
@@ -32,7 +32,7 @@ export default function Dashprojects(props) {
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
         <Accordion>
-          {user?.projects.map((project) => {
+          {state?.projects.map((project) => {
             let badge;
             if (project.status === "Ongoing")
               badge = (
@@ -61,7 +61,7 @@ export default function Dashprojects(props) {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {user.id == project.leader ? (
+                        {state.id == project.leader ? (
                           <Button
                             onClick={() => {
                               setModalShow(true);
@@ -70,8 +70,8 @@ export default function Dashprojects(props) {
                             Invite
                           </Button>
                         ) : (
-                            <span></span>
-                          )}
+                          <span></span>
+                        )}
 
                         <ul>
                           {project.members.map((member) => {
@@ -85,7 +85,7 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === user.id) {
+                              if (member.user._id === state.id) {
                                 badge = <span></span>;
                               } else
                                 badge = (
@@ -96,7 +96,7 @@ export default function Dashprojects(props) {
                             }
                             return (
                               <li>
-                                {member.user.name}
+                                {member.user?.name}
                                 <em className="float-right">{badge}</em>
                               </li>
                             );
@@ -164,7 +164,6 @@ function MyVerticallyCenteredModal(props) {
                 projectId: projectId,
               }),
             }).then((res) => {
-              console.log(res);
               props.onHide();
               if (res.status == 200) {
                 toast.success("USER INVITED");
