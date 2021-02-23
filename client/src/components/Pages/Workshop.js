@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, Card } from 'react-bootstrap'
 import { Button, Container, Jumbotron } from 'react-bootstrap'
+import "../../css/Event.css";
+import { baseTitle } from "../../baseUtils";
+import { baseURL } from "../../baseUtils";
 
 export default function Workshop() {
     const [workshops, SetWorkshops] = useState([]);
@@ -21,49 +24,35 @@ export default function Workshop() {
     }, [])
 
     return (
-        <div>
+        <section className="section1 pagese ">
+                <div className="overlaye">
+                    <div className="containere ">
+                        <h1 className="titlee"><div className="pageTitlee titleBolde">
+                            {/* <div><img src={`${baseURL}/images/utils/Prosang.jpg`} alt="prosang" srcset="" style={{alignItems:'center', width: '12%'}} /></div> */}
+                        Jigyasa
 
-            <div className="pagesg">
-                <div className="overlayg">
-                    <div className="pageTitleg titleBoldg">
-                        Workshops
+                            {/* </div> */}
+
+                        </div></h1>
+                        <div className="content-wrapper">
+                            <div className="img-wrapper">
+                                <div className="img imgev" ><img src={`${baseURL}/images/utils/jigyasa.png`} alt="prosang" srcset="" style={{ alignItems: 'center' }} /></div>
                             </div>
-                </div>
-            </div>
-            <Jumbotron fluid style={{ background: 'white', width: '100%', margin: 'auto', paddingBottom: '1rem' }}>
-                <Container>
-                    <div className='container' >
+                            <div className="text-wrapper">
+                                <p className="texte">Jigyasa is the workshop venture of the Technical clubs of MNNIT, namely Robotics, Astrowing and AeroClub, motivated by the desire to supplement education with the present day industry requirements, thus making the participants future ready with a STEM mindset.
 
-                        <Accordion>
-                            {
-                                workshops.map(singlews => (
-                                    <Card key={singlews.id}>
-                                        <Card.Header style={{ cursor: 'pointer' }}>
-                                            <Accordion.Toggle as={Card.Header} eventKey={singlews.id}>
-                                                <div>
-                                                    {singlews.name}
-                                                    <em className='float-right' style={{ fontSize: "10px" }}>-on 
-                                                        
-                                                            { new Date(singlews.date).toLocaleDateString()}
-                                                        
-                                                    </em>
-                                                    <div dangerouslySetInnerHTML={{ __html: singlews.about}}>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </Accordion.Toggle>
-                                        </Card.Header>
-                                        <Accordion.Collapse eventKey={singlews.id}>
-                                            <Card.Body dangerouslySetInnerHTML={{ __html: singlews.brochure }}></Card.Body>
-                                            
-                                        </Accordion.Collapse>
-                                    </Card>
-                                ))
-                            }
-                        </Accordion>
+
+
+                </p>
+                                <p className="texte">The workshops under Jigyasa will help the students in acknowledging real-life applications of science/engineering, through various projects, activities and interactive sessions. 
+Hence, by emphasizing on innovation and imagination, this workshop will incite in their minds, a profound technical temperament and fascination towards STEM.
+                </p>
+                            
+
+                            </div>
+                        </div>
                     </div>
-                </Container>
-            </Jumbotron>
-        </div>
+                </div>
+            </section>
     )
 }

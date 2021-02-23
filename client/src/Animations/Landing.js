@@ -11,9 +11,9 @@ class Landing extends React.Component {
           <div className="overlayl">
             <div className="landing d-flex flex-lg-row flex-md-column align-items-center justify-content-center flex-wrap">
               <div className="landing-logo">
-                <img src={`${baseURL}/images/utils/logo-aero2.png`} alt="aero" srcset="" data-aos="fade-right" />
+                <img src={`${baseURL}/images/utils/logo-aero2.png`} alt="aero" srcset=""/>
               </div>
-              <div className="landing-about" data-aos="fade-up" data-aos-delay="100">
+              <div className="landing-about">
                 <h1 className='font-weight-bold' ><Typewriter
                   options={{
                     strings: ['AERO CLUB'],

@@ -4,7 +4,7 @@ import "../../css/ResearchThemes.css";
 
 const ResearchThemes = () => {
     return (
-        <div className="container-fluid" style={{ background: 'rgb(204, 67, 67)' }}>
+        <div className="container-fluid" style={{ background: 'rgb(29, 29, 29)' }}>
             <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down" style={{ marginBottom: '-25px', color: 'white' }} >Research Themes</div>
             <div className="jumbotron">
                 <div className="miniSep" style={{ marginBottom: '40px', background: 'rgb(56, 55, 55)' }} ></div>
@@ -45,7 +45,7 @@ const ResearchThemes = () => {
                     </div>
                         <div className="col-sm-5" data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)' }}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)' }}>
                                     <h5 className="card-title" style={{color:'white'}}>Perception</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>Perception using Sensors<br />
@@ -60,7 +60,7 @@ const ResearchThemes = () => {
                         </div>
                         <div className="col-sm-5" data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)'}}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)'}}>
                                     <h5 className="card-title" style={{color:'white'}}>Design</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>Computer Aided Design<br />
@@ -75,7 +75,7 @@ const ResearchThemes = () => {
                         
                         <div className="col-sm-5" data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)'}}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)'}}>
                                     <h5 className="card-title" style={{color:'white'}}>Planning</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>Swarm Intelligence<br />
@@ -86,7 +86,7 @@ const ResearchThemes = () => {
                         </div>
                         <div className="col-sm-5" data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)'}}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)'}}>
                                     <h5 className="card-title" style={{color:'white'}}>Control</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>Control System Algorithms<br />
@@ -97,7 +97,7 @@ const ResearchThemes = () => {
                         </div>
                         <div className="col-sm-5" data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)'}}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)'}}>
                                     <h5 className="card-title" style={{color:'white'}}>Aerodynamics</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>CFD Simulations<br />
@@ -110,7 +110,7 @@ const ResearchThemes = () => {
                         </div>
                         <div className="col-sm-5" data-aos="zoom-in-down" data-aos-duration="1500">
                             <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)'}}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)'}}>
                                     <h5 className="card-title" style={{color:'white'}}>Power Source</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>Battery Related Studies<br />
@@ -122,8 +122,8 @@ const ResearchThemes = () => {
                             </div>
                         </div>
                         <div className="col-sm-5" data-aos="zoom-in-down"  data-aos-duration="1500">
-                            <div className="card" style={{ marginBottom: '1rem'}}>
-                                <div className="card-body" style={{background:'rgb(56, 55, 55)'}}>
+                            <div className="card" style={{ marginBottom: '1rem', borderRadius:'9px'}}>
+                                <div className="card-body" style={{background:'rgb(204, 67, 67)'}}>
                                     <h5 className="card-title" style={{color:'white'}}>Electronics</h5>
                                     {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                                     <p className="card-text" style={{color:'white'}}>Sensors and Microcontrollers<br />

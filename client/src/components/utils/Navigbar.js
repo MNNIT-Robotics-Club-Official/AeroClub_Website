@@ -56,6 +56,7 @@ export default function Navigbar() {
 
   const [show1, setShow1] = useState(false)
   const [show2, setShow2] = useState(false)
+  const [show3, setShow3] = useState(false)
 
   useEffect(() => {
 
@@ -91,7 +92,7 @@ export default function Navigbar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link eventKey='blogs' href='/blogs' className='nav-items'>Blogs</Nav.Link>
-            <Nav.Link eventKey='blogs' href='/projects' className='nav-items'>Projects</Nav.Link>
+            <Nav.Link eventKey='projects' href='/projects' className='nav-items'>Projects</Nav.Link>
             <NavDropdown title="Our Team" id="basic-nav-dropdown"
               onMouseEnter={() => setShow1(true)}
               onMouseLeave={() => setShow1(false)}
@@ -102,9 +103,18 @@ export default function Navigbar() {
               <NavDropdown.Item href="/non-tech">Non-Tech Members</NavDropdown.Item>
               <NavDropdown.Item href="/alumni">Our Alumni</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link>
+            <NavDropdown title="Events" id="basic-nav-dropdown"
+              onMouseEnter={() => setShow3(true)}
+              onMouseLeave={() => setShow3(false)}
+              show={show3}
+            >
+              <NavDropdown.Item href="/avishkar">Avishkar</NavDropdown.Item>
+              <NavDropdown.Item href="/prosang">Prosang</NavDropdown.Item>
+              
+            </NavDropdown>
+            {/* <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link> */}
             <Nav.Link eventKey='blogs' href='/workshop' className='nav-items'>Jigyasa</Nav.Link>
-            <NavDropdown title="More" id="basic-nav-dropdown" className="pad"
+            <NavDropdown title="More" id="basic-nav-dropdown"
               onMouseEnter={() => setShow2(true)}
               onMouseLeave={() => setShow2(false)}
               show={show2}
@@ -115,6 +125,7 @@ export default function Navigbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="https://tsaw.tech/" eventKey='startups'>Our StartUps</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link eventKey='sponsors' href='/sponsor' className='nav-items'>Sponsors</Nav.Link>
           </Nav>
           <Login />
 
