@@ -70,6 +70,7 @@ const Login = () => {
 export default function Navigbar() {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -122,7 +123,11 @@ export default function Navigbar() {
             <Nav.Link eventKey="blogs" href="/blogs" className="nav-items">
               Blogs
             </Nav.Link>
-            <Nav.Link eventKey="blogs" href="/projects" className="nav-items">
+            <Nav.Link
+              eventKey="projects"
+              href="/projects"
+              className="nav-items"
+            >
               Projects
             </Nav.Link>
             <NavDropdown
@@ -143,16 +148,23 @@ export default function Navigbar() {
               </NavDropdown.Item>
               <NavDropdown.Item href="/alumni">Our Alumni</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link eventKey="blogs" href="/events" className="nav-items">
-              Events
-            </Nav.Link>
+            <NavDropdown
+              title="Events"
+              id="basic-nav-dropdown"
+              onMouseEnter={() => setShow3(true)}
+              onMouseLeave={() => setShow3(false)}
+              show={show3}
+            >
+              <NavDropdown.Item href="/avishkar">Avishkar</NavDropdown.Item>
+              <NavDropdown.Item href="/prosang">Prosang</NavDropdown.Item>
+            </NavDropdown>
+            {/* <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link> */}
             <Nav.Link eventKey="blogs" href="/workshop" className="nav-items">
               Jigyasa
             </Nav.Link>
             <NavDropdown
               title="More"
               id="basic-nav-dropdown"
-              className="pad"
               onMouseEnter={() => setShow2(true)}
               onMouseLeave={() => setShow2(false)}
               show={show2}
@@ -169,6 +181,9 @@ export default function Navigbar() {
                 Our StartUps
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link eventKey="sponsors" href="/sponsor" className="nav-items">
+              Sponsors
+            </Nav.Link>
           </Nav>
           <Login />
         </Navbar.Collapse>

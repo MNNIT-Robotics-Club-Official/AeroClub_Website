@@ -7,6 +7,7 @@ body {
     rgb(255, 255, 255) 0%,
     rgb(255, 255, 255) 100%
   );
+  /* background:url(http://localhost:5000/images/utils/drone-1.jpg) center center no-repeat; */
 }
 
 .particles {

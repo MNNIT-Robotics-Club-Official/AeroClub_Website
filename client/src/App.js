@@ -31,7 +31,8 @@ import Confirmation from "./components/Pages/Confirmation.js";
 import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
 import CreateBlog from "./components/Pages/CreateBlog.js";
-import Events from "./components/Pages/Events";
+import Avishkar from "./components/Pages/Avishkar";
+import Prosang from "./components/Pages/Prosang";
 import Workshop from "./components/Pages/Workshop";
 import { baseTitle } from "./baseUtils.js";
 import About from "./components/utils/About";
@@ -39,6 +40,8 @@ import ContactUs from "./components/utils/ContactUs.js";
 import Faculty from "./components/Pages/Faculty.js";
 import Coordinators from "./components/Pages/Coordinators.js";
 import Nontech from "./components/Pages/Nontech.js";
+import ResearchThemes from "./components/utils/ResearchThemes.js";
+import Sponsors from "./components/Pages/Sponsor";
 import { useContext } from "react";
 import { UserContext } from "./UserProvider.js";
 
@@ -112,6 +115,7 @@ function App() {
                 <About />
                 <EventHome />
                 <Featuredproject />
+                <ResearchThemes />
                 <Testimonials />
                 <ContactUs />
               </Route>
@@ -154,11 +158,17 @@ function App() {
               <Route path="/news" exact>
                 <News />
               </Route>
-              <Route path="/events" exact>
-                <Events />
+              <Route path="/avishkar" exact>
+                <Avishkar />
+              </Route>
+              <Route path="/prosang" exact>
+                <Prosang />
               </Route>
               <Route path="/workshop" exact>
                 <Workshop />
+              </Route>
+              <Route path="/sponsor" exact>
+                <Sponsors />
               </Route>
               <Route>
                 <Redirect to="/404" />

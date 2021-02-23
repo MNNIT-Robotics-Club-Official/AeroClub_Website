@@ -19,6 +19,7 @@ export default function CreateBlog() {
   const [body, setBody] = useState("");
   const [pic, setPic] = useState("");
   const [postedBy, setPostedBy] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
@@ -26,10 +27,11 @@ export default function CreateBlog() {
       toast.warn("You must be logged in !");
       return;
     }
-    setPostedBy(`${state.name} (${state.email})`);
+    setPostedBy(`${state?.name} (${state?.email})`);
   }, [state]);
 
   const handleCreateBlog = () => {
+    setLoading(true);
     if (!title || !body || !pic) {
       toast.warn("Please specify all the details before you create the blog !");
       return;
@@ -51,6 +53,7 @@ export default function CreateBlog() {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false);
         localStorage.setItem(
           "user",
           JSON.stringify({ ...state, blogs: [...state.blogs, data] })
@@ -150,7 +153,7 @@ export default function CreateBlog() {
               variant="danger"
               onClick={handleCreateBlog}
             >
-              Create Blog
+              {loading ? "Loading ..." : "Create Blog"}
             </Button>
           </Tab>
           <Tab eventKey="preview" title="Preview">

@@ -15,14 +15,9 @@ class Landing extends React.Component {
                   src={`${baseURL}/images/utils/logo-aero2.png`}
                   alt="aero"
                   srcset=""
-                  data-aos="fade-right"
                 />
               </div>
-              <div
-                className="landing-about"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
+              <div className="landing-about">
                 <h1 className="font-weight-bold">
                   <Typewriter
                     options={{
