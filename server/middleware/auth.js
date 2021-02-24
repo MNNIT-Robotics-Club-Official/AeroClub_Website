@@ -20,22 +20,24 @@ exports.signup = (req, res) => {
     });
   }
 
-  const user = new User(req.body)
+  const user = new User(req.body);
   user.save((err, newUser) => {
-    if (!newUser) return res.status(400).json({ error: "Email address already exists !" });
+    if (!newUser)
+      return res.status(400).json({ error: "Email address already exists !" });
     const jwtToken = jwt.sign({ _id: newUser._id }, process.env.JWT_SECRET, {
-      expiresIn: '1h'
-    })
+      expiresIn: "1h",
+    });
     smtp.sendMail({
       from: process.env.USER,
       to: req.body.email,
-      subject: 'Confirmation@aeroclubmnnit',
+      subject: "Confirmation@aeroclubmnnit",
       html: `<h2>You requested for password reset</h2>
       <p>Click on this <a href="http://localhost:3000/user/confirm/${jwtToken}">link</a> to verify<p>`,
-    })
-    res.status(400).json({ message: "Signedup success...Verify your email address!" });
-  })
-
+    });
+    res
+      .status(400)
+      .json({ message: "Signedup success...Verify your email address!" });
+  });
 };
 
 exports.confirm = (req, res) => {
@@ -184,10 +186,17 @@ exports.isSignedIn = (req, res, next) => {
     const { _id } = payload;
 
     // finding the user with the id
-    User.findById(_id).then((user) => {
-      req.user = user;
-      next();
-    });
+    User.findById(_id)
+      .populate("blogs")
+      .populate("notifications")
+      .populate({
+        path: "projects",
+        populate: { path: "members.user", select: "name" },
+      })
+      .then((user) => {
+        req.user = user.transform();
+        next();
+      });
   });
 };
 
@@ -212,7 +221,7 @@ exports.resetVerify = (req, res, next) => {
 };
 
 exports.isAdmin = (req, res, next) => {
-  if (req.user.role === 0) {
+  if (req.user.role === "User") {
     return res.status(403).json({
       error: "You are not ADMIN, Access denied",
     });

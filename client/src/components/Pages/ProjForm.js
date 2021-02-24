@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { baseURL } from "../../baseUtils"
+import { baseURL } from "../../baseUtils";
 
 export default function ProjForm(props) {
   const [formData, setformData] = useState({
@@ -35,7 +35,7 @@ export default function ProjForm(props) {
               description: "",
               objective: "",
             });
-            props.setr(props.r + 1)
+            props.setr(props.r + 1);
           })
           .catch((err) => {
             setLoading(false);
@@ -57,10 +57,10 @@ export default function ProjForm(props) {
           required
           value={formData.title}
           onChange={(e) => {
-            setformData(prev => ({
+            setformData((prev) => ({
               ...prev,
-              title: e.target.value
-            }))
+              title: e.target.value,
+            }));
           }}
         />
       </div>
@@ -74,10 +74,10 @@ export default function ProjForm(props) {
           required
           value={formData.teamname}
           onChange={(e) => {
-            setformData(prev => ({
+            setformData((prev) => ({
               ...prev,
-              teamname: e.target.value
-            }))
+              teamname: e.target.value,
+            }));
           }}
         />
       </div>
@@ -90,10 +90,10 @@ export default function ProjForm(props) {
           required
           value={formData.description}
           onChange={(e) => {
-            setformData(prev => ({
+            setformData((prev) => ({
               ...prev,
-              description: e.target.value
-            }))
+              description: e.target.value,
+            }));
           }}
         ></textarea>
       </div>
@@ -107,10 +107,10 @@ export default function ProjForm(props) {
           required
           value={formData.objective}
           onChange={(e) => {
-            setformData(prev => ({
+            setformData((prev) => ({
               ...prev,
-              objective: e.target.value
-            }))
+              objective: e.target.value,
+            }));
           }}
         />
       </div>

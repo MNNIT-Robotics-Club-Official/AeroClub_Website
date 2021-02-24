@@ -42,7 +42,6 @@ export const IssueEdit = (props) => {
             { id: "Denied", name: "Denied" },
             { id: "Collected", name: "Collected" },
             { id: "Returned", name: "Returned" },
-            // { id: "Damaged", name: "Damaged" },
           ]}
         />
       </SimpleForm>

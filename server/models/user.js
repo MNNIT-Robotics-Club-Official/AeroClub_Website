@@ -38,8 +38,9 @@ var userSchema = new mongoose.Schema(
     },
     salt: String,
     role: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "User",
+      enum: ["Super-admin", "Admin", "User"]
     },
     projects: [
       {
@@ -51,6 +52,12 @@ var userSchema = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Blog",
+      },
+    ],
+    notifications: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Notification",
       },
     ],
     reset_pass_session: Boolean,
@@ -93,6 +100,8 @@ userSchema.method('transform', function () {
   delete obj._id;
   delete obj.salt;
   delete obj.encry_password;
+  delete obj.createdAt;
+  delete obj.updatedAt;
   return obj;
 });
 

@@ -10,6 +10,7 @@ export default function DashComp() {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
+      return
     }
     fetch(`${baseURL}/api/my/issue`, {
       method: "get",
@@ -20,7 +21,6 @@ export default function DashComp() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setrequests(data);
       });
   }, []);

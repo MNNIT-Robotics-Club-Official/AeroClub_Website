@@ -1,98 +1,139 @@
-const express = require('express')
-const router = express.Router()
-const Blog = require('../models/blog')
-const { isSignedIn, isAdmin } = require('../middleware/auth')
+const express = require("express");
+const router = express.Router();
+const Blog = require("../models/blog");
+const User = require("../models/user");
+const Notification = require("../models/notifications");
+const { isSignedIn, isAdmin } = require("../middleware/auth");
 
 // fetching all blogs through admin
-router.get('/blogs', isSignedIn, isAdmin, (req, res) => {
-    res.setHeader('Content-Range', 'blogs 0-10/20')
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
-    Blog.find({}).sort('-createdAt')
-        .then(blogs => {
-            let arr = []
-            blogs.forEach(blog => arr.push(blog.transform()))
-            res.json(arr)
-        })
-        .catch(e => console.log(e))
-})
+router.get("/blogs", isSignedIn, isAdmin, (req, res) => {
+  res.setHeader("Content-Range", "blogs 0-10/20");
+  res.setHeader("Access-Control-Expose-Headers", "Content-Range");
+  Blog.find({})
+    .sort("-createdAt")
+    .then((blogs) => {
+      let arr = [];
+      blogs.forEach((blog) => arr.push(blog.transform()));
+      res.json(arr);
+    })
+    .catch((e) => console.log(e));
+});
 
 // fetching all accepted blogs to the frontend
-router.get('/blogs/toUI', (req, res) => {
-    Blog.find({ accepted: true }).sort('-createdAt').populate('postedBy', 'name registration_no year linkedin_url')
-        .then(blogs => {
-            res.json(blogs)
-        })
-        .catch(e => console.log(e))
-})
-
-// fetching all blogs of a user
-router.get('/blogs/toUser', isSignedIn, (req, res) => {
-    Blog.find({ postedBy: req.user._id }).sort('-createdAt').populate('postedBy', 'email')
-        .then(blogs => {
-            res.json(blogs)
-        })
-        .catch(e => console.log(e))
-})
+router.get("/blogs/toUI", (req, res) => {
+  Blog.find({ accepted: true })
+    .sort("-createdAt")
+    .populate("postedBy", "name registration_no year linkedin_url")
+    .then((blogs) => {
+      res.json(blogs);
+    })
+    .catch((e) => console.log(e));
+});
 
 // fetching a blog with id
-router.get('/blogs/:id', (req, res) => {
+router.get("/blogs/:id", (req, res) => {
+  if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.json({ error: "not found !" });
+  }
 
-    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
-        return res.json({ error: 'not found !' })
-    }
-
-    Blog.findById(req.params.id)
-        .then(blog => {
-            if (!blog) return res.json({ error: 'not found !' })
-            res.json(blog.transform())
-        })
-        .catch(e => console.log(e))
-})
+  Blog.findById(req.params.id)
+    .then((blog) => {
+      if (!blog) return res.json({ error: "not found !" });
+      res.json(blog.transform());
+    })
+    .catch((e) => console.log(e));
+});
 
 // fetching a blog with id to the frontend
-router.get('/blogstoUI/:id', (req, res) => {
+router.get("/blogstoUI/:id", (req, res) => {
+  if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.json({ error: "not found !" });
+  }
 
-    if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
-        return res.json({ error: 'not found !' })
-    }
-
-    Blog.findById(req.params.id).populate('postedBy', 'name registration_no year linkedin_url')
-        .then(blog => {
-            if (!blog) return res.json({ error: 'not found !' })
-            res.json(blog.transform())
-        })
-        .catch(e => console.log(e))
-})
+  Blog.findById(req.params.id)
+    .populate("postedBy", "name registration_no year linkedin_url")
+    .then((blog) => {
+      if (!blog) return res.json({ error: "not found !" });
+      res.json(blog.transform());
+    })
+    .catch((e) => console.log(e));
+});
 
 // creating a blog
-router.post('/blogs', isSignedIn, (req, res) => {
-
-    const blog = new Blog(req.body)
-    blog.save().then(blog => {
-        const { id, title, body, pic, postedBy, publishedAt } = blog.transform()
-        res.json({ id: id.toString(), title, pic, body, postedBy, publishedAt })
+router.post("/blogs", isSignedIn, (req, res) => {
+  const blog = new Blog(req.body);
+  blog
+    .save()
+    .then((blog) => {
+      const { id, title, body, pic, postedBy, publishedAt } = blog.transform();
+      User.findByIdAndUpdate(
+        postedBy,
+        {
+          $push: { blogs: id },
+        },
+        { new: true, useFindAndModify: false },
+        (e, user) => {
+          if (e) return res.status(422).json({ error: e });
+          res.json({
+            id: id.toString(),
+            title,
+            pic,
+            body,
+            postedBy,
+            publishedAt,
+          });
+        }
+      );
     })
-        .catch(e => console.log(e))
-})
+    .catch((e) => console.log(e));
+});
 
 // updating a blog
-router.put('/blogs/:id', isSignedIn, isAdmin, (req, res) => {
-    Blog.findOneAndReplace({ _id: req.params.id }, req.body, null, (e, blog) => {
-        if (e) {
-            return res.status(400).json({
-                error: "Blog cannot be updated !"
-            })
-        }
-        return res.json(blog.transform())
-    })
-})
+router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
+  Blog.findOneAndReplace(
+    { _id: req.params.id },
+    req.body,
+    { new: true },
+    (e, blog) => {
+      if (e) {
+        return res.status(400).json({
+          error: "Blog cannot be updated !",
+        });
+      }
+
+      const message = blog.accepted
+        ? `Blog (title : ${blog.title}) accepted !`
+        : `Blog (title : ${blog.title}) denied !`;
+
+      const notification = new Notification({
+        from: req.user.id,
+        to: blog.postedBy,
+        message,
+      });
+
+      notification.save().then((savedNotification) => {
+        User.findByIdAndUpdate(
+          blog.postedBy._id,
+          {
+            $push: { notifications: savedNotification },
+          },
+          { new: true, useFindAndModify: false },
+          (e, savedUser) => {
+            if (e) return res.status(422).json({ error: e });
+            return res.json(blog.transform());
+          }
+        );
+      });
+    }
+  );
+});
 
 // deleting a blog
-router.delete('/blogs/:id', isSignedIn, isAdmin, (req, res) => {
-    Blog.findByIdAndDelete(req.params.id, (err, blog) => {
-        if (err) return res.status(500).send(err)
-        return res.json({ blog })
-    })
-})
+router.delete("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
+  Blog.findByIdAndDelete(req.params.id, (err, blog) => {
+    if (err) return res.status(500).send(err);
+    return res.json({ blog });
+  });
+});
 
-module.exports = router
+module.exports = router;

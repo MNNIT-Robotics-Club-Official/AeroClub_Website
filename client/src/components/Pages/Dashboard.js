@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../css/Dashboard.css";
@@ -8,30 +8,50 @@ import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
 import { baseURL, baseTitle } from "../../baseUtils";
+import { UserContext } from "../../UserProvider";
 
 function Dashboard() {
   const history = useHistory();
-  const [user, setuser] = useState({})
-  const [r, setr] = useState(0)
+  const { user, dispatch } = useContext(UserContext);
+  const [r, setr] = useState(0);
 
-  document.title = `${baseTitle} | Dashboard`
+  document.title = `${baseTitle} | Dashboard`;
 
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
-    fetch(`${baseURL}/api/my/details`, {
-      method: "get",
+
+    fetch(`${baseURL}/api/isSignedIn`, {
+      method: "post",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        setuser(data);
+        if (data.error) {
+          toast.warn(data.error);
+          history.push("/user/login");
+          return;
+        }
       });
+
+    if (!user) {
+      fetch(`${baseURL}/api/my/details`, {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          localStorage.setItem("user", JSON.stringify(data));
+          dispatch({ type: "SET", payload: data });
+        });
+    }
   }, [r]);
 
   return (
@@ -102,7 +122,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-profile-tab"
         >
-          <DashProfile user={user} setUser={setuser} />
+          <DashProfile />
         </div>
         <div
           className="tab-pane fade"
@@ -110,7 +130,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects user={user} r={r} setr={setr} />
+          <DashProjects r={r} setr={setr} />
         </div>
         <div
           className="tab-pane fade"
@@ -118,7 +138,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites user={user} r={r} setr={setr} />
+          <DashInvites r={r} setr={setr} />
         </div>
         <div
           className="tab-pane fade"
@@ -134,7 +154,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-blogs-tab"
         >
-          <DashBlogs user={user} />
+          <DashBlogs />
         </div>
       </div>
     </div>

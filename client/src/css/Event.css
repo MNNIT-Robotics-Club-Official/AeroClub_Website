@@ -1,6 +1,99 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
  
+.overlaye {
+  width: 100%;
+  height: auto;
+  clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  padding-bottom: 80px;
+  color: white;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.pagese {
+  height: auto;
+  width: 100%;
+  margin: 0vh 0vw;
+  clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
+
+  background-image: url('https://unsplash.it/600/600');
+  background-size: cover;
+  padding-bottom: 0px;
+
+  background-color: #eee;
+  background-position: center;
+  animation: image 3s ease-in-out infinite alternate;
+}
+
+.titleBolde {
+  font-weight: 600;
+}
+.pageTitlee {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 45px;
+  text-align: center;
+  padding-top: 2em;
+}
+
+/* section {
+  height: 100%;
+  padding: 2em 0;
+} */
+
+.section1 {
+  /* background-color: rgb(204, 67, 67); */
+  clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
+  /* padding-bottom: 10%; */
+  padding-top: 0;
+}
+
+.section2 {
+}
+
+.containere {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.titlee {
+  text-align: center;
+  font-size: 2em;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+.img-wrapper {
+  width: 50%;
+}
+
+.imgev{
+  width: 300px;
+  height: auto;
+  /* background: #fff; */
+  margin: 0 auto;
+}
+
+.text-wrapper{
+  width: 70%;
+}
+
+.texte {
+  margin-bottom: 1em;
+}
+
+.btn-wrapper {
+  margin-top: 2em;
+}
+
 .wrapper {
   display: table;
   height: 100%;
@@ -87,4 +180,31 @@ h1.heading {
   padding:10px;
   font-weight:600;
   text-transform: uppercase
+}
+
+@media screen and (max-width:1000px) 
+{
+    .text-wrapper{
+      display: none;
+    }    
+    .phonev{
+      padding-bottom:10%;
+    }
+    .img-wrapper {
+      width: 50%;
+    }
+    
+    .imgev{
+      width: 100%;
+      height: auto;
+      /* background: #fff; */
+      margin: 0 auto;
+    }  
+}
+
+@media screen and (min-width:1000px) 
+{
+    .phonev{
+      display: none;
+    }    
 }
