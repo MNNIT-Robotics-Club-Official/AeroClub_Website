@@ -24,7 +24,7 @@ import { baseURL } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 
 function AdminComp() {
-  const { user } = useContext(UserContext);
+  const { state } = useContext(UserContext);
 
   const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -45,7 +45,7 @@ function AdminComp() {
         name="users"
         list={UserList}
         show={UserShow}
-        edit={user?.role === "Super-admin" ? UserEdit : null}
+        edit={state.role === "Super-admin" ? UserEdit : null}
       />
       <Resource
         name="projects"
