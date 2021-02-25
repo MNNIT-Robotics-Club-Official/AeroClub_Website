@@ -54,6 +54,12 @@ var userSchema = new mongoose.Schema(
         ref: "Blog",
       },
     ],
+    notifications: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Notification",
+      },
+    ],
     reset_pass_session: Boolean,
   },
   { timestamps: true }

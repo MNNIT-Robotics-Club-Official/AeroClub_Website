@@ -2,37 +2,42 @@ const { request } = require("express");
 const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
+const notification = require("../models/notifications");
+const mongoose = require("mongoose");
 
 exports.getAllUsers = (req, res) => {
-  res.setHeader('Content-Range', 'users 0-10/20')
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
-  user.find({}).sort('-createdAt')
-    .then(users => {
-      let arr = []
-      users.forEach(user => arr.push(user.transform()))
-      res.json(arr)
+  res.setHeader("Content-Range", "users 0-10/20");
+  res.setHeader("Access-Control-Expose-Headers", "Content-Range");
+  user
+    .find({})
+    .sort("-createdAt")
+    .then((users) => {
+      let arr = [];
+      users.forEach((user) => arr.push(user.transform()));
+      res.json(arr);
     })
-    .catch(e => console.log(e))
-}
+    .catch((e) => console.log(e));
+};
 
 exports.getSingleUser = (req, res) => {
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
-    return res.json({ error: 'not found !' })
+    return res.json({ error: "not found !" });
   }
-  user.findById(req.params.id)
-    .then(user => {
-      if (!user) return res.json({ error: 'not found !' })
-      res.json(user.transform())
+  user
+    .findById(req.params.id)
+    .then((user) => {
+      if (!user) return res.json({ error: "not found !" });
+      res.json(user.transform());
     })
-    .catch(e => console.log(e))
-}
+    .catch((e) => console.log(e));
+};
 
 exports.deleteUser = (req, res) => {
   user.findByIdAndDelete(req.params.id, (err, user) => {
-    if (err) return res.status(500).send(err)
-    return res.json({ user })
-  })
-}
+    if (err) return res.status(500).send(err);
+    return res.json({ user });
+  });
+};
 
 exports.requestComponent = (req, res) => {
   let component = req.component;
@@ -63,7 +68,7 @@ exports.requestComponent = (req, res) => {
 
 exports.getAllRequests = (req, res) => {
   res.setHeader("Content-Range", "issue 0-10/20");
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+  res.setHeader("Access-Control-Expose-Headers", "Content-Range");
   ComponentsIssue.find({})
     .populate("user")
     .populate("component")
@@ -173,32 +178,38 @@ exports.getMyRequests = (req, res) => {
 };
 
 exports.getMyInvites = (req, res) => {
-  Project.find({ members: { $elemMatch: { user: req.user.id, accepted: false } } })
-    .populate({ path: 'members.user', select: 'name' })
+  Project.find({
+    members: { $elemMatch: { user: req.user.id, accepted: false } },
+  })
+    .populate({ path: "members.user", select: "name" })
     .exec((err, projects) => {
       if (err) {
         return res.status(400).json({
-          error: err.message
-        })
+          error: err.message,
+        });
       }
       res.json(projects);
     });
 };
 
 exports.updateMyProfile = (req, res) => {
-  user.findOneAndUpdate({ _id: req.user.id }, req.body, { new: true })
-    .populate('blogs')
-    .populate({ path: 'projects', populate: { path: 'members.user', select: 'name' } })
-    .then(updatedUser => {
-
-      if (!updatedUser) return res.status(400).json({
-        error: 'User cannot be updated !'
-      })
-
-      return res.json({ user: updatedUser })
+  user
+    .findOneAndUpdate({ _id: req.user.id }, req.body, { new: true })
+    .populate("blogs")
+    .populate({
+      path: "projects",
+      populate: { path: "members.user", select: "name" },
     })
-    .catch(e => console.log(e))
-}
+    .then((updatedUser) => {
+      if (!updatedUser)
+        return res.status(400).json({
+          error: "User cannot be updated !",
+        });
+
+      return res.json({ user: updatedUser.transform() });
+    })
+    .catch((e) => console.log(e));
+};
 exports.getMyDetails = (req, res) => {
   res.json(req.user);
 };
@@ -206,46 +217,71 @@ exports.getMyDetails = (req, res) => {
 exports.acceptInvite = (req, res) => {
   const projectId = req.params.projectId;
   const userId = req.user.id;
-  Project.findOne({ _id: projectId })
-    .exec((err, project) => {
-      if (err || !project) {
+  Project.findOne({ _id: projectId }).exec((err, project) => {
+    if (err || !project) {
+      return res.status(400).json({
+        error: "Project not found in DB",
+      });
+    }
+    let isInvited = false;
+    let i = 0;
+    for (; i < project.members.length; i++) {
+      if (JSON.stringify(project.members[i].user) === JSON.stringify(userId)) {
+        isInvited = true;
+        break;
+      }
+    }
+    if (!isInvited) {
+      return res.status(400).json({
+        error: "User not invited",
+      });
+    }
+    project.members[i].accepted = true;
+    project.save((err, updatedProject) => {
+      if (err) {
+        console.log(err);
         return res.status(400).json({
-          error: "Project not found in DB",
+          error: "Cannot accept invite, try again",
         });
       }
-      let isInvited = false;
-      let i = 0;
-      for (; i < project.members.length; i++) {
-        if (JSON.stringify(project.members[i].user) === JSON.stringify(userId)) {
-          isInvited = true;
-          break;
-        }
-      }
-      if (!isInvited) {
-        return res.status(400).json({
-          error: "User not invited",
-        });
-      }
-      project.members[i].accepted = true;
-      project.save((err, updatedProject) => {
+      req.user.projects.push(projectId);
+      req.user.save((err, updatedUser) => {
         if (err) {
           console.log(err);
           return res.status(400).json({
             error: "Cannot accept invite, try again",
           });
         }
-        req.user.projects.push(projectId);
-        req.user.save((err, updatedUser) => {
-          if (err) {
-            console.log(err);
-            return res.status(400).json({
-              error: "Cannot accept invite, try again",
-            });
-          }
-        })
-        res.json({
-          msg: "Invite accepted",
-        });
       });
+      res.json({
+        msg: "Invite accepted",
+      });
+    });
+  });
+};
+
+exports.deleteNotification = (req, res) => {
+  user
+    .findByIdAndUpdate(
+      req.user.id,
+      {
+        $pull: { notifications: req.body.id },
+      },
+      { new: true, useFindAndModify: false }
+    )
+    .populate("blogs")
+    .populate("notifications")
+    .populate({
+      path: "projects",
+      populate: { path: "members.user", select: "name" },
     })
-}
+    .exec((e, updatedUser) => {
+      if (e) return res.status(422).json({ error: e });
+
+      notification
+        .findByIdAndRemove(req.body.id)
+        .then((deletedNotification) => {
+          return res.json({ User: updatedUser.transform() });
+        });
+    });
+};
