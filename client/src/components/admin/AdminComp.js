@@ -20,7 +20,6 @@ import {
   WorkshopShow,
 } from "./Workshop";
 import { UserList, UserShow, UserEdit } from "./Users";
-import { baseURL } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 
 function AdminComp() {
@@ -39,7 +38,7 @@ function AdminComp() {
   return (
     <Admin
       authProvider={authProvider}
-      dataProvider={simpleRestProvider(`${baseURL}/api`, httpClient)}
+      dataProvider={simpleRestProvider("/api", httpClient)}
     >
       <Resource
         name="users"

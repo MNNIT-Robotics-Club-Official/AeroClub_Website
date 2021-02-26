@@ -7,7 +7,7 @@ import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
-import { baseURL, baseTitle } from "../../baseUtils";
+import { baseTitle } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 
 function Dashboard() {
@@ -16,14 +16,13 @@ function Dashboard() {
   const [r, setr] = useState(0);
 
   document.title = `${baseTitle} | Dashboard`;
-
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
 
-    fetch(`${baseURL}/api/isSignedIn`, {
+    fetch(`/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -39,7 +38,7 @@ function Dashboard() {
       });
 
     if (!user) {
-      fetch(`${baseURL}/api/my/details`, {
+      fetch(`/api/my/details`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
-import { baseURL } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 import { useHistory } from "react-router-dom";
 
@@ -12,7 +11,7 @@ export default function Dashprojects(props) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`${baseURL}/api/isSignedIn`, {
+    fetch(`/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -153,7 +152,7 @@ function MyVerticallyCenteredModal(props) {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-            fetch(`${baseURL}/api/projects/invite`, {
+            fetch(`/api/projects/invite`, {
               method: "post",
               headers: {
                 "Content-Type": "application/json",

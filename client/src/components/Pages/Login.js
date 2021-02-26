@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseTitle, baseURL } from "../../baseUtils";
+import { baseTitle } from "../../baseUtils";
 import "../../css/Login.css";
 
 function Login() {
@@ -23,7 +23,7 @@ function Login() {
       history.push("/user/dashboard");
     }
 
-    fetch(`${baseURL}/api/signin`, {
+    fetch(`/api/signin`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

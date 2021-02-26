@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { baseURL } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 import { useHistory } from "react-router-dom";
 
@@ -23,7 +22,7 @@ export default function DashProfile() {
       state.notifications.forEach((notification) => {
         toast.success(notification.message);
 
-        fetch(`${baseURL}/api/my/deleteNotification`, {
+        fetch(`/api/my/deleteNotification`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -46,7 +45,7 @@ export default function DashProfile() {
     if (year <= 4) {
       setDisabled(true);
       setLoading(true);
-      fetch(`${baseURL}/api/my/updateProfile`, {
+      fetch(`/api/my/updateProfile`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

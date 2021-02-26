@@ -1,5 +1,4 @@
 import React from "react";
-import { baseURL } from "../baseUtils";
 import "../css/Landing.css";
 import Typewriter from "typewriter-effect";
 
@@ -12,7 +11,7 @@ class Landing extends React.Component {
             <div className="landing d-flex flex-lg-row flex-md-column align-items-center justify-content-center flex-wrap">
               <div className="landing-logo">
                 <img
-                  src={`${baseURL}/images/utils/logo-aero2.png`}
+                  src={`../images/utils/logo-aero2.png`}
                   alt="aero"
                   srcset=""
                 />

@@ -9,7 +9,6 @@ import {
 } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseURL } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 
 export default function DashBlogs() {
@@ -29,7 +28,7 @@ export default function DashBlogs() {
       return;
     }
 
-    fetch(`${baseURL}/api/isSignedIn`, {
+    fetch(`/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
