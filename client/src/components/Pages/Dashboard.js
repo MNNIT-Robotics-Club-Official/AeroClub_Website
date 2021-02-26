@@ -9,6 +9,7 @@ import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
 import { baseURL, baseTitle } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
+import CompIssue from "../CompIssue";
 
 function Dashboard() {
   const history = useHistory();
@@ -104,6 +105,17 @@ function Dashboard() {
           </a>
           <a
             className="nav-item nav-link"
+            id="nav-inventory-tab"
+            data-toggle="tab"
+            href="#nav-inventory"
+            role="tab"
+            aria-controls="nav-inventory"
+            aria-selected="false"
+          >
+            Component Inventory
+          </a>
+          <a
+            className="nav-item nav-link"
             id="nav-blogs-tab"
             data-toggle="tab"
             href="#nav-blogs"
@@ -147,6 +159,14 @@ function Dashboard() {
           aria-labelledby="nav-components-tab"
         >
           <DashComp r={r} setr={setr} />
+        </div>
+        <div
+          className="tab-pane fade"
+          id="nav-inventory"
+          role="tabpanel"
+          aria-labelledby="nav-inventory-tab"
+        >
+          <CompIssue r={r} setr={setr} />
         </div>
         <div
           className="tab-pane fade"

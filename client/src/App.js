@@ -152,9 +152,6 @@ function App() {
               <Route path="/blogs/:blogId" exact>
                 <SingleBlog />
               </Route>
-              <Route path="/components" exact>
-                <CompIssue />
-              </Route>
               <Route path="/news" exact>
                 <News />
               </Route>
