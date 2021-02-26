@@ -3,8 +3,8 @@ const router = express.Router();
 const { Project, Member } = require("../models/project");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 const { json } = require("express");
-const user = require("../models/user");
-const { findById } = require("../models/user");
+const User = require("../models/user");
+const { findById, findByIdAndUpdate } = require("../models/user");
 
 // fetching all projects
 router.get("/projects", (req, res) => {
@@ -49,26 +49,30 @@ router.get("/projects/:id", (req, res) => {
 
 // creating a project
 router.post("/projects", isSignedIn, (req, res) => {
-  req.body.leader=req.user._id;
+  req.body.leader=req.user.id;
   const project = new Project(req.body);
   // console.log(req.body)
   project.members.push(
-    new Member({ user: req.user._id, accepted: true, leader: true })
+    new Member({ user: req.user.id, accepted: true, leader: true })
   );
-  req.user.projects.push(project._id);
+  
   project.save((err, project) => {
     if (err) {
       return res.status(400).json({
         err: err.message,
       });
     }
-    req.user.save((err, user) => {
-      if (err) {
-        return res.status(400).json({
-          err: err.message,
+    User.findById(req.user.id)
+      .then((user) => {
+        user.projects.push(project._id);
+        user.save((err, user) => {
+          if (err) {
+            return res.status(400).json({
+              err: err.message,
+            });
+          }
         });
-      }
-    });
+      })
     const {
       id,
       title,
@@ -124,7 +128,7 @@ module.exports = router;
 router.post("/projects/invite", isSignedIn, (req, res) => {
   const { email, projectId } = req.body;
   let userId;
-  user.findOne({email: email}).exec((err, user) => {
+  User.findOne({email: email}).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
         error: "No such user found.",
