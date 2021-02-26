@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 import { Button, Container, Jumbotron } from "react-bootstrap";
 import "../../css/Event.css";
-import { baseTitle } from "../../baseUtils";
 import Loading from "../../Animations/Loading";
 
 export default function Workshop() {
+  document.title = "Jiygasa | Aero Club";
+
   const [workshops, SetWorkshops] = useState([]);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function Workshop() {
 
   return (
     <>
-      <Loading />
+      <Loading time={2} />
       <section className="section1 pagese ">
         <div className="overlaye">
           <div className="containere ">

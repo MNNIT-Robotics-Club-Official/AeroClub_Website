@@ -116,7 +116,7 @@ export default function Navigbar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link eventKey="blogs" hresName="nav-items">
+            <Nav.Link eventKey="blogs" hresName="nav-items" href="/blogs">
               Blogs
             </Nav.Link>
             <Nav.Link

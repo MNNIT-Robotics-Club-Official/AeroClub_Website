@@ -1,12 +1,11 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseTitle } from "../../baseUtils";
 
 import "../../css/Login.css";
 
 function ForgetPassword() {
-  document.title = `${baseTitle} | Forget Password`;
+  document.title = `Forget Password | Aero Club`;
 
   const email = useRef();
   const history = useHistory();

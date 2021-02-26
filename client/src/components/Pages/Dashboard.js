@@ -7,7 +7,6 @@ import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
-import { baseTitle } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 import CompIssue from "../CompIssue";
 
@@ -16,7 +15,7 @@ function Dashboard() {
   const { user, dispatch } = useContext(UserContext);
   const [r, setr] = useState(0);
 
-  document.title = `${baseTitle} | Dashboard`;
+  document.title = "Dashboard | Aero Club";
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");

@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/Login.css";
 import { toast } from "react-toastify";
-import { baseTitle } from "../../baseUtils";
 
 function Signup() {
-  document.title = `${baseTitle} | Signup`;
+  document.title = "Signup | Aero Club";
 
   const name = useRef();
   const email = useRef();

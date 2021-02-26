@@ -23,6 +23,8 @@ import { UserList, UserShow, UserEdit } from "./Users";
 import { UserContext } from "../../UserProvider";
 
 function AdminComp() {
+  document.title = "Admin Panel | Aero Club";
+
   const { state } = useContext(UserContext);
 
   const httpClient = (url, options = {}) => {

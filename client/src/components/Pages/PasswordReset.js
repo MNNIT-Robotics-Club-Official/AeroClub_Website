@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseTitle } from "../../baseUtils";
 
 import "../../css/Login.css";
 
 function PasswordReset() {
-  document.title = `${baseTitle} | Reset Password`;
+  document.title = "Reset Password | Aero Club";
 
   const password = useRef();
   const confirmPassword = useRef();

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container, Jumbotron } from "react-bootstrap";
-import { baseTitle } from "../../baseUtils";
 import Loading from "../../Animations/Loading";
 
 function Blogs() {
   const [blogs, SetBlogs] = useState([]);
-  document.title = `${baseTitle} | Blogs`;
+  document.title = "Blogs | Aero Club";
 
   useEffect(() => {
     fetch(`/api/blogs/toUI`, {

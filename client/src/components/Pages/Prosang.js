@@ -1,14 +1,13 @@
 import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Event.css";
-import { baseTitle } from "../../baseUtils";
 
 export default function Avishkar() {
-  document.title = `${baseTitle} | Events`;
+  document.title = "Prosang | Aero Club";
 
   return (
     <>
-      <Loading />
+      <Loading time={2} />
       <section className="section1 pagese ">
         <div className="overlaye">
           <div className="containere ">
