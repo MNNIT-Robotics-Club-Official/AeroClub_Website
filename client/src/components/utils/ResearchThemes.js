@@ -9,7 +9,7 @@ const ResearchThemes = () => {
             <div className="jumbotron">
                 <div className="miniSep" style={{ marginBottom: '40px', background: 'rgb(204, 67, 67)' }} ></div>
                 <div className="row justify-content-center">
-                    <div className="col-sm-10" data-aos="flip-up"  data-aos-duration="2000">
+                    <div className="col-sm-10" data-aos="fade-up"  data-aos-duration="2000">
                         <div class="card text-center" style={{ marginBottom: '1.5rem', width: 'auto' }} >
                             <div class="card-header" style={{ fontSize: '1.5rem', background: 'rgb(56, 55, 55)', color: 'white', border: '3px solid white' }}>
                                 Our Domains
