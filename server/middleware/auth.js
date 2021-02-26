@@ -2,14 +2,7 @@ const User = require("../models/user");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-
-const smtp = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.USER,
-    pass: process.env.PASS,
-  },
-});
+const { smtpTransport } = require("./mailer")
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
@@ -27,7 +20,7 @@ exports.signup = (req, res) => {
     const jwtToken = jwt.sign({ _id: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    smtp.sendMail({
+    smtpTransport.sendMail({
       from: process.env.USER,
       to: req.body.email,
       subject: "Confirmation@aeroclubmnnit",
@@ -126,7 +119,7 @@ exports.forgetPassword = (req, res) => {
     user.reset_pass_session = true;
     user.save().then((u) => {
       // nodemailer
-      smtp.sendMail(
+      smtpTransport.sendMail(
         {
           from: process.env.USER,
           to: req.body.email,
