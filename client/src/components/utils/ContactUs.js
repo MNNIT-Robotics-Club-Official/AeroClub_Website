@@ -20,7 +20,7 @@ const ContactUs = () => {
                             <h6>Motilal Nehru National Institute of Technology Allahabad, Prayagraj</h6>
                         </div>
                     </div>
-                    <div className="contact-information col-sm-12 col-md-5 col-lg-5" data-aos="fade-right"
+                    <div className="contact-information col-sm-12 col-md-5 col-lg-5" data-aos="fade-up"
                         data-aos-offset="300"
                         data-aos-easing="ease-in-sine">
                         <div className="contact-location d-flex justify-content-start">

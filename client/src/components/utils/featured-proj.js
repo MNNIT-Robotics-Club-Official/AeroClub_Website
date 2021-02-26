@@ -8,7 +8,7 @@ export default function Featuredproject() {
         <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down" style={{marginBottom:'5px'}} >Featured Projects</div>
         <div className="miniSep" style={{marginBottom:'20px'}} ></div>
         <ul className="cards">
-          <li className="cards_item" data-aos="fade-right">
+          <li className="cards_item" data-aos="fade-up">
             <div className="card">
               <div className="card_image"><img src="https://picsum.photos/500/300/?image=10" /></div>
               <div className="card_content">
@@ -18,7 +18,7 @@ export default function Featuredproject() {
               </div>
             </div>
           </li>
-          <li className="cards_item" data-aos="zoom-in-down">
+          <li className="cards_item" data-aos="zoom-up">
             <div className="card">
               <div className="card_image"><img src="https://picsum.photos/500/300/?image=5" /></div>
               <div className="card_content">
@@ -28,7 +28,7 @@ export default function Featuredproject() {
               </div>
             </div>
           </li>
-          <li className="cards_item" data-aos="fade-left">
+          <li className="cards_item" data-aos="fade-up">
             <div className="card">
               <div className="card_image"><img src="https://picsum.photos/500/300/?image=11" /></div>
               <div className="card_content">

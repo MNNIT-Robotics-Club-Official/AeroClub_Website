@@ -5,7 +5,7 @@ import { Button, Container, Jumbotron } from 'react-bootstrap'
 export default function About() {
     return (
         // <div className="jumbotron">
-        <section >
+        <section>
         <div className="grid-flex">
           <div className="col col-image" style={{backgroundImage: 'url(https://scontent.fpat2-2.fna.fbcdn.net/v/t1.0-9/57852671_373889363215608_4849523753748529152_o.jpg?_nc_cat=101&ccb=3&_nc_sid=cdbe9c&_nc_ohc=gKTa9FdeU_0AX_PbQ1L&_nc_ht=scontent.fpat2-2.fna&oh=68602943dcc3757224cc0cf543d2af99&oe=6058BCAF)'}} data-aos="fade-left">
           </div>
