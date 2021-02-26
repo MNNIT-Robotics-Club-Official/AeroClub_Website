@@ -11,8 +11,7 @@
   width: 100%;
   margin: 0vh 0vw;
 
-  background: url(http://localhost:5000/images/utils/drone-1.jpg) center center
-    no-repeat;
+  background: url("../images/utils/drone-1.jpg") center center no-repeat;
   background-size: cover;
   padding-bottom: 0px;
   background-attachment: fixed;

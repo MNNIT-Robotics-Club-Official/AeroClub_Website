@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
-import { baseURL } from "../../baseUtils"
-
 
 export default function Dashprojects(props) {
-  const [numInvites, setnumInvites] = useState(0)
+  const [numInvites, setnumInvites] = useState(0);
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    console.log("inv" + props.r);
-    fetch(`${baseURL}/api/my/invites`, {
+    fetch(`/api/my/invites`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +16,7 @@ export default function Dashprojects(props) {
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
-        setnumInvites(data.length)
+        setnumInvites(data.length);
       });
   }, [numInvites, props.r]);
 
@@ -68,8 +65,16 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if ((member.user._id === props.user._id)) {
-                                badge = <LoadingButton projectId={project._id} numInvites={numInvites} setnumInvites={numInvites} setr={props.setr} r={props.r} />;
+                              if (member.user._id === props.user._id) {
+                                badge = (
+                                  <LoadingButton
+                                    projectId={project._id}
+                                    numInvites={numInvites}
+                                    setnumInvites={numInvites}
+                                    setr={props.setr}
+                                    r={props.r}
+                                  />
+                                );
                               } else
                                 badge = (
                                   <span class="badge badge-pill badge-warning">
@@ -93,10 +98,9 @@ export default function Dashprojects(props) {
             );
           })}
 
-          {
-            projects.length === 0 && <p className='text-center'>No invites available ...!</p>
-          }
-
+          {projects.length === 0 && (
+            <p className="text-center">No invites available ...!</p>
+          )}
         </Accordion>
       </div>
     </div>
@@ -109,7 +113,7 @@ function LoadingButton(props) {
 
   useEffect(() => {
     if (isLoading) {
-      fetch(`${baseURL}/api/my/invites/accept/${props.projectId}`, {
+      fetch(`/api/my/invites/accept/${props.projectId}`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",

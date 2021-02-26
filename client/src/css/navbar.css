@@ -89,6 +89,12 @@
     opacity: 0;
 }
 
+.logoimg{
+    height: 50px;
+    margin-right: 5px;
+    margin-left: 8px; 
+}
+
 .dropdown.show .dropdown-menu {
     max-height: 500px;
     opacity: 1;
@@ -105,12 +111,12 @@
   }
 }
 
-@media (max-width:400px)
+@media screen and (max-width:1000px) 
 {
-    /* .navbar-dark .navbar-brand img { */
-        /* display: none; */
-    /* } */
-  /* .dropdown-menu.show{
-    display: flex;
-    } */
+
+    .logoimg{
+        height: 30px;
+        margin-right: 5px;
+        margin-left: 3px; 
+    }
 }

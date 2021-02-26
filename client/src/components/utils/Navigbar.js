@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseURL } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 
 const Login = () => {
@@ -15,7 +14,7 @@ const Login = () => {
   const { dispatch } = useContext(UserContext);
 
   const handleLogout = () => {
-    fetch(`${baseURL}/api/signout`, {
+    fetch(`/api/signout`, {
       method: "post",
     })
       .then((res) => res.json())
@@ -111,16 +110,13 @@ export default function Navigbar() {
         id="navbar"
       >
         <Navbar.Brand href="/" className="title-nav">
-          <img
-            src={`${baseURL}/images/utils/circle-cropped.png`}
-            style={{ height: 50, marginRight: 5, marginLeft: 8 }}
-          />
+          <img className="logoimg" src={`/images/utils/logo-aero2.png`} />
           AERO CLUB MNNIT
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link eventKey="blogs" href="/blogs" className="nav-items">
+            <Nav.Link eventKey="blogs" hresName="nav-items">
               Blogs
             </Nav.Link>
             <Nav.Link

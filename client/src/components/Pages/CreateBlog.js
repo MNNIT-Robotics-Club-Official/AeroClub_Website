@@ -6,7 +6,7 @@ import ImageResize from "quill-image-resize";
 import "react-quill/dist/quill.snow.css";
 import "../../css/CreateBlog.css";
 import { Button, Container, Jumbotron, Tab, Tabs } from "react-bootstrap";
-import { baseURL, baseTitle } from "../../baseUtils";
+import { baseTitle } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
 Quill.register("modules/imageResize", ImageResize);
 
@@ -37,7 +37,7 @@ export default function CreateBlog() {
       return;
     }
 
-    fetch(`${baseURL}/api/blogs`, {
+    fetch(`/api/blogs`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
