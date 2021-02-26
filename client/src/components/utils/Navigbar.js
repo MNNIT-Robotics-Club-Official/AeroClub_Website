@@ -102,37 +102,14 @@ export default function Navigbar() {
 
   return (
     <>
-      <Navbar
-        sticky="top"
-        collapseOnSelect
-        expand="lg"
-        variant="light"
-        className="style top-bottom"
-        id="navbar"
-      >
-        <Navbar.Brand href="/" className="title-nav">
-          <img
-            src={`${baseURL}/images/utils/circle-cropped.png`}
-            style={{ height: 50, marginRight: 5, marginLeft: 8 }}
-          />
-          AERO CLUB MNNIT
-        </Navbar.Brand>
+      <Navbar sticky="top" collapseOnSelect expand="lg" variant="light" className="style top-bottom" id='navbar'>
+        <Navbar.Brand href="/" className="title-nav"><img className="logoimg" src={`${baseURL}/images/utils/logo-aero2.png`} />AERO CLUB MNNIT</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link eventKey="blogs" href="/blogs" className="nav-items">
-              Blogs
-            </Nav.Link>
-            <Nav.Link
-              eventKey="projects"
-              href="/projects"
-              className="nav-items"
-            >
-              Projects
-            </Nav.Link>
-            <NavDropdown
-              title="Our Team"
-              id="basic-nav-dropdown"
+            <Nav.Link eventKey='blogs' hresName='nav-items'>Blogs</Nav.Link>
+            <Nav.Link eventKey='projects' href='/projects' className='nav-items'>Projects</Nav.Link>
+            <NavDropdown title="Our Team" id="basic-nav-dropdown"
               onMouseEnter={() => setShow1(true)}
               onMouseLeave={() => setShow1(false)}
               show={show1}

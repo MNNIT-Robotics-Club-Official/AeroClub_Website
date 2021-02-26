@@ -1,5 +1,2 @@
-export const baseURL = "http://localhost:5000"
-export const baseTitle = 'Aero Club'
-
-
-
+export const baseURL = "https://aeroclubmnnit.azurewebsites.net/";
+export const baseTitle = "Aero Club";

@@ -7,7 +7,7 @@ const ResearchThemes = () => {
         <div className="container-fluid" style={{ background: 'rgb(29, 29, 29)' }}>
             <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down" style={{ marginBottom: '-25px', color: 'white' }} >Research Themes</div>
             <div className="jumbotron">
-                <div className="miniSep" style={{ marginBottom: '40px', background: 'rgb(56, 55, 55)' }} ></div>
+                <div className="miniSep" style={{ marginBottom: '40px', background: 'rgb(204, 67, 67)' }} ></div>
                 <div className="row justify-content-center">
                     <div className="col-sm-10" data-aos="flip-up"  data-aos-duration="2000">
                         <div class="card text-center" style={{ marginBottom: '1.5rem', width: 'auto' }} >
