@@ -101,7 +101,7 @@ img {
   position: relative;
   overflow: hidden;
 }
-img:hover {
+.featured-proj img:hover {
   transform: scale(1.15);
 }
 

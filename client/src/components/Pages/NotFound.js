@@ -1,10 +1,9 @@
 import React from "react";
-import { baseTitle } from "../../baseUtils";
 
 // import Particles from "react-particles-js";
 
 export default function NotFound() {
-  document.title = `${baseTitle} - 404`;
+  document.title = "404 | Aero Club";
 
   // const particlesOptions = {
   //   particles: {
@@ -25,7 +24,7 @@ export default function NotFound() {
     >
       <h1 className="fw-bold">404 error ...!</h1>
       <p>The page you are looking for is not found</p>
-      <a className="btn btn-primary" href="/">
+      <a className="btn btn-danger" href="/">
         Back to Home
       </a>
     </div>

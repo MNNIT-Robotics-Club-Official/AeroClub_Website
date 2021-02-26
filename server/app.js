@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 var cors = require("cors");
 const mongoose = require("mongoose");
+require("./middleware/mailer");
 const port = 5000;
 require("dotenv").config();
 

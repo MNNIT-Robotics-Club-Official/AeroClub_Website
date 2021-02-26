@@ -1,14 +1,13 @@
 import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Sponsor.css";
-import { baseTitle } from "../../baseUtils";
 
 export default function Avishkar() {
-  document.title = `${baseTitle} | Events`;
+  document.title = "Sponsors | Aero Club";
 
   return (
     <>
-      <Loading />
+      <Loading time={2} />
       <div className=" pagesg">
         <div className="overlayg">
           <div className="pageTitleg titleBoldg">Sponsors</div>

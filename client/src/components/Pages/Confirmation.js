@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { baseTitle } from "../../baseUtils";
 
 export default function Confirmation() {
   const { token } = useParams();
   const history = useHistory();
-  document.title = `${baseTitle} | Confirmation`;
+  document.title = `Confirmation | Aero Club`;
 
   useEffect(() => {
     if (token) {

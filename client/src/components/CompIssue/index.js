@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import { baseTitle } from "../../baseUtils";
 import Loading from "../../Animations/Loading";
 import CompCard from "./CompCard";
 
 export default function CompIssue() {
-  document.title = `${baseTitle} | Components`;
+  document.title = `Components`;
 
   const [components, setComponents] = useState([]);
   const [types, setTypes] = useState([]);

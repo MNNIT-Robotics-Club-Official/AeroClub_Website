@@ -34,7 +34,6 @@ import CreateBlog from "./components/Pages/CreateBlog.js";
 import Avishkar from "./components/Pages/Avishkar";
 import Prosang from "./components/Pages/Prosang";
 import Workshop from "./components/Pages/Workshop";
-import { baseTitle } from "./baseUtils.js";
 import About from "./components/utils/About";
 import ContactUs from "./components/utils/ContactUs.js";
 import Faculty from "./components/Pages/Faculty.js";
@@ -46,7 +45,7 @@ import { useContext } from "react";
 import { UserContext } from "./UserProvider.js";
 
 function App() {
-  document.title = `${baseTitle}`;
+  document.title = "Aero Club";
   const { dispatch } = useContext(UserContext);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
