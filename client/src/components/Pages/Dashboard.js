@@ -12,7 +12,7 @@ import CompIssue from "../CompIssue";
 
 function Dashboard() {
   const history = useHistory();
-  const { user, dispatch } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
   const [r, setr] = useState(0);
 
   document.title = "Dashboard | Aero Club";
@@ -37,7 +37,7 @@ function Dashboard() {
         }
       });
 
-    if (!user) {
+    if (!state) {
       fetch(`/api/my/details`, {
         method: "get",
         headers: {

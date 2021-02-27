@@ -186,6 +186,8 @@ exports.isSignedIn = (req, res, next) => {
         populate: { path: "members.user", select: "name" },
       })
       .then((user) => {
+        if (!user)
+          return res.status(401).json({ error: "You must be logged in !" });
         req.user = user.transform();
         next();
       });

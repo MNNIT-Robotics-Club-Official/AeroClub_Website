@@ -39,7 +39,6 @@ function AdminComp() {
 
   return (
     <>
-      <div>Hello world</div>
       <Admin
         authProvider={authProvider}
         dataProvider={simpleRestProvider("/api", httpClient)}

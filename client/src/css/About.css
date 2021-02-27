@@ -43,6 +43,9 @@ body{
 
   .col-text div p {
     color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
   }
   .Aligner-item {
     width: 80%;
@@ -50,6 +53,11 @@ body{
   .col-image {
     background-size: cover;
     background-position:center center;
+  }
+
+  .abttxt{
+      text-align: center;
+      align-items: center;
   }
   
   @media (max-width: 640px) {

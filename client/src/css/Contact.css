@@ -56,16 +56,16 @@
 }
 
 .headingc {
-  font-family: "Roboto", sans-serif;
-  text-align: center;
-  color: #f6f7ff;
-  font-size: 30px;
-  font-weight: 700;
-  position: relative;
-  margin-bottom: 70px;
-  text-transform: uppercase;
-  z-index: 999;
-  padding-top: 2rem;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #f6f7ff;
+    font-size: 30px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+    z-index: 999;
+    padding-top: 2rem;
 }
 .white-headingc {
   color: rgb(56, 55, 55);

@@ -20,6 +20,16 @@
     font-size:1.8rem; 
     color:rgb(204, 67, 67);
 }
+.sponabt:hover{
+    text-decoration:none;
+    /* font-size:1.2rem;  */
+    color:rgb(204, 67, 67);
+}
+.card-item img {
+    transform: none !important;
+    transition: none !important;
+    height: 10rem;
+}
 /* .img-wrappers {
     width: 20%;
     height: 20%;
@@ -30,8 +40,13 @@
   {
 
     .sponabt{
-        text-decoration:none;
+        /* text-decoration:none; */
         font-size:1.2rem; 
+        color:rgb(204, 67, 67);
+    }
+    .sponabt:hover{
+        text-decoration:none;
+        transition: transform 400ms ease-in; 
         color:rgb(204, 67, 67);
     }
     .card-item img {
@@ -46,7 +61,7 @@
 
       .c1{
         margin:1rem;
-        height: auto;
+        height: 13rem;
       }    
 
       .txt{
