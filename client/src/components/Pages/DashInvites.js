@@ -39,7 +39,7 @@ export default function Dashprojects(props) {
                 </span>
               );
             return (
-              <Card key={project._id}>
+              <Card key={project.id}>
                 <Card.Header style={{ cursor: "pointer" }}>
                   <Accordion.Toggle as={Card.Header} eventKey={project._id}>
                     <div>

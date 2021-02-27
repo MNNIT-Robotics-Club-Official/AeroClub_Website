@@ -1,15 +1,7 @@
 const User = require("../models/user");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
-
-const smtp = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.USER,
-    pass: process.env.PASS,
-  },
-});
+const { smtpTransport } = require("./mailer");
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
@@ -27,12 +19,12 @@ exports.signup = (req, res) => {
     const jwtToken = jwt.sign({ _id: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    smtp.sendMail({
+    smtpTransport.sendMail({
       from: process.env.USER,
       to: req.body.email,
       subject: "Confirmation@aeroclubmnnit",
-      html: `<h2>You requested for password reset</h2>
-      <p>Click on this <a href="http://localhost:3000/user/confirm/${jwtToken}">link</a> to verify<p>`,
+      html: `<h2>Welcome to Aero Club MNNIT</h2>
+      <p>Click on this <a href="${process.env.BASE_URL}/user/confirm/${jwtToken}">link</a> to verify<p>`,
     });
     res
       .status(400)
@@ -126,13 +118,13 @@ exports.forgetPassword = (req, res) => {
     user.reset_pass_session = true;
     user.save().then((u) => {
       // nodemailer
-      smtp.sendMail(
+      smtpTransport.sendMail(
         {
           from: process.env.USER,
           to: req.body.email,
           subject: "Password-Reset@aeroclubmnnit",
           html: `<h2>You requested for password reset</h2>
-        <p>Click on this <a href="http://localhost:3000/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
+        <p>Click on this <a href="${process.env.BASE_URL}/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
         },
         (err, info) => {
           if (err) {
