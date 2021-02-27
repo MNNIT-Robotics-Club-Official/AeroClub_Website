@@ -10,6 +10,9 @@ import {
   ProjectList,
   ProjectShow,
 } from "./Project";
+import {
+  AchievementList
+} from "./Achievement";
 import simpleRestProvider from "ra-data-simple-rest";
 import { fetchUtils } from "react-admin";
 import { NewsCreate, NewsEdit, NewsList, NewsShow } from "./News";
@@ -68,6 +71,12 @@ function AdminComp() {
         list={ComponentList}
         create={ComponentCreate}
         edit={ComponentEdit}
+      />
+      <Resource
+        name="achievement"
+        list={AchievementList}
+        // create={ComponentCreate}
+        // edit={ComponentEdit}
       />
       <Resource
         name="news"
