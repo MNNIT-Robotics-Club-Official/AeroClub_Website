@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Admin, Resource } from "react-admin";
 import authProvider from "./authProvider";
 import { BlogCreate, BlogEdit, BlogList, BlogShow } from "./Blog";
@@ -38,52 +38,55 @@ function AdminComp() {
   };
 
   return (
-    <Admin
-      authProvider={authProvider}
-      dataProvider={simpleRestProvider("/api", httpClient)}
-    >
-      <Resource
-        name="users"
-        list={UserList}
-        show={UserShow}
-        edit={state.role === "Super-admin" ? UserEdit : null}
-      />
-      <Resource
-        name="projects"
-        list={ProjectList}
-        create={ProjectCreate}
-        edit={ProjectEdit}
-        show={ProjectShow}
-      />
-      <Resource
-        name="blogs"
-        list={BlogList}
-        create={BlogCreate}
-        edit={BlogEdit}
-        show={BlogShow}
-      />
-      <Resource name="issue" list={IssueList} edit={IssueEdit} />
-      <Resource
-        name="component"
-        list={ComponentList}
-        create={ComponentCreate}
-        edit={ComponentEdit}
-      />
-      <Resource
-        name="news"
-        list={NewsList}
-        create={NewsCreate}
-        edit={NewsEdit}
-        show={NewsShow}
-      />
-      <Resource
-        name="workshop"
-        list={WorkshopList}
-        create={WorkshopCreate}
-        edit={WorkshopEdit}
-        show={WorkshopShow}
-      />
-    </Admin>
+    <>
+      <div>Hello world</div>
+      <Admin
+        authProvider={authProvider}
+        dataProvider={simpleRestProvider("/api", httpClient)}
+      >
+        <Resource
+          name="users"
+          list={UserList}
+          show={UserShow}
+          edit={state?.role === "Super-admin" ? UserEdit : null}
+        />
+        <Resource
+          name="projects"
+          list={ProjectList}
+          create={ProjectCreate}
+          edit={ProjectEdit}
+          show={ProjectShow}
+        />
+        <Resource
+          name="blogs"
+          list={BlogList}
+          create={BlogCreate}
+          edit={BlogEdit}
+          show={BlogShow}
+        />
+        <Resource name="issue" list={IssueList} edit={IssueEdit} />
+        <Resource
+          name="component"
+          list={ComponentList}
+          create={ComponentCreate}
+          edit={ComponentEdit}
+        />
+        <Resource
+          name="news"
+          list={NewsList}
+          create={NewsCreate}
+          edit={NewsEdit}
+          show={NewsShow}
+        />
+        <Resource
+          name="workshop"
+          list={WorkshopList}
+          create={WorkshopCreate}
+          edit={WorkshopEdit}
+          show={WorkshopShow}
+        />
+      </Admin>
+    </>
   );
 }
 
