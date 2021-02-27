@@ -1,8 +1,7 @@
 const User = require("../models/user");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
-const { smtpTransport } = require("./mailer")
+const { smtpTransport } = require("./mailer");
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
@@ -24,8 +23,8 @@ exports.signup = (req, res) => {
       from: process.env.USER,
       to: req.body.email,
       subject: "Confirmation@aeroclubmnnit",
-      html: `<h2>You requested for password reset</h2>
-      <p>Click on this <a href="http://localhost:3000/user/confirm/${jwtToken}">link</a> to verify<p>`,
+      html: `<h2>Welcome to Aero Club MNNIT</h2>
+      <p>Click on this <a href="${process.env.BASE_URL}/user/confirm/${jwtToken}">link</a> to verify<p>`,
     });
     res
       .status(400)
@@ -125,7 +124,7 @@ exports.forgetPassword = (req, res) => {
           to: req.body.email,
           subject: "Password-Reset@aeroclubmnnit",
           html: `<h2>You requested for password reset</h2>
-        <p>Click on this <a href="http://localhost:3000/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
+        <p>Click on this <a href="${process.env.BASE_URL}/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
         },
         (err, info) => {
           if (err) {
@@ -187,6 +186,8 @@ exports.isSignedIn = (req, res, next) => {
         populate: { path: "members.user", select: "name" },
       })
       .then((user) => {
+        if (!user)
+          return res.status(401).json({ error: "You must be logged in !" });
         req.user = user.transform();
         next();
       });

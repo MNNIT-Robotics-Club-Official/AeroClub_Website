@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,100,900");
 
  
 .overlaye {
@@ -30,6 +30,7 @@
 
 .titleBolde {
   font-weight: 600;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 .pageTitlee {
   text-transform: uppercase;

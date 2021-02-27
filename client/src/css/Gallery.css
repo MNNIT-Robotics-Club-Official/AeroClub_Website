@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat|Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 /* body * {box-sizing: border-box;} */
 
 /* Design */
@@ -50,6 +51,7 @@
 
 .titleBoldg {
     font-weight: 600;
+    font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 .pageTitleg {
     text-transform: uppercase;

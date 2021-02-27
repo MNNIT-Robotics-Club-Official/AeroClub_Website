@@ -2,12 +2,12 @@ import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Sponsor.css";
 
-export default function Avishkar() {
-  document.title = "Sponsors | Aero Club";
+export default function Ṣponsors() {
+  document.title = `Sponsors | Events`;
 
   return (
     <>
-      <Loading time={2} />
+      <Loading />
       <div className=" pagesg">
         <div className="overlayg">
           <div className="pageTitleg titleBoldg">Sponsors</div>
@@ -27,7 +27,7 @@ export default function Avishkar() {
               >
                 <img
                   className="card-img-top mx-auto imgphone sponimg"
-                  src={`/images/utils/mnnit.png`}
+                  src="/images/utils/mnnit.png"
                   alt="mnnit"
                   srcset=""
                 />
