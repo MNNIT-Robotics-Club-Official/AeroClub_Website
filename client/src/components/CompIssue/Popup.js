@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { baseURL } from "../../baseUtils"
 
 export default function Popup(props) {
   const [num, setnum] = useState(0);
   const [reason, setreason] = useState("");
   return (
-    <Modal
-      {...props}
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
+    <Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           {`Requesting ${props.comp.name}`}
@@ -18,14 +13,22 @@ export default function Popup(props) {
       </Modal.Header>
       <Modal.Body>
         <div style={{ display: "flex" }}>
-          <img src={props.comp.image_url} style={{ width: "150px", height: "150px" }} />
+          <img
+            src={props.comp.image_url}
+            style={{ width: "150px", height: "150px" }}
+          />
           <div>
             <div>
               Total quantity: {props.comp.available + props.comp.issued}
             </div>
             <div>In Stock: {props.comp.available}</div>
             <div>Issued: {props.comp.issued}</div>
-            <button className="btn btn-light" onClick={() => (num > 0 ? setnum(num - 1) : 0)}>-</button>
+            <button
+              className="btn btn-light"
+              onClick={() => (num > 0 ? setnum(num - 1) : 0)}
+            >
+              -
+            </button>
             <span className="px-3">{num}</span>
             <button
               className="btn btn-light"
@@ -74,7 +77,7 @@ function LoadingButton(props) {
 
   useEffect(() => {
     if (isLoading) {
-      fetch(`${baseURL}/api/issue/${props.id}`, {
+      fetch(`/api/issue/${props.id}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

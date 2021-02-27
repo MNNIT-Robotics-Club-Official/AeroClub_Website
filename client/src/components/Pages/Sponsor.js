@@ -1,12 +1,12 @@
 import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Sponsor.css";
-import { baseTitle } from "../../baseUtils";
-import { baseURL } from "../../baseUtils";
+// import { baseTitle } from "../../baseUtils";
+// import { baseURL } from "../../baseUtils";
 
-export default function Avishkar() {
+export default function Ṣponsors() {
 
-    document.title = `${baseTitle} | Events`
+    document.title = `Sponsors | Events`
 
     return (
         <>
@@ -24,7 +24,7 @@ export default function Avishkar() {
                         <div className="card card-item shadow c1">
                         <div className="img-wrappers mx-auto">
                                 <a className="card-title text-center sponimg" href="http://www.mnnit.ac.in/" target="_blank">
-                            <img className="card-img-top mx-auto imgphone sponimg" src={`${baseURL}/images/utils/mnnit.png`} alt="mnnit" srcset="" /></a>
+                            <img className="card-img-top mx-auto imgphone sponimg" src="/images/utils/mnnit.png" alt="mnnit" srcset="" /></a>
                             </div>
                         
                             <div className="card-body d-flex flex-column transition: transform 400ms ease-out;">

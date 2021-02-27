@@ -7,23 +7,22 @@ import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
-import { baseURL, baseTitle } from "../../baseUtils";
 import { UserContext } from "../../UserProvider";
+import CompIssue from "../CompIssue";
 
 function Dashboard() {
   const history = useHistory();
   const { user, dispatch } = useContext(UserContext);
   const [r, setr] = useState(0);
 
-  document.title = `${baseTitle} | Dashboard`;
-
+  document.title = "Dashboard | Aero Club";
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
 
-    fetch(`${baseURL}/api/isSignedIn`, {
+    fetch(`/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -39,7 +38,7 @@ function Dashboard() {
       });
 
     if (!user) {
-      fetch(`${baseURL}/api/my/details`, {
+      fetch(`/api/my/details`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",
@@ -104,6 +103,17 @@ function Dashboard() {
           </a>
           <a
             className="nav-item nav-link"
+            id="nav-inventory-tab"
+            data-toggle="tab"
+            href="#nav-inventory"
+            role="tab"
+            aria-controls="nav-inventory"
+            aria-selected="false"
+          >
+            Component Inventory
+          </a>
+          <a
+            className="nav-item nav-link"
             id="nav-blogs-tab"
             data-toggle="tab"
             href="#nav-blogs"
@@ -147,6 +157,14 @@ function Dashboard() {
           aria-labelledby="nav-components-tab"
         >
           <DashComp r={r} setr={setr} />
+        </div>
+        <div
+          className="tab-pane fade"
+          id="nav-inventory"
+          role="tabpanel"
+          aria-labelledby="nav-inventory-tab"
+        >
+          <CompIssue r={r} setr={setr} />
         </div>
         <div
           className="tab-pane fade"

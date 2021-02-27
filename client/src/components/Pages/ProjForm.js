@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { baseURL } from "../../baseUtils";
 
 export default function ProjForm(props) {
   const [formData, setformData] = useState({
@@ -14,7 +13,7 @@ export default function ProjForm(props) {
       onSubmit={(e) => {
         e.preventDefault();
         setLoading(true);
-        fetch(`${baseURL}/api/projects`, {
+        fetch(`/api/projects`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
