@@ -35,7 +35,9 @@
 
 .titleBolda {
   font-weight: 600;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .pageTitlea {
   text-transform: uppercase;
@@ -120,3 +122,10 @@
 .panel-heading .accordion-toggle.collapsed:after {
   content: "\f054";
 }
+
+/* .faculty-container img {
+  width: 30%;
+} */
+
+/* @media only screen and (max-width:)
+.card-horizontal img */

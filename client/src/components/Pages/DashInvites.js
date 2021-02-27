@@ -4,29 +4,13 @@ import { UserContext } from "../../UserProvider";
 
 export default function Dashprojects(props) {
   const [numInvites, setnumInvites] = useState(0);
-  const [projects, setProjects] = useState([]);
   const { state } = useContext(UserContext);
-
-  useEffect(() => {
-    fetch(`/api/my/invites`, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setProjects(data);
-        setnumInvites(data.length);
-      });
-  }, [numInvites, props.r]);
 
   return (
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
         <Accordion>
-          {projects.map((project) => {
+          {state?.projects?.map((project) => {
             let badge;
             if (project.status === "Ongoing")
               badge = (
@@ -69,13 +53,7 @@ export default function Dashprojects(props) {
                             } else {
                               if (member.user._id === state?.id) {
                                 badge = (
-                                  <LoadingButton
-                                    projectId={project._id}
-                                    numInvites={numInvites}
-                                    setnumInvites={numInvites}
-                                    setr={props.setr}
-                                    r={props.r}
-                                  />
+                                  <LoadingButton projectId={project._id} />
                                 );
                               } else
                                 badge = (
@@ -100,7 +78,7 @@ export default function Dashprojects(props) {
             );
           })}
 
-          {projects.length === 0 && (
+          {state?.projects?.length === 0 && (
             <p className="text-center">No invites available ...!</p>
           )}
         </Accordion>
@@ -124,7 +102,17 @@ function LoadingButton(props) {
       }).then((res) => {
         setLoading(false);
         setDone(true);
-        props.setr(props.r + 1);
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            ...state,
+            projects: [...state.projects, data],
+          })
+        );
+        dispatch({
+          type: "UPDATE_PROJ",
+          payload: data.updatedProject,
+        });
       });
     }
   }, [isLoading]);

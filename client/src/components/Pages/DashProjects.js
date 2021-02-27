@@ -5,7 +5,7 @@ import ProjForm from "./ProjForm";
 import { UserContext } from "../../UserProvider";
 import { useHistory } from "react-router-dom";
 
-export default function Dashprojects(props) {
+export default function Dashprojects() {
   const [modalShow, setModalShow] = React.useState(false);
   const { state } = useContext(UserContext);
   const history = useHistory();
@@ -109,8 +109,6 @@ export default function Dashprojects(props) {
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   projectId={project._id}
-                  r={props.r}
-                  setr={props.setr}
                 />
               </Card>
             );
@@ -162,17 +160,29 @@ function MyVerticallyCenteredModal(props) {
                 email: email,
                 projectId: projectId,
               }),
-            }).then((res) => {
-              props.onHide();
-              if (res.status == 200) {
-                toast.success("USER INVITED");
-                props.setr(props.r + 1);
-              } else {
-                res.json().then((data) => {
-                  toast.error(data.error);
-                });
-              }
-            });
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                props.onHide();
+                if (!data.error) {
+                  toast.success("USER INVITED");
+                  localStorage.setItem(
+                    "user",
+                    JSON.stringify({
+                      ...state,
+                      projects: [...state.projects, data],
+                    })
+                  );
+                  dispatch({
+                    type: "UPDATE_PROJ",
+                    payload: data.updatedProject,
+                  });
+                } else {
+                  res.json().then((data) => {
+                    toast.error(data.error);
+                  });
+                }
+              });
           }}
         >
           <Form.Group controlId="formBasicEmail">

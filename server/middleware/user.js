@@ -253,6 +253,7 @@ exports.acceptInvite = (req, res) => {
       });
       res.json({
         msg: "Invite accepted",
+        updatedProject,
       });
     });
   });

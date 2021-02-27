@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "../../UserProvider";
 
-export default function ProjForm(props) {
+export default function ProjForm() {
+  const { dispatch } = useContext(UserContext);
+
   const [formData, setformData] = useState({
     title: "",
     teamname: "",
@@ -26,15 +29,20 @@ export default function ProjForm(props) {
             objective: formData.objective,
           }),
         })
-          .then((res) => {
+          .then((res) => res.json())
+          .then((data) => {
             setLoading(false);
+            localStorage.setItem(
+              "user",
+              JSON.stringify({ ...state, projects: [...state.projects, data] })
+            );
+            dispatch({ type: "UPDATE_PROJ", payload: data });
             setformData({
               title: "",
               teamname: "",
               description: "",
               objective: "",
             });
-            props.setr(props.r + 1);
           })
           .catch((err) => {
             setLoading(false);

@@ -13,7 +13,6 @@ import CompIssue from "../CompIssue";
 function Dashboard() {
   const history = useHistory();
   const { state, dispatch } = useContext(UserContext);
-  const [r, setr] = useState(0);
 
   document.title = "Dashboard | Aero Club";
   useEffect(() => {
@@ -51,7 +50,7 @@ function Dashboard() {
           dispatch({ type: "SET", payload: data });
         });
     }
-  }, [r]);
+  }, []);
 
   return (
     <div className="container">
@@ -140,7 +139,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects r={r} setr={setr} />
+          <DashProjects />
         </div>
         <div
           className="tab-pane fade"
@@ -148,7 +147,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites r={r} setr={setr} />
+          <DashInvites />
         </div>
         <div
           className="tab-pane fade"
@@ -156,7 +155,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-components-tab"
         >
-          <DashComp r={r} setr={setr} />
+          <DashComp />
         </div>
         <div
           className="tab-pane fade"
@@ -164,7 +163,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-inventory-tab"
         >
-          <CompIssue r={r} setr={setr} />
+          <CompIssue />
         </div>
         <div
           className="tab-pane fade"

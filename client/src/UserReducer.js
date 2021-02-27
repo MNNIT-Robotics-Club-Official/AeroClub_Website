@@ -7,6 +7,11 @@ export const reducer = (state, action) => {
         ...state,
         blogs: [...state.blogs, action.payload],
       };
+    case "UPDATE_PROJ":
+      return {
+        ...state,
+        projects: [...state.projects, action.payload],
+      };
     case "CLEAR":
       return null;
     default:
