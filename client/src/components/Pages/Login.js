@@ -18,8 +18,9 @@ function Login() {
     e.preventDefault();
 
     if (localStorage.getItem("jwtToken")) {
-      toast.success("User logged In successfully !");
+      toast.warn("You are already loggedIn !");
       history.push("/user/dashboard");
+      return;
     }
 
     fetch(`/api/signin`, {

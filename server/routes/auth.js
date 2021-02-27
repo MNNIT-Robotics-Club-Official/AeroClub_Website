@@ -18,20 +18,20 @@ router.post(
   "/signup",
   [
     check("name", "name should be at least 3 char").isLength({ min: 3 }),
-    // body("email").custom((email) => {
-    //   if (/^[A-Za-z0-9._%+-]+@mnnit.ac.in$/.test(email)) return true;
-    //   throw new Error("Invalid email type !");
-    // }),
+    body("email").custom((email) => {
+      if (/^[A-Za-z0-9._%+-]+@mnnit.ac.in$/.test(email)) return true;
+      throw new Error("Invalid email type !");
+    }),
     check("password", "password should be at least 3 char").isLength({
       min: 3,
     }),
-    // body("password").custom((password) => {
-    //   if (
-    //     /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(password)
-    //   )
-    //     return true;
-    //   throw new Error("Invalid password type !");
-    // }),
+    body("password").custom((password) => {
+      if (
+        /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(password)
+      )
+        return true;
+      throw new Error("Invalid password type !");
+    }),
   ],
   signup
 );
