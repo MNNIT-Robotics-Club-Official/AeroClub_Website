@@ -112,6 +112,8 @@ export default function Navigbar() {
             <NavDropdown title="Our Team" id="basic-nav-dropdown"
               onMouseEnter={() => setShow1(true)}
               onMouseLeave={() => setShow1(false)}
+              onClick={() => setShow1(true)}
+              onClick={() => setShow1(false)}
               show={show1}
             >
               <NavDropdown.Item href="/faculty">
@@ -130,6 +132,8 @@ export default function Navigbar() {
               id="basic-nav-dropdown"
               onMouseEnter={() => setShow3(true)}
               onMouseLeave={() => setShow3(false)}
+              onClick={() => setShow3(true)}
+              onClick={() => setShow3(false)}
               show={show3}
             >
               <NavDropdown.Item href="/avishkar">Avishkar</NavDropdown.Item>
@@ -144,6 +148,8 @@ export default function Navigbar() {
               id="basic-nav-dropdown"
               onMouseEnter={() => setShow2(true)}
               onMouseLeave={() => setShow2(false)}
+              onClick={() => setShow2(true)}
+              onClick={() => setShow2(false)}
               show={show2}
             >
               <NavDropdown.Item eventKey="members" href="/gallery">

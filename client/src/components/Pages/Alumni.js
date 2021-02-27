@@ -18,7 +18,7 @@ export default function Alumni() {
                     </div>
                 </div>
             </div>
-            <div className="pageTitle titleBold header white-heading padtop">ALUMNI</div>
+            {/* <div className="pageTitle titleBold header white-heading padtop">ALUMNI</div> */}
 
             <div class="container alumni-container mb-5">
                 <div class="panel-group" id="accordion">

@@ -34,8 +34,6 @@ export default function Avishkar() {
                                 <p className="card-text text-center txt">Motilal Nehru National Institute of Technology Allahabad, Prayagraj (MNNIT) is an Institute of National Importance with total commitment to quality and excellence in academic pursuits. It was established as one of the Seventeen Regional Engineering Colleges of India in the year 1961 as a joint enterprise of Government of India and Government of Uttar Pradesh, and was an associated college of University of Allahabad, which is the third oldest university in India</p>
                                 {/* <a href="#" className="btn btn-danger mx-auto">Know More</a> */}
                             </div>
-
-                    
                         </div>
 
                         <div className="card card-item shadow c1">
