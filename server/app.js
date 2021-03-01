@@ -1,18 +1,22 @@
 const { request } = require("express");
 const express = require("express");
 const app = express();
-var cors = require("cors");
+const cors = require("cors");
 const mongoose = require("mongoose");
 require("./middleware/mailer");
-const port = 9500;
+const port = process.env.PORT || 9500;
 require("dotenv").config();
 
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {
+  auth: {
+    user: process.env.COSMOSDB_USER,
+    password: process.env.COSMOSDB_PASS,
+  },
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
   useFindAndModify: false,
+  useCreateIndex: true,
 });
 mongoose.connection.on("connected", () => {
   console.log("connected to mongodb");

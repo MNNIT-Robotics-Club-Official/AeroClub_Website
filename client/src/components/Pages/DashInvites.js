@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
+import { UserContext } from "../../UserProvider";
 
 export default function Dashprojects(props) {
   const [numInvites, setnumInvites] = useState(0);
   const [projects, setProjects] = useState([]);
+  const { state } = useContext(UserContext);
 
   useEffect(() => {
     fetch(`/api/my/invites`, {
@@ -39,7 +41,7 @@ export default function Dashprojects(props) {
                 </span>
               );
             return (
-              <Card key={project._id}>
+              <Card key={project.id}>
                 <Card.Header style={{ cursor: "pointer" }}>
                   <Accordion.Toggle as={Card.Header} eventKey={project._id}>
                     <div>
@@ -65,7 +67,7 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === props.user._id) {
+                              if (member.user._id === state?.id) {
                                 badge = (
                                   <LoadingButton
                                     projectId={project._id}

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import Loading from "../../Animations/Loading";
 
 export default function Confirmation() {
   const { token } = useParams();
@@ -30,7 +31,7 @@ export default function Confirmation() {
 
   return (
     <div>
-      <h1>loading...!</h1>
+      <Loading time={4} confirmation />
     </div>
   );
 }

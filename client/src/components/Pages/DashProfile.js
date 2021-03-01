@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { UserContext } from "../../UserProvider";
-import { useHistory } from "react-router-dom";
 
 export default function DashProfile() {
   const { state, dispatch } = useContext(UserContext);
