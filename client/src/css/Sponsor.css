@@ -11,7 +11,7 @@
 }
 .sponimg{
     width: auto;
-     height:12rem;
+     height:12rem !important;
       align-items:center;
        padding:5px;
 }
@@ -52,11 +52,11 @@
     .card-item img {
         transform: none !important;
         transition: none !important;
-        height: 7rem;
+        height: 7rem !important;
     }
       .sponimg{
           width: auto;
-          height: 7rem;
+          height: 7rem !important;
       }
 
       .c1{
