@@ -190,7 +190,10 @@ export default function Coordinators() {
                     <h5 class="card-title text-center text-uppercase">
                       {member.name}
                     </h5>
-                    <p class="card-text text-center">
+                    <p
+                      class="card-text text-center"
+                      style={{ minHeight: "5rem" }}
+                    >
                       <strong>Area of Interest</strong> :{" "}
                       {member.areaOfInterests}
                     </p>
@@ -206,10 +209,16 @@ export default function Coordinators() {
                     </a>
                     <div className="collapse" id={`collapseExample${i}`}>
                       <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
                         <div className="d-flex justify-content-center mt-4">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
+                            target="_blank"
+                          >
+                            <i class="fab fa-google fa-3x mx-2"></i>
+                          </a>
+
                           <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                            <i class="fab fa-linkedin fa-3x mx-2"></i>
                           </a>
                         </div>
                       </div>
@@ -237,7 +246,10 @@ export default function Coordinators() {
                   />
                   <div class="card-body d-flex flex-column transition: transform 400ms ease-out;">
                     <h5 class="card-title text-center">{member.name}</h5>
-                    <p class="card-text text-center">
+                    <p
+                      class="card-text text-center"
+                      style={{ minHeight: "5rem" }}
+                    >
                       {member.year} year <br />
                     </p>
                     <a
@@ -252,10 +264,16 @@ export default function Coordinators() {
                     </a>
                     <div className="collapse" id={`collapseExample${i}`}>
                       <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
                         <div className="d-flex justify-content-center mt-4">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
+                            target="_blank"
+                          >
+                            <i class="fab fa-google fa-3x mx-2"></i>
+                          </a>
+
                           <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                            <i class="fab fa-linkedin fa-3x mx-2"></i>
                           </a>
                         </div>
                       </div>
@@ -283,7 +301,10 @@ export default function Coordinators() {
                   />
                   <div class="card-body d-flex flex-column transition: transform 400ms ease-out;">
                     <h5 class="card-title text-center">{member.name}</h5>
-                    <p class="card-text text-center">
+                    <p
+                      class="card-text text-center"
+                      style={{ minHeight: "5rem" }}
+                    >
                       <strong>Area of Interest</strong> :{" "}
                       {member.areaOfInterests}
                     </p>
@@ -299,10 +320,16 @@ export default function Coordinators() {
                     </a>
                     <div className="collapse" id={`collapseExample${i}`}>
                       <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
                         <div className="d-flex justify-content-center mt-4">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
+                            target="_blank"
+                          >
+                            <i class="fab fa-google fa-3x mx-2"></i>
+                          </a>
+
                           <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                            <i class="fab fa-linkedin fa-3x mx-2"></i>
                           </a>
                         </div>
                       </div>

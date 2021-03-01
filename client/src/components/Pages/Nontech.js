@@ -145,7 +145,7 @@ export default function Nontech() {
               member.team === "Content" && (
                 <div
                   class="card card-item shadow"
-                  style={{ width: "17rem" }}
+                  style={{ width: "17rem", minHeight: "29rem" }}
                   key={i}
                 >
                   <img
@@ -170,10 +170,16 @@ export default function Nontech() {
                     </a>
                     <div className="collapse" id={`collapseExample${i}`}>
                       <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
                         <div className="d-flex justify-content-center mt-4">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
+                            target="_blank"
+                          >
+                            <i class="fab fa-google fa-3x mx-2"></i>
+                          </a>
+
                           <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                            <i class="fab fa-linkedin fa-3x mx-2"></i>
                           </a>
                         </div>
                       </div>
@@ -195,7 +201,7 @@ export default function Nontech() {
               member.team === "Design" && (
                 <div
                   class="card card-item shadow"
-                  style={{ width: "17rem" }}
+                  style={{ width: "17rem", minHeight: "29rem" }}
                   key={i}
                 >
                   <img
@@ -220,10 +226,16 @@ export default function Nontech() {
                     </a>
                     <div className="collapse" id={`collapseExample${i}`}>
                       <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
                         <div className="d-flex justify-content-center mt-4">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
+                            target="_blank"
+                          >
+                            <i class="fab fa-google fa-3x mx-2"></i>
+                          </a>
+
                           <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                            <i class="fab fa-linkedin fa-3x mx-2"></i>
                           </a>
                         </div>
                       </div>
@@ -245,7 +257,7 @@ export default function Nontech() {
               member.team === "Outreach" && (
                 <div
                   class="card card-item shadow"
-                  style={{ width: "17rem" }}
+                  style={{ width: "17rem", minHeight: "29rem" }}
                   key={i}
                 >
                   <img
@@ -270,10 +282,16 @@ export default function Nontech() {
                     </a>
                     <div className="collapse" id={`collapseExample${i}`}>
                       <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
                         <div className="d-flex justify-content-center mt-4">
+                          <a
+                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
+                            target="_blank"
+                          >
+                            <i class="fab fa-google fa-3x mx-2"></i>
+                          </a>
+
                           <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
+                            <i class="fab fa-linkedin fa-3x mx-2"></i>
                           </a>
                         </div>
                       </div>

@@ -11,7 +11,7 @@
 }
 .sponimg {
   width: auto;
-  height: 12rem;
+  height: 12rem !important;
   align-items: center;
   padding: 5px;
 }
@@ -34,7 +34,29 @@
     width: 20%;
     height: 20%;
     padding: 5px;
-  } */
+} */
+
+@media screen and (max-width: 1000px) {
+  .sponabt {
+    /* text-decoration:none; */
+    font-size: 1.2rem;
+    color: rgb(204, 67, 67);
+  }
+  .sponabt:hover {
+    text-decoration: none;
+    transition: transform 400ms ease-in;
+    color: rgb(204, 67, 67);
+  }
+  .card-item img {
+    transform: none !important;
+    transition: none !important;
+    height: 7rem;
+  }
+  .sponimg {
+    width: auto;
+    height: 7rem !important;
+  }
+}
 
 @media screen and (max-width: 1000px) {
   .sponabt {
