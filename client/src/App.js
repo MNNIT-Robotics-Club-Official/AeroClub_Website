@@ -113,10 +113,11 @@ function App() {
               <Route path="/" exact>
                 <Landing />
                 <About />
-                <EventHome />
+                
                 <Featuredproject />
                 <ResearchThemes />
                 <Testimonials />
+                <EventHome />
                 <ContactUs />
               </Route>
               <Route path="/gallery" exact>

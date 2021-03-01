@@ -111,7 +111,7 @@ export default function Navigbar() {
       >
         <Navbar.Brand href="/" className="title-nav">
           <img className="logoimg" src={`/images/utils/logo-aero2.png`} />
-          AERO CLUB MNNIT
+          {/* AERO CLUB MNNIT */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

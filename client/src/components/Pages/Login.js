@@ -84,7 +84,7 @@ function Login() {
                     <label htmlFor="inputPassword">Password</label>
                   </div>
                   <button
-                    className="btn btn-lg btn-primary btn-block text-uppercase"
+                    className="btn btn-lg btn-dark btn-block text-uppercase"
                     type="submit"
                     onClick={handleSubmit}
                   >
@@ -93,13 +93,13 @@ function Login() {
                   <hr className="my-4" />
                   <div className="para">
                     <p>
-                      <Link to="/user/forgotpassword">Forgot Password ?</Link>
+                      <Link to="/user/forgotpassword" style={{textDecoration:"none"}} className="l1">Forgot Password ?</Link>
                     </p>
-                    <p>
+                    <p style={{color:"white"}}>
                       Don't have an account?{" "}
-                      <Link to="/user/signup">Signup</Link>
+                      <Link to="/user/signup" style={{textDecoration:"none"}} className="l1">Signup</Link>
                     </p>
-                    <button type="button" className="btn btn-dark">
+                    <button type="button" className="btn btn-dark" style={{width:"100%"}}>
                       <Link
                         to="/"
                         style={{ color: "inherit", textDecoration: "none" }}
