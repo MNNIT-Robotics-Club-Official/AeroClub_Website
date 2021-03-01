@@ -19,11 +19,11 @@ export default function Faculty() {
             <div class="card card-item shadow" style={{ width: "15rem" }}>
               <img
                 class="card-img-top"
-                src="https://images.unsplash.com/photo-1610903953576-fc21d18d83d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+                src={`../images/utils/aero.png`}
                 alt="Card image cap"
               />
               <div class="card-body d-flex flex-column transition: transform 400ms ease-out;">
-                <h5 class="card-title text-center">Bhuvan Jhumb</h5>
+                <h5 class="card-title text-center">Bhuvan Jhamb</h5>
                 <p class="card-text text-center">
                   Final year, Mechanical Engineering
                 </p>

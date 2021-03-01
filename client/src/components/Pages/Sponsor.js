@@ -4,7 +4,7 @@ import "../../css/Sponsor.css";
 // import { baseTitle } from "../../baseUtils";
 // import { baseURL } from "../../baseUtils";
 
-export default function Ṣponsors() {
+export default function Sponsors() {
 
     document.title = `Sponsors | Events`
 

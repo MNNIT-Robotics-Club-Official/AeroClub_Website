@@ -28,6 +28,11 @@
   animation: image 3s ease-in-out infinite alternate;
 }
 
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
 .titleBolde {
   font-weight: 600;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";

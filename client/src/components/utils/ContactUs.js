@@ -33,7 +33,7 @@ const ContactUs = () => {
             data-aos="zoom-out-right"
           >
             <img
-              src={`../images/utils/mnnit.png`}
+              src={`../images/utils/mnnitnew.png`}
               alt="mnnit"
               srcset=""
               style={{ width: "auto", height: "100%", margin: "18px" }}

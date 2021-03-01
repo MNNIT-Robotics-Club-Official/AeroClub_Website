@@ -23,13 +23,14 @@ export default function Avishkar() {
                 <div className="img imgev">
                   <img
                     src={`../images/utils/avishkar.png`}
-                    alt="prosang"
+                    alt="avishkar"
                     srcset=""
                     style={{ alignItems: "center" }}
                   />
                 </div>
               </div>
-              <div className="text-wrapper">
+              <div className="text-wrapper" style={{border:"2px solid white", borderRadius:"10px", padding:"10px"}}>
+              {/* <div > */}
                 <p className="texte">
                   MNNIT's techno management festival Avishkar is held every year
                   in the month of September. Equipped with technical and
@@ -42,6 +43,7 @@ export default function Avishkar() {
                   great personalities' heart touching and inspirational
                   struggles and their journey.
                 </p>
+                {/* </div> */}
               </div>
             </div>
           </div>
