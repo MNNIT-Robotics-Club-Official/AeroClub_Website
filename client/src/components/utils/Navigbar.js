@@ -175,6 +175,10 @@ export default function Navigbar() {
                 Gallery
               </NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item eventKey="collaborate" href="/collaborate">
+                Collaborate
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/news" eventKey="news">
                 News Section
               </NavDropdown.Item>
