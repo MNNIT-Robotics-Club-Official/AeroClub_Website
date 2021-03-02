@@ -1,5 +1,6 @@
 import React from "react";
 import "../../css/Contact.css";
+import logo from "../../images/utils/collegelogo.png";
 
 const ContactUs = () => {
   return (
@@ -33,10 +34,10 @@ const ContactUs = () => {
             data-aos="zoom-out-right"
           >
             <img
-              src={`../images/utils/mnnitnew.png`}
+              src={logo}
               alt="mnnit"
               srcset=""
-              style={{ width: "auto", height: "100%", margin: "18px" }}
+              style={{ width: "auto", height: "13rem", margin: "18px" }}
             />
             <div className="col-sm-12 col-md-12 col-lg-8">
               <h6>
