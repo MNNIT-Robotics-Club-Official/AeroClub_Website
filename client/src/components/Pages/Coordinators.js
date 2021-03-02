@@ -18,6 +18,7 @@ import f14 from "../../images/coordinators&Nontech/Archit Chaudhary.jpg";
 import f15 from "../../images/coordinators&Nontech/Ayan Santania.jpg";
 import f16 from "../../images/coordinators&Nontech/ABHISHEK GAUTAM.jpg";
 import f17 from "../../images/coordinators&Nontech/Karimulla Mohammad.bmp";
+import f18 from "../../images/coordinators&Nontech/Ankur Singh.jpg";
 
 export default function Coordinators() {
   document.title = "Coordinators | Aero Club";
@@ -160,6 +161,15 @@ export default function Coordinators() {
       photo: f17,
       linkedinId: "https://www.linkedin.com/in/karimulla1098/",
       areaOfInterests: "Stimulation, ROS, ML",
+    },
+    {
+      emailAddress: "as096255@gmail.com",
+      name: "Ankur Pratap Singh",
+      year: "2nd",
+      photo: f18,
+      linkedinId: "https://linkedin.com/in/ankur-singh-82496514b/",
+      areaOfInterests:
+        "Gaming, Autonomous vehicles, Data Science, Computer Vision, Drone Racing, etc.",
     },
   ];
 
