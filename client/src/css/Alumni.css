@@ -59,13 +59,11 @@
   transition: transform 400ms ease-in;
 }
 
-.card-img-top{
+.card-img-top {
   transform: none !important;
   transition: none !important;
-  height: 18rem !important;
+  height: 20rem !important;
 }
-
-
 
 .panel-title a {
   color: red;
@@ -118,4 +116,13 @@
 }
 .panel-heading .accordion-toggle.collapsed:after {
   content: "\f054";
+}
+
+@media only screen and (max-width: 500px) {
+  .collaborate p {
+    font-size: small;
+  }
+  .quote {
+    font-size: medium !important;
+  }
 }

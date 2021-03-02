@@ -10,7 +10,7 @@ import f6 from "../../images/coordinators&Nontech/Pushpa Devi.jpeg";
 import f7 from "../../images/coordinators&Nontech/RUCHI SRIVASTAVA.jpg";
 import f8 from "../../images/coordinators&Nontech/Prasanna Sneha.png";
 import f9 from "../../images/coordinators&Nontech/Ayush.jpg";
-// import f10 from "../../images/coordinators/Amit Gupta.jpg";
+import f10 from "../../images/coordinators&Nontech/Rishabh.jpg";
 import f11 from "../../images/coordinators&Nontech/Harsh Kumar Singh.jpg";
 import f12 from "../../images/coordinators&Nontech/Bhuvan Jhumb.jpg";
 import f13 from "../../images/coordinators&Nontech/Apoorva Dinesh Singh.jpg";
@@ -28,6 +28,7 @@ export default function Coordinators() {
       name: "Amit Gupta",
       year: "2nd",
       photo: f1,
+      linkedinId: "https://www.linkedin.com/in/amit-gupta-0b64991bb",
       areaOfInterests:
         "Drone Automation (Pixhawk, SITL), Coding, Design Software",
     },
@@ -97,15 +98,14 @@ export default function Coordinators() {
       areaOfInterests:
         "Design and Manufacturing , Drone Automation (Basics i.e dronekit)",
     },
-    // {
-    //   emailAddress: "rishabhdwivedi462@gmail.com",
-    //   name: "Rishabh Dwivedi",
-    //   year: "2nd",
-    //   photo:
-    //     f10,
-    // linkedinId: "https://www.linkedin.com/in/rishabh-dwivedi-8b85491a2",
-    //   areaOfInterests: "AUTOCAD, Aerodynamics, ",
-    // },
+    {
+      emailAddress: "rishabhdwivedi462@gmail.com",
+      name: "Rishabh Dwivedi",
+      year: "2nd",
+      photo: f10,
+      linkedinId: "https://www.linkedin.com/in/rishabh-dwivedi-8b85491a2",
+      areaOfInterests: "AUTOCAD, Aerodynamics, ",
+    },
     {
       emailAddress: "harshkumarsingh325@gmail.com",
       name: "Harsh Kumar Singh ",
@@ -190,29 +190,17 @@ export default function Coordinators() {
                     <h5 class="card-title text-center text-uppercase">
                       {member.name}
                     </h5>
-                    <p class="card-text text-center">
+                    <p
+                      class="card-text text-center"
+                      style={{ minHeight: "5rem" }}
+                    >
                       <strong>Area of Interest</strong> :{" "}
                       {member.areaOfInterests}
                     </p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
-                        <div className="d-flex justify-content-center mt-4">
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -237,28 +225,16 @@ export default function Coordinators() {
                   />
                   <div class="card-body d-flex flex-column transition: transform 400ms ease-out;">
                     <h5 class="card-title text-center">{member.name}</h5>
-                    <p class="card-text text-center">
+                    <p
+                      class="card-text text-center"
+                      style={{ minHeight: "5rem" }}
+                    >
                       {member.year} year <br />
                     </p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
-                        <div className="d-flex justify-content-center mt-4">
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -283,29 +259,17 @@ export default function Coordinators() {
                   />
                   <div class="card-body d-flex flex-column transition: transform 400ms ease-out;">
                     <h5 class="card-title text-center">{member.name}</h5>
-                    <p class="card-text text-center">
+                    <p
+                      class="card-text text-center"
+                      style={{ minHeight: "5rem" }}
+                    >
                       <strong>Area of Interest</strong> :{" "}
                       {member.areaOfInterests}
                     </p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
-                        <div className="d-flex justify-content-center mt-4">
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>

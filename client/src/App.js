@@ -43,6 +43,7 @@ import ResearchThemes from "./components/utils/ResearchThemes.js";
 import Sponsors from "./components/Pages/Sponsor";
 import { useContext } from "react";
 import { UserContext } from "./UserProvider.js";
+import Collaboration from "./components/Pages/Collaboration.js";
 
 function App() {
   document.title = "Aero Club";
@@ -139,6 +140,9 @@ function App() {
               </Route>
               <Route path="/non-tech" exact>
                 <Nontech />
+              </Route>
+              <Route path="/collaborate" exact>
+                <Collaboration />
               </Route>
               <Route path="/projects" exact>
                 <Projects />

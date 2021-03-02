@@ -145,7 +145,7 @@ export default function Nontech() {
               member.team === "Content" && (
                 <div
                   class="card card-item shadow"
-                  style={{ width: "17rem" }}
+                  style={{ width: "17rem", minHeight: "29rem" }}
                   key={i}
                 >
                   <img
@@ -158,25 +158,10 @@ export default function Nontech() {
                       {member.name}
                     </h5>
                     <p class="card-text text-center">{member.year} year</p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
-                        <div className="d-flex justify-content-center mt-4">
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -195,7 +180,7 @@ export default function Nontech() {
               member.team === "Design" && (
                 <div
                   class="card card-item shadow"
-                  style={{ width: "17rem" }}
+                  style={{ width: "17rem", minHeight: "29rem" }}
                   key={i}
                 >
                   <img
@@ -208,25 +193,10 @@ export default function Nontech() {
                       {member.name}
                     </h5>
                     <p class="card-text text-center">{member.year} year</p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
-                        <div className="d-flex justify-content-center mt-4">
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -245,7 +215,7 @@ export default function Nontech() {
               member.team === "Outreach" && (
                 <div
                   class="card card-item shadow"
-                  style={{ width: "17rem" }}
+                  style={{ width: "17rem", minHeight: "29rem" }}
                   key={i}
                 >
                   <img
@@ -258,25 +228,10 @@ export default function Nontech() {
                       {member.name}
                     </h5>
                     <p class="card-text text-center">{member.year} year</p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <strong>Email : </strong> {member.emailAddress} <br />
-                        <div className="d-flex justify-content-center mt-4">
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 # AeroClub_Website
 
-# Completed :-
+# Features :-
 
 frontend - home,gallery,login,signup,admin-panel,alumni,blogs,projects,components,user,dashboard landing page.
 
