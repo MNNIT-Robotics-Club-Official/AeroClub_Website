@@ -158,31 +158,10 @@ export default function Nontech() {
                       {member.name}
                     </h5>
                     <p class="card-text text-center">{member.year} year</p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <div className="d-flex justify-content-center mt-4">
-                          <a
-                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
-                            target="_blank"
-                          >
-                            <i class="fab fa-google fa-3x mx-2"></i>
-                          </a>
-
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x mx-2"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -214,31 +193,10 @@ export default function Nontech() {
                       {member.name}
                     </h5>
                     <p class="card-text text-center">{member.year} year</p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <div className="d-flex justify-content-center mt-4">
-                          <a
-                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
-                            target="_blank"
-                          >
-                            <i class="fab fa-google fa-3x mx-2"></i>
-                          </a>
-
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x mx-2"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -270,31 +228,10 @@ export default function Nontech() {
                       {member.name}
                     </h5>
                     <p class="card-text text-center">{member.year} year</p>
-                    <a
-                      class="btn btn-danger mx-auto"
-                      data-toggle="collapse"
-                      href={`#collapseExample${i}`}
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls={`collapseExample${i}`}
-                    >
-                      More
-                    </a>
-                    <div className="collapse" id={`collapseExample${i}`}>
-                      <div className="container">
-                        <div className="d-flex justify-content-center mt-4">
-                          <a
-                            href={`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${member.emailAddress}`}
-                            target="_blank"
-                          >
-                            <i class="fab fa-google fa-3x mx-2"></i>
-                          </a>
-
-                          <a href={member.linkedinId} target="_blank">
-                            <i class="fab fa-linkedin fa-3x mx-2"></i>
-                          </a>
-                        </div>
-                      </div>
+                    <div className="d-flex justify-content-center mt-4">
+                      <a href={member.linkedinId} target="_blank">
+                        <i class="fab fa-linkedin fa-3x mx-2"></i>
+                      </a>
                     </div>
                   </div>
                 </div>
