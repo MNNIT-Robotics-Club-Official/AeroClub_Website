@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "../../css/Contact.css";
+import logo from "../../images/utils/collegelogo.png";
 import $ from "jquery";
 
 const ContactUs = () => {
@@ -23,6 +24,7 @@ const ContactUs = () => {
     e.preventDefault();
     document.getElementById("contactus").classList.remove("show");
 
+    // isko daal dena body me
     // body:JSON.stringify({
     //   name:name.current.value,
     //   email:email.current.value,
@@ -62,10 +64,10 @@ const ContactUs = () => {
             data-aos="zoom-out-right"
           >
             <img
-              src={`../images/utils/mnnit.png`}
+              src={logo}
               alt="mnnit"
               srcset=""
-              style={{ width: "auto", height: "100%", margin: "18px" }}
+              style={{ width: "auto", height: "13rem", margin: "18px" }}
             />
             <div className="col-sm-12 col-md-12 col-lg-8">
               <h6>
@@ -125,7 +127,12 @@ const ContactUs = () => {
         </div>
         <br />
         <br />
-        <div className="d-flex flex-column col-12">
+        <div
+          className="d-flex flex-column col-12"
+          data-aos="fade-up"
+          // data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+        >
           <a
             class="btn btn-danger btn-lg mx-auto"
             data-toggle="collapse"

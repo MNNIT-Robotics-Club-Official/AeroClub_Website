@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Sponsor.css";
+import logo from "../../images/utils/collegelogo.png";
 
 export default function Ṣponsors() {
   document.title = `Sponsors | Events`;
@@ -27,7 +28,7 @@ export default function Ṣponsors() {
               >
                 <img
                   className="card-img-top mx-auto imgphone sponimg"
-                  src="/images/utils/mnnit.png"
+                  src={logo}
                   alt="mnnit"
                   srcset=""
                 />
