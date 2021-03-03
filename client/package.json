@@ -1,6 +1,7 @@
 {
   "name": "aeroclub",
   "version": "0.1.0",
+  "proxy": "http://localhost:9500",
   "private": true,
   "proxy" : "http://localhost:9500",
   "dependencies": {

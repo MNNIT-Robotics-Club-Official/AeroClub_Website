@@ -47,7 +47,7 @@ export default function DashBlogs() {
   return (
     <div className="container">
       <Accordion>
-        {state?.blogs.map((blog) => (
+        {state?.blogs?.map((blog) => (
           <Card className="rounded" key={blog._id}>
             <Card.Header style={{ cursor: "pointer" }}>
               <Accordion.Toggle

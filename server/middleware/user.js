@@ -1,9 +1,7 @@
-const { request } = require("express");
 const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
 const notification = require("../models/notifications");
-const mongoose = require("mongoose");
 
 exports.getAllUsers = (req, res) => {
   res.setHeader("Content-Range", "users 0-10/20");

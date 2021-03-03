@@ -6,7 +6,7 @@ export default function Testimonials() {
 
     <section className="testimonial text-center">
       <div className="container">
-        <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down" style={{marginBottom:'5px'}} >
+        <div className="pageTitle titleBold headingc white-headingc" data-aos="fade-down" style={{marginBottom:'5px', marginTop:'-20', paddingTop:'0'}} >
           Testimonials
             </div>
             <div className="miniSep" style={{marginBottom:'20px'}} ></div>

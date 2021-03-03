@@ -18,15 +18,15 @@ var userSchema = new mongoose.Schema(
     },
     registration_no: {
       type: String,
-      default: 'xxxxxxxx'
+      default: "xxxxxxxx",
     },
     year: {
       type: Number,
-      default: -1
+      default: -1,
     },
     linkedin_url: {
       type: String,
-      default: 'https://www.linkedin.com/in/username/'
+      default: "https://www.linkedin.com/in/username/",
     },
     encry_password: {
       type: String,
@@ -40,7 +40,7 @@ var userSchema = new mongoose.Schema(
     role: {
       type: String,
       default: "User",
-      enum: ["Super-admin", "Admin", "User"]
+      enum: ["Super-admin", "Admin", "User"],
     },
     projects: [
       {
@@ -94,8 +94,8 @@ userSchema.methods = {
   },
 };
 
-userSchema.method('transform', function () {
-  let obj = this.toObject()
+userSchema.method("transform", function () {
+  let obj = this.toObject();
   obj.id = obj._id;
   delete obj._id;
   delete obj.salt;
