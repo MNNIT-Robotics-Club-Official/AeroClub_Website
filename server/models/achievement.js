@@ -8,11 +8,11 @@ const achievementSchema = new mongoose.Schema(
       required: true
     },
     year: {
-        type: Date,
-        required:true
+      type: String,
+      required: true
     },
     team: [{
-      type: String,
+      type:Object
     }]
   },
   { timestamps: true }
