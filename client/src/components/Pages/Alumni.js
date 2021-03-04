@@ -128,7 +128,7 @@ export default function Alumni() {
       yearOfGraduation: 2020,
       presentOrganisation: "Resonance Eduventures Pvt. Ltd.",
       presentLocation: "Kota",
-      yourLinkedinId: " https://www.linkedin.com/in/sarita-chaudhary-b92170137",
+      yourLinkedinId: " https://www.linkedin.com/in/sarita-chaudhary-b92170137/",
       yourContactInformationEmail: "saritachaudhary2507@gmail.com",
       yourContactInformationPhoneNumber: "+919554559909",
       aPhotoForWebsiteOfYourself: f10,
