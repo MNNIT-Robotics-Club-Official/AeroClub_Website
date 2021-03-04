@@ -48,13 +48,13 @@ function Signup() {
   };
 
   return (
-    <div className="login rounded-3">
-      <div className="container d-flex justify-content-center align-items-center">
-        <div className="logo">
+    <div className="login">
+      <div className="container h-100 d-flex justify-content-center align-items-center">
+        <div className="login-logo">
           <img src={m} alt="aeroclub" />
         </div>
         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div className="card card-signin mt-5 mb-3">
+          <div className="card card-signin">
             <div className="card-body">
               <h5
                 className="card-title text-center font-weight-bold"
@@ -114,33 +114,29 @@ function Signup() {
                   />
                   <label htmlFor="inputretypePassword">Retype Password</label>
                 </div>
-                <div className="custom-control custom-checkbox mb-3">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck1"
-                  />
-                  <label
-                    className="custom-control-label"
-                    htmlFor="customCheck1"
-                  >
-                    Remember password
-                  </label>
-                </div>
                 <button
-                  className="btn btn-lg btn-primary btn-block text-uppercase"
+                  className="btn btn-primary btn-block text-uppercase btn-dark l1 mb-3"
                   type="submit"
                   onClick={handleSubmit}
                 >
                   Sign up
                 </button>
-                <hr className="my-4" />
                 <div className="para">
-                  <p>
+                  <p style={{ color: "white" }}>
                     Already have an account?{" "}
-                    <Link to="/user/login">Signin</Link>
+                    <Link
+                      to="/user/login"
+                      style={{ textDecoration: "none" }}
+                      className="l1"
+                    >
+                      Signin
+                    </Link>
                   </p>
-                  <button type="button" className="btn btn-dark">
+                  <button
+                    type="button"
+                    className="btn btn-dark text-uppercase l1"
+                    style={{ width: "100%" }}
+                  >
                     <Link
                       to="/"
                       style={{ color: "inherit", textDecoration: "none" }}

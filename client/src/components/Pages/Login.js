@@ -48,12 +48,12 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="container m-auto d-flex justify-content-center align-items-center">
-        <div className="logo">
+      <div className="container h-100 m-auto d-flex justify-content-center align-items-center">
+        <div className="login-logo">
           <img src={m} alt="aeroclub" />
         </div>
         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div className="card card-signin my-5 shadow">
+          <div className="card card-signin shadow">
             <div className="card-body">
               <h5
                 className="card-title text-center font-weight-bold"
@@ -87,7 +87,7 @@ function Login() {
                   <label htmlFor="inputPassword">Password</label>
                 </div>
                 <button
-                  className="btn btn-lg btn-dark btn-block text-uppercase"
+                  className="btn btn-lg btn-dark btn-block text-uppercase l1"
                   type="submit"
                   onClick={handleSubmit}
                 >
@@ -116,7 +116,7 @@ function Login() {
                   </p>
                   <button
                     type="button"
-                    className="btn btn-dark"
+                    className="btn btn-dark text-uppercase l1"
                     style={{ width: "100%" }}
                   >
                     <Link

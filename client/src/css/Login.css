@@ -5,7 +5,7 @@
 
 .login {
   height: 100vh;
-  background: url("../images/utils/wave.svg") rgb(152, 217, 255);
+  background: url("../images/utils/wave.svg") rgb(59, 179, 249);
   background-size: cover;
   background-position: center;
   color: grey;
@@ -143,14 +143,17 @@
 }
 
 @media only screen and (max-width: 400px) {
-  .card-signin {
-    height: auto;
-    margin-top: 10% !important;
-    margin-left: 10px;
-    margin-right: 10px;
+  .card-signin h5 {
+    font-size: medium !important;
   }
   .login {
     background: none !important;
     height: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .login-logo {
+    display: none;
   }
 }
