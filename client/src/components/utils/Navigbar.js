@@ -187,6 +187,13 @@ export default function Navigbar() {
                 Our StartUps
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link
+              eventKey="sponsors"
+              href="/achievements"
+              className="nav-items"
+            >
+              Achievements
+            </Nav.Link>
             <Nav.Link eventKey="sponsors" href="/sponsor" className="nav-items">
               Sponsors
             </Nav.Link>

@@ -15,15 +15,20 @@ import {
   Edit,
   Show,
   SimpleShowLayout,
-  ArrayField
+  ArrayField,
+  NumberInput,
+  NumberField,
+  RichTextField,
 } from "react-admin";
+
+import RichTextInput from "ra-input-rich-text";
 
 export const AchievementList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
-        <TextField source="desc" />
-        <TextField source="year" label="Year" />
+        <RichTextField source="desc" />
+        <NumberField source="year" label="Year" />
         <ShowButton basePath="/achievement" />
         <EditButton basePath="/achievement" />
         <DeleteButton basePath="/achievement" />
@@ -36,13 +41,31 @@ export const AchievementCreate = (props) => {
   return (
     <Create {...props}>
       <SimpleForm redirect="/achievement">
-        <TextInput source="desc" label="Description" />
+        <RichTextInput
+          source="desc"
+          label="Description"
+          toolbar={[
+            ["bold", "italic", "underline", "strike"],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ font: [] }],
+            [{ color: [] }, { background: [] }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            ["blockquote", "code-block"],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ align: [] }],
+            ["image"],
+            ["clean"],
+          ]}
+        />
         <ArrayInput source="team" label="Team">
           <SimpleFormIterator>
-            <TextInput source="name" />
+            <TextInput source="name" label="Member Name" />
           </SimpleFormIterator>
         </ArrayInput>
-        <TextInput source="year" label="Year" />
+        <NumberInput source="year" label="Year" required={true} />
       </SimpleForm>
     </Create>
   );
@@ -52,13 +75,31 @@ export const AchievementEdit = (props) => {
   return (
     <Edit title="Edit Project" {...props}>
       <SimpleForm redirect="/achievement">
-        <TextInput source="desc" label="Description" />
+        <RichTextInput
+          source="desc"
+          label="Description"
+          toolbar={[
+            ["bold", "italic", "underline", "strike"],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ font: [] }],
+            [{ color: [] }, { background: [] }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            ["blockquote", "code-block"],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ align: [] }],
+            ["image"],
+            ["clean"],
+          ]}
+        />
         <ArrayInput source="team" label="Team">
           <SimpleFormIterator>
-            <TextInput source="name" />
+            <TextInput source="name" label="Member Name" />
           </SimpleFormIterator>
         </ArrayInput>
-        <TextInput source="year" label="Year" />
+        <NumberInput source="year" label="Year" required={true} />
       </SimpleForm>
     </Edit>
   );
@@ -68,13 +109,13 @@ export const AchievementShow = (props) => {
   return (
     <Show {...props} title="Achievement Show">
       <SimpleShowLayout>
-        <TextField source="desc" label="Description" />
+        <RichTextField source="desc" label="Description" />
         <ArrayField source="team" label="Team">
           <Datagrid>
             <TextField source="name" />
           </Datagrid>
         </ArrayField>
-        <TextField source="year" label="Year" />
+        <NumberField source="year" label="Year" />
       </SimpleShowLayout>
     </Show>
   );

@@ -5,15 +5,17 @@ const achievementSchema = new mongoose.Schema(
   {
     desc: {
       type: String,
-      required: true
+      required: true,
     },
     year: {
-      type: String,
-      required: true
+      type: Number,
+      required: true,
     },
-    team: [{
-      type:Object
-    }]
+    team: [
+      {
+        type: Object,
+      },
+    ],
   },
   { timestamps: true }
 );

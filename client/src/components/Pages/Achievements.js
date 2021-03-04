@@ -3,7 +3,7 @@ import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 
 export default function Achievements() {
-  const [data, setdata] = useState([])
+  const [data, setData] = useState([]);
   document.title = "Achievements | Aero Club";
   useEffect(() => {
     fetch(`/api/achievement/year`, {
@@ -11,7 +11,8 @@ export default function Achievements() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setdata(data)
+        console.log(data);
+        setData(data);
       });
   }, []);
   return (
@@ -19,37 +20,62 @@ export default function Achievements() {
       <Loading time={2} />
       <div className="pagesa">
         <div className="overlaya">
-          <div className="pageTitlea titleBolda">Achievements</div>
+          <div className="pageTitlea titleBolda">Our Achievements</div>
         </div>
       </div>
 
-      <div class="container alumni-container mb-5">
+      <div class="container alumni-container mb-5 col-9">
         <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                {data.map(a => {
+          {data.map((datum) => (
+            <div class="panel panel-default" key={datum._id}>
+              <div class="panel-heading">
+                <h4 class="panel-title">
                   <a
-                  class="accordion-toggle"
-                  data-toggle="collapse"
-                  data-parent="#accordion"
-                  href="#collapseOne"
-                 >
-                   {a._id}
-                 </a>
-                })}
-              </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse show">
-              <div class="panel-body">
-                <div className="container">
-                  <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
-                    list
+                    class="accordion-toggle"
+                    data-toggle="collapse"
+                    data-parent="#accordion"
+                    href={`#${datum._id}`}
+                  >
+                    {datum._id < 2017
+                      ? "Before 2017"
+                      : `${datum._id}-${datum._id - 1999}`}
+                  </a>
+                </h4>
+              </div>
+              <div id={`${datum._id}`} class="panel-collapse collapse show">
+                <div className="panel-body">
+                  <div className="container">
+                    {datum.achievements.map((achievement) => (
+                      <div className="ml-2 ml-md-5" key={achievement._id}>
+                        <ul style={{ listStyle: "initial" }}>
+                          <li className="my-5 achievement">
+                            <div
+                              className="font-weight-bold"
+                              style={{ fontSize: "large" }}
+                              dangerouslySetInnerHTML={{
+                                __html: achievement.desc,
+                              }}
+                            ></div>
+                            <div
+                              className="mt-4"
+                              style={{ fontSize: "medium !important" }}
+                            >
+                              <p className="font-weight-bold d-inline">
+                                Team members :{" "}
+                              </p>
+                              {achievement.team.map((member) => (
+                                <p className="d-inline">{member.name}, </p>
+                              ))}
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </>

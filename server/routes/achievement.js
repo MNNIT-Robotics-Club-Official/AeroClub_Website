@@ -36,7 +36,7 @@ router.get("/achievement/year", (req, res) => {
       }
       res.json(achievements);
     }
-  )
+  );
 });
 
 // fetching a achievement with id

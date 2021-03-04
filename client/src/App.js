@@ -114,7 +114,7 @@ function App() {
               <Route path="/" exact>
                 <Landing />
                 <About />
-                
+
                 <Featuredproject />
                 <ResearchThemes />
                 <Testimonials />

@@ -9,10 +9,6 @@ require("dotenv").config();
 
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {
-  auth: {
-    user: process.env.COSMOSDB_USER,
-    password: process.env.COSMOSDB_PASS,
-  },
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

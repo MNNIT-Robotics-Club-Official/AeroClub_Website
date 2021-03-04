@@ -125,4 +125,7 @@
   .quote {
     font-size: medium !important;
   }
+  .achievement div {
+    font-size: small !important;
+  }
 }
