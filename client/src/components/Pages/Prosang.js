@@ -240,12 +240,12 @@ export default function Avishkar() {
                                     <div className="row">
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card cardev">
-                                                <a
+                                                {/* <a
                                                     className="img-card"
 
                                                 >
                                                     <img src={Smarthome} />
-                                                </a>
+                                                </a> */}
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
@@ -253,7 +253,7 @@ export default function Avishkar() {
                                                             Smart Home Challenge
                                                         </a>
                                                     </h4>
-                                                    <p className>
+                                                    <p className="phonetxt">
                                                         Home Automation event
                                                     <br></br><br></br>
                                                     </p>
@@ -271,12 +271,12 @@ export default function Avishkar() {
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card cardev">
-                                                <a
+                                                {/* <a
                                                     className="img-card"
 
                                                 >
                                                     <img src={Daksha} />
-                                                </a>
+                                                </a> */}
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
@@ -284,7 +284,7 @@ export default function Avishkar() {
                                                             Daksha
                             </a>
                                                     </h4>
-                                                    <p className>
+                                                    <p className="phonetxt">
                                                         Manual Robotics event
                                                         <br></br><br></br>
                                                     </p>
@@ -301,19 +301,19 @@ export default function Avishkar() {
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card cardev">
-                                                <a
+                                                {/* <a
                                                     className="img-card"
 
                                                 >
                                                     <img src={Guardian} />
-                                                </a>
+                                                </a> */}
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
                                                             Guardian
                             </a>
                                                     </h4>
-                                                    <p className>
+                                                    <p className="phonetxt">
                                                         QuadCopter Frame construction and Flight Test</p>
                                                 </div>
                                                 <div className="card-read-more">
@@ -328,12 +328,12 @@ export default function Avishkar() {
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card cardev">
-                                                <a
+                                                {/* <a
                                                     className="img-card"
 
                                                 >
                                                     <img src={Blueprint} />
-                                                </a>
+                                                </a> */}
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
@@ -341,7 +341,7 @@ export default function Avishkar() {
                                                             BluePrint
                                                         </a>
                                                     </h4>
-                                                    <p className>
+                                                    <p className="phonetxt">
                                                     Mechanical Design Competition
                                                     <br></br><br></br>
                                                     </p>
@@ -359,12 +359,12 @@ export default function Avishkar() {
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card cardev">
-                                                <a
+                                                {/* <a
                                                     className="img-card"
 
                                                 >
                                                     <img src={CodeWarz} />
-                                                </a>
+                                                </a> */}
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
@@ -372,7 +372,7 @@ export default function Avishkar() {
                                                             Code Warz
                                                         </a>
                                                     </h4>
-                                                    <p className>
+                                                    <p className="phonetxt">
                                                     A coding event
                                                     <br></br><br></br>
                                                     </p>
@@ -390,12 +390,12 @@ export default function Avishkar() {
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
                                             <div className="card cardev">
-                                                <a
+                                                {/* <a
                                                     className="img-card"
 
                                                 >
                                                     <img src={Idea} />
-                                                </a>
+                                                </a> */}
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
@@ -403,7 +403,7 @@ export default function Avishkar() {
                                                             Idea Presentation
                                                         </a>
                                                     </h4>
-                                                    <p className>
+                                                    <p className="phonetxt">
                                                         Innovative Ideas
                                                     <br></br><br></br>
                                                     </p>

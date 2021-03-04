@@ -138,10 +138,9 @@ ul {
 
 .colarea{
   background: linear-gradient(
-    5deg,
-    
-    rgb(18, 27, 68) 0%,
-    rgb(133, 162, 255) 15%,
+    0deg,
+    rgb(223, 228, 248) 0%,
+    rgb(227, 239, 253) 30%,
     rgb(255, 255, 255) 70%
     
   );
@@ -187,6 +186,7 @@ h1.heading {
     border-radius: 2px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
     transition: box-shadow .25s; 
+    border-radius: 8px;
 }
 .cardev:hover {
   box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -230,6 +230,9 @@ h1.heading {
 
 @media screen and (max-width:1000px) 
 {
+    .phonetxt{
+      font-size: smaller;
+    }
     .text-wrapper{
       display: none;
     }    
