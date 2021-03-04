@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Landing.css";
 import Typewriter from "typewriter-effect";
+import m from "../images/utils/logo-aero2.png";
 
 class Landing extends React.Component {
   render() {
@@ -10,11 +11,7 @@ class Landing extends React.Component {
           <div className="overlayl">
             <div className="landing d-flex flex-lg-row flex-md-column align-items-center justify-content-center flex-wrap">
               <div className="landing-logo">
-                <img
-                  src={`../images/utils/logo-aero2.png`}
-                  alt="aero"
-                  srcset=""
-                />
+                <img src={m} alt="aero" srcset="" />
               </div>
               <div className="landing-about">
                 <h1 className="font-weight-bold">

@@ -3,6 +3,7 @@ import "../../css/footer.css";
 import { useLocation } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
 import { Link as Scroll } from "react-scroll";
+import m from "../../images/utils/aerologofix.png";
 
 export default function Footer() {
   const location = useLocation();
@@ -60,7 +61,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div className="col-lg-4 col-md-6 footer-logo">
-                  <img src={`../images/utils/aerologofix.png`} alt="mnnit" />
+                  <img src={m} alt="mnnit" />
                 </div>
               </div>
               <br />

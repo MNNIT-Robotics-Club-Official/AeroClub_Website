@@ -3,6 +3,7 @@ import { Accordion, Card } from "react-bootstrap";
 import { Button, Container, Jumbotron } from "react-bootstrap";
 import "../../css/Event.css";
 import Loading from "../../Animations/Loading";
+import m from "../../images/utils/jigyasa.png";
 
 export default function Workshop() {
   document.title = "Jiygasa | Aero Club";
@@ -42,7 +43,7 @@ export default function Workshop() {
               <div className="img-wrapper">
                 <div className="img imgev">
                   <img
-                    src={`../images/utils/jigyasa.png`}
+                    src={m}
                     alt="jigyasa"
                     srcset=""
                     style={{ alignItems: "center" }}

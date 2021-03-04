@@ -29,7 +29,7 @@ export default function Coordinators() {
       name: "Amit Gupta",
       year: "2nd",
       photo: f1,
-      linkedinId: "https://www.linkedin.com/in/amit-gupta-0b64991bb",
+      linkedinId: "https://www.linkedin.com/in/amit-gupta-0b64991bb/",
       areaOfInterests:
         "Drone Automation (Pixhawk, SITL), Coding, Design Software",
     },
@@ -38,7 +38,7 @@ export default function Coordinators() {
       name: "SANDEEP SINGH",
       year: "2nd",
       photo: f2,
-      linkedinId: "https://www.linkedin.com/in/sandeep-singh-b020a6168",
+      linkedinId: "https://www.linkedin.com/in/sandeep-singh-b020a6168/",
       areaOfInterests: "Coding,Drone automation, updation in series of drone.",
     },
     {
@@ -46,7 +46,7 @@ export default function Coordinators() {
       name: "Devansh Sethi",
       year: "2nd",
       photo: f3,
-      linkedinId: "https://www.linkedin.com/in/devansh-sethi-2a97721b3",
+      linkedinId: "https://www.linkedin.com/in/devansh-sethi-2a97721b3/",
       areaOfInterests:
         " Fixed Wing planes, Construction of planes, wings dynamics.",
     },
@@ -55,7 +55,7 @@ export default function Coordinators() {
       name: "Kanak Agrawal",
       year: "2nd",
       photo: f4,
-      linkedinId: "https://www.linkedin.com/in/kanak-agrawal-03b55b159",
+      linkedinId: "https://www.linkedin.com/in/kanak-agrawal-03b55b159/",
       areaOfInterests: "Design and Analysis of Quadcopter",
     },
     {
@@ -63,7 +63,7 @@ export default function Coordinators() {
       name: "Nitish Kumar",
       year: "2nd",
       photo: f5,
-      linkedinId: "www.linkedin.com/in/nitish-kumar-9b1b84206",
+      linkedinId: "https://www.linkedin.com/in/nitish-kumar-9b1b84206/",
       areaOfInterests: "Plane & Drone designing",
     },
     {
@@ -71,7 +71,7 @@ export default function Coordinators() {
       name: "Prasannam Kumar Sah",
       year: "2nd",
       photo: f6,
-      linkedinId: "https://www.linkedin.com/in/prasannam-kumar-sah-a4125b1b2",
+      linkedinId: "https://www.linkedin.com/in/prasannam-kumar-sah-a4125b1b2/",
       areaOfInterests: "Drones , electronics , software , coding",
     },
     {
@@ -95,7 +95,6 @@ export default function Coordinators() {
       name: "Ayush Chaturvedi",
       year: "2nd",
       photo: f9,
-      linkedinId: "ayushchaturvedi123",
       areaOfInterests:
         "Design and Manufacturing , Drone Automation (Basics i.e dronekit)",
     },
@@ -120,7 +119,7 @@ export default function Coordinators() {
       name: "Bhuvan Jhamb",
       year: "Final",
       photo: f12,
-      linkedinId: "www.linkedin.com/in/bhuvanjhamb",
+      linkedinId: "https://www.linkedin.com/in/bhuvanjhamb",
       areaOfInterests:
         "Drone Automation, Controls, Deep Learning, Simulations.",
     },
@@ -151,7 +150,7 @@ export default function Coordinators() {
       name: "Abhishek Gautam",
       year: "Final",
       photo: f16,
-      linkedinId: "www.linkedin.com/in/abhishekgautam01",
+      linkedinId: "https://www.linkedin.com/in/abhishekgautam01",
       areaOfInterests: "Design and analysis of planes, Control and Electronics",
     },
     {
@@ -192,7 +191,7 @@ export default function Coordinators() {
               member.year === "Final" && (
                 <div class="card card-item shadow" style={{ width: "17rem" }}>
                   <img
-                    class="card-img-top"
+                    class="card-img-top card-alumni"
                     src={`${member.photo}`}
                     alt="Card image cap"
                   />
@@ -229,7 +228,7 @@ export default function Coordinators() {
               member.year === "3rd" && (
                 <div class="card card-item shadow" style={{ width: "15rem" }}>
                   <img
-                    class="card-img-top"
+                    class="card-img-top card-alumni"
                     src={`${member.photo}`}
                     alt="Card image cap"
                   />
@@ -263,7 +262,7 @@ export default function Coordinators() {
               member.year === "2nd" && (
                 <div class="card card-item shadow" style={{ width: "17rem" }}>
                   <img
-                    class="card-img-top"
+                    class="card-img-top card-alumni"
                     src={`${member.photo}`}
                     alt="Card image cap"
                   />

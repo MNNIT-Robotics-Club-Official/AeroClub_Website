@@ -203,7 +203,7 @@ export default function Alumni() {
                             style={{ width: "17rem", minHeight: "25rem" }}
                           >
                             <img
-                              class="card-img-top"
+                              class="card-img-top card-alumni"
                               src={`${member.aPhotoForWebsiteOfYourself}`}
                               alt="Card image cap"
                             />
@@ -262,7 +262,7 @@ export default function Alumni() {
                             style={{ width: "17rem", minHeight: "25rem" }}
                           >
                             <img
-                              class="card-img-top"
+                              class="card-img-top card-alumni"
                               src={`${member.aPhotoForWebsiteOfYourself}`}
                               alt="Card image cap"
                             />

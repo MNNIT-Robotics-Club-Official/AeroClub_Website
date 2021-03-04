@@ -24,17 +24,19 @@ export default function Achievements() {
         </div>
       </div>
 
-      <div class="container alumni-container mb-5 col-9">
-        <div class="panel-group" id="accordion">
-          {data.map((datum) => (
-            <div class="panel panel-default" key={datum._id}>
-              <div class="panel-heading">
-                <h4 class="panel-title">
+      <div className="container alumni-container mb-5 col-9">
+        <div className="panel-group mb-5" id="accordion">
+          {data.map((datum, i) => (
+            <div className="panel panel-default" key={datum._id}>
+              <div className="panel-heading">
+                <h4 className="panel-title">
                   <a
-                    class="accordion-toggle"
+                    className={`accordion-toggle ${
+                      i !== 0 ? "collapsed" : null
+                    }`}
                     data-toggle="collapse"
                     data-parent="#accordion"
-                    href={`#${datum._id}`}
+                    href={`#collapse${datum._id}`}
                   >
                     {datum._id < 2017
                       ? "Before 2017"
@@ -42,7 +44,10 @@ export default function Achievements() {
                   </a>
                 </h4>
               </div>
-              <div id={`${datum._id}`} class="panel-collapse collapse show">
+              <div
+                id={`collapse${datum._id}`}
+                className={`panel-collapse collapse ${i === 0 ? "show" : null}`}
+              >
                 <div className="panel-body">
                   <div className="container">
                     {datum.achievements.map((achievement) => (

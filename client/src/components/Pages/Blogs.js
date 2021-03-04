@@ -74,7 +74,9 @@ function Blogs() {
                     })`}{" "}
                     on {new Date(blog.publishedAt).toLocaleDateString()}
                   </p>
-                  <Button href={`/blogs/${blog._id}`}>See More</Button>
+                  <Button href={`/blogs/${blog._id}`} variant="danger">
+                    See More
+                  </Button>
                 </Container>
                 <hr />
               </Jumbotron>
@@ -85,6 +87,7 @@ function Blogs() {
           <div className="float-right mr-5 mb-5">
             {page > 1 && (
               <Button
+                variant="danger"
                 className="mx-1"
                 onClick={() => {
                   SetPage((page) => page - 1);
@@ -95,6 +98,7 @@ function Blogs() {
             )}
             {page < no_of_pages && (
               <Button
+                variant="danger"
                 className="mx-1"
                 onClick={() => {
                   SetPage((page) => page + 1);

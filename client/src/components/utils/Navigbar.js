@@ -4,6 +4,7 @@ import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../../UserProvider";
+import im1 from "../..//images/utils/logo-aero2.png";
 
 const Login = () => {
   const history = useHistory();
@@ -110,7 +111,7 @@ export default function Navigbar() {
         id="navbar"
       >
         <Navbar.Brand href="/" className="title-nav">
-          <img className="logoimg" src={`/images/utils/logo-aero2.png`} />
+          <img className="logoimg" src={im1} />
           {/* AERO CLUB MNNIT */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

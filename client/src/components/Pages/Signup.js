@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "../../css/Login.css";
 import { toast } from "react-toastify";
+import m from "../../images/utils/logo-aero2.png";
 
 function Signup() {
   document.title = "Signup | Aero Club";
@@ -48,106 +49,107 @@ function Signup() {
 
   return (
     <div className="login rounded-3">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div className="card card-signin mt-5 mb-3">
-              <div className="card-body">
-                <h5
-                  className="card-title text-center font-weight-bold"
-                  id="heading"
-                >
-                  Account Signup
-                </h5>
-                <form className="form-signin">
-                  <div className="form-label-group">
-                    <input
-                      type="text"
-                      id="inputname"
-                      className="form-control"
-                      placeholder="Name"
-                      required
-                      autoFocus
-                      ref={name}
-                    />
-                    <label htmlFor="inputname">Name</label>
-                  </div>
-                  <div className="form-label-group">
-                    <input
-                      type="email"
-                      id="inputEmail"
-                      className="form-control"
-                      placeholder="Gsuite Email Address"
-                      required
-                      autoFocus
-                      ref={email}
-                    />
-                    <label htmlFor="inputEmail">Gsuite Email Address</label>
-                  </div>
-                  <div className="form-label-group">
-                    <input
-                      type="password"
-                      id="inputPassword"
-                      className="form-control"
-                      placeholder="Password"
-                      required
-                      ref={password}
-                    />
-                    <label htmlFor="inputPassword">Password</label>
-                    <em style={{ fontSize: "x-small" }}>
-                      * password must between 8-15 characters containing at
-                      least one lowercase and one uppercase letter, one numeric
-                      digit, and one special character
-                    </em>
-                  </div>
-                  <div className="form-label-group">
-                    <input
-                      type="password"
-                      id="inputretypePassword"
-                      className="form-control"
-                      placeholder="Retype Password"
-                      required
-                      ref={confirmPassword}
-                    />
-                    <label htmlFor="inputretypePassword">Retype Password</label>
-                  </div>
-                  <div className="custom-control custom-checkbox mb-3">
-                    <input
-                      type="checkbox"
-                      className="custom-control-input"
-                      id="customCheck1"
-                    />
-                    <label
-                      className="custom-control-label"
-                      htmlFor="customCheck1"
-                    >
-                      Remember password
-                    </label>
-                  </div>
-                  <button
-                    className="btn btn-lg btn-primary btn-block text-uppercase"
-                    type="submit"
-                    onClick={handleSubmit}
+      <div className="container d-flex justify-content-center align-items-center">
+        <div className="logo">
+          <img src={m} alt="aeroclub" />
+        </div>
+        <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div className="card card-signin mt-5 mb-3">
+            <div className="card-body">
+              <h5
+                className="card-title text-center font-weight-bold"
+                id="heading"
+              >
+                Account Signup
+              </h5>
+              <form className="form-signin">
+                <div className="form-label-group">
+                  <input
+                    type="text"
+                    id="inputname"
+                    className="form-control"
+                    placeholder="Name"
+                    required
+                    autoFocus
+                    ref={name}
+                  />
+                  <label htmlFor="inputname">Name</label>
+                </div>
+                <div className="form-label-group">
+                  <input
+                    type="email"
+                    id="inputEmail"
+                    className="form-control"
+                    placeholder="Gsuite Email Address"
+                    required
+                    autoFocus
+                    ref={email}
+                  />
+                  <label htmlFor="inputEmail">Gsuite Email Address</label>
+                </div>
+                <div className="form-label-group">
+                  <input
+                    type="password"
+                    id="inputPassword"
+                    className="form-control"
+                    placeholder="Password"
+                    required
+                    ref={password}
+                  />
+                  <label htmlFor="inputPassword">Password</label>
+                  <em style={{ fontSize: "x-small" }}>
+                    * password must between 8-15 characters containing at least
+                    one lowercase and one uppercase letter, one numeric digit,
+                    and one special character
+                  </em>
+                </div>
+                <div className="form-label-group">
+                  <input
+                    type="password"
+                    id="inputretypePassword"
+                    className="form-control"
+                    placeholder="Retype Password"
+                    required
+                    ref={confirmPassword}
+                  />
+                  <label htmlFor="inputretypePassword">Retype Password</label>
+                </div>
+                <div className="custom-control custom-checkbox mb-3">
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck1"
+                  />
+                  <label
+                    className="custom-control-label"
+                    htmlFor="customCheck1"
                   >
-                    Sign up
+                    Remember password
+                  </label>
+                </div>
+                <button
+                  className="btn btn-lg btn-primary btn-block text-uppercase"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
+                  Sign up
+                </button>
+                <hr className="my-4" />
+                <div className="para">
+                  <p>
+                    Already have an account?{" "}
+                    <Link to="/user/login">Signin</Link>
+                  </p>
+                  <button type="button" className="btn btn-dark">
+                    <Link
+                      to="/"
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
+                      Back to Home
+                    </Link>
                   </button>
-                  <hr className="my-4" />
-                  <div className="para">
-                    <p>
-                      Already have an account?{" "}
-                      <Link to="/user/login">Signin</Link>
-                    </p>
-                    <button type="button" className="btn btn-dark">
-                      <Link
-                        to="/"
-                        style={{ color: "inherit", textDecoration: "none" }}
-                      >
-                        Back to Home
-                      </Link>
-                    </button>
-                  </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

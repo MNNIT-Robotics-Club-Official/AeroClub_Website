@@ -59,7 +59,7 @@
   transition: transform 400ms ease-in;
 }
 
-.card-img-top {
+.card-alumni {
   transform: none !important;
   transition: none !important;
   height: 20rem !important;

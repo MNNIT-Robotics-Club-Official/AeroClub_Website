@@ -19,12 +19,14 @@ export default function Faculty() {
       <div className="faculty container">
         <div
           className="container rounded border d-flex flex-column flex-md-row justify-content-center 
-        align-items-center my-5"
+        align-items-center my-5 shadow"
         >
-          <div class="card mx-3 border col-10 col-md-5 col-lg-4">
+          <div class="card mx-3 border col-10 col-md-5 col-lg-4 shadow">
             <img src={f2} class="card-img-top mt-3" alt="..." />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-center">Dr. Venkateswara Rao Komma</h5>
+              <h5 class="card-title text-center text-uppercase">
+                Dr. Venkateswara Rao Komma
+              </h5>
               <p class="card-text text-center">
                 Associate Professor, Department of Mechanical Engineering
               </p>
@@ -58,12 +60,14 @@ export default function Faculty() {
         </div>
         <div
           className="container rounded border d-flex flex-column flex-md-row justify-content-center 
-          align-items-center my-5"
+          align-items-center my-5 shadow"
         >
-          <div class="card mx-3 border col-10 col-md-5 col-lg-4">
+          <div class="card mx-3 border col-10 col-md-5 col-lg-4 shadow">
             <img src={f1} class="card-img-top mt-3" alt="..." />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-center">Dr. Rajesh Gupta</h5>
+              <h5 class="card-title text-center text-uppercase">
+                Dr. Rajesh Gupta
+              </h5>
               <p class="card-text text-center">
                 Professor, Electrical Engineering Department <br />
                 Senior Member IEEE <br />
@@ -101,12 +105,14 @@ export default function Faculty() {
         </div>
         <div
           className="container rounded border d-flex flex-column flex-md-row justify-content-center 
-          align-items-center my-5"
+          align-items-center my-5 shadow"
         >
-          <div class="card mx-3 border col-10 col-md-5 col-lg-4">
+          <div class="card mx-3 border col-10 col-md-5 col-lg-4 shadow">
             <img src={f3} class="card-img-top mt-3" alt="..." />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-center">Dr. D.K. Shukla</h5>
+              <h5 class="card-title text-center text-uppercase">
+                Dr. D.K. Shukla
+              </h5>
               <p class="card-text text-center">
                 Associate Professor MED, Faculty In-charge
               </p>

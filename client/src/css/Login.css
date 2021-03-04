@@ -5,19 +5,19 @@
 
 .login {
   height: 100vh;
-  background: url("../images/utils/wave.svg") rgb(29, 29, 29);
+  background: url("../images/utils/wave.svg") rgb(152, 217, 255);
   background-size: cover;
   background-position: center;
   color: grey;
   overflow: auto;
 }
 
-.l1{
-  color:rgb(142, 249, 243)
+.l1 {
+  color: rgb(142, 249, 243);
 }
 
-.l1:hover{
-  color:rgb(169, 210, 213)
+.l1:hover {
+  color: rgb(169, 210, 213);
 }
 
 .card-signin {
@@ -26,7 +26,7 @@
   border: 0;
   border-radius: 1rem;
   /* box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1); */
-  background-color: rgb(204, 67, 67) !important;
+  background-color: rgb(32, 30, 30) !important;
   background: transparent;
 }
 
