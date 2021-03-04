@@ -43,6 +43,7 @@ import ResearchThemes from "./components/utils/ResearchThemes.js";
 import Sponsors from "./components/Pages/Sponsor";
 import { useContext } from "react";
 import { UserContext } from "./UserProvider.js";
+import Achievements from "./components/Pages/Achievements.js";
 import Collaboration from "./components/Pages/Collaboration.js";
 
 function App() {
@@ -113,7 +114,7 @@ function App() {
               <Route path="/" exact>
                 <Landing />
                 <About />
-                
+
                 <Featuredproject />
                 <ResearchThemes />
                 <Testimonials />
@@ -131,6 +132,9 @@ function App() {
               </Route>
               <Route path="/alumni" exact>
                 <Alumni />
+              </Route>
+              <Route path="/achievements" exact>
+                <Achievements />
               </Route>
               <Route path="/faculty" exact>
                 <Faculty />

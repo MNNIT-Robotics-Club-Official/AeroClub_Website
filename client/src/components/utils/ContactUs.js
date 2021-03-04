@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../../css/Contact.css";
 import logo from "../../images/utils/collegelogo.png";
+import $ from "jquery";
 
 const ContactUs = () => {
+  const name = useRef("");
+  const email = useRef("");
+  const subject = useRef("");
+  const body = useRef("");
+
+  useEffect(() => {
+    $("#contact-more").on("click", function () {
+      const text = $("#contact-more").text();
+      if (text === "More") {
+        $(this).html("less");
+      } else {
+        $(this).text("More");
+      }
+    });
+  }, []);
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    document.getElementById("contactus").classList.remove("show");
+
+    // isko daal dena body me
+    // body:JSON.stringify({
+    //   name:name.current.value,
+    //   email:email.current.value,
+    //   subject:subject.current.value,
+    //   body:body.current.value,
+    // })
+  };
+
   return (
     <div className="contact-us">
       <div
@@ -93,8 +123,98 @@ const ContactUs = () => {
                 +91 7390909434 +91 7275195776
               </div>
             </div>
-            <br />
           </div>
+        </div>
+        <br />
+        <br />
+        <div
+          className="d-flex flex-column col-12"
+          data-aos="fade-up"
+          // data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
+        >
+          <a
+            class="btn btn-danger btn-lg mx-auto"
+            data-toggle="collapse"
+            href="#contactus"
+            role="button"
+            aria-expanded="false"
+            aria-controls="contactus"
+            id="contact-more"
+          >
+            More
+          </a>
+          <div className="collapse" id="contactus">
+            <div className="container">
+              <form
+                method="POST"
+                role="form"
+                class="contact-form"
+                onSubmit={handleContactSubmit}
+              >
+                <div class="form-row">
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      data-rule="minlen:4"
+                      data-msg="Please enter at least 4 characters"
+                      ref={name}
+                    />
+                    <div class="validate"></div>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="Your Email"
+                      data-rule="email"
+                      data-msg="Please enter a valid email"
+                      ref={email}
+                    />
+                    <div class="validate"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
+                    data-rule="minlen:8"
+                    data-msg="Please enter at least 8 characters of subject"
+                    ref={subject}
+                  />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    id="message"
+                    rows="6"
+                    data-rule="required"
+                    data-msg="Please write something for us"
+                    placeholder="Message"
+                    ref={body}
+                  ></textarea>
+                  <div class="validate"></div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" className="btn btn-danger">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <br />
         </div>
       </div>
     </div>

@@ -73,6 +73,7 @@ function Projects() {
 
                       <Button
                         className="btns card_btns"
+                        variant="danger"
                         href={`projects/${project._id}`}
                         style={{ marginTop: 10 }}
                       >
@@ -87,6 +88,7 @@ function Projects() {
             {page > 1 && (
               <Button
                 className="mx-1"
+                variant="danger"
                 onClick={() => {
                   SetPage((page) => page - 1);
                 }}
@@ -96,6 +98,7 @@ function Projects() {
             )}
             {page < no_of_pages && (
               <Button
+                variant="danger"
                 className="mx-1"
                 onClick={() => {
                   SetPage((page) => page + 1);

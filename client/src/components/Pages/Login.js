@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../css/Login.css";
+import m from "../../images/utils/logo-aero2.png";
 
 function Login() {
   document.title = "Login | Aero Club";
@@ -47,69 +48,86 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div className="card card-signin my-5">
-              <div className="card-body">
-                <h5
-                  className="card-title text-center font-weight-bold"
-                  id="heading"
-                >
-                  Account login
-                </h5>
-                <form className="form-signin">
-                  <div className="form-label-group">
-                    <input
-                      type="email"
-                      id="inputEmail"
-                      className="form-control"
-                      placeholder="Gsuite Email Address"
-                      required
-                      autoFocus
-                      ref={email}
-                    />
-                    <label htmlFor="inputEmail">Gsuite Email Address</label>
-                  </div>
+      <div className="container h-100 m-auto d-flex justify-content-center align-items-center">
+        <div className="login-logo">
+          <img src={m} alt="aeroclub" />
+        </div>
+        <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div className="card card-signin shadow">
+            <div className="card-body">
+              <h5
+                className="card-title text-center font-weight-bold"
+                id="heading"
+              >
+                Account login
+              </h5>
+              <form className="form-signin">
+                <div className="form-label-group">
+                  <input
+                    type="email"
+                    id="inputEmail"
+                    className="form-control"
+                    placeholder="Gsuite Email Address"
+                    required
+                    autoFocus
+                    ref={email}
+                  />
+                  <label htmlFor="inputEmail">Gsuite Email Address</label>
+                </div>
 
-                  <div className="form-label-group">
-                    <input
-                      type="password"
-                      id="inputPassword"
-                      className="form-control"
-                      placeholder="Password"
-                      required
-                      ref={password}
-                    />
-                    <label htmlFor="inputPassword">Password</label>
-                  </div>
+                <div className="form-label-group">
+                  <input
+                    type="password"
+                    id="inputPassword"
+                    className="form-control"
+                    placeholder="Password"
+                    required
+                    ref={password}
+                  />
+                  <label htmlFor="inputPassword">Password</label>
+                </div>
+                <button
+                  className="btn btn-lg btn-dark btn-block text-uppercase l1"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
+                  Sign in
+                </button>
+                <hr className="my-4" />
+                <div className="para">
+                  <p>
+                    <Link
+                      to="/user/forgotpassword"
+                      style={{ textDecoration: "none" }}
+                      className="l1"
+                    >
+                      Forgot Password ?
+                    </Link>
+                  </p>
+                  <p style={{ color: "white" }}>
+                    Don't have an account?{" "}
+                    <Link
+                      to="/user/signup"
+                      style={{ textDecoration: "none" }}
+                      className="l1"
+                    >
+                      Signup
+                    </Link>
+                  </p>
                   <button
-                    className="btn btn-lg btn-dark btn-block text-uppercase"
-                    type="submit"
-                    onClick={handleSubmit}
+                    type="button"
+                    className="btn btn-dark text-uppercase l1"
+                    style={{ width: "100%" }}
                   >
-                    Sign in
+                    <Link
+                      to="/"
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
+                      Back to Home
+                    </Link>
                   </button>
-                  <hr className="my-4" />
-                  <div className="para">
-                    <p>
-                      <Link to="/user/forgotpassword" style={{textDecoration:"none"}} className="l1">Forgot Password ?</Link>
-                    </p>
-                    <p style={{color:"white"}}>
-                      Don't have an account?{" "}
-                      <Link to="/user/signup" style={{textDecoration:"none"}} className="l1">Signup</Link>
-                    </p>
-                    <button type="button" className="btn btn-dark" style={{width:"100%"}}>
-                      <Link
-                        to="/"
-                        style={{ color: "inherit", textDecoration: "none" }}
-                      >
-                        Back to Home
-                      </Link>
-                    </button>
-                  </div>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

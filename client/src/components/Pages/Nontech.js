@@ -149,7 +149,7 @@ export default function Nontech() {
                   key={i}
                 >
                   <img
-                    class="card-img-top"
+                    class="card-img-top card-alumni"
                     src={`${member.profilePicture}`}
                     alt="Card image cap"
                   />
@@ -184,7 +184,7 @@ export default function Nontech() {
                   key={i}
                 >
                   <img
-                    class="card-img-top"
+                    class="card-img-top card-alumni"
                     src={`${member.profilePicture}`}
                     alt="Card image cap"
                   />
@@ -219,7 +219,7 @@ export default function Nontech() {
                   key={i}
                 >
                   <img
-                    class="card-img-top"
+                    class="card-img-top card-alumni"
                     src={`${member.profilePicture}`}
                     alt="Card image cap"
                   />

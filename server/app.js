@@ -9,10 +9,6 @@ require("dotenv").config();
 
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {
-  auth: {
-    user: process.env.COSMOSDB_USER,
-    password: process.env.COSMOSDB_PASS,
-  },
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -31,6 +27,7 @@ const userRoutes = require("./routes/user");
 const projectRoutes = require("./routes/project");
 const newsRoutes = require("./routes/news");
 const workshopRoutes = require("./routes/workshop");
+const achievementRoutes = require("./routes/achievement");
 
 // app specific
 app.use(express.json());
@@ -45,6 +42,7 @@ app.use("/api", projectRoutes);
 app.use("/api", newsRoutes);
 app.use("/api", userRoutes);
 app.use("/api", workshopRoutes);
+app.use("/api", achievementRoutes);
 
 app.listen(port, () => {
   console.log(`Server Started at ${port}`);

@@ -1,6 +1,7 @@
 import React from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Event.css";
+import m from "../../images/utils/avishkar.png";
 
 export default function Avishkar() {
   document.title = "Avishkar | Aero Club";
@@ -22,15 +23,22 @@ export default function Avishkar() {
               <div className="img-wrapper">
                 <div className="img imgev">
                   <img
-                    src={`../images/utils/avishkar.png`}
+                    src={m}
                     alt="avishkar"
                     srcset=""
                     style={{ alignItems: "center" }}
                   />
                 </div>
               </div>
-              <div className="text-wrapper" style={{border:"2px solid white", borderRadius:"10px", padding:"10px"}}>
-              {/* <div > */}
+              <div
+                className="text-wrapper"
+                style={{
+                  border: "2px solid white",
+                  borderRadius: "10px",
+                  padding: "10px",
+                }}
+              >
+                {/* <div > */}
                 <p className="texte">
                   MNNIT's techno management festival Avishkar is held every year
                   in the month of September. Equipped with technical and

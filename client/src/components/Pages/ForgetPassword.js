@@ -60,7 +60,7 @@ function ForgetPassword() {
                   </div>
 
                   <button
-                    className="btn btn-lg btn-primary btn-block text-uppercase"
+                    className="btn btn-lg btn-primary btn-block text-uppercase btn-dark l1"
                     type="submit"
                     onClick={handleSubmit}
                   >
