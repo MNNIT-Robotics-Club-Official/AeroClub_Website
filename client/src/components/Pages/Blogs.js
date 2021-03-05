@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container, Jumbotron } from "react-bootstrap";
 import Loading from "../../Animations/Loading";
+import "../../css/SingleBlog.css";
 
 function Blogs() {
   const [blogs, SetBlogs] = useState([]);
@@ -52,8 +53,8 @@ function Blogs() {
                 data-aos-duration="1500"
               >
                 <Container>
-                  <h2>{blog.title}</h2>
-                  <p>
+                  <h2 className="blog-container-head">{blog.title}</h2>
+                  <p className="blog-container-para">
                     Posted by{" "}
                     {blog.postedBy.linkedin_url !==
                     "https://www.linkedin.com/in/username/" ? (
