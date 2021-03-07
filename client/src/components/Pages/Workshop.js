@@ -3,7 +3,7 @@ import { Accordion, Card } from "react-bootstrap";
 import { Button, Container, Jumbotron } from "react-bootstrap";
 import "../../css/Event.css";
 import Loading from "../../Animations/Loading";
-import m from "../../images/utils/jigyasa.png";
+import m from "../../images/utils/Jigyasa_logo.png";
 
 export default function Workshop() {
   document.title = "Jiygasa | Aero Club";
