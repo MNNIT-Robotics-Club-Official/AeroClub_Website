@@ -250,7 +250,8 @@
 }
 .testimonial4_slide p {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 15px;
+    font-style: italic;
     line-height: 1.4;
     margin: 40px 0 20px 0;
 }
@@ -272,6 +273,10 @@
 .testimonial .carousel-control-next-icon, .testimonial .carousel-control-prev-icon {
     width: 35px;
     height: 35px;
+}
+
+.testfont {
+  font-size: smaller;
 }
 
 @media (max-width:770px)
