@@ -139,12 +139,15 @@ export default function Navigbar() {
               <NavDropdown.Item href="/faculty">
                 Faculty Corner
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/coordinators">
                 Coordinators
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/non-tech">
                 Non-Tech Members
               </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/alumni">Our Alumni</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
@@ -157,6 +160,7 @@ export default function Navigbar() {
               show={show3}
             >
               <NavDropdown.Item href="/avishkar">Avishkar</NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/prosang">Prosang</NavDropdown.Item>
             </NavDropdown>
             {/* <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link> */}

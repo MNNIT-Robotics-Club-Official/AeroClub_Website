@@ -5,6 +5,7 @@ import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize";
 import "react-quill/dist/quill.snow.css";
 import "../../css/CreateBlog.css";
+import "../../css/SingleBlog.css";
 import { Button, Container, Jumbotron, Tab, Tabs } from "react-bootstrap";
 import { UserContext } from "../../UserProvider";
 Quill.register("modules/imageResize", ImageResize);
@@ -181,13 +182,10 @@ export default function CreateBlog() {
                 style={{
                   background: "white",
                   width: "100%",
-                  margin: "auto",
-                  paddingBottom: "1rem",
-                  paddingLeft: "2rem",
-                  overflow: "auto",
                 }}
+                className="my-4"
               >
-                <Container>
+                <Container className="col-10 col-md-10 col-lg-11 singleblog-contents">
                   <p dangerouslySetInnerHTML={{ __html: body }}></p>
                 </Container>
                 <hr />

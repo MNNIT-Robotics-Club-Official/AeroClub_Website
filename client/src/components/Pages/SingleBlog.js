@@ -9,6 +9,8 @@ function SingleBlog() {
   const [blog, setBlog] = useState(undefined);
   const history = useHistory();
 
+  document.title = `Aero Club | Blog | ${blogId}`;
+
   const year = {
     1: "1st year",
     2: "2nd year",
@@ -29,10 +31,10 @@ function SingleBlog() {
 
   return (
     <div>
-      <Loading time={1.5} />
+      <Loading time={2} />
 
       <div
-        className=" pagesp"
+        className="pagesp"
         style={{
           background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${blog?.pic})`,
         }}
@@ -71,12 +73,10 @@ function SingleBlog() {
         style={{
           background: "white",
           width: "100%",
-          margin: "auto",
-          paddingBottom: "1rem",
-          paddingLeft: "2rem",
         }}
+        className="my-4"
       >
-        <Container>
+        <Container className="col-10 col-md-10 col-lg-11 singleblog-contents">
           <p dangerouslySetInnerHTML={{ __html: blog?.body }}></p>
         </Container>
         <hr />
