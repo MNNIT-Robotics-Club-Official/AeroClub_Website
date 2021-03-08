@@ -1,5 +1,10 @@
 import { connectRouter } from "connected-react-router";
+import { adminReducer, adminSaga } from "react-admin";
 import { combineReducers } from "redux";
+import createSagaMiddleware from 'redux-saga'
+import { all, fork } from 'redux-saga/effects';
+import authProvider from "./components/admin/authProvider";
+import { dataProvider } from "./components/admin/dataProvider";
 
 const userReducer = (user = null, action) => {
   switch (action.type) {
@@ -19,7 +24,18 @@ const userReducer = (user = null, action) => {
 
 const rootReducer = (history) => combineReducers({
   router: connectRouter(history),
-  user: userReducer
+  user: userReducer,
+  admin: adminReducer,
 })
 
-export default rootReducer
+const saga = function* rootSaga() {
+  yield all(
+    [
+      adminSaga(dataProvider, authProvider)
+    ].map(fork)
+  );
+};
+const sagaMiddleware = createSagaMiddleware();
+
+
+export default { rootReducer, sagaMiddleware, saga }

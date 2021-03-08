@@ -55,11 +55,13 @@ function App() {
         closeOnClick
       />
       <Switch>
-        {localStorage.getItem("jwtToken") && (
-          <Route path="/admin" exact>
-            <AdminComp />
-          </Route>
-        )}
+        <Route path="/admin" exact>
+          {localStorage.getItem("jwtToken") ? (
+            <AdminComp />) : (
+            <Redirect to="/404" />
+          )
+          }
+        </Route>
 
         <Route path="/user/login" exact>
           {!localStorage.getItem("jwtToken") ? (
