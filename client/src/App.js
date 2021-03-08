@@ -5,8 +5,7 @@ import {
   Redirect,
   Route,
   Switch,
-  // BrowserRouter as Router,
-} from "react-router";
+} from "react-router-dom";
 import AdminComp from "./components/admin/AdminComp.js";
 import Landing from "./Animations/Landing.js";
 import Gallery from "./components/Pages/Gallery.js";
@@ -47,7 +46,7 @@ function App() {
   document.title = "Aero Club";
 
   return (
-    // <Router >
+
     <div className="App">
       <ToastContainer
         autoClose={4000}
@@ -173,7 +172,6 @@ function App() {
         </Route>
       </Switch>
     </div>
-    // </Router>
   );
 }
 
