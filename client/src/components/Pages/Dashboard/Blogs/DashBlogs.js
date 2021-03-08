@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Accordion,
   Badge,
@@ -72,7 +72,7 @@ export default function DashBlogs() {
                       history.push(`/blogs/${blog._id}`);
                     }}
                   >
-                    Click to See
+                    Go to blog
                   </Button>
                 ) : (
                   <>
@@ -83,7 +83,7 @@ export default function DashBlogs() {
                       aria-expanded="false"
                       aria-controls="preview"
                     >
-                      Click to preview
+                      Click to View
                     </Button>
                     <br />
                     <br />
@@ -109,8 +109,8 @@ export default function DashBlogs() {
                                   user.name
                                 )}{" "}
                                 {`(reg. no :- ${user.registration_no == "xxxxxxxx"
-                                    ? "NA"
-                                    : user.registration_no
+                                  ? "NA"
+                                  : user.registration_no
                                   }, ${user.year == -1
                                     ? "year - NA"
                                     : year[user.year]

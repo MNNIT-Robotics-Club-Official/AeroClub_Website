@@ -3,15 +3,13 @@ import { Link, useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../css/Login.css";
 import m from "../../images/utils/logo-aero2.png";
-import { useDispatch } from 'react-redux'
 
 function Login() {
   document.title = "Login | Aero Club";
-
   const email = useRef();
   const password = useRef();
   const history = useHistory();
-  const dispatch = useDispatch()
+
 
   useEffect(() => {
     if (localStorage.getItem("jwtToken")) history.push("/404");
@@ -19,12 +17,6 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (localStorage.getItem("jwtToken")) {
-      toast.warn("You are already loggedIn !");
-      history.push("/user/dashboard");
-      return;
-    }
 
     fetch(`/api/signin`, {
       method: "post",
@@ -41,7 +33,6 @@ function Login() {
         if (data.error) toast.warn(data.error);
         else {
           localStorage.setItem("jwtToken", data.token);
-          dispatch({ type: 'SET', payload: data.user })
           history.push("/user/dashboard");
           toast.success(data.message);
           window.location.reload();

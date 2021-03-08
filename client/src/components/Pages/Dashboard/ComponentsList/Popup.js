@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-
+import { useDispatch } from "react-redux";
 export default function Popup(props) {
   const [num, setnum] = useState(0);
   const [reason, setreason] = useState("");
+
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter" centered>
       <Modal.Header closeButton>
@@ -74,6 +75,7 @@ export default function Popup(props) {
 
 function LoadingButton(props) {
   const [isLoading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isLoading) {
@@ -84,10 +86,14 @@ function LoadingButton(props) {
           Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
         },
         body: JSON.stringify(props.body),
-      }).then((res) => {
-        console.log(res);
+      }).then(res => res.json())
+      .then((data) => {
         setLoading(false);
         props.onHide();
+        dispatch({
+          type: "REQUEST_COMPONENT",
+          payload: data.componentIssue
+        })
       });
     }
   }, [isLoading]);

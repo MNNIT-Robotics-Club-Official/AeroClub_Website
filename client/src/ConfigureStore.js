@@ -1,9 +1,9 @@
 import { routerMiddleware } from 'connected-react-router'
-import { createBrowserHistory, createHashHistory } from 'history'
+import { createHashHistory } from 'history'
 import { applyMiddleware, compose, createStore } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import Reducer from './Reducers'
+import Reducer from './Reducers/index'
 
 const persistConfig = {
     key: 'root',

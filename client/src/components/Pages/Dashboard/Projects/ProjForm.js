@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function ProjForm(props) {
   const [formData, setformData] = useState({
@@ -8,6 +9,7 @@ export default function ProjForm(props) {
     objective: "",
   });
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch()
   return (
     <form
       onSubmit={(e) => {
@@ -27,14 +29,16 @@ export default function ProjForm(props) {
           }),
         })
           .then((res) => {
-            setLoading(false);
             setformData({
               title: "",
               teamname: "",
               description: "",
               objective: "",
             });
-            props.setr(props.r + 1);
+            res.json().then(data => {
+              dispatch({type: "CREATE_PROJECT", payload: data})
+              setLoading(false);
+            })
           })
           .catch((err) => {
             setLoading(false);

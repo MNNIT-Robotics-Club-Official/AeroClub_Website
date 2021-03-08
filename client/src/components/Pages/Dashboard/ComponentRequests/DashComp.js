@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 export default function DashComp() {
   const history = useHistory();
-  const [requests, setrequests] = useState([]);
+  const requests = useSelector(state => state.user ?.issues);
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
       return;
     }
-    fetch(`/api/my/issue`, {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setrequests(data);
-      });
   }, []);
   return (
     <div className="container">
@@ -37,7 +27,7 @@ export default function DashComp() {
                 </tr>
               </thead>
               <tbody>
-                {requests.map((request) => {
+                {requests ?.map((request) => {
                   let badge;
                   if (request.status === "Requested")
                     badge = (

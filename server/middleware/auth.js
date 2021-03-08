@@ -80,37 +80,29 @@ exports.signin = (req, res) => {
     });
   }
 
-  User.findOne({ email })
-    .populate("blogs")
-    .populate("notifications")
-    .populate({
-      path: "projects",
-      populate: { path: "members.user", select: "name" },
-    })
-    .exec((err, user) => {
-      if (err || !user) {
-        return res.status(400).json({
-          error: "Email or password do not match !",
-        });
-      }
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res.status(400).json({
+        error: "Email or password do not match !",
+      });
+    }
 
-      if (!user.confirmed)
-        return res.status(400).json({
-          error: "You need to verify your email before login !",
-        });
+    if (!user.confirmed)
+      return res.status(400).json({
+        error: "You need to verify your email before login !",
+      });
 
-      if (!user.autheticate(password)) {
-        return res.status(401).json({
-          error: "Email or password do not match !",
-        });
-      }
-
-      // create jwt token
-      const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
-      // put token in cookie
-      res.cookie("token", jwtToken, { expire: new Date() + 9999 });
-      res.json({ token: jwtToken, message: "LoggedIn Successfully !", user });
-    })
+    if (!user.autheticate(password)) {
+      return res.status(401).json({
+        error: "Email or password do not match !",
+      });
+    }
+    // create jwt token
+    const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+    // put token in cookie
+    res.cookie("token", jwtToken, { expire: new Date() + 9999 });
+    res.json({ token: jwtToken, message: "LoggedIn Successfully !", user });
+  })
 }
 
 exports.forgetPassword = (req, res) => {
@@ -154,12 +146,14 @@ exports.resetPassword = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
     if (err) return res.status(422).json({ error: err });
     const { _id } = payload;
-    User.findById(_id).then((user) => {
+    User.findById(_id).exec((err, user) => {
       if (!user) return res.json({ error: "User does not exists !" });
       user.password = newPassword;
       user.reset_pass_session = false;
       user.save().then((savedUser) => {
         return res.json({ message: "Password updated successfully !" });
+      }).catch(err => {
+        res.status(422).json({ error: err });
       });
     });
   });
@@ -192,10 +186,14 @@ exports.isSignedIn = (req, res, next) => {
         path: "projects",
         populate: { path: "members.user", select: "name" },
       })
-      .then((user) => {
+      .populate({
+        path: "issues",
+        populate: { path: "component" }
+      })
+      .exec((err, user) => {
         if (!user)
           return res.status(401).json({ error: "You must be logged in !" });
-        req.user = user.transform();
+        req.user = user
         next();
       });
   });
@@ -211,7 +209,7 @@ exports.resetVerify = (req, res, next) => {
     }
     const { _id } = payload;
 
-    User.findById(_id).then((user) => {
+    User.findById(_id).exec((err, user) => {
       if (!user.reset_pass_session)
         return res
           .status(422)
