@@ -87,7 +87,12 @@ exports.signin = (req, res) => {
       path: "projects",
       populate: { path: "members.user", select: "name" },
     })
+    .populate({
+      path: "issues",
+      populate: { path: "component" }
+    })
     .exec((err, user) => {
+    console.log(user);
       if (err || !user) {
         return res.status(400).json({
           error: "Email or password do not match !",
@@ -104,7 +109,6 @@ exports.signin = (req, res) => {
           error: "Email or password do not match !",
         });
       }
-
       // create jwt token
       const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
       // put token in cookie
@@ -154,12 +158,14 @@ exports.resetPassword = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, payload) => {
     if (err) return res.status(422).json({ error: err });
     const { _id } = payload;
-    User.findById(_id).then((user) => {
+    User.findById(_id).exec((err ,user) => {
       if (!user) return res.json({ error: "User does not exists !" });
       user.password = newPassword;
       user.reset_pass_session = false;
       user.save().then((savedUser) => {
         return res.json({ message: "Password updated successfully !" });
+      }).catch(err => {
+        res.status(422).json({ error: err });
       });
     });
   });
@@ -186,13 +192,7 @@ exports.isSignedIn = (req, res, next) => {
 
     // finding the user with the id
     User.findById(_id)
-      .populate("blogs")
-      .populate("notifications")
-      .populate({
-        path: "projects",
-        populate: { path: "members.user", select: "name" },
-      })
-      .then((user) => {
+      .exec((err ,user) => {
         if (!user)
           return res.status(401).json({ error: "You must be logged in !" });
         req.user = user.transform();
@@ -211,7 +211,7 @@ exports.resetVerify = (req, res, next) => {
     }
     const { _id } = payload;
 
-    User.findById(_id).then((user) => {
+    User.findById(_id).exec((err ,user) => {
       if (!user.reset_pass_session)
         return res
           .status(422)

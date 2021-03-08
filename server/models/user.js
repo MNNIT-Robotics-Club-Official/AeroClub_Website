@@ -60,6 +60,12 @@ var userSchema = new mongoose.Schema(
         ref: "Notification",
       },
     ],
+    issues: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ComponentsIssue"
+      }
+    ],
     reset_pass_session: Boolean,
   },
   { timestamps: true }

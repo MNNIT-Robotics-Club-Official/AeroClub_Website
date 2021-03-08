@@ -1,6 +1,6 @@
 const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
-const user = require("../models/user");
+const User = require("../models/user");
 const notification = require("../models/notifications");
 
 exports.getAllUsers = (req, res) => {
@@ -58,9 +58,24 @@ exports.requestComponent = (req, res) => {
         error: "Cannot create component request.",
       });
     }
-    res.json({
-      msg: `Successfully requested ${component.name}, wait for approval.`,
-    });
+    componentIssue
+      .populate({ path: "component", select: "name" })
+      .execPopulate((err, populatedIssue) => {
+        User.findById(req.user.id).exec((err, user) => {
+          user.issues.push(populatedIssue._id);
+          user.save((err, user) => {
+            if (err) {
+              return res.status(400).json({
+                err: err.message,
+              });
+            }
+          });
+        });
+        res.json({
+          msg: `Successfully requested ${component.name}, wait for approval.`,
+          componentIssue: populatedIssue,
+        });
+      });
   });
 };
 

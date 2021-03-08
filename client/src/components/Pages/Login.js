@@ -20,12 +20,6 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (localStorage.getItem("jwtToken")) {
-      toast.warn("You are already loggedIn !");
-      history.push("/user/dashboard");
-      return;
-    }
-
     fetch(`/api/signin`, {
       method: "post",
       headers: {

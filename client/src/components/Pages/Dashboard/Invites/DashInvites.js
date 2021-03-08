@@ -124,7 +124,6 @@ function LoadingButton(props) {
       }).then((res) => {
         setLoading(false);
         setDone(true);
-        props.setr(props.r + 1);
       });
     }
   }, [isLoading]);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Tabs, Tab } from "react-bootstrap";
-import Loading from "../../Animations/Loading";
+import Loading from "../../../../Animations/Loading";
 import CompCard from "./CompCard";
 
 export default function CompIssue() {

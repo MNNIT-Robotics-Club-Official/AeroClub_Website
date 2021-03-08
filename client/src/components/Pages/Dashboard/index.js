@@ -1,17 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../../css/Dashboard.css";
-import DashComp from "./DashComp";
-import DashProjects from "./DashProjects";
-import DashInvites from "./DashInvites";
-import DashProfile from "./DashProfile";
-import DashBlogs from "./DashBlogs";
-import CompIssue from "../CompIssue";
+import "../../../css/Dashboard.css";
+import DashComp from "./ComponentRequests/DashComp";
+import DashProjects from "./Projects/DashProjects";
+import DashInvites from "./Invites/DashInvites";
+import DashProfile from "./Profile/DashProfile";
+import DashBlogs from "./Blogs/DashBlogs";
+import ComponentsList from "./ComponentsList";
 
 function Dashboard() {
   const history = useHistory();
-  // const { state, dispatch } = useContext(UserContext);
 
   document.title = "Dashboard | Aero Club";
   useEffect(() => {
@@ -34,21 +33,6 @@ function Dashboard() {
           return;
         }
       });
-
-    // if (!state) {
-    //   fetch(`/api/my/details`, {
-    //     method: "get",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-    //     },
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       localStorage.setItem("user", JSON.stringify(data));
-    //       dispatch({ type: "SET", payload: data });
-    //     });
-    // }
   }, []);
 
   return (
@@ -162,7 +146,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-inventory-tab"
         >
-          <CompIssue />
+          <ComponentsList />
         </div>
         <div
           className="tab-pane fade"
