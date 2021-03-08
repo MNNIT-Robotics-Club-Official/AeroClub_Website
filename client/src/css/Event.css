@@ -13,6 +13,11 @@
   background-color: rgba(0,0,0,0.7);
 }
 
+.ulprosang{
+  list-style-type:circle;
+  padding-inline-start: 15px;
+}
+
 .pagese {
   height: auto;
   width: 100%;
@@ -124,6 +129,7 @@ ul {
 
 .texte {
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 .btn-wrapper {
@@ -236,6 +242,12 @@ h1.heading {
     .text-wrapper{
       display: none;
     }    
+    .text-desktop{
+      display: none;
+    }    
+    .detailsph {
+      font-size: 13px;
+    }
     .phonev{
       padding-bottom:10%;
     }

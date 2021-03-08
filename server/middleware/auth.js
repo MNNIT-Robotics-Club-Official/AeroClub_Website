@@ -80,31 +80,38 @@ exports.signin = (req, res) => {
     });
   }
 
-  User.findOne({ email }, (err, user) => {
-    if (err || !user) {
-      return res.status(400).json({
-        error: "Email or password do not match !",
-      });
-    }
+  User.findOne({ email })
+    .populate("blogs")
+    .populate("notifications")
+    .populate({
+      path: "projects",
+      populate: { path: "members.user", select: "name" },
+    })
+    .exec((err, user) => {
+      if (err || !user) {
+        return res.status(400).json({
+          error: "Email or password do not match !",
+        });
+      }
 
-    if (!user.confirmed)
-      return res.status(400).json({
-        error: "You need to verify your email before login !",
-      });
+      if (!user.confirmed)
+        return res.status(400).json({
+          error: "You need to verify your email before login !",
+        });
 
-    if (!user.autheticate(password)) {
-      return res.status(401).json({
-        error: "Email or password do not match !",
-      });
-    }
+      if (!user.autheticate(password)) {
+        return res.status(401).json({
+          error: "Email or password do not match !",
+        });
+      }
 
-    // create jwt token
-    const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
-    // put token in cookie
-    res.cookie("token", jwtToken, { expire: new Date() + 9999 });
-    res.json({ token: jwtToken, message: "LoggedIn Successfully !" });
-  });
-};
+      // create jwt token
+      const jwtToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
+      // put token in cookie
+      res.cookie("token", jwtToken, { expire: new Date() + 9999 });
+      res.json({ token: jwtToken, message: "LoggedIn Successfully !", user });
+    })
+}
 
 exports.forgetPassword = (req, res) => {
   User.findOne({ email: req.body.email }).then((user) => {

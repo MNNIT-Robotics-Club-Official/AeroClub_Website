@@ -26,12 +26,12 @@ import {
   WorkshopShow,
 } from "./Workshop";
 import { UserList, UserShow, UserEdit } from "./Users";
-import { UserContext } from "../../UserProvider";
+import { useSelector } from "react-redux";
 
 function AdminComp() {
   document.title = "Admin Panel | Aero Club";
 
-  const { state } = useContext(UserContext);
+  const user = useSelector(state => state.user)
 
   const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -53,7 +53,7 @@ function AdminComp() {
           name="users"
           list={UserList}
           show={UserShow}
-          edit={state?.role === "Super-admin" ? UserEdit : null}
+          edit={user?.role === "Super-admin" ? UserEdit : null}
         />
         <Resource
           name="projects"

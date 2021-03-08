@@ -90,37 +90,81 @@ export default function Avishkar() {
                                         padding: "2px",
                                         borderRadius: "8px",
                                         margin: "2em",
-                                        fontSize: "smaller"
+                                        fontSize: "14px"
+                                        
                                     }}
                                 >
-                                    <div style={{ padding: "2px" }}>
-                                        <p class="text-gray-700">
+                                    <div style={{ padding: "10px" }}>
+                                        <p class="text-gray-700" style={{fontSize:"16px"}}><i>
                                             Prodyogiki Sangam, better known as Prosang is the annual
                                             Techfest of Robotics and Aeroclub of MNNIT. It is an
                                             initiative to bring together a talented and technically
                                             skilled group of people to showcase their scientific
                                             prowess in the form of actual projects as well as ideas in
-                                            fun and challenging tech-based events.
+                                            fun and challenging tech-based events.</i>
                     </p>
-                                        <p class="text-gray-700">
+                                        <p class="text-gray-700" style={{fontSize:"16px"}}><i>
                                             It began with the efforts of the batch of 2019 with the
                                             basic need for helping students score the gap between
                                             industrial skill set requirements and our academics, and
                                             hence build projects that add value to their CVs, and
-                                            motivate them to model solutions to real world problems.
+                                            motivate them to model solutions to real world problems.</i>
                     </p>
-                                        {/* <p className="texte">
-                                            Each year Prosang witnesses a number of talks from eminent
-                                            people in Industry and Academia, cut throat competitions,
-                                            project exhibitions and a number of enlightening workshops.
-                                            The selected participants not only get to visit and experience
-                                            the atmosphere in a National Institute of Technology, but also
-                                            get to attend lectures from brilliant technocrats from around
-                                            the nation, technical workshops, laboratory visits and much
-                                            more. Moreover, the participants get an opportunity to grow
-                                            amongst the ideas and creations of fellow participants from
-                                            20+ colleges.
-                    </p> */}
+                                        <p className="text-gray-700" style={{textAlign:"justify", }}>
+                                        <i  style={{fontSize:"16px"}}>Every year ProSang witnesses: </i><br></br><br></br><ul className="ulprosang">
+<li><b>Talks: </b>
+ Many talks from eminent people in industry and academia, thus helping students understand the current trends and needs.</li><br></br>
+<li><b>Competitions: </b>
+Cut-throat competition in challenging events thrills the students and encourages them to make products to solve challenging problems put to them in the form of problem statements.</li><br></br>
+<li><b>Workshops: </b>
+Several workshops are organized on IoT, drone automation, etc., giving students hands-on experience and honing their skill set.
+Also, we organize several free of cost workshops for school students to embed scientific temperament at young ages only. They also visit and experience the atmosphere of a National Institute of Technology, see technical workshops, visit many labs, and much more.</li><br></br>
+<li><b>Project Exhibition: </b>
+Students of our clubs and outside display projects built throughout the year to professors from all college departments and benefit from their valuable insights in the project exhibition.</li><br></br>
+
+<li><b>Shows: </b>Many fun yet enlightening activities like Airshow, Stargazing Workshop by professionals.</li><br></br>
+</ul>
+                    </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sm:flex items-center max-w-screen-xl p-10 sm:p-16 md:p-24 text-desktop">
+                        <div class="sm:w-2/3 sm:mr-10">
+                            <div class="text">
+                                {/* <span class="text-gray-500 border-b-2 border-indigo-600 uppercase">about us</span> */}
+                                <h2 class="font-bold text-3xl my-4 sm:text-4xl">
+                                    <span class="text-indigo-600 font-bold">About the Event</span>
+                                </h2>
+                                <div className="bgBox"
+                                    style={{
+                                        border: "3px solid rgb(204, 67, 67)",
+                                        padding: "2px",
+                                        borderRadius: "8px",
+                                        margin: "2em",
+                                        fontSize: "14px"
+                                        
+                                    }}
+                                >
+                                    <div style={{ padding: "10px" }}>
+                                        
+                                        <p className="text-gray-700" style={{textAlign:"justify" }}>
+                                        <i style={{fontSize:"medium"}}>Every year ProSang witnesses: </i><br></br><br></br><ul className="ulprosang">
+<li><b>Talks: </b>
+ Many talks from eminent people in industry and academia, thus helping students understand the current trends and needs.</li><br></br>
+<li><b>Competitions: </b>
+Cut-throat competition in challenging events thrills the students and encourages them to make products to solve challenging problems put to them in the form of problem statements.</li><br></br>
+<li><b>Workshops: </b>
+Several workshops are organized on IoT, drone automation, etc., giving students hands-on experience and honing their skill set.
+Also, we organize several free of cost workshops for school students to embed scientific temperament at young ages only. They also visit and experience the atmosphere of a National Institute of Technology, see technical workshops, visit many labs, and much more.</li><br></br>
+<li><b>Project Exhibition: </b>
+Students of our clubs and outside display projects built throughout the year to professors from all college departments and benefit from their valuable insights in the project exhibition.</li><br></br>
+
+<li><b>Shows: </b>Many fun yet enlightening activities like Airshow, Stargazing Workshop by professionals.</li><br></br>
+</ul>
+                    </p>
                                     </div>
                                 </div>
                             </div>
@@ -228,6 +272,35 @@ export default function Avishkar() {
                                         </div>
                                     </div>
                                 </div>
+
+                                <div
+                                                style={{
+                                                    border: "2px solid rgb(29, 29, 29)",
+                                                    padding: "10px",
+                                                    borderRadius: "8px",
+                                                    marginTop: "30px" 
+                                                }}
+                                            >
+                                                <div style={{ padding: "2px"}}>
+                                                    <p class="text-gray-700">
+                                                        <h5 class="font-bold text-3xl my-4 sm:text-4xl">
+                                                            <span class="text-indigo-300 font-bold">Details</span>
+                                                        </h5>
+                                                        <div
+                                                            className="miniSep"
+                                                            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", width: "100%" }}
+                                                        ></div>
+                                                        <p className="detailsph" style={{textAlign:"justify"}}>
+                                                            <i className>
+                                                            MNNIT became a hosting ground for an enchanting workshop conducted by Vijay Kapoor sir, a prominent Indian astrophotographer, this ProSang. After the inauguration ceremony, where he quickly earned the attention and awe of his audience with his clicked images, the observation sessions began at the athletics ground. Participant counts ran high as he taught everyone, on the first day, how to set up a telescope and focused our myopic attention on life onto the powerful telescope and the cosmos it revealed, accompanying it with a matching explanation.
+The second day brought forward a chance to peer at our star, the Sun, in the daytime. Vijay sir elaborated on sunspots and the equipment used to capture such images, followed by a session on processing raw images and software used in the process. The evening brought a chance to gaze at the sky again, with the clouds giving an unexpected cameo yet again through our observation events. With his telescope and amassed knowledge, he stood in the center of the circle of huddled enthusiasts listening with rapt attention even on the last session. Children covered under the Anokhi Pehel program (a non-profit organisation managed by students who share the common aim of helping the underprivileged children by providing them with education) also took a look from the telescope, excited faces beaming with happiness. Though the ProSang and the workshop concluded, the joy of looking at the sky and learning more about our universe has only grown stronger since the event.
+
+                                                            </i>
+                                                        </p>
+                                                    </p>
+
+                                                </div>
+                                            </div>
 
                                 <div className="container">
                                     <h3 class="font-bold text-3xl my-4 sm:text-4xl">

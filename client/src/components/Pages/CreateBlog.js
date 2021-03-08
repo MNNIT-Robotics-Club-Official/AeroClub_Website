@@ -7,12 +7,12 @@ import "react-quill/dist/quill.snow.css";
 import "../../css/CreateBlog.css";
 import "../../css/SingleBlog.css";
 import { Button, Container, Jumbotron, Tab, Tabs } from "react-bootstrap";
-import { UserContext } from "../../UserProvider";
+import { useSelector } from "react-redux";
 Quill.register("modules/imageResize", ImageResize);
 
 export default function CreateBlog() {
   document.title = "CreateBlog | Aero Club";
-  const { state, dispatch } = useContext(UserContext);
+  const user = useSelector(state => state.user)
 
   const history = useHistory();
   const [title, setTitle] = useState("");
@@ -27,8 +27,8 @@ export default function CreateBlog() {
       toast.warn("You must be logged in !");
       return;
     }
-    setPostedBy(`${state?.name} (${state?.email})`);
-  }, [state]);
+    setPostedBy(`${user?.name} (${user?.email})`);
+  }, [user]);
 
   const handleCreateBlog = () => {
     setLoading(true);
@@ -47,7 +47,7 @@ export default function CreateBlog() {
         title,
         body,
         pic,
-        postedBy: state.id,
+        postedBy: user.id,
         publishedAt: Date.now(),
       }),
     })
@@ -56,9 +56,9 @@ export default function CreateBlog() {
         setLoading(false);
         localStorage.setItem(
           "user",
-          JSON.stringify({ ...state, blogs: [...state.blogs, data] })
+          JSON.stringify({ ...user, blogs: [...user.blogs, data] })
         );
-        dispatch({ type: "UPDATE_BLOG", payload: data });
+        // dispatch({ type: "UPDATE_BLOG", payload: data });
         toast.success(
           "Blog has been sent for confirmation...Till then stay tuned !"
         );

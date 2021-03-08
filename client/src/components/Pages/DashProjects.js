@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
-import { UserContext } from "../../UserProvider";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Dashprojects(props) {
   const [modalShow, setModalShow] = React.useState(false);
-  const { state } = useContext(UserContext);
+  const user = useSelector(state => state.user);
   const history = useHistory();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Dashprojects(props) {
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
         <Accordion>
-          {state?.projects?.map((project) => {
+          {user?.projects?.map((project) => {
             let badge;
             if (project.status === "Ongoing")
               badge = (
@@ -60,7 +60,7 @@ export default function Dashprojects(props) {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {state.id == project.leader ? (
+                        {user.id == project.leader ? (
                           <Button
                             onClick={() => {
                               setModalShow(true);
@@ -84,7 +84,7 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === state.id) {
+                              if (member.user._id === user.id) {
                                 badge = <span></span>;
                               } else
                                 badge = (

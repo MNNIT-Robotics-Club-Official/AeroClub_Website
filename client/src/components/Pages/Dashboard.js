@@ -7,13 +7,11 @@ import DashProjects from "./DashProjects";
 import DashInvites from "./DashInvites";
 import DashProfile from "./DashProfile";
 import DashBlogs from "./DashBlogs";
-import { UserContext } from "../../UserProvider";
 import CompIssue from "../CompIssue";
 
 function Dashboard() {
   const history = useHistory();
-  const { state, dispatch } = useContext(UserContext);
-  const [r, setr] = useState(0);
+  // const { state, dispatch } = useContext(UserContext);
 
   document.title = "Dashboard | Aero Club";
   useEffect(() => {
@@ -37,21 +35,21 @@ function Dashboard() {
         }
       });
 
-    if (!state) {
-      fetch(`/api/my/details`, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          localStorage.setItem("user", JSON.stringify(data));
-          dispatch({ type: "SET", payload: data });
-        });
-    }
-  }, [r]);
+    // if (!state) {
+    //   fetch(`/api/my/details`, {
+    //     method: "get",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+    //     },
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       localStorage.setItem("user", JSON.stringify(data));
+    //       dispatch({ type: "SET", payload: data });
+    //     });
+    // }
+  }, []);
 
   return (
     <div className="container">
@@ -140,7 +138,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects r={r} setr={setr} />
+          <DashProjects />
         </div>
         <div
           className="tab-pane fade"
@@ -148,7 +146,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites r={r} setr={setr} />
+          <DashInvites />
         </div>
         <div
           className="tab-pane fade"
@@ -156,7 +154,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-components-tab"
         >
-          <DashComp r={r} setr={setr} />
+          <DashComp />
         </div>
         <div
           className="tab-pane fade"
@@ -164,7 +162,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-inventory-tab"
         >
-          <CompIssue r={r} setr={setr} />
+          <CompIssue />
         </div>
         <div
           className="tab-pane fade"

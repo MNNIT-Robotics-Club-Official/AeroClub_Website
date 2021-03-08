@@ -1,10 +1,10 @@
 import { Button, Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { UserContext } from "../../UserProvider";
 import im1 from "../..//images/utils/logo-aero2.png";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const history = useHistory();
@@ -12,7 +12,7 @@ const Login = () => {
     localStorage.getItem("jwtToken") ? true : false
   );
   const [show, setShow] = useState(false);
-  const { dispatch } = useContext(UserContext);
+  const dispatch = useDispatch()
 
   const handleLogout = () => {
     fetch(`/api/signout`, {
@@ -112,7 +112,6 @@ export default function Navigbar() {
       >
         <Navbar.Brand href="/" className="title-nav">
           <img className="logoimg" src={im1} />
-          {/* AERO CLUB MNNIT */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
