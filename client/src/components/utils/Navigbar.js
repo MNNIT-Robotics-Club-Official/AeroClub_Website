@@ -182,7 +182,6 @@ export default function Navigbar() {
               <NavDropdown.Item href="/news" eventKey="news">
                 News Section
               </NavDropdown.Item>
-              <NavDropdown.Divider />
             </NavDropdown>
             <Nav.Link eventKey="blogs" href="/workshop" className="nav-items">
               Jigyasa
