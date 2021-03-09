@@ -56,8 +56,8 @@ body{
   }
 
   .abttxt{
-      text-align: center;
-      align-items: center;
+      text-align: justify;
+      /* align-items: center; */
   }
   
   @media (max-width: 640px) {
