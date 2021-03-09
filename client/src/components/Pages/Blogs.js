@@ -40,13 +40,13 @@ function Blogs() {
             .slice((page - 1) * blogs_per_page, page * blogs_per_page)
             .map((blog) => (
               <Jumbotron
-                fluid
-                style={{
-                  background: "white",
-                  width: "80vw",
-                  margin: "auto",
-                  paddingBottom: "1rem",
-                }}
+                // fluid
+                // style={{
+                //   background: "white",
+                //   width: "80vw",
+                //   margin: "auto",
+                //   paddingBottom: "1rem",
+                // }}
                 key={blog._id}
                 data-aos="fade-down"
                 data-aos-easing="linear"

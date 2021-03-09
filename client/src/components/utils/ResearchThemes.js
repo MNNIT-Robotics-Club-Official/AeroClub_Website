@@ -11,7 +11,7 @@ const ResearchThemes = () => {
       >
         Research Themes
       </div>
-      <div className="jumbotron">
+      <div className="jumbotron" style={{marginBottom:"0", background:"rgba(0, 0, 0, 0)"}}>
         <div
           className="miniSep"
           style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
