@@ -19,15 +19,16 @@ const authProvider = {
   checkAuth: () => {
     return localStorage.getItem("role") && localStorage.getItem("jwtToken")
       ? fetch(`/api/isAdmin`, {
-          method: "post",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-          },
+        method: "post",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          if (data.error) throw new Error(data.error);
         })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.error) throw new Error(data.error);
-          })
       : Promise.reject();
   },
   logout: () => {

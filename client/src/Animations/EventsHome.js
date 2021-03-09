@@ -15,7 +15,7 @@ export default function EventHome() {
   return (
     <div className="container-fluid">
       <div className="pages">
-        <div className="jumbotron overlay">
+        <div className="jumbotron overlay" style={{marginBottom:"0"}}>
           <div
             className="pageTitle titleBold headingc white-headingc"
             style={{ color: "white", marginBottom: "10px" }}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../../css/Dashboard.css";
@@ -8,10 +8,11 @@ import DashInvites from "./Invites/DashInvites";
 import DashProfile from "./Profile/DashProfile";
 import DashBlogs from "./Blogs/DashBlogs";
 import ComponentsList from "./ComponentsList";
+import { useDispatch } from "react-redux";
 
 function Dashboard() {
-  const history = useHistory();
-
+  const history = useHistory()
+  const dispatch = useDispatch()
   document.title = "Dashboard | Aero Club";
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
@@ -19,7 +20,7 @@ function Dashboard() {
       toast.warn("You must be logged in !");
     }
 
-    fetch(`/api/isSignedIn`, {
+    fetch(`/api/my/details`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -32,11 +33,13 @@ function Dashboard() {
           history.push("/user/login");
           return;
         }
+        dispatch({ type: 'SET', payload: data.user })
       });
+
   }, []);
 
   return (
-    <div className="container">
+    <div className="container" style={{ minHeight: '76vh' }}>
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a

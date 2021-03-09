@@ -12,12 +12,12 @@ class Landing extends React.Component {
             <div className="landing d-flex flex-column-reverse flex-lg-row align-items-center justify-content-center flex-wrap">
               <div className="landing-about">
                 <h1 className="font-weight-bold text-uppercase">
-                  Aerodynamix club
+                  AeroModeling club
                 </h1>
                 <h2 className="text-center">MNNIT Allahabad</h2>
               </div>
               <div className="landing-logo">
-                <img src={m} alt="aero" srcset="" />
+                <img src={m} alt="aero" srcSet="" />
               </div>
             </div>
           </div>

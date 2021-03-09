@@ -1,6 +1,6 @@
 const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
-const User = require("../models/user");
+const user = require("../models/user");
 const notification = require("../models/notifications");
 
 exports.getAllUsers = (req, res) => {
@@ -224,7 +224,7 @@ exports.updateMyProfile = (req, res) => {
     .catch((e) => console.log(e));
 };
 exports.getMyDetails = (req, res) => {
-  res.json(req.user);
+  res.json({ user: req.user });
 };
 
 exports.acceptInvite = (req, res) => {

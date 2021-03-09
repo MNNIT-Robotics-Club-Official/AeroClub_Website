@@ -33,7 +33,7 @@ function Blogs() {
         </div>
       </div>
 
-      <div style={{ background: "white", overflow: "hidden" }}>
+      <div style={{ background: "white", overflow: "hidden", minHeight: '36vh' }} >
         <Loading time={2} />
         <div>
           {blogs
@@ -57,22 +57,20 @@ function Blogs() {
                   <p className="blog-container-para">
                     Posted by{" "}
                     {blog.postedBy.linkedin_url !==
-                    "https://www.linkedin.com/in/username/" ? (
+                      "https://www.linkedin.com/in/username/" ? (
                       <a href={blog.postedBy.linkedin_url} target="_blank">
                         {blog.postedBy.name}
                       </a>
                     ) : (
                       blog.postedBy.name
                     )}{" "}
-                    {`(reg. no :- ${
-                      blog.postedBy.registration_no == "xxxxxxxx"
-                        ? "NA"
-                        : blog.postedBy.registration_no
-                    }, ${
-                      blog.postedBy.year == -1
+                    {`(reg. no :- ${blog.postedBy.registration_no == "xxxxxxxx"
+                      ? "NA"
+                      : blog.postedBy.registration_no
+                      }, ${blog.postedBy.year == -1
                         ? "year - NA"
                         : year[blog.postedBy.year]
-                    })`}{" "}
+                      })`}{" "}
                     on {new Date(blog.publishedAt).toLocaleDateString()}
                   </p>
                   <Button href={`/blogs/${blog._id}`} variant="danger">

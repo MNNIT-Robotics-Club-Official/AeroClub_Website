@@ -132,6 +132,11 @@ ul {
   text-align: justify;
 }
 
+.text {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
 .btn-wrapper {
   margin-top: 2em;
 }

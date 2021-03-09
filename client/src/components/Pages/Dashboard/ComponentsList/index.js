@@ -4,7 +4,6 @@ import Loading from "../../../../Animations/Loading";
 import CompCard from "./CompCard";
 
 export default function CompIssue() {
-  document.title = `Components`;
 
   const [components, setComponents] = useState([]);
   const [types, setTypes] = useState([]);

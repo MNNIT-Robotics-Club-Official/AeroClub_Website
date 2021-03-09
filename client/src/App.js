@@ -40,6 +40,8 @@ import ResearchThemes from "./components/utils/ResearchThemes.js";
 import Sponsors from "./components/Pages/Sponsor";
 import Achievements from "./components/Pages/Achievements.js";
 import Collaboration from "./components/Pages/Collaboration.js";
+import Spinoff from "./components/Pages/Spinoff.js";
+import WebTeam from "./components/Pages/WebTeam.js";
 
 function App() {
   document.title = "Aero Club";
@@ -54,11 +56,13 @@ function App() {
         closeOnClick
       />
       <Switch>
-        {localStorage.getItem("jwtToken") && (
-          <Route path="/admin" exact>
-            <AdminComp />
-          </Route>
-        )}
+        <Route path="/admin" exact>
+          {localStorage.getItem("jwtToken") ? (
+            <AdminComp />) : (
+            <Redirect to="/404" />
+          )
+          }
+        </Route>
 
         <Route path="/user/login" exact>
           {!localStorage.getItem("jwtToken") ? (
@@ -112,6 +116,9 @@ function App() {
             <Route path="/gallery" exact>
               <Gallery />
             </Route>
+            <Route path="/spinoff" exact>
+              <Spinoff />
+            </Route>
             <Route path="/user/createblog" exact>
               <CreateBlog />
             </Route>
@@ -132,6 +139,9 @@ function App() {
             </Route>
             <Route path="/non-tech" exact>
               <Nontech />
+            </Route>
+            <Route path="/webteam" exact>
+              <WebTeam />
             </Route>
             <Route path="/collaborate" exact>
               <Collaboration />

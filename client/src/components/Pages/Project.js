@@ -32,7 +32,7 @@ function Projects() {
             <div className="pageTitleg titleBoldg">PROJECTS</div>
           </div>
         </div>
-        <div className="main" style={{ overflow: "hidden" }}>
+        <div className="main" style={{ overflow: "hidden", minHeight: '31.7vh' }}>
           <ul className="cards">
             <Loading time={2} />
             {projects
@@ -84,6 +84,9 @@ function Projects() {
                 </li>
               ))}
           </ul>
+          {!projects.length && (
+            <h3 className="text-center mt-5">No projects available...!</h3>
+          )}
           <div className="float-right mr-5 mb-3 mt-5">
             {page > 1 && (
               <Button
