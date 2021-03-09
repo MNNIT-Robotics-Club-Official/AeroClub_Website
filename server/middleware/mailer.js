@@ -1,31 +1,25 @@
-const nodemailer = require("nodemailer");
-const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
-require("dotenv").config();
-const oauth2Client = new OAuth2(
-  process.env.CLIENTID,
-  process.env.CLIENTSECRET, // Client Secret
-  "https://developers.google.com/oauthplayground" // Redirect URL
-);
+require('dotenv').config();
+var nodemailer = require('nodemailer');
 
-oauth2Client.setCredentials({
-  refresh_token: process.env.REFRESHTOKEN
-});
-const accessToken = oauth2Client.getAccessToken()
+const smtpTransport = {
+    host: 'smtp.gmail.com',
+    service: "Gmail",
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.EMAIL_ADDR ,
+        pass: process.env.EMAIL_PASS
+    }
+}
 
-const smtpTransport = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-       type: "OAuth2",
-       user: "aeroclubmern@gmail.com", 
-       clientId: process.env.CLIENTID,
-       clientSecret: process.env.CLIENTSECRET,
-       refreshToken: process.env.REFRESHTOKEN,
-       accessToken: accessToken,
-       tls: {
-        rejectUnauthorized: false
-      }
-  }
-});
+const mailer = nodemailer.createTransport(smtpTransport);
+mailer.verify((error, success) => {
+    if(error) {
+        console.log(error)
+    }
+    else {
+        console.log('Mailer Connected!!')
+    }
+})
 
-module.exports = { smtpTransport };
+module.exports = { mailer };

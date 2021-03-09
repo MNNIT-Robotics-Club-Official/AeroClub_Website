@@ -24,7 +24,10 @@ router.get("/achievement/year", (req, res) => {
   Achievement.aggregate(
     [
       {
-        $group: { _id: "$year", achievements: { $push: "$$ROOT" } },
+        $group: { _id: "$year", achievements: { $push: "$$ROOT" },year: {$first: "$year"} },
+      },
+      { 
+        $sort: { "year": -1 }
       },
     ],
     (e, achievements) => {
