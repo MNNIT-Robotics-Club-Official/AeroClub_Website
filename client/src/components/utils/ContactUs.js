@@ -54,7 +54,7 @@ const ContactUs = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.3684448548224!2d81.86129846157309!3d25.492755875129337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399aca78818ddc51%3A0x6690dd2de3a1415b!2sMotilal%20Nehru%20National%20Institute%20of%20Technology%2C%20Allahabad!5e0!3m2!1sen!2sin!4v1597107680196!5m2!1sen!2sin"
             width="100%"
             height="260"
-            frameborder="0"
+            frameBorder="0"
             allowFullScreen
           ></iframe>
         </div>
@@ -66,7 +66,7 @@ const ContactUs = () => {
             <img
               src={logo}
               alt="mnnit"
-              srcset=""
+              srcSet=""
               style={{ width: "auto", height: "13rem", margin: "18px" }}
             />
             <div className="col-sm-12 col-md-12 col-lg-8">
@@ -83,7 +83,7 @@ const ContactUs = () => {
             data-aos-easing="ease-in-sine"
           >
             <div className="contact-location d-flex justify-content-start">
-              <i class="fa fa-lg fa-map-marker"></i>
+              <i className="fa fa-lg fa-map-marker"></i>
               <div className="after-logo">
                 <h4> Location : </h4>
                 <br />
@@ -102,7 +102,7 @@ const ContactUs = () => {
               data-aos-offset="300"
               data-aos-easing="ease-in-sine"
             >
-              <i class="fa fa-envelope"></i>
+              <i className="fa fa-envelope"></i>
               <div className="after-logo">
                 <h4> Email : </h4>
                 <br />
@@ -116,7 +116,7 @@ const ContactUs = () => {
               data-aos-offset="300"
               data-aos-easing="ease-in-sine"
             >
-              <i class="fa fa-phone"></i>
+              <i className="fa fa-phone"></i>
               <div className="after-logo">
                 <h4> Contact : </h4>
                 <br />
@@ -134,7 +134,7 @@ const ContactUs = () => {
           data-aos-duration="1000"
         >
           <a
-            class="btn btn-danger btn-lg mx-auto"
+            className="btn btn-danger btn-lg mx-auto"
             data-toggle="collapse"
             href="#contactus"
             role="button"
@@ -149,27 +149,27 @@ const ContactUs = () => {
               <form
                 method="POST"
                 role="form"
-                class="contact-form"
+                className="contact-form"
                 onSubmit={handleContactSubmit}
               >
-                <div class="form-row">
-                  <div class="col-md-6 form-group">
+                <div className="form-row">
+                  <div className="col-md-6 form-group">
                     <input
                       type="text"
                       name="name"
-                      class="form-control"
+                      className="form-control"
                       id="name"
                       placeholder="Your Name"
                       data-rule="minlen:4"
                       data-msg="Please enter at least 4 characters"
                       ref={name}
                     />
-                    <div class="validate"></div>
+                    <div className="validate"></div>
                   </div>
-                  <div class="col-md-6 form-group">
+                  <div className="col-md-6 form-group">
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       name="email"
                       id="email"
                       placeholder="Your Email"
@@ -177,13 +177,13 @@ const ContactUs = () => {
                       data-msg="Please enter a valid email"
                       ref={email}
                     />
-                    <div class="validate"></div>
+                    <div className="validate"></div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     name="subject"
                     id="subject"
                     placeholder="Subject"
@@ -191,11 +191,11 @@ const ContactUs = () => {
                     data-msg="Please enter at least 8 characters of subject"
                     ref={subject}
                   />
-                  <div class="validate"></div>
+                  <div className="validate"></div>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <textarea
-                    class="form-control"
+                    className="form-control"
                     name="message"
                     id="message"
                     rows="6"
@@ -204,9 +204,9 @@ const ContactUs = () => {
                     placeholder="Message"
                     ref={body}
                   ></textarea>
-                  <div class="validate"></div>
+                  <div className="validate"></div>
                 </div>
-                <div class="text-center">
+                <div className="text-center">
                   <button type="submit" className="btn btn-danger">
                     Send Message
                   </button>

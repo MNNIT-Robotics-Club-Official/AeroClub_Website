@@ -1,20 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../../css/Dashboard.css";
-import DashComp from "./DashComp";
-import DashProjects from "./DashProjects";
-import DashInvites from "./DashInvites";
-import DashProfile from "./DashProfile";
-import DashBlogs from "./DashBlogs";
-import { UserContext } from "../../UserProvider";
-import CompIssue from "../CompIssue";
+import "../../../css/Dashboard.css";
+import DashComp from "./ComponentRequests/DashComp";
+import DashProjects from "./Projects/DashProjects";
+import DashInvites from "./Invites/DashInvites";
+import DashProfile from "./Profile/DashProfile";
+import DashBlogs from "./Blogs/DashBlogs";
+import ComponentsList from "./ComponentsList";
+import { useDispatch } from "react-redux";
 
 function Dashboard() {
-  const history = useHistory();
-  const { state, dispatch } = useContext(UserContext);
-  const [r, setr] = useState(0);
-
+  const history = useHistory()
+  const dispatch = useDispatch()
   document.title = "Dashboard | Aero Club";
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
@@ -22,7 +20,7 @@ function Dashboard() {
       toast.warn("You must be logged in !");
     }
 
-    fetch(`/api/isSignedIn`, {
+    fetch(`/api/my/details`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -35,26 +33,13 @@ function Dashboard() {
           history.push("/user/login");
           return;
         }
+        dispatch({ type: 'SET', payload: data.user })
       });
 
-    if (!state) {
-      fetch(`/api/my/details`, {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          localStorage.setItem("user", JSON.stringify(data));
-          dispatch({ type: "SET", payload: data });
-        });
-    }
-  }, [r]);
+  }, []);
 
   return (
-    <div className="container">
+    <div className="container" style={{ minHeight: '76vh' }}>
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a
@@ -140,7 +125,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-projects-tab"
         >
-          <DashProjects r={r} setr={setr} />
+          <DashProjects />
         </div>
         <div
           className="tab-pane fade"
@@ -148,7 +133,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-invites-tab"
         >
-          <DashInvites r={r} setr={setr} />
+          <DashInvites />
         </div>
         <div
           className="tab-pane fade"
@@ -156,7 +141,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-components-tab"
         >
-          <DashComp r={r} setr={setr} />
+          <DashComp />
         </div>
         <div
           className="tab-pane fade"
@@ -164,7 +149,7 @@ function Dashboard() {
           role="tabpanel"
           aria-labelledby="nav-inventory-tab"
         >
-          <CompIssue r={r} setr={setr} />
+          <ComponentsList />
         </div>
         <div
           className="tab-pane fade"

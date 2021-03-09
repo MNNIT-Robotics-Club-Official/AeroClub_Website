@@ -13,6 +13,7 @@ import f9 from "../../images/alumni/Aman Sharma(1).jpg";
 import f10 from "../../images/alumni/sarita chaudhary1.jpeg";
 import f11 from "../../images/alumni/unnamed.jpg";
 import f12 from "../../images/alumni/Kishan Tiwari.jfif";
+import f13 from "../../images/alumni/Aniket Kumar.jpg";
 
 export default function Alumni() {
   document.title = "Alumni | Aero Club";
@@ -139,10 +140,9 @@ export default function Alumni() {
       yearOfGraduation: 2019,
       presentOrganisation: "Assistant Manager, Maruti Suzuki",
       presentLocation: "Gurgaon",
-      yourLinkedinId: "https://www.linkedin.com/in/kishan-tiwari-poseidon/",
-      yourContactInformationEmail: "kishan@tsaw.tech",
+      yourLinkedinId: "https://www.linkedin.com/in/aniket-tiwari/",
       yourContactInformationPhoneNumber: 7905461842,
-      aPhotoForWebsiteOfYourself: "",
+      aPhotoForWebsiteOfYourself: f13,
     },
   ];
 

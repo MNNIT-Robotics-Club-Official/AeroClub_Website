@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
 import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
-import { UserContext } from "../../UserProvider";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Dashprojects(props) {
   const [modalShow, setModalShow] = React.useState(false);
-  const { state } = useContext(UserContext);
+  const user = useSelector(state => state.user);
   const history = useHistory();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Dashprojects(props) {
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
         <Accordion>
-          {state?.projects?.map((project) => {
+          {user?.projects?.map((project) => {
             let badge;
             if (project.status === "Ongoing")
               badge = (
@@ -60,7 +60,7 @@ export default function Dashprojects(props) {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {state.id == project.leader ? (
+                        {user._id === project.leader ? (
                           <Button
                             onClick={() => {
                               setModalShow(true);
@@ -84,9 +84,6 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === state.id) {
-                                badge = <span></span>;
-                              } else
                                 badge = (
                                   <span class="badge badge-pill badge-warning">
                                     Invited
@@ -109,8 +106,6 @@ export default function Dashprojects(props) {
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                   projectId={project._id}
-                  r={props.r}
-                  setr={props.setr}
                 />
               </Card>
             );
@@ -123,7 +118,7 @@ export default function Dashprojects(props) {
             </Card.Header>
             <Accordion.Collapse eventKey="newProj">
               <Card.Body>
-                <ProjForm setr={props.setr} r={props.r} />
+                <ProjForm />
               </Card.Body>
             </Accordion.Collapse>
           </Card>
@@ -134,6 +129,7 @@ export default function Dashprojects(props) {
 }
 
 function MyVerticallyCenteredModal(props) {
+  const dispatch = useDispatch();
   const [email, setemail] = useState("");
   const projectId = props.projectId;
   return (
@@ -166,7 +162,10 @@ function MyVerticallyCenteredModal(props) {
               props.onHide();
               if (res.status == 200) {
                 toast.success("USER INVITED");
-                props.setr(props.r + 1);
+                res.json().then((data) => {
+                  console.log(data.updatedProject);
+                  dispatch({type: "INVITE_USER", payload: data.updatedProject})
+                });
               } else {
                 res.json().then((data) => {
                   toast.error(data.error);

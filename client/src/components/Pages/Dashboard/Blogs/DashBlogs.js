@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Accordion,
   Badge,
@@ -7,12 +7,12 @@ import {
   Container,
   Jumbotron,
 } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { UserContext } from "../../UserProvider";
 
 export default function DashBlogs() {
-  const { state } = useContext(UserContext);
+  const user = useSelector(state => state.user);
   const history = useHistory();
   const year = {
     1: "1st year",
@@ -47,7 +47,7 @@ export default function DashBlogs() {
   return (
     <div className="container">
       <Accordion>
-        {state?.blogs?.map((blog) => (
+        {user?.blogs?.map((blog) => (
           <Card className="rounded" key={blog._id}>
             <Card.Header style={{ cursor: "pointer" }}>
               <Accordion.Toggle
@@ -72,7 +72,7 @@ export default function DashBlogs() {
                       history.push(`/blogs/${blog._id}`);
                     }}
                   >
-                    Click to See
+                    Go to blog
                   </Button>
                 ) : (
                   <>
@@ -83,7 +83,7 @@ export default function DashBlogs() {
                       aria-expanded="false"
                       aria-controls="preview"
                     >
-                      Click to preview
+                      Click to View
                     </Button>
                     <br />
                     <br />
@@ -100,23 +100,21 @@ export default function DashBlogs() {
                             <p className="meta">
                               <em style={{ fontSize: "0.8rem" }}>
                                 Posted by{" "}
-                                {state.linkedin_url !==
-                                "https://www.linkedin.com/in/username/" ? (
-                                  <a href={state.linkedin_url} target="_blank">
-                                    {state.name}
+                                {user.linkedin_url !==
+                                  "https://www.linkedin.com/in/username/" ? (
+                                  <a href={user.linkedin_url} target="_blank">
+                                    {user.name}
                                   </a>
                                 ) : (
-                                  state.name
+                                  user.name
                                 )}{" "}
-                                {`(reg. no :- ${
-                                  state.registration_no == "xxxxxxxx"
-                                    ? "NA"
-                                    : state.registration_no
-                                }, ${
-                                  state.year == -1
+                                {`(reg. no :- ${user.registration_no == "xxxxxxxx"
+                                  ? "NA"
+                                  : user.registration_no
+                                  }, ${user.year == -1
                                     ? "year - NA"
-                                    : year[state.year]
-                                })`}{" "}
+                                    : year[user.year]
+                                  })`}{" "}
                                 on {new Date(Date.now()).toLocaleDateString()}
                               </em>
                             </p>

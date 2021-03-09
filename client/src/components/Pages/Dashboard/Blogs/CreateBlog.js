@@ -4,16 +4,16 @@ import { toast } from "react-toastify";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize";
 import "react-quill/dist/quill.snow.css";
-import "../../css/CreateBlog.css";
-import "../../css/SingleBlog.css";
+import "../../../../css/CreateBlog.css";
+import "../../../../css/SingleBlog.css";
 import { Button, Container, Jumbotron, Tab, Tabs } from "react-bootstrap";
-import { UserContext } from "../../UserProvider";
+import { useSelector, useDispatch } from "react-redux";
 Quill.register("modules/imageResize", ImageResize);
 
 export default function CreateBlog() {
   document.title = "CreateBlog | Aero Club";
-  const { state, dispatch } = useContext(UserContext);
-
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch()
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -22,13 +22,14 @@ export default function CreateBlog() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    console.log(user._id)
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
       return;
     }
-    setPostedBy(`${state?.name} (${state?.email})`);
-  }, [state]);
+    setPostedBy(`${user?.name} (${user?.email})`);
+  }, [user]);
 
   const handleCreateBlog = () => {
     setLoading(true);
@@ -47,18 +48,14 @@ export default function CreateBlog() {
         title,
         body,
         pic,
-        postedBy: state.id,
+        postedBy: user._id,
         publishedAt: Date.now(),
       }),
     })
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ ...state, blogs: [...state.blogs, data] })
-        );
-        dispatch({ type: "UPDATE_BLOG", payload: data });
+        dispatch({ type: "UPDATE_BLOG", payload: { ...data, _id: data.id } });
         toast.success(
           "Blog has been sent for confirmation...Till then stay tuned !"
         );

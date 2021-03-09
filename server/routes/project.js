@@ -63,7 +63,7 @@ router.post("/projects", isSignedIn, (req, res) => {
       });
     }
     User.findById(req.user.id)
-      .then((user) => {
+      .exec((err ,user) => {
         user.projects.push(project._id);
         user.save((err, user) => {
           if (err) {
@@ -73,28 +73,10 @@ router.post("/projects", isSignedIn, (req, res) => {
           }
         });
       })
-    const {
-      id,
-      title,
-      teamname,
-      description,
-      objective,
-      pic,
-      status,
-      member,
-      issuedon,
-    } = project.transform();
-    res.json({
-      id: id.toString(),
-      title,
-      teamname,
-      description,
-      objective,
-      pic,
-      status,
-      member,
-      issuedon,
-    });
+      project.populate({ path: "members.user", select: "name" }).execPopulate((err, populatedProject) => {
+        res.json(populatedProject);
+      })
+      
   });
 });
 
@@ -135,7 +117,6 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
       });
     }
     userId = user._id;
-    // console.log(user);
     Project.findById(projectId).exec((err, project) => {
       if (err || !project) {
         return res.status(400).json({
@@ -144,6 +125,7 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
       }
       let isMember = false;
       for (mem of project.members) {
+        console.log(JSON.stringify(mem.user) + "===" + JSON.stringify(userId));
         if (JSON.stringify(mem.user) === JSON.stringify(userId)) {
           isMember = true;
           break;
@@ -163,9 +145,14 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
             error: "Cannot add project to member.",
           });
         }
-        res.json({
-          msg: "Member added successfully",
-        });
+        updatedProject.populate({
+           path: "members.user", select: "name" 
+        }).execPopulate((err, populatedProject) => {
+          res.json({
+            msg: "Member added successfully",
+            updatedProject: populatedProject
+          });
+        })
       });
     });
   });

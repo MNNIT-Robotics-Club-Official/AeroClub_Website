@@ -18,7 +18,7 @@ router.get("/users/:id", getSingleUser);
 router.delete("/users/:id", isSignedIn, isAdmin, deleteUser);
 router.post("/my/updateProfile", isSignedIn, updateMyProfile);
 router.get("/my/issue", isSignedIn, getMyRequests);
-router.get("/my/details", isSignedIn, getMyDetails);
+router.post("/my/details", isSignedIn, getMyDetails);
 router.get("/my/invites/accept/:projectId", isSignedIn, acceptInvite);
 router.get("/my/invites", isSignedIn, getMyInvites);
 router.post("/my/deleteNotification", isSignedIn, deleteNotification);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Admin, Resource } from "react-admin";
 import authProvider from "./authProvider";
 import { BlogCreate, BlogEdit, BlogList, BlogShow } from "./Blog";
@@ -16,8 +16,6 @@ import {
   AchievementEdit,
   AchievementShow,
 } from "./Achievement";
-import simpleRestProvider from "ra-data-simple-rest";
-import { fetchUtils } from "react-admin";
 import { NewsCreate, NewsEdit, NewsList, NewsShow } from "./News";
 import {
   WorkshopCreate,
@@ -26,34 +24,27 @@ import {
   WorkshopShow,
 } from "./Workshop";
 import { UserList, UserShow, UserEdit } from "./Users";
-import { UserContext } from "../../UserProvider";
+import { useSelector } from "react-redux";
+import { dataProvider } from "./dataProvider";
+import { history } from "../../ConfigureStore";
 
 function AdminComp() {
   document.title = "Admin Panel | Aero Club";
 
-  const { state } = useContext(UserContext);
-
-  const httpClient = (url, options = {}) => {
-    if (!options.headers) {
-      options.headers = new Headers({ Accept: "application/json" });
-    }
-    options.headers.set("Access-Control-Expose-Headers", "Content-Range");
-    const token = localStorage.getItem("jwtToken");
-    options.headers.set("Authorization", `Bearer ${token}`);
-    return fetchUtils.fetchJson(url, options);
-  };
+  const user = useSelector(state => state.user)
 
   return (
     <>
       <Admin
         authProvider={authProvider}
-        dataProvider={simpleRestProvider("/api", httpClient)}
+        dataProvider={dataProvider}
+        history={history}
       >
         <Resource
           name="users"
           list={UserList}
           show={UserShow}
-          edit={state?.role === "Super-admin" ? UserEdit : null}
+          edit={user?.role === "Super-admin" ? UserEdit : null}
         />
         <Resource
           name="projects"

@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
-import { UserContext } from "../../UserProvider";
+import { useSelector } from 'react-redux'
 
 export default function Dashprojects(props) {
   const [numInvites, setnumInvites] = useState(0);
   const [projects, setProjects] = useState([]);
-  const { state } = useContext(UserContext);
+  const user = useSelector(state => state.user)
 
   useEffect(() => {
     fetch(`/api/my/invites`, {
@@ -67,7 +67,7 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === state?.id) {
+                              if (member.user._id === user?.id) {
                                 badge = (
                                   <LoadingButton
                                     projectId={project._id}
@@ -124,7 +124,6 @@ function LoadingButton(props) {
       }).then((res) => {
         setLoading(false);
         setDone(true);
-        props.setr(props.r + 1);
       });
     }
   }, [isLoading]);

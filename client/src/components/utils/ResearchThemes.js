@@ -23,11 +23,11 @@ const ResearchThemes = () => {
             data-aos-duration="2000"
           >
             <div
-              class="card text-center"
+              className="card text-center"
               style={{ marginBottom: "1.5rem", width: "auto" }}
             >
               <div
-                class="card-header"
+                className="card-header"
                 style={{
                   fontSize: "1.5rem",
                   background: "rgb(56, 55, 55)",
@@ -37,13 +37,13 @@ const ResearchThemes = () => {
               >
                 Our Domains
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 {/* <h5 class="card-title">Special title treatment</h5> */}
-                <p class="card-text">
+                <p className="card-text">
                   <p>Fixed Wing Aircraft </p>
                   <p>Multirotors</p>
                   <p>Space Vehicles </p>
-                  <a href="#" class="btn btn-dark">
+                  <a href="#" className="btn btn-dark">
                     Astronomy
                   </a>
                 </p>
@@ -58,11 +58,11 @@ const ResearchThemes = () => {
           <div className="row justify-content-center">
             <div className="col-sm-10" data-aos="fade-up">
               <div
-                class="card text-center"
+                className="card text-center"
                 style={{ marginBottom: "0.5rem", width: "auto" }}
               >
                 <div
-                  class="card-header"
+                  className="card-header"
                   style={{
                     fontSize: "1.5rem",
                     background: "rgb(56, 55, 55)",

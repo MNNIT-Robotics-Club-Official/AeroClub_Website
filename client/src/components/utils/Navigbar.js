@@ -1,10 +1,10 @@
 import { Button, Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/navbar.css";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { UserContext } from "../../UserProvider";
 import im1 from "../..//images/utils/logo-aero2.png";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const history = useHistory();
@@ -12,7 +12,7 @@ const Login = () => {
     localStorage.getItem("jwtToken") ? true : false
   );
   const [show, setShow] = useState(false);
-  const { dispatch } = useContext(UserContext);
+  const dispatch = useDispatch()
 
   const handleLogout = () => {
     fetch(`/api/signout`, {
@@ -112,12 +112,11 @@ export default function Navigbar() {
       >
         <Navbar.Brand href="/" className="title-nav">
           <img className="logoimg" src={im1} />
-          {/* AERO CLUB MNNIT */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link eventKey="blogs" hresName="nav-items" href="/blogs">
+            <Nav.Link eventKey="blogs" hresname="nav-items" href="/blogs">
               Blogs
             </Nav.Link>
             <Nav.Link
@@ -163,10 +162,6 @@ export default function Navigbar() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="/prosang">Prosang</NavDropdown.Item>
             </NavDropdown>
-            {/* <Nav.Link eventKey='blogs' href='/events' className='nav-items'>Events</Nav.Link> */}
-            <Nav.Link eventKey="blogs" href="/workshop" className="nav-items">
-              Jigyasa
-            </Nav.Link>
             <NavDropdown
               title="More"
               id="basic-nav-dropdown"
@@ -188,10 +183,10 @@ export default function Navigbar() {
                 News Section
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="https://tsaw.tech/" eventKey="startups">
-                Our StartUps
-              </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link eventKey="blogs" href="/workshop" className="nav-items">
+              Jigyasa
+            </Nav.Link>
             <Nav.Link
               eventKey="sponsors"
               href="/achievements"
@@ -201,6 +196,9 @@ export default function Navigbar() {
             </Nav.Link>
             <Nav.Link eventKey="sponsors" href="/sponsor" className="nav-items">
               Sponsors
+            </Nav.Link>
+            <Nav.Link eventKey="sponsors" href="/spinoff" className="nav-items">
+              Spinoff
             </Nav.Link>
           </Nav>
           <Login />
