@@ -40,6 +40,7 @@ import ResearchThemes from "./components/utils/ResearchThemes.js";
 import Sponsors from "./components/Pages/Sponsor";
 import Achievements from "./components/Pages/Achievements.js";
 import Collaboration from "./components/Pages/Collaboration.js";
+import Spinoff from "./components/Pages/Spinoff.js";
 
 function App() {
   document.title = "Aero Club";
@@ -113,6 +114,9 @@ function App() {
             </Route>
             <Route path="/gallery" exact>
               <Gallery />
+            </Route>
+            <Route path="/spinoff" exact>
+              <Spinoff />
             </Route>
             <Route path="/user/createblog" exact>
               <CreateBlog />

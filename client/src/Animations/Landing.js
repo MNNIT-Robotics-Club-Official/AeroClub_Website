@@ -17,7 +17,7 @@ class Landing extends React.Component {
                 <h2 className="text-center">MNNIT Allahabad</h2>
               </div>
               <div className="landing-logo">
-                <img src={m} alt="aero" srcset="" />
+                <img src={m} alt="aero" srcSet="" />
               </div>
             </div>
           </div>

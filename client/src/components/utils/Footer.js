@@ -34,17 +34,17 @@ export default function Footer() {
                   <ul className="footer-links">
                     <li>
                       <a href="https://mnnit.ac.in">
-                        <i class="fa fa-caret-right"></i> MNNIT
+                        <i className="fa fa-caret-right"></i> MNNIT
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <i class="fa fa-caret-right"></i> Home
+                        <i className="fa fa-caret-right"></i> Home
                       </a>
                     </li>
                     <li>
                       <a href="https://mnnit.ac.in">
-                        <i class="fa fa-caret-right"></i> Home
+                        <i className="fa fa-caret-right"></i> Home
                       </a>
                     </li>
                     <li>
