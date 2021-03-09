@@ -148,6 +148,10 @@ export default function Navigbar() {
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/alumni">Our Alumni</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/webteam">
+                Web Team
+              </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
               title="Events"

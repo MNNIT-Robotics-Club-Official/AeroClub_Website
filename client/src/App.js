@@ -41,6 +41,7 @@ import Sponsors from "./components/Pages/Sponsor";
 import Achievements from "./components/Pages/Achievements.js";
 import Collaboration from "./components/Pages/Collaboration.js";
 import Spinoff from "./components/Pages/Spinoff.js";
+import WebTeam from "./components/Pages/WebTeam.js";
 
 function App() {
   document.title = "Aero Club";
@@ -138,6 +139,9 @@ function App() {
             </Route>
             <Route path="/non-tech" exact>
               <Nontech />
+            </Route>
+            <Route path="/webteam" exact>
+              <WebTeam />
             </Route>
             <Route path="/collaborate" exact>
               <Collaboration />
