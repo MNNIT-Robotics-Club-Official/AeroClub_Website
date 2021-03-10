@@ -32,57 +32,64 @@ function Projects() {
             <div className="pageTitleg titleBoldg">PROJECTS</div>
           </div>
         </div>
-        <div className="main" style={{ overflow: "hidden", minHeight: '31.7vh' }}>
+        <div
+          className="main"
+          style={{ overflow: "hidden", minHeight: "31.7vh" }}
+        >
           <ul className="cards">
             <Loading time={2} />
             {projects
               .slice((page - 1) * projects_per_page, page * projects_per_page)
-              .map((project) => (
-                <li
-                  className="cards_item"
-                  data-aos="fade-down"
-                  data-aos-easing="linear"
-                  data-aos-duration="1500"
-                >
-                  <div className="card cardproj">
-                    <div className="card_image">
-                      <img src={project.pic} />
-                    </div>
-                    <div className="card_content">
-                      <h2 className="card_title" style={{ fontSize: 23 }}>
-                        {project.title}
-                      </h2>
-                      <p
-                        className="card_text"
-                        style={{ marginTop: 0, marginBottom: 0 }}
-                      >
-                        By {project.teamname}
-                      </p>
-                      <p
-                        className="card_text"
-                        style={{ marginTop: 0, marginBottom: 0 }}
-                      >
-                        Project Status : {project.status}
-                      </p>
-                      <p
-                        className="card_text"
-                        style={{ marginTop: 0, marginBottom: 0 }}
-                      >
-                        Issued on {new Date(project.issuedon).toDateString()}
-                      </p>
+              .map((project) =>
+                project.open ? (
+                  <li
+                    className="cards_item"
+                    data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500"
+                  >
+                    <div className="card cardproj">
+                      <div className="card_image">
+                        <img src={project.pic} />
+                      </div>
+                      <div className="card_content">
+                        <h2 className="card_title" style={{ fontSize: 23 }}>
+                          {project.title}
+                        </h2>
+                        <p
+                          className="card_text"
+                          style={{ marginTop: 0, marginBottom: 0 }}
+                        >
+                          By {project.teamname}
+                        </p>
+                        <p
+                          className="card_text"
+                          style={{ marginTop: 0, marginBottom: 0 }}
+                        >
+                          Project Status : {project.status}
+                        </p>
+                        <p
+                          className="card_text"
+                          style={{ marginTop: 0, marginBottom: 0 }}
+                        >
+                          Issued on {new Date(project.issuedon).toDateString()}
+                        </p>
 
-                      <Button
-                        className="btns card_btns"
-                        variant="danger"
-                        href={`projects/${project._id}`}
-                        style={{ marginTop: 10 }}
-                      >
-                        Read More
-                      </Button>
+                        <Button
+                          className="btns card_btns"
+                          variant="danger"
+                          href={`projects/${project._id}`}
+                          style={{ marginTop: 10 }}
+                        >
+                          Read More
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
+                  </li>
+                ) : (
+                  <div></div>
+                )
+              )}
           </ul>
           {!projects.length && (
             <h3 className="text-center mt-5">No projects available...!</h3>

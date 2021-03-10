@@ -79,7 +79,7 @@ export const UserEdit = (props) => {
     <Edit title="User Edit" {...props}>
       {
         user.role === 'Super-Admin' &&
-        <SimpleForm redirect="/issue" {...props}>
+        <SimpleForm redirect="/users" {...props}>
           <TextInput label="Id" source="id" disabled />
           <TextInput label="Name" source="name" />
           <TextInput label="Email" source="email" />

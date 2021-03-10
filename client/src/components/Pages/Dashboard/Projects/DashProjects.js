@@ -73,7 +73,7 @@ export default function Dashprojects(props) {
                         )}
 
                         <ul>
-                          {project.members.map((member) => {
+                          {project?.members?.map((member) => {
                             let badge;
                             if (member.accepted && member.leader) {
                               badge = <span>👑</span>;

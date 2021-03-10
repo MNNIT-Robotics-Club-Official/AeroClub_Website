@@ -2,7 +2,7 @@ const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
 const notification = require("../models/notifications");
-var mongoose = require('mongoose');
+const { findById } = require("../models/user");
 
 exports.getAllUsers = (req, res) => {
   res.setHeader("Content-Range", "users 0-10/20");
@@ -226,7 +226,21 @@ exports.updateMyProfile = (req, res) => {
     .catch((e) => console.log(e));
 };
 exports.getMyDetails = (req, res) => {
-  res.json({ user: req.user });
+  user
+    .findById(req.user.id)
+    .populate("blogs")
+    .populate("notifications")
+    .populate({
+      path: "projects",
+      populate: { path: "members.user", select: "name" },
+    })
+    .populate({
+      path: "issues",
+      populate: { path: "component" },
+    })
+    .exec((err, user) => {
+      res.json({ user: user.transform() });
+    });
 };
 
 exports.acceptInvite = (req, res) => {
@@ -259,17 +273,23 @@ exports.acceptInvite = (req, res) => {
           error: "Cannot accept invite, try again",
         });
       }
-      req.user.projects.push(projectId);
-      req.user.save((err, updatedUser) => {
-        if (err) {
-          console.log(err);
-          return res.status(400).json({
-            error: "Cannot accept invite, try again",
-          });
-        }
-      });
-      res.json({
-        msg: "Invite accepted",
+      user.findById(req.user.id).exec((err, user) => {
+        user.projects.push(projectId);
+        user.projects.push(projectId);
+        user.save((err, updatedUser) => {
+          if (err) {
+            console.log(err);
+            return res.status(400).json({
+              error: "Cannot accept invite, try again",
+            });
+          }
+          updatedProject.populate({ path: "members.user", select: "name" })
+            .execPopulate((err, populatedProject) => {
+              res.json({
+                project: populatedProject
+              });
+            })
+        });
       });
     });
   });
