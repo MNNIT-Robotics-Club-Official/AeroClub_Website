@@ -2,7 +2,7 @@ import React from "react";
 import { Admin, Resource } from "react-admin";
 import authProvider from "./authProvider";
 import { BlogCreate, BlogEdit, BlogList, BlogShow } from "./Blog";
-import { ComponentCreate, ComponentEdit, ComponentList } from "./Component";
+import { ComponentCreate, ComponentEdit, ComponentList, ComponentShow } from "./Component";
 import { IssueEdit, IssueList } from "./Issues";
 import {
   ProjectCreate,
@@ -29,7 +29,7 @@ import { dataProvider } from "./dataProvider";
 import { history } from "../../ConfigureStore";
 
 function AdminComp() {
-  document.title = "Admin Panel | Aero Club";
+  document.title = `Admin Panel | ${process.env.REACT_APP_BASE_TITLE}`;
 
   const user = useSelector(state => state.user)
 
@@ -44,7 +44,8 @@ function AdminComp() {
           name="users"
           list={UserList}
           show={UserShow}
-          edit={user?.role === "Super-admin" ? UserEdit : null}
+          edit={UserEdit}
+          show={UserShow}
         />
         <Resource
           name="projects"
@@ -73,6 +74,7 @@ function AdminComp() {
           list={ComponentList}
           create={ComponentCreate}
           edit={ComponentEdit}
+          show={ComponentShow}
         />
         <Resource
           name="news"

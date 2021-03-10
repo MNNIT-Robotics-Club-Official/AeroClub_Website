@@ -16,8 +16,13 @@ import {
   TextField,
   TextInput,
 } from "react-admin";
+import { useSelector } from "react-redux";
+
 
 export const UserList = (props) => {
+
+  const user = useSelector(state => state.user)
+
   return (
     <List {...props}>
       <Datagrid>
@@ -27,8 +32,14 @@ export const UserList = (props) => {
         <TextField source="role" />
         <BooleanField source="confirmed" />
         <ShowButton basePath="/users" />
-        <EditButton basePath="/users" />
-        <DeleteButton basePath="/users" />
+        {
+          user.role === 'Super-Admin' &&
+          <EditButton basePath="/users" />
+        }
+        {
+          user.role === 'Super-Admin' &&
+          <DeleteButton basePath="/users" />
+        }
       </Datagrid>
     </List>
   );
@@ -62,21 +73,26 @@ export const UserShow = (props) => {
 };
 
 export const UserEdit = (props) => {
+  const user = useSelector(state => state.user)
+
   return (
     <Edit title="User Edit" {...props}>
-      <SimpleForm redirect="/issue">
-        <TextInput label="Id" source="id" />
-        <TextInput label="Name" source="name" />
-        <TextInput label="Email" source="email" />
-        <SelectInput
-          source="role"
-          choices={[
-            { id: "Super-admin", name: "Super Admin" },
-            { id: "Admin", name: "Admin" },
-            { id: "User", name: "User" },
-          ]}
-        />
-      </SimpleForm>
+      {
+        user.role === 'Super-Admin' &&
+        <SimpleForm redirect="/issue" {...props}>
+          <TextInput label="Id" source="id" disabled />
+          <TextInput label="Name" source="name" />
+          <TextInput label="Email" source="email" />
+          <SelectInput
+            source="role"
+            choices={[
+              { id: "Super-Admin", name: "Super Admin" },
+              { id: "Admin", name: "Admin" },
+              { id: "User", name: "User" },
+            ]}
+          />
+        </SimpleForm>
+      }
     </Edit>
   );
 };

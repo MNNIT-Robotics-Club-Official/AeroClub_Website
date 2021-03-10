@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "../../css/Login.css";
 
 function ForgetPassword() {
-  document.title = `Forget Password | Aero Club`;
+  useEffect(() => {
+    document.title = `Forget Password | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   const email = useRef();
   const history = useHistory();
@@ -13,7 +15,7 @@ function ForgetPassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`/api/forget-password`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/forget-password`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

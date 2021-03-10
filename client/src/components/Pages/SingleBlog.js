@@ -9,7 +9,6 @@ function SingleBlog() {
   const [blog, setBlog] = useState(undefined);
   const history = useHistory();
 
-  document.title = `Aero Club | Blog | ${blogId}`;
 
   const year = {
     1: "1st year",
@@ -19,7 +18,8 @@ function SingleBlog() {
   };
 
   useEffect(() => {
-    fetch(`/api/blogstoUI/${blogId}`, {
+    document.title = `Blog-${blogId} | ${process.env.REACT_APP_BASE_TITLE}`;
+    fetch(`${process.env.REACT_APP_SERVER}/api/blogstoUI/${blogId}`, {
       method: "get",
     })
       .then((res) => res.json())
@@ -46,22 +46,20 @@ function SingleBlog() {
               <em style={{ fontSize: "0.8rem" }}>
                 Posted by{" "}
                 {blog?.postedBy.linkedin_url !==
-                "https://www.linkedin.com/in/username/" ? (
+                  "https://www.linkedin.com/in/username/" ? (
                   <a href={blog?.postedBy.linkedin_url} target="_blank">
                     {blog?.postedBy.name}
                   </a>
                 ) : (
                   blog?.postedBy.name
                 )}{" "}
-                {`(reg. no :- ${
-                  blog?.postedBy.registration_no == "xxxxxxxx"
-                    ? "NA"
-                    : blog?.postedBy.registration_no
-                }, ${
-                  blog?.postedBy.year == -1
+                {`(reg. no :- ${blog?.postedBy.registration_no == "xxxxxxxx"
+                  ? "NA"
+                  : blog?.postedBy.registration_no
+                  }, ${blog?.postedBy.year == -1
                     ? "year - NA"
                     : year[blog?.postedBy.year]
-                })`}{" "}
+                  })`}{" "}
                 on {new Date(blog?.publishedAt).toLocaleDateString()}
               </em>
             </p>

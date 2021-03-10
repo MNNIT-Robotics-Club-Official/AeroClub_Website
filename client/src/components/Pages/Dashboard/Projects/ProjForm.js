@@ -15,7 +15,7 @@ export default function ProjForm(props) {
       onSubmit={(e) => {
         e.preventDefault();
         setLoading(true);
-        fetch(`/api/projects`, {
+        fetch(`${process.env.REACT_APP_SERVER}/api/projects`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export default function ProjForm(props) {
               objective: "",
             });
             res.json().then(data => {
-              dispatch({type: "CREATE_PROJECT", payload: data})
+              dispatch({ type: "CREATE_PROJECT", payload: data })
               setLoading(false);
             })
           })

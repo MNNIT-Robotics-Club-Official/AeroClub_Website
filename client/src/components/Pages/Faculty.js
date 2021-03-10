@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import f1 from "../../images/gallery/faculty1.jpeg";
@@ -6,8 +6,9 @@ import f2 from "../../images/gallery/faculty2.jpeg";
 import f3 from "../../images/gallery/faculty3.jpeg";
 
 export default function Faculty() {
-  document.title = "Faculty | Aero Club";
-
+  useEffect(() => {
+    document.title = `Faculty | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
   return (
     <>
       <Loading time={2} />

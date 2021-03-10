@@ -5,10 +5,10 @@ import "../../css/SingleBlog.css";
 
 function Blogs() {
   const [blogs, SetBlogs] = useState([]);
-  document.title = "Blogs | Aero Club";
 
   useEffect(() => {
-    fetch(`/api/blogs/toUI`, {
+    document.title = `Blogs | ${process.env.REACT_APP_BASE_TITLE}`;
+    fetch(`${process.env.REACT_APP_SERVER}/api/blogs/toUI`, {
       method: "get",
     })
       .then((res) => res.json())

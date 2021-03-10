@@ -11,4 +11,4 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 };
 
-export const dataProvider = simpleRestProvider("/api", httpClient)
+export const dataProvider = simpleRestProvider(`${process.env.REACT_APP_SERVER}/api`, httpClient)

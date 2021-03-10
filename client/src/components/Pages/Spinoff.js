@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Loading from '../../Animations/Loading'
 import '../../css/Spinoff.css'
 
 export default function Spinoff() {
+    useEffect(() => {
+        document.title = `Spinoff | ${process.env.REACT_APP_BASE_TITLE}`
+    }, [])
+
     return (
         <>
             <Loading time={2} />

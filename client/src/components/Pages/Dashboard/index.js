@@ -13,14 +13,14 @@ import { useDispatch } from "react-redux";
 function Dashboard() {
   const history = useHistory()
   const dispatch = useDispatch()
-  document.title = "Dashboard | Aero Club";
+  document.title = `Dashboard | ${process.env.REACT_APP_BASE_TITLE}`;
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/user/login");
       toast.warn("You must be logged in !");
     }
 
-    fetch(`/api/my/details`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/my/details`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -35,7 +35,6 @@ function Dashboard() {
         }
         dispatch({ type: 'SET', payload: data.user })
       });
-
   }, []);
 
   return (

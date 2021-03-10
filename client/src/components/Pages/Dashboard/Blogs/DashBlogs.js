@@ -28,7 +28,7 @@ export default function DashBlogs() {
       return;
     }
 
-    fetch(`/api/isSignedIn`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -147,6 +147,9 @@ export default function DashBlogs() {
             </Accordion.Collapse>
           </Card>
         ))}
+        {
+          user?.blogs.length === 0 && <h3 className="text-center mt-5">No blogs created...!</h3>
+        }
       </Accordion>
       <div className="d-flex justify-content-center align-items-center mt-5">
         <Button size="lg" href="/user/createblog" variant="danger">

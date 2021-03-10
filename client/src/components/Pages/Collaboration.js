@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 
 export default function Collaboration() {
-  document.title = "Collaborate | Aero Club";
+  useEffect(() => {
+    document.title = `Collaborate | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   return (
     <>

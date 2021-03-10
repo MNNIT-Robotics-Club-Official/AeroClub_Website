@@ -4,9 +4,9 @@ import "../../css/Alumni.css";
 
 export default function Achievements() {
   const [data, setData] = useState([]);
-  document.title = "Achievements | Aero Club";
+  document.title = `Achievements | ${process.env.REACT_APP_BASE_TITLE}`;
   useEffect(() => {
-    fetch(`/api/achievement/year`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/achievement/year`, {
       method: "get",
     })
       .then((res) => res.json())
@@ -31,9 +31,8 @@ export default function Achievements() {
               <div className="panel-heading">
                 <h4 className="panel-title">
                   <a
-                    className={`accordion-toggle ${
-                      i !== 0 ? "collapsed" : null
-                    }`}
+                    className={`accordion-toggle ${i !== 0 ? "collapsed" : null
+                      }`}
                     data-toggle="collapse"
                     data-parent="#accordion"
                     href={`#collapse${datum._id}`}

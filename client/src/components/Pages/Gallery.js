@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Loading from "../../Animations/Loading";
 import "../../css/Gallery.css";
 
 export default function Gallery() {
-  document.title = "Gallery | Aero Club";
+  useEffect(() => {
+    document.title = `Gallery | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   const [page, SetPage] = useState(1);
   const imgs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];

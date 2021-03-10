@@ -4,7 +4,6 @@ const { Project, Member } = require("../models/project");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 const { json } = require("express");
 const User = require("../models/user");
-const { findById, findByIdAndUpdate } = require("../models/user");
 
 // fetching all projects
 router.get("/projects", (req, res) => {
@@ -21,7 +20,7 @@ router.get("/projects", (req, res) => {
 });
 
 router.get("/projects/approved", (req, res) => {
-  Project.find({approved: true })
+  Project.find({ approved: true })
     .populate({ path: 'members.user', select: 'name' })
     .exec((err, projects) => {
       if (err) {
@@ -40,7 +39,7 @@ router.get("/projects/:id", (req, res) => {
   }
 
   Project.findOne({ _id: req.params.id })
-  .populate({ path: 'members.user'})
+    .populate({ path: 'members.user' })
     .then((project) => {
       res.json(project.transform());
     })
@@ -49,13 +48,12 @@ router.get("/projects/:id", (req, res) => {
 
 // creating a project
 router.post("/projects", isSignedIn, (req, res) => {
-  req.body.leader=req.user.id;
+  req.body.leader = req.user.id;
   const project = new Project(req.body);
-  // console.log(req.body)
   project.members.push(
     new Member({ user: req.user.id, accepted: true, leader: true })
   );
-  
+
   project.save((err, project) => {
     if (err) {
       return res.status(400).json({
@@ -63,7 +61,7 @@ router.post("/projects", isSignedIn, (req, res) => {
       });
     }
     User.findById(req.user.id)
-      .exec((err ,user) => {
+      .exec((err, user) => {
         user.projects.push(project._id);
         user.save((err, user) => {
           if (err) {
@@ -73,10 +71,10 @@ router.post("/projects", isSignedIn, (req, res) => {
           }
         });
       })
-      project.populate({ path: "members.user", select: "name" }).execPopulate((err, populatedProject) => {
-        res.json(populatedProject);
-      })
-      
+    project.populate({ path: "members.user", select: "name" }).execPopulate((err, populatedProject) => {
+      res.json(populatedProject);
+    })
+
   });
 });
 
@@ -110,7 +108,7 @@ module.exports = router;
 router.post("/projects/invite", isSignedIn, (req, res) => {
   const { email, projectId } = req.body;
   let userId;
-  User.findOne({email: email}).exec((err, user) => {
+  User.findOne({ email: email }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
         error: "No such user found.",
@@ -146,7 +144,7 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
           });
         }
         updatedProject.populate({
-           path: "members.user", select: "name" 
+          path: "members.user", select: "name"
         }).execPopulate((err, populatedProject) => {
           res.json({
             msg: "Member added successfully",

@@ -23,8 +23,19 @@ exports.signup = (req, res) => {
       from: process.env.USER,
       to: req.body.email,
       subject: "Confirmation@aeroclubmnnit",
-      html: `<h2>Welcome to Aero Club MNNIT</h2>
-      <p>Click on this <a href="${process.env.BASE_URL}/user/confirm/${jwtToken}">link</a> to verify<p>`,
+      html: `
+      <h2>Hello ${req.body.name},</h2>
+      <p style='font-size:1rem;'>Heartiest welcome from <strong>Aeroclub MNNIT</strong>. 
+      We hope you have an exciting and adrenaline-packed experience throughout your stay with us.
+      You're just a step away from completion.</p>
+      
+      <h4><a href="${process.env.BASE_URL}/user/confirm/${jwtToken}">Click Here</a> to confirm registration</h4>
+      
+      <br/>
+      <p class='float-left'>
+      Team Aeroclub
+      </p>
+     `
     });
     res
       .status(400)
@@ -191,9 +202,8 @@ exports.isSignedIn = (req, res, next) => {
         populate: { path: "component" }
       })
       .exec((err, user) => {
-        if (!user)
-          return res.status(401).json({ error: "You must be logged in !" });
-        req.user = user
+        if (!user) return res.status(401).json({ error: "You must be logged in !" });
+        req.user = user.transform()
         next();
       });
   });

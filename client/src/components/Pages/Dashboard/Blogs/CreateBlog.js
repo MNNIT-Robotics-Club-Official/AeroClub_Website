@@ -38,7 +38,7 @@ export default function CreateBlog() {
       return;
     }
 
-    fetch(`/api/blogs`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/blogs`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -48,7 +48,7 @@ export default function CreateBlog() {
         title,
         body,
         pic,
-        postedBy: user._id,
+        postedBy: user.id,
         publishedAt: Date.now(),
       }),
     })

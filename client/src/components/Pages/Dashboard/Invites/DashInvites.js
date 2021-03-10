@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import { useSelector } from 'react-redux'
 
@@ -8,7 +8,7 @@ export default function Dashprojects(props) {
   const user = useSelector(state => state.user)
 
   useEffect(() => {
-    fetch(`/api/my/invites`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/my/invites`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -115,7 +115,7 @@ function LoadingButton(props) {
 
   useEffect(() => {
     if (isLoading) {
-      fetch(`/api/my/invites/accept/${props.projectId}`, {
+      fetch(`${process.env.REACT_APP_SERVER}/api/my/invites/accept/${props.projectId}`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",

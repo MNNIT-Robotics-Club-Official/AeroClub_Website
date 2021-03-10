@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import f1 from "../../images/alumni/sunil saini.jpg";
@@ -16,7 +16,9 @@ import f12 from "../../images/alumni/Kishan Tiwari.jfif";
 import f13 from "../../images/alumni/Aniket Kumar.jpg";
 
 export default function Alumni() {
-  document.title = "Alumni | Aero Club";
+  useEffect(() => {
+    document.title = `Alumni | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   const members = [
     {

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Particles from "react-particles-js";
 
 export default function NotFound() {
-  document.title = "404 | Aero Club";
+  useEffect(() => {
+    document.title = `404 | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   const particlesOptions = {
     particles: {
@@ -18,33 +20,37 @@ export default function NotFound() {
   };
 
   return (
-    
-    <div >
-    <Particles
+
+    <div style={{ height: "100vh" }}>
+      <Particles
         params={particlesOptions}
-        style={{ height: "100%", width: "100%", background: "#5d4545" }}
-      ></Particles>
-      <div
-        className="d-flex flex-column justify-content-center align-items-center"
         style={{
-          // height: "100vh",
-          zIndex: 9999,
+          height: "100%", width: "100%", background: "rgb(221 ,148 ,148)", zIndex: -1,
           position: "absolute",
           left: "0",
           right: "0",
+        }}
+      ></Particles>
+      <div
+        className="d-flex flex-column justify-content-center align-items-center my-auto"
+        style={{
+          position: "absolute",
+          top: "0",
+          bottom: "0",
+          left: "0",
+          right: "0",
           color: "black",
-          // background: "#0f0f"
         }}
       >
         <h1 className="fw-bold text-center" >404 error ...!</h1>
         <p className="text-center" style={{ fontWeight: "bold" }}>
           The page you are looking for is not found ⚠
         </p>
-        <a className="btn btn-danger" style={{alignItems:"center"}} href="/">
+        <a className="btn btn-danger" style={{ alignItems: "center" }} href="/">
           Back to Home
         </a>
       </div>
-      
+
     </div>
   );
 }

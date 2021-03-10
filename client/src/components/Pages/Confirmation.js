@@ -6,11 +6,11 @@ import Loading from "../../Animations/Loading";
 export default function Confirmation() {
   const { token } = useParams();
   const history = useHistory();
-  document.title = `Confirmation | Aero Club`;
 
   useEffect(() => {
+    document.title = `Confirmation | ${process.env.REACT_APP_BASE_TITLE}`;
     if (token) {
-      fetch(`/api/user/confirm`, {
+      fetch(`${process.env.REACT_APP_SERVER}/api/user/confirm`, {
         method: "post",
         headers: {
           Authorization: `Bearer ${token}`,

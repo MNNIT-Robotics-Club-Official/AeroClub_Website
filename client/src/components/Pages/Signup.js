@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import m from "../../images/utils/logo-aero2.png";
 
 function Signup() {
-  document.title = "Signup | Aero Club";
 
   const name = useRef();
   const email = useRef();
@@ -14,6 +13,7 @@ function Signup() {
   const history = useHistory();
 
   useEffect(() => {
+    document.title = `Signup | ${process.env.REACT_APP_BASE_TITLE}`;
     if (localStorage.getItem("jwtToken")) history.push("/404");
   }, []);
 
@@ -25,7 +25,7 @@ function Signup() {
       return;
     }
 
-    fetch(`/api/signup`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/signup`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

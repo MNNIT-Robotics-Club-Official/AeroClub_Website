@@ -11,7 +11,7 @@ export default function Dashprojects(props) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`/api/isSignedIn`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -60,7 +60,7 @@ export default function Dashprojects(props) {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {user._id === project.leader ? (
+                        {user.id === project.leader ? (
                           <Button
                             onClick={() => {
                               setModalShow(true);
@@ -84,11 +84,11 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                                badge = (
-                                  <span class="badge badge-pill badge-warning">
-                                    Invited
-                                  </span>
-                                );
+                              badge = (
+                                <span class="badge badge-pill badge-warning">
+                                  Invited
+                                </span>
+                              );
                             }
                             return (
                               <li>
@@ -164,7 +164,7 @@ function MyVerticallyCenteredModal(props) {
                 toast.success("USER INVITED");
                 res.json().then((data) => {
                   console.log(data.updatedProject);
-                  dispatch({type: "INVITE_USER", payload: data.updatedProject})
+                  dispatch({ type: "INVITE_USER", payload: data.updatedProject })
                 });
               } else {
                 res.json().then((data) => {

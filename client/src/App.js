@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigbar from "./components/utils/Navigbar.js";
 import Footer from "./components/utils/Footer.js";
 import {
@@ -44,7 +44,6 @@ import Spinoff from "./components/Pages/Spinoff.js";
 import WebTeam from "./components/Pages/WebTeam.js";
 
 function App() {
-  document.title = "Aero Club";
 
   return (
 
@@ -56,7 +55,7 @@ function App() {
         closeOnClick
       />
       <Switch>
-        <Route path="/admin" exact>
+        <Route path="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin" exact>
           {localStorage.getItem("jwtToken") ? (
             <AdminComp />) : (
             <Redirect to="/404" />
@@ -106,7 +105,6 @@ function App() {
             <Route path="/" exact>
               <Landing />
               <About />
-
               <Featuredproject />
               <ResearchThemes />
               <Testimonials />

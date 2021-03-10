@@ -5,20 +5,20 @@ import "../../css/Login.css";
 import m from "../../images/utils/logo-aero2.png";
 
 function Login() {
-  document.title = "Login | Aero Club";
   const email = useRef();
   const password = useRef();
   const history = useHistory();
 
 
   useEffect(() => {
+    document.title = `Login | ${process.env.REACT_APP_BASE_TITLE}`;
     if (localStorage.getItem("jwtToken")) history.push("/404");
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`/api/signin`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/signin`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

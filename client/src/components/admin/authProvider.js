@@ -1,6 +1,6 @@
 const authProvider = {
   login: ({ username, password }) => {
-    return fetch(`/api/adminlogin`, {
+    return fetch(`${process.env.REACT_APP_SERVER}/api/adminlogin`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -18,7 +18,7 @@ const authProvider = {
   },
   checkAuth: () => {
     return localStorage.getItem("role") && localStorage.getItem("jwtToken")
-      ? fetch(`/api/isAdmin`, {
+      ? fetch(`${process.env.REACT_APP_SERVER}/api/isAdmin`, {
         method: "post",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -26,7 +26,6 @@ const authProvider = {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
           if (data.error) throw new Error(data.error);
         })
       : Promise.reject();

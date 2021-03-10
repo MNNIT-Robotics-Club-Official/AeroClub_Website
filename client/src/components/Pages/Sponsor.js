@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Sponsor.css";
 import mnnit from "../../images/utils/collegelogo.png";
@@ -10,7 +10,10 @@ import pcb from "../../images/Sponsors/pcb.png";
 import ultratech from "../../images/Sponsors/ultra.png";
 
 export default function Ṣponsors() {
-  document.title = `Sponsors | Events`;
+  useEffect(() => {
+    document.title = `Sponsors | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
+
 
   return (
     <>
@@ -56,8 +59,8 @@ export default function Ṣponsors() {
               <div class="collapse collapsews" id="collapse11">
                 <div class="card card-body details" >
                   <p className="just">AeroClub MNNIT, established in 2018, is a student body under the Student Activity Centre (SAC). Since then, it has been the epicenter of the surging ideas in various aerospace field domains, passing through the students, genuinely prepared to do impactful interdisciplinary work. Here, we work across all the aerospace sector domains ranging from RC planes to design, from aerodynamic analysis to autonomous drones, from biomimicking to astronomy, and various others (Link), catalyzed by abstract classes, open discussions, and projects.
-Speaking of achievements, our club has won accolades in many national level competitions (Link) and completed a diverse range of projects (Link) and, most importantly, emphasized innovation with state-of-the-art projects like drone automation, RC planes, etc. 
-We are proud to say that our club is the birthplace of a fully functional startup, TSAW (Link). Also, our club's prosperity resulted in an offshoot, Astrowing(Link) itself, which focuses entirely upon the field of astronomy and theoretical sciences. The club, in these years, has achieved enormous growth, and in the future, we aim to surpass our past achievements.
+                  Speaking of achievements, our club has won accolades in many national level competitions (Link) and completed a diverse range of projects (Link) and, most importantly, emphasized innovation with state-of-the-art projects like drone automation, RC planes, etc.
+                  We are proud to say that our club is the birthplace of a fully functional startup, TSAW (Link). Also, our club's prosperity resulted in an offshoot, Astrowing(Link) itself, which focuses entirely upon the field of astronomy and theoretical sciences. The club, in these years, has achieved enormous growth, and in the future, we aim to surpass our past achievements.
 </p>
                   <p className="just">With an eye on that, we look forward to:<br></br><br></br>
                     <ul>
@@ -66,20 +69,20 @@ We are proud to say that our club is the birthplace of a fully functional startu
                       <li>Bring honors to college and nation by participating not only in national but also international competitions.</li>
                     </ul>
                   </p>
-                  
+
                 </div>
               </div>
 
               <p>
 
                 <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
-                How can You Help Us?
+                  How can You Help Us?
                                                      </button>
               </p>
 
               <div class="collapse collapsews" id="collapse12">
                 <div class="card card-body details" >
-                  
+
                   <p className="just">We ask for support suitable to your capability. This support can be in the form of:<br></br><br></br>
                     <ul>
                       <li>Financial support</li>
@@ -90,27 +93,27 @@ We are proud to say that our club is the birthplace of a fully functional startu
                       <li>Connecting us with other people who can help us</li>
                     </ul>
                   </p>
-                  
+
                 </div>
               </div>
 
               <p>
 
                 <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
-                Why Sponsor Us?
+                  Why Sponsor Us?
                                                      </button>
               </p>
 
               <div class="collapse collapsews" id="collapse13">
                 <div class="card card-body details" >
-                  
+
                   <p className="just">It took centuries to engineer 1st human flight, and just a few years later, we had crossed the solar system. With the advent of drone delivery, air taxis, and privatization of India's space sector, the demand for people who understand flying machines is increasing exponentially. However, not many people are ready for the same. Aeroclub MNNIT attempts to bridge this gap and utilize engineering students' potential and passion, converting them into leaders who can solve problems in the aerospace sector and beyond.
                   </p>
-                  
+
                 </div>
               </div>
 
-              
+
             </div>
           </div>
         </div>

@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import "../../css/Login.css";
 
 function PasswordReset() {
-  document.title = "Reset Password | Aero Club";
 
   const password = useRef();
   const confirmPassword = useRef();
@@ -13,7 +12,8 @@ function PasswordReset() {
   const { token } = useParams();
 
   useEffect(() => {
-    fetch(`/api/resetverify`, {
+    document.title = `Reset Password | ${process.env.REACT_APP_BASE_TITLE}`;
+    fetch(`${process.env.REACT_APP_SERVER}/api/resetverify`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -79,7 +79,7 @@ function LoadingButton(props) {
 
   useEffect(() => {
     if (isLoading) {
-      fetch(`/api/issue/${props.id}`, {
+      fetch(`${process.env.REACT_APP_SERVER}/api/issue/${props.id}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -87,14 +87,14 @@ function LoadingButton(props) {
         },
         body: JSON.stringify(props.body),
       }).then(res => res.json())
-      .then((data) => {
-        setLoading(false);
-        props.onHide();
-        dispatch({
-          type: "REQUEST_COMPONENT",
-          payload: data.componentIssue
-        })
-      });
+        .then((data) => {
+          setLoading(false);
+          props.onHide();
+          dispatch({
+            type: "REQUEST_COMPONENT",
+            payload: data.componentIssue
+          })
+        });
     }
   }, [isLoading]);
 

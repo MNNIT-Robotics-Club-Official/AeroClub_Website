@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Event.css";
 import pro from "../../images/utils/Prosangnew.png";
@@ -11,7 +11,9 @@ import CodeWarz from "../../images/Events/CodeWarz.jpg"
 import { Jumbotron, NavDropdown } from "react-bootstrap";
 
 export default function Prosang() {
-    document.title = "Prosang | Aero Club";
+    useEffect(() => {
+        document.title = `Prosang | ${process.env.REACT_APP_BASE_TITLE}`;
+    }, [])
 
     return (
         <>
@@ -91,40 +93,40 @@ export default function Prosang() {
                                         borderRadius: "8px",
                                         margin: "2em",
                                         fontSize: "14px"
-                                        
+
                                     }}
                                 >
                                     <div style={{ padding: "10px" }}>
-                                        <p class="text-gray-700 texte" style={{fontSize:"16px"}}><i>
+                                        <p class="text-gray-700 texte" style={{ fontSize: "16px" }}><i>
                                             Prodyogiki Sangam, better known as Prosang is the annual
                                             Techfest of Robotics and Aeroclub of MNNIT. It is an
                                             initiative to bring together a talented and technically
                                             skilled group of people to showcase their scientific
                                             prowess in the form of actual projects as well as ideas in
                                             fun and challenging tech-based events.</i>
-                    </p>
-                                        <p class="text-gray-700 texte" style={{fontSize:"16px"}}><i>
+                                        </p>
+                                        <p class="text-gray-700 texte" style={{ fontSize: "16px" }}><i>
                                             It began with the efforts of the batch of 2019 with the
                                             basic need for helping students score the gap between
                                             industrial skill set requirements and our academics, and
                                             hence build projects that add value to their CVs, and
                                             motivate them to model solutions to real world problems.</i>
-                    </p>
-                                        <p className="text-gray-700" style={{textAlign:"justify", }}>
-                                        <i  style={{fontSize:"16px"}}>Every year ProSang witnesses: </i><br></br><br></br><ul className="ulprosang">
-<li><b>Talks: </b>
+                                        </p>
+                                        <p className="text-gray-700" style={{ textAlign: "justify", }}>
+                                            <i style={{ fontSize: "16px" }}>Every year ProSang witnesses: </i><br></br><br></br><ul className="ulprosang">
+                                                <li><b>Talks: </b>
  Many talks from eminent people in industry and academia, thus helping students understand the current trends and needs.</li><br></br>
-<li><b>Competitions: </b>
+                                                <li><b>Competitions: </b>
 Cut-throat competition in challenging events thrills the students and encourages them to make products to solve challenging problems put to them in the form of problem statements.</li><br></br>
-<li><b>Workshops: </b>
+                                                <li><b>Workshops: </b>
 Several workshops are organized on IoT, drone automation, etc., giving students hands-on experience and honing their skill set.
 Also, we organize several free of cost workshops for school students to embed scientific temperament at young ages only. They also visit and experience the atmosphere of a National Institute of Technology, see technical workshops, visit many labs, and much more.</li><br></br>
-<li><b>Project Exhibition: </b>
+                                                <li><b>Project Exhibition: </b>
 Students of our clubs and outside display projects built throughout the year to professors from all college departments and benefit from their valuable insights in the project exhibition.</li><br></br>
 
-<li><b>Shows: </b>Many fun yet enlightening activities like Airshow, Stargazing Workshop by professionals.</li><br></br>
-</ul>
-                    </p>
+                                                <li><b>Shows: </b>Many fun yet enlightening activities like Airshow, Stargazing Workshop by professionals.</li><br></br>
+                                            </ul>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -145,26 +147,26 @@ Students of our clubs and outside display projects built throughout the year to 
                                         borderRadius: "8px",
                                         margin: "2em",
                                         fontSize: "14px"
-                                        
+
                                     }}
                                 >
                                     <div style={{ padding: "10px" }}>
-                                        
-                                        <p className="text-gray-700" style={{textAlign:"justify" }}>
-                                        <i style={{fontSize:"medium"}}>Every year ProSang witnesses: </i><br></br><br></br><ul className="ulprosang">
-<li><b>Talks: </b>
+
+                                        <p className="text-gray-700" style={{ textAlign: "justify" }}>
+                                            <i style={{ fontSize: "medium" }}>Every year ProSang witnesses: </i><br></br><br></br><ul className="ulprosang">
+                                                <li><b>Talks: </b>
  Many talks from eminent people in industry and academia, thus helping students understand the current trends and needs.</li><br></br>
-<li><b>Competitions: </b>
+                                                <li><b>Competitions: </b>
 Cut-throat competition in challenging events thrills the students and encourages them to make products to solve challenging problems put to them in the form of problem statements.</li><br></br>
-<li><b>Workshops: </b>
+                                                <li><b>Workshops: </b>
 Several workshops are organized on IoT, drone automation, etc., giving students hands-on experience and honing their skill set.
 Also, we organize several free of cost workshops for school students to embed scientific temperament at young ages only. They also visit and experience the atmosphere of a National Institute of Technology, see technical workshops, visit many labs, and much more.</li><br></br>
-<li><b>Project Exhibition: </b>
+                                                <li><b>Project Exhibition: </b>
 Students of our clubs and outside display projects built throughout the year to professors from all college departments and benefit from their valuable insights in the project exhibition.</li><br></br>
 
-<li><b>Shows: </b>Many fun yet enlightening activities like Airshow, Stargazing Workshop by professionals.</li><br></br>
-</ul>
-                    </p>
+                                                <li><b>Shows: </b>Many fun yet enlightening activities like Airshow, Stargazing Workshop by professionals.</li><br></br>
+                                            </ul>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -274,33 +276,33 @@ Students of our clubs and outside display projects built throughout the year to 
                                 </div>
 
                                 <div
-                                                style={{
-                                                    border: "2px solid rgb(29, 29, 29)",
-                                                    padding: "10px",
-                                                    borderRadius: "8px",
-                                                    marginTop: "30px" 
-                                                }}
-                                            >
-                                                <div style={{ padding: "2px"}}>
-                                                    <p class="text-gray-700">
-                                                        <h5 class="font-bold text-3xl my-4 sm:text-4xl">
-                                                            <span class="text-indigo-300 font-bold">Details</span>
-                                                        </h5>
-                                                        <div
-                                                            className="miniSep"
-                                                            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", width: "100%" }}
-                                                        ></div>
-                                                        <p className="detailsph" style={{textAlign:"justify"}}>
-                                                            <i className>
-                                                            MNNIT became a hosting ground for an enchanting workshop conducted by Vijay Kapoor sir, a prominent Indian astrophotographer, this ProSang. After the inauguration ceremony, where he quickly earned the attention and awe of his audience with his clicked images, the observation sessions began at the athletics ground. Participant counts ran high as he taught everyone, on the first day, how to set up a telescope and focused our myopic attention on life onto the powerful telescope and the cosmos it revealed, accompanying it with a matching explanation.
-The second day brought forward a chance to peer at our star, the Sun, in the daytime. Vijay sir elaborated on sunspots and the equipment used to capture such images, followed by a session on processing raw images and software used in the process. The evening brought a chance to gaze at the sky again, with the clouds giving an unexpected cameo yet again through our observation events. With his telescope and amassed knowledge, he stood in the center of the circle of huddled enthusiasts listening with rapt attention even on the last session. Children covered under the Anokhi Pehel program (a non-profit organisation managed by students who share the common aim of helping the underprivileged children by providing them with education) also took a look from the telescope, excited faces beaming with happiness. Though the ProSang and the workshop concluded, the joy of looking at the sky and learning more about our universe has only grown stronger since the event.
+                                    style={{
+                                        border: "2px solid rgb(29, 29, 29)",
+                                        padding: "10px",
+                                        borderRadius: "8px",
+                                        marginTop: "30px"
+                                    }}
+                                >
+                                    <div style={{ padding: "2px" }}>
+                                        <p class="text-gray-700">
+                                            <h5 class="font-bold text-3xl my-4 sm:text-4xl">
+                                                <span class="text-indigo-300 font-bold">Details</span>
+                                            </h5>
+                                            <div
+                                                className="miniSep"
+                                                style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", width: "100%" }}
+                                            ></div>
+                                            <p className="detailsph" style={{ textAlign: "justify" }}>
+                                                <i className>
+                                                    MNNIT became a hosting ground for an enchanting workshop conducted by Vijay Kapoor sir, a prominent Indian astrophotographer, this ProSang. After the inauguration ceremony, where he quickly earned the attention and awe of his audience with his clicked images, the observation sessions began at the athletics ground. Participant counts ran high as he taught everyone, on the first day, how to set up a telescope and focused our myopic attention on life onto the powerful telescope and the cosmos it revealed, accompanying it with a matching explanation.
+                                                    The second day brought forward a chance to peer at our star, the Sun, in the daytime. Vijay sir elaborated on sunspots and the equipment used to capture such images, followed by a session on processing raw images and software used in the process. The evening brought a chance to gaze at the sky again, with the clouds giving an unexpected cameo yet again through our observation events. With his telescope and amassed knowledge, he stood in the center of the circle of huddled enthusiasts listening with rapt attention even on the last session. Children covered under the Anokhi Pehel program (a non-profit organisation managed by students who share the common aim of helping the underprivileged children by providing them with education) also took a look from the telescope, excited faces beaming with happiness. Though the ProSang and the workshop concluded, the joy of looking at the sky and learning more about our universe has only grown stronger since the event.
 
                                                             </i>
-                                                        </p>
-                                                    </p>
+                                            </p>
+                                        </p>
 
-                                                </div>
-                                            </div>
+                                    </div>
+                                </div>
 
                                 <div className="container">
                                     <h3 class="font-bold text-3xl my-4 sm:text-4xl">
@@ -330,7 +332,7 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         Home Automation event
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
                                                 <div className="card-read-more">
                                                     <a
@@ -415,10 +417,10 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    Mechanical Design Competition
+                                                        Mechanical Design Competition
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
                                                 <div className="card-read-more">
                                                     <a
@@ -446,10 +448,10 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    A coding event
+                                                        A coding event
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
                                                 <div className="card-read-more">
                                                     <a
@@ -480,7 +482,7 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         Innovative Ideas
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
                                                 <div className="card-read-more">
                                                     <a
@@ -508,12 +510,12 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    An astronomy trivia quiz event
+                                                        An astronomy trivia quiz event
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -528,7 +530,7 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
             {/* </Jumbotron> */}
             <section className="wrapper">
                 <div className="container-f">
-                <div>
+                    <div>
                         <p className="cent">
                             <a
                                 class="btn btn-outline-dark btn-lg"
@@ -577,25 +579,25 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                             style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", width: "100%" }}
                                                         ></div>
                                                         <ul>
-                                                            <li> <b>Mr. Ravi Prakash 
--Winner, Amazon Robotics Challenge-Japan 2017
+                                                            <li> <b>Mr. Ravi Prakash
+                                                            -Winner, Amazon Robotics Challenge-Japan 2017
 (Ph.D. Scholar, IIT Kanpur) </b><a href="https://www.linkedin.com/in/ravi-prakash-a93ab9a8/?originalSubdomain=in"><i class="fab fa-linkedin fa-lg"></i></a></li>
 
                                                             <br></br>
                                                             Autonomous Robots for Mars Civilizations
                                                         <hr></hr>
-                                                            <li><b>Mr. Ganesh Shankar 
+                                                            <li><b>Mr. Ganesh Shankar
 (Co-Founder and CEO, FluxGen Engineering) </b><a href="https://www.linkedin.com/in/ganesh-shankar/?originalSubdomain=in"><i class="fab fa-linkedin fa-lg"></i></a></li><br></br>
                                                         Internet of Things
                                                         <hr></hr>
-                                                            <li><b>Prof. Sanjay Mittal            
+                                                            <li><b>Prof. Sanjay Mittal
 (Ex HOD and Coordinator Wind Tunnel, IIT Kanpur) </b><a href="https://www.iitk.ac.in/new/sanjay-mittal"><i class="fab fa-linkedin fa-lg"></i></a><br></br><br></br>
                                                         The Science of Flight<hr></hr></li>
-                                                            <li><b>Dr. GR Sinha 
+                                                            <li><b>Dr. GR Sinha
 (Distinguished ACM Speaker) </b><a href="https://www.linkedin.com/in/dr-g-r-sinha-65713b18/"><i class="fab fa-linkedin fa-lg"></i></a></li><br></br>
                                                          Applications of Image Processing for Space Explorations
                                                         <hr></hr>
-                                                            
+
                                                         </ul>
                                                     </p>
 
@@ -615,11 +617,11 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
 </h6>
                                                 </span><br></br>
                                                 <h6><span>Project exhibition-witnessed by professor Sanjay Mittal -IIT Kanpur </span>
-                                                <a href="https://www.iitk.ac.in/new/sanjay-mittal"><i class="fas fa-user fa-lg"></i></a></h6>
-                                                
+                                                    <a href="https://www.iitk.ac.in/new/sanjay-mittal"><i class="fas fa-user fa-lg"></i></a></h6>
+
                                                 <br></br>
                                                 <h6><span class="text-indigo-200">Airshow by Vortex RC<b> </b>
-                                                    <a href="https://youtu.be/MFRvO8K-4iU"><i style={{color:"red"}} class="fab fa-youtube fa-lg"></i></a>
+                                                    <a href="https://youtu.be/MFRvO8K-4iU"><i style={{ color: "red" }} class="fab fa-youtube fa-lg"></i></a>
                                                 </span></h6><br></br>
                                                 <h6><span class="text-indigo-200">Launch of TSAW (a drone startup, emerged from Robotics and Aeroclub MNNIT)<b> </b>
                                                     <a href="https://tsaw.tech/"><i class="fas fa-link fa-lg"></i></a>
@@ -629,7 +631,7 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                     </div>
                                 </div>
 
-                                
+
 
                                 <div className="container">
                                     <h3 class="font-bold text-3xl my-4 sm:text-4xl">
@@ -656,12 +658,12 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    Designing and flying RC aircraft 
+                                                        Designing and flying RC aircraft
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
@@ -680,11 +682,11 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                             </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    electronic circuit design
+                                                        electronic circuit design
                                                         <br></br><br></br>
                                                     </p>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
@@ -698,13 +700,13 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                 <div className="card-content cardev-content">
                                                     <h4 className="card-title cardev-title">
                                                         <a>
-                                                        CodeWarZ
+                                                            CodeWarZ
                             </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    A competitive coding event </p>
+                                                        A competitive coding event </p>
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                         <div className="col-xs-12 col-sm-4">
@@ -723,16 +725,16 @@ The second day brought forward a chance to peer at our star, the Sun, in the day
                                                         </a>
                                                     </h4>
                                                     <p className="phonetxt">
-                                                    A gaming event
+                                                        A gaming event
                                                     <br></br><br></br>
                                                     </p>
-                                                    
+
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                 </div>
                             </div>

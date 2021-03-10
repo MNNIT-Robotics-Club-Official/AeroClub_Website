@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import f1 from "../../images/coordinators&Nontech/Nilotpal Mukherjee.jpeg";
@@ -16,7 +16,9 @@ import f12 from "../../images/coordinators&Nontech/Devansh Sethi.jpg";
 // import f13 from "../../images/coordinators&Nontech/.jpg";
 
 export default function Nontech() {
-  document.title = "Non-Tech | Aero Club";
+  useEffect(() => {
+    document.title = `Non-Tech | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   const members = [
     {

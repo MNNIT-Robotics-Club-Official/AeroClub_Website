@@ -9,8 +9,10 @@ function SingleProject() {
   const [project, setProject] = useState(undefined);
   const history = useHistory();
 
+
   useEffect(() => {
-    fetch(`/api/projects/${projectId}`, {
+    document.title = `Project-${projectId} | ${process.env.REACT_APP_BASE_TITLE}`;
+    fetch(`${process.env.REACT_APP_SERVER}/api/projects/${projectId}`, {
       method: "get",
     })
       .then((res) => res.json())

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import f1 from "../../images/coordinators&Nontech/Amit Gupta.jpg";
@@ -21,7 +21,9 @@ import f17 from "../../images/coordinators&Nontech/Karimulla Mohammad.bmp";
 import f18 from "../../images/coordinators&Nontech/Ankur Singh.jpg";
 
 export default function Coordinators() {
-  document.title = "Coordinators | Aero Club";
+  useEffect(() => {
+    document.title = `Coordinators | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
 
   const members = [
     {

@@ -6,12 +6,15 @@ import Loading from "../../Animations/Loading";
 import m from "../../images/utils/Jigyasa_logo.png";
 
 export default function Workshop() {
-  document.title = "Jiygasa | Aero Club";
+  useEffect(() => {
+    document.title = `Jiygasa | ${process.env.REACT_APP_BASE_TITLE}`;
+  }, [])
+
 
   const [workshops, SetWorkshops] = useState([]);
 
   useEffect(() => {
-    fetch("/api/workshop", {
+    fetch(`${process.env.REACT_APP_SERVER}/api/workshop`, {
       method: "get",
     })
       .then((res) => res.json())

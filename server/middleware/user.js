@@ -2,6 +2,7 @@ const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
 const notification = require("../models/notifications");
+var mongoose = require('mongoose');
 
 exports.getAllUsers = (req, res) => {
   res.setHeader("Content-Range", "users 0-10/20");
@@ -206,8 +207,9 @@ exports.getMyInvites = (req, res) => {
 };
 
 exports.updateMyProfile = (req, res) => {
+
   user
-    .findOneAndUpdate({ _id: req.user.id }, req.body, { new: true })
+    .findOneAndUpdate({ _id: req.user.id }, { $set: { name: req.body.name, year: req.body.year, registration_no: req.body.regis_no, linkedin_url: req.body.linkedin } }, { new: true })
     .populate("blogs")
     .populate({
       path: "projects",
@@ -298,3 +300,16 @@ exports.deleteNotification = (req, res) => {
         });
     });
 };
+
+exports.updateProfileFromAdmin = (req, res) => {
+
+  user.findOneAndUpdate({ _id: req.params.id }, { $set: { name: req.body.name, email: req.body.email, role: req.body.role } }, { new: true }).then(updatedUser => {
+    if (!updatedUser)
+      return res.status(400).json({
+        error: "User cannot be updated !",
+      });
+
+    return res.json(updatedUser.transform());
+  })
+    .catch((e) => console.log(e));
+}

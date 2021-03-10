@@ -10,7 +10,7 @@ export default function CompIssue() {
   const [key, setKey] = useState("electronics");
 
   useEffect(() => {
-    fetch(`/api/component/filter`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/component/filter`, {
       method: "get",
     })
       .then((res) => res.json())

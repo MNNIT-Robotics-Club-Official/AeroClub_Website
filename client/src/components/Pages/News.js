@@ -6,13 +6,13 @@ import createHistory from "history/createBrowserHistory";
 import Loading from "../../Animations/Loading";
 
 export default function News() {
-  document.title = "Updates | Aero Club";
 
   const [news, SetNews] = useState([]);
   const [eventKey, setEventKey] = useState("");
 
   useEffect(() => {
-    fetch(`/api/news`, {
+    document.title = `Updates | ${process.env.REACT_APP_BASE_TITLE}`;
+    fetch(`${process.env.REACT_APP_SERVER}/api/news`, {
       method: "get",
     })
       .then((res) => res.json())

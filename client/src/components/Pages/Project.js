@@ -4,12 +4,12 @@ import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
 
 function Projects() {
-  document.title = "Projects | Aero Club";
 
   const [projects, SetProjects] = useState([]);
+  document.title = `Projects | ${process.env.REACT_APP_BASE_TITLE}`;
 
   useEffect(() => {
-    fetch(`/api/projects/approved`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/projects/approved`, {
       method: "get",
     })
       .then((res) => res.json())

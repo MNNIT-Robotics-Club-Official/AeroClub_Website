@@ -22,7 +22,6 @@ const Login = () => {
       .then((data) => {
         localStorage.removeItem("jwtToken");
         localStorage.removeItem("role");
-        localStorage.removeItem("user");
         dispatch({ type: "CLEAR" });
         setLoggedIn(false);
         toast.success(data.message);

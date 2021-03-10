@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 export default function DashProfile() {
@@ -10,6 +10,7 @@ export default function DashProfile() {
   const [year, setYear] = useState(-1);
   const [linkedin, setLinkedin] = useState("");
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (user) {
@@ -21,7 +22,7 @@ export default function DashProfile() {
       user.notifications.forEach((notification) => {
         toast.success(notification.message);
 
-        fetch(`/api/my/deleteNotification`, {
+        fetch(`${process.env.REACT_APP_SERVER}/api/my/deleteNotification`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -34,7 +35,7 @@ export default function DashProfile() {
           .then((res) => res.json())
           .then((data) => {
             if (data.error) toast.warn(data.error);
-            // else dispatch({ type: "SET", payload: data.User });
+            else dispatch({ type: "SET", payload: data.User });
           });
       });
     }
@@ -44,7 +45,7 @@ export default function DashProfile() {
     if (year <= 4) {
       setDisabled(true);
       setLoading(true);
-      fetch(`/api/my/updateProfile`, {
+      fetch(`${process.env.REACT_APP_SERVER}/api/my/updateProfile`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -52,17 +53,16 @@ export default function DashProfile() {
         },
         body: JSON.stringify({
           name,
-          email: user.email,
-          registration_no: regis_no,
+          regis_no,
           year,
-          linkedin_url: linkedin,
+          linkedin,
         }),
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.error) toast.warn(data.error);
           else {
-            // dispatch({ type: "SET", payload: data.user });
+            dispatch({ type: "SET", payload: data.user });
             toast.success("Profile updated successfully !");
             setLoading(false);
           }
@@ -165,7 +165,7 @@ export default function DashProfile() {
         </button>
       )}
       {user?.role !== "User" && (
-        <a className="btn btn-danger mx-1" href="/admin">
+        <a className="btn btn-danger mx-1" href="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin">
           Go to Admin Panel
         </a>
       )}
