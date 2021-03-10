@@ -180,20 +180,10 @@ exports.isSignedIn = (req, res, next) => {
 
     // finding the user with the id
     User.findById(_id)
-      .populate("blogs")
-      .populate("notifications")
-      .populate({
-        path: "projects",
-        populate: { path: "members.user", select: "name" },
-      })
-      .populate({
-        path: "issues",
-        populate: { path: "component" }
-      })
       .exec((err, user) => {
         if (!user)
           return res.status(401).json({ error: "You must be logged in !" });
-        req.user = user
+        req.user = user.transform()
         next();
       });
   });

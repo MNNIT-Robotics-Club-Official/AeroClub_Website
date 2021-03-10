@@ -7,7 +7,7 @@ const User = require("../models/user");
 const { findById, findByIdAndUpdate } = require("../models/user");
 
 // fetching all projects
-router.get("/projects", (req, res) => {
+router.get("/projects", isSignedIn, isAdmin,(req, res) => {
   res.setHeader("Content-Range", "projects 0-10/20");
   res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
 
@@ -21,7 +21,7 @@ router.get("/projects", (req, res) => {
 });
 
 router.get("/projects/approved", (req, res) => {
-  Project.find({approved: true })
+  Project.find({approved: true, status : "Completed" })
     .populate({ path: 'members.user', select: 'name' })
     .exec((err, projects) => {
       if (err) {
@@ -34,7 +34,8 @@ router.get("/projects/approved", (req, res) => {
 });
 
 // fetching a projects with id
-router.get("/projects/:id", (req, res) => {
+router.get("/projects/:id" ,(req, res) => {
+  
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
     return res.json({ error: "not found !" });
   }
@@ -42,7 +43,13 @@ router.get("/projects/:id", (req, res) => {
   Project.findOne({ _id: req.params.id })
   .populate({ path: 'members.user'})
     .then((project) => {
-      res.json(project.transform());
+      if(project.open){
+        res.json(project.transform());
+      } else{
+        isSignedIn(req, res, ()=>{
+          res.json(project.transform());
+        })
+      }
     })
     .catch((e) => console.log(e));
 });
@@ -125,7 +132,6 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
       }
       let isMember = false;
       for (mem of project.members) {
-        console.log(JSON.stringify(mem.user) + "===" + JSON.stringify(userId));
         if (JSON.stringify(mem.user) === JSON.stringify(userId)) {
           isMember = true;
           break;

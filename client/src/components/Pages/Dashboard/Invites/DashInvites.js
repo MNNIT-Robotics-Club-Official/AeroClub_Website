@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Dashprojects(props) {
-  const [numInvites, setnumInvites] = useState(0);
   const [projects, setProjects] = useState([]);
-  const user = useSelector(state => state.user)
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     fetch(`/api/my/invites`, {
@@ -17,10 +16,10 @@ export default function Dashprojects(props) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setProjects(data);
-        setnumInvites(data.length);
       });
-  }, [numInvites, props.r]);
+  }, []);
 
   return (
     <div>
@@ -67,15 +66,9 @@ export default function Dashprojects(props) {
                                 </span>
                               );
                             } else {
-                              if (member.user._id === user?.id) {
+                              if (member.user._id == user?._id) {
                                 badge = (
-                                  <LoadingButton
-                                    projectId={project._id}
-                                    numInvites={numInvites}
-                                    setnumInvites={numInvites}
-                                    setr={props.setr}
-                                    r={props.r}
-                                  />
+                                  <LoadingButton projectId={project._id} />
                                 );
                               } else
                                 badge = (
@@ -86,7 +79,7 @@ export default function Dashprojects(props) {
                             }
                             return (
                               <li>
-                                {member.user.name}
+                                {member?.user?.name}
                                 <em className="float-right">{badge}</em>
                               </li>
                             );
@@ -112,7 +105,7 @@ export default function Dashprojects(props) {
 function LoadingButton(props) {
   const [isLoading, setLoading] = useState(false);
   const [isdone, setDone] = useState(false);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (isLoading) {
       fetch(`/api/my/invites/accept/${props.projectId}`, {
@@ -121,10 +114,14 @@ function LoadingButton(props) {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
         },
-      }).then((res) => {
-        setLoading(false);
-        setDone(true);
-      });
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setLoading(false);
+          setDone(true);
+          dispatch({ type: "ACCEPT_INVITE", payload: data.project });
+        });
     }
   }, [isLoading]);
 

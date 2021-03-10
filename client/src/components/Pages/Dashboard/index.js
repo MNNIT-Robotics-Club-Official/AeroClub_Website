@@ -33,6 +33,7 @@ function Dashboard() {
           history.push("/user/login");
           return;
         }
+        console.log(data.user);
         dispatch({ type: 'SET', payload: data.user })
       });
 
