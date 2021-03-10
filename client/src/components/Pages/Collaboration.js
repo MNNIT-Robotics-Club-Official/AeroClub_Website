@@ -13,24 +13,29 @@ export default function Collaboration() {
       <div className="pagesa">
         <div className="overlaya">
           <div className="pageTitlea titleBolda">Collaborate</div>
+          <div className="py-2">
+            <p
+              className="font-italic text-center my-5 quote"
+              style={{ fontSize: "1.5rem" }}
+            >
+              "Alone we can do so little; together we can do so much." ~Helen
+              Keller
+          </p>
+          </div>
         </div>
       </div>
 
-      <div className="container col-8 col-md-10">
-        <div className="py-2">
-          <p
-            className="font-italic text-center my-5 quote"
-            style={{ fontSize: "1.5rem" }}
-          >
-            "Alone we can do so little; together we can do so much." ~Helen
-            Keller
-          </p>
-        </div>
-        <div className="my-5 collaborate">
-          <div className="my-3 titleBold header white-heading d-flex justify-content-center justify-content-md-start">
-            <p>About us</p>
-          </div>
-          <p className="">
+      <div className="container col-10 col-md-10">
+
+        <div className="my-5 collaborate" style={{border: "3px solid rgb(204, 67, 67)", padding:"20px", borderRadius:"7px"}}>
+          <h4 className="my-3 titleBold d-flex justify-content-center topic">
+            <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>About us</p>
+          </h4>
+          <div
+            className="miniSep"
+            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+          ></div>
+          <p className="text-xl paragr" style={{ textAlign: "justify" }}>
             AeroClub MNNIT is a student body under the Student Activity Centre
             (SAC), MNNIT Allahabad. We, here, congregate students from all over
             the college, not confining to branches but uniting by technology's
@@ -44,11 +49,15 @@ export default function Collaboration() {
             multiple domains in aerospace.
           </p>
         </div>
-        <div className="my-5 collaborate">
-          <div className="my-3 titleBold header white-heading d-flex justify-content-center justify-content-md-start">
+        <div className="my-5 collaborate" style={{border: "3px solid rgb(204, 67, 67)", padding:"20px", borderRadius:"7px"}}>
+          <h4 className="my-3 titleBold d-flex justify-content-center topic">
             <p>What We Have to Offer</p>
-          </div>
-          <p>
+          </h4>
+          <div
+            className="miniSep"
+            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+          ></div>
+          <p  className="text-xl paragr" style={{ textAlign: "justify" }}>
             There is no denying that we in our hand have many challenges which
             are yet far from being solved. We offer our skills, experience,
             passion, and commitment to solving them. We genuinely believe in the
@@ -57,11 +66,15 @@ export default function Collaboration() {
             this domain, notably (Research Themes of our Club-link).
           </p>
         </div>
-        <div className="my-5 collaborate">
-          <div className="my-3 titleBold header white-heading d-flex justify-content-center justify-content-md-start">
+        <div className="my-5 collaborate" style={{border: "3px solid rgb(204, 67, 67)", padding:"20px", borderRadius:"7px"}}>
+          <h4 className="my-3 titleBold d-flex justify-content-center topic">
             <p>Technical Collaboration</p>
-          </div>
-          <p>
+          </h4>
+          <div
+            className="miniSep"
+            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+          ></div>
+          <p className="text-xl paragr" style={{ textAlign: "justify" }}>
             Our club's budding engineers are always present if you face any
             problems in the above technological domains. We believe that the
             essence of engineering must be instilled within us since the day we
@@ -75,11 +88,15 @@ export default function Collaboration() {
             dedication from our end with anything you trust us.
           </p>
         </div>
-        <div className="my-5 collaborate">
-          <div className="my-3 titleBold header white-heading d-flex justify-content-center justify-content-md-start">
+        <div className="my-5 collaborate" style={{border: "3px solid rgb(204, 67, 67)", padding:"20px", borderRadius:"7px"}}>
+          <h4 className="my-3 titleBold d-flex justify-content-center topic">
             <p>Collaboration for Learning and Workshops:</p>
-          </div>
-          <p className="text-xl">
+          </h4>
+          <div
+            className="miniSep"
+            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+          ></div>
+          <p className="text-xl paragr" style={{ textAlign: "justify" }}>
             Apart from technical expertise, the club also organizes workshops at
             both the school and college level, which will surely help you set a
             firm foot in technology. For more details, refer to this page

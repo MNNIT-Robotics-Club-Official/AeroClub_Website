@@ -130,8 +130,9 @@ export default function Navigbar() {
               id="basic-nav-dropdown"
               onMouseEnter={() => setShow1(true)}
               onMouseLeave={() => setShow1(false)}
-              onClick={() => setShow1(true)}
-              onClick={() => setShow1(false)}
+              // onClick={() => setShow1(!show1)}
+              // onClick={() => setShow1(false)}
+              onTouchEnd={() => setShow1(!show1)}
               show={show1}
             >
               <NavDropdown.Item href="/faculty">
@@ -157,8 +158,9 @@ export default function Navigbar() {
               id="basic-nav-dropdown"
               onMouseEnter={() => setShow3(true)}
               onMouseLeave={() => setShow3(false)}
-              onClick={() => setShow3(true)}
-              onClick={() => setShow3(false)}
+              // onClick={() => setShow3(!show3)}
+              // onClick={() => setShow3(false)}
+              onTouchEnd={() => setShow3(!show3)}
               show={show3}
             >
               <NavDropdown.Item href="/avishkar">Avishkar</NavDropdown.Item>
@@ -170,8 +172,10 @@ export default function Navigbar() {
               id="basic-nav-dropdown"
               onMouseEnter={() => setShow2(true)}
               onMouseLeave={() => setShow2(false)}
-              onClick={() => setShow2(true)}
-              onClick={() => setShow2(false)}
+              // onClick={() => setShow2(!show2)}
+              // onClick={() => setShow2(false)}
+              onTouchEnd={() => setShow2(!show2)}
+              // onTouchEnd={() => setShow2(false)}
               show={show2}
             >
               <NavDropdown.Item eventKey="members" href="/gallery">

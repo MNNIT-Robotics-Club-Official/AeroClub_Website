@@ -44,7 +44,7 @@
   font-weight: 300;
   font-size: 45px;
   text-align: center;
-  padding-top: 2em;
+  padding-top: 1.7em;
 }
 
 @media screen and (max-width: 619px) {
@@ -119,9 +119,13 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .collaborate p {
+  .topic {
+    font-size: 16px;
+  }
+  .paragr{
     font-size: small;
   }
+  
   .quote {
     font-size: medium !important;
   }
