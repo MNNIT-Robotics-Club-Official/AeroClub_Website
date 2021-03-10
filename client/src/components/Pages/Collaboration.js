@@ -90,8 +90,9 @@ export default function Collaboration() {
         </div>
         <div className="my-5 collaborate" style={{border: "3px solid rgb(204, 67, 67)", padding:"20px", borderRadius:"7px"}}>
           <h4 className="my-3 titleBold d-flex justify-content-center topic">
-            <p>Collaboration for Learning and Workshops:</p>
+            <p style={{textAlign:"center"}}>Collaboration for Learning and Workshops</p>
           </h4>
+          
           <div
             className="miniSep"
             style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
