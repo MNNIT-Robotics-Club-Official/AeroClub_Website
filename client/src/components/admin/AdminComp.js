@@ -39,6 +39,7 @@ function AdminComp() {
         authProvider={authProvider}
         dataProvider={dataProvider}
         history={history}
+
       >
         <Resource
           name="users"

@@ -13,7 +13,8 @@ import f9 from "../../images/coordinators&Nontech/Abhas Raj.jpg";
 import f10 from "../../images/coordinators&Nontech/Prakhar jain.jpg";
 import f11 from "../../images/coordinators&Nontech/Prasanna Sneha.jpg";
 import f12 from "../../images/coordinators&Nontech/Devansh Sethi.jpg";
-// import f13 from "../../images/coordinators&Nontech/.jpg";
+import f13 from "../../images/coordinators&Nontech/Hamza Siddiqui.jpg";
+import f14 from "../../images/coordinators&Nontech/Harsh Kumar Singh.jpg";
 
 export default function Nontech() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Nontech() {
       team: "Design",
       linkedinId: "https://www.linkedin.com/in/nilotpal-mukherjee-579249196",
       profilePicture: f1,
+      branch: 'Mechanical Engineering'
     },
     {
       emailAddress: "Agrawalpurushotam@gmail.com",
@@ -37,6 +39,7 @@ export default function Nontech() {
       ifWebThenRoboOrAero: "Robo",
       linkedinId: "https://www.linkedin.com/in/puru2411",
       profilePicture: f2,
+      branch: 'Electrical Engineering'
     },
     {
       emailAddress: "aditya.20192074@mnnit.ac.in",
@@ -45,6 +48,7 @@ export default function Nontech() {
       team: "Design",
       linkedinId: "https://www.linkedin.com/in/aditya-gupta-916304199",
       profilePicture: f3,
+      branch: 'Electrical Engineering'
     },
     {
       emailAddress: "rishankb575@gmail.com",
@@ -53,6 +57,7 @@ export default function Nontech() {
       team: "Content",
       linkedinId: "https://www.linkedin.com/in/rishank-barua-3413821b9/",
       profilePicture: f4,
+      branch: 'Information Technology'
     },
     {
       emailAddress: "rahulvermadbm@gmail.com",
@@ -62,6 +67,7 @@ export default function Nontech() {
       ifWebThenRoboOrAero: "Robo",
       linkedinId: "https://www.linkedin.com/in/rahul-verma-0406021b3",
       profilePicture: f5,
+      branch: 'Electonics and Comm. Engg.'
     },
     {
       emailAddress: "saptarshroyc@gmail.com",
@@ -70,6 +76,16 @@ export default function Nontech() {
       team: "Content",
       linkedinId: "https://www.linkedin.com/in/saptarshi-roy-c-5bb29b92",
       profilePicture: f6,
+      branch: 'Electonics and Comm. Engg.'
+    },
+    {
+      emailAddress: "saptarshroyc@gmail.com",
+      name: "Saptarshi Roy Chowdhury",
+      year: "3rd",
+      team: "Outreach",
+      linkedinId: "https://www.linkedin.com/in/saptarshi-roy-c-5bb29b92",
+      profilePicture: f6,
+      branch: 'Electonics and Comm. Engg.'
     },
     {
       emailAddress: "apanshula.20193143@mnnit.ac.in",
@@ -78,6 +94,7 @@ export default function Nontech() {
       team: "Design",
       linkedinId: "Apanshula Shourie",
       profilePicture: f7,
+      branch: 'Mechanical Engineering'
     },
     {
       emailAddress: "maazshuaib18@gmail.com",
@@ -86,6 +103,16 @@ export default function Nontech() {
       team: "Content",
       linkedinId: "https://www.linkedin.com/in/maaz-shuaib-baa715206",
       profilePicture: f8,
+      branch: 'Civil Engineering'
+    },
+    {
+      emailAddress: "maazshuaib18@gmail.com",
+      name: "Maaz",
+      year: "2nd",
+      team: "Design",
+      linkedinId: "https://www.linkedin.com/in/maaz-shuaib-baa715206",
+      profilePicture: f8,
+      branch: 'Civil Engineering'
     },
     {
       emailAddress: "abhasraj177@gmail.com",
@@ -94,6 +121,7 @@ export default function Nontech() {
       team: "Design",
       linkedinId: "https://www.linkedin.com/in/abhas-raj-333360179",
       profilePicture: f9,
+      branch: 'Mechanical Engineering'
     },
     {
       emailAddress: "prakhar21102001@gmail.com",
@@ -101,6 +129,7 @@ export default function Nontech() {
       year: "2nd",
       team: "Outreach",
       profilePicture: f10,
+      branch: 'Mechanical Engineering'
     },
     {
       emailAddress: "prasannasneha1322@gmail.com",
@@ -110,6 +139,7 @@ export default function Nontech() {
       ifWebThenRoboOrAero: "Aero",
       linkedinId: "https://www.linkedin.com/in/prasanna-sneha-2211200013",
       profilePicture: f11,
+      branch: 'Mechanical Engineering'
     },
     {
       emailAddress: "devanshsethi77@gmail.com",
@@ -118,14 +148,26 @@ export default function Nontech() {
       team: "Content",
       linkedinId: "https://www.linkedin.com/in/devansh-sethi-2a97721b3",
       profilePicture: f12,
+      branch: 'Electonics and Comm. Engg.'
     },
     {
       emailAddress: "hamzasiddqui999@gmail.com",
       name: "Hamza Siddiqui",
       year: "Final",
       team: "Design",
-      profilePicture: "",
+      profilePicture: f13,
+      branch: 'Electonics and Comm. Engg.'
     },
+    {
+      emailAddress: "harshkumarsingh325@gmail.com",
+      name: "Harsh Kumar Singh",
+      year: "2nd",
+      team: "Outreach",
+      profilePicture: f14,
+      branch: 'Electonics and Comm. Engg.',
+      linkedinId: "harshkumarsingh325@gmail.com",
+      branch: 'Electrical Engineering'
+    }
   ];
 
   return (
@@ -140,7 +182,7 @@ export default function Nontech() {
       <div className="pageTitle my-5 titleBold header white-heading padtop">
         Content Team
       </div>
-      <div className="container">
+      <div className="container alumni-container">
         <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
           {members.map(
             (member, i) =>
@@ -159,7 +201,7 @@ export default function Nontech() {
                     <h5 class="card-title text-center text-uppercase">
                       {member.name}
                     </h5>
-                    <p class="card-text text-center">{member.year} year</p>
+                    <p class="card-text text-center">{member.year} year <br /> {member.branch}</p>
                     <div className="d-flex justify-content-center mt-4">
                       <a href={member.linkedinId} target="_blank">
                         <i class="fab fa-linkedin fa-3x mx-2"></i>
@@ -175,7 +217,7 @@ export default function Nontech() {
       <div className="pageTitle my-5 titleBold header white-heading padtop">
         Design Team
       </div>
-      <div className="container">
+      <div className="container alumni-container">
         <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
           {members.map(
             (member, i) =>
@@ -194,7 +236,7 @@ export default function Nontech() {
                     <h5 class="card-title text-center text-uppercase">
                       {member.name}
                     </h5>
-                    <p class="card-text text-center">{member.year} year</p>
+                    <p class="card-text text-center">{member.year} year <br /> {member.branch}</p>
                     <div className="d-flex justify-content-center mt-4">
                       <a href={member.linkedinId} target="_blank">
                         <i class="fab fa-linkedin fa-3x mx-2"></i>
@@ -210,7 +252,7 @@ export default function Nontech() {
       <div className="pageTitle my-5 titleBold header white-heading padtop">
         Outreach Team
       </div>
-      <div className="container">
+      <div className="container alumni-container">
         <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
           {members.map(
             (member, i) =>
@@ -229,7 +271,7 @@ export default function Nontech() {
                     <h5 class="card-title text-center text-uppercase">
                       {member.name}
                     </h5>
-                    <p class="card-text text-center">{member.year} year</p>
+                    <p class="card-text text-center">{member.year} year <br /> {member.branch}</p>
                     <div className="d-flex justify-content-center mt-4">
                       <a href={member.linkedinId} target="_blank">
                         <i class="fab fa-linkedin fa-3x mx-2"></i>

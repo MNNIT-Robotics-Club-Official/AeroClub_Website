@@ -175,7 +175,7 @@ export default function Alumni() {
               <div class="panel-body">
                 <div
                   className="container"
-                  style={{ backgroundColor: "#e6e6e6" }}
+
                 >
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
@@ -237,7 +237,7 @@ export default function Alumni() {
               <div class="panel-body">
                 <div
                   className="container"
-                  style={{ backgroundColor: "#e6e6e6" }}
+
                 >
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
@@ -288,7 +288,7 @@ export default function Alumni() {
                   data-parent="#accordion"
                   href="#collapseThree"
                 >
-                  Batch 2018
+                  2018 & Previous Batches
                 </a>
               </h4>
             </div>
@@ -296,7 +296,7 @@ export default function Alumni() {
               <div class="panel-body">
                 <div
                   className="container"
-                  style={{ backgroundColor: "#e6e6e6" }}
+
                 >
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
