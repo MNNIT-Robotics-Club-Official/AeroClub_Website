@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { toast } from "react-toastify";
+import { Accordion, Card } from 'react-bootstrap';
 
 export default function DashNews() {
   const [news, setnews] = useState([]);
@@ -28,27 +29,36 @@ export default function DashNews() {
       });
   });
   return (
-    <div>
-      <table
-        style={{
-          fontFamily: "arial, sans-serif",
-          borderCollapse: "collapse",
-          width: "100%",
-        }}
-      >
-        <tr>
-          <th>title</th>
-          <th>body</th>
-          <th>publishedAt</th>
-        </tr>
-        {news.map((n) => (
-          <tr>
-            <td>{n.title}</td>
-            <td dangerouslySetInnerHTML={{ __html: n.body }}></td>
-            <td>{new Date(n.publishedAt).toLocaleDateString()}</td>
-          </tr>
+    <div className="container">
+      <Accordion className="shadow">
+        {news.map((singleNews) => (
+          <Card className="rounded" key={singleNews.id}>
+            <Card.Header style={{ cursor: "pointer" }}>
+              <Accordion.Toggle
+                as={Card.Header}
+                eventKey={singleNews.id}
+                style={{ fontSize: "1.3rem" }}
+              >
+                <div>
+                  {singleNews.title}
+                  <em className="float-right" style={{ fontSize: "small" }}>
+                    {new Date(singleNews.publishedAt).toLocaleDateString()}
+                  </em>
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey={singleNews.id}>
+              <Card.Body
+                className="border"
+                dangerouslySetInnerHTML={{ __html: singleNews.body }}
+              ></Card.Body>
+            </Accordion.Collapse>
+          </Card>
         ))}
-      </table>
+        {news.length === 0 && (
+          <h3 className="text-center mt-5">No Updates available...!</h3>
+        )}
+      </Accordion>
     </div>
   );
 }

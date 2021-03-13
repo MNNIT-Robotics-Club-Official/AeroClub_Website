@@ -10,7 +10,6 @@ import DashBlogs from "./Blogs/DashBlogs";
 import ComponentsList from "./ComponentsList";
 import { useDispatch } from "react-redux";
 import DashNews from "./News/DashNews";
-import News from "./News/News";
 
 function Dashboard() {
   const history = useHistory();
