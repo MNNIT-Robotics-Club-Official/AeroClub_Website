@@ -9,6 +9,7 @@ import DashProfile from "./Profile/DashProfile";
 import DashBlogs from "./Blogs/DashBlogs";
 import ComponentsList from "./ComponentsList";
 import { useDispatch } from "react-redux";
+import DashNews from "./News/DashNews";
 
 function Dashboard() {
   const history = useHistory()
@@ -108,6 +109,17 @@ function Dashboard() {
           >
             Blogs
           </a>
+          <a
+            className="nav-item nav-link"
+            id="nav-news-tab"
+            data-toggle="tab"
+            href="#nav-news"
+            role="tab"
+            aria-controls="nav-news"
+            aria-selected="false"
+          >
+            News
+          </a>
         </div>
       </nav>
       <div className="tab-content" id="nav-tabContent">
@@ -158,6 +170,14 @@ function Dashboard() {
           aria-labelledby="nav-blogs-tab"
         >
           <DashBlogs />
+        </div>
+        <div
+          className="tab-pane fade"
+          id="nav-news"
+          role="tabpanel"
+          aria-labelledby="nav-news-tab"
+        >
+          <DashNews />
         </div>
       </div>
     </div>
