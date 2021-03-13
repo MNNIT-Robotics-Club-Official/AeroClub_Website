@@ -15,16 +15,17 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const handleLogout = () => {
-    fetch(`/api/signout`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/signout`, {
       method: "post",
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success(data.message);
         localStorage.removeItem("jwtToken");
         localStorage.removeItem("role");
+        localStorage.removeItem('persist:root')
         dispatch({ type: "CLEAR" });
         setLoggedIn(false);
-        toast.success(data.message);
         history.push("/");
         window.location.reload();
       });

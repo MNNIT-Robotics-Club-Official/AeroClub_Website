@@ -90,15 +90,19 @@ router.post("/blogs", isSignedIn, (req, res) => {
 
 // updating a blog
 router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
-  Blog.findOneAndReplace(
+  Blog.findOneAndUpdate(
     { _id: req.params.id },
-    req.body,
+    { $set: { title: req.body.title, body: req.body.body, postedBy: req.body.postedBy, pic: req.body.pic, publishedAt: req.body.publishedAt, accepted: req.body.accepted } },
     { new: true },
     (e, blog) => {
       if (e) {
         return res.status(400).json({
           error: "Blog cannot be updated !",
         });
+      }
+
+      if (blog.accepted === req.body.accepted) {
+        return res.json(blog.transform());
       }
 
       const message = blog.accepted

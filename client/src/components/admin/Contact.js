@@ -1,24 +1,14 @@
 import React from "react";
 import {
-    Create,
     Datagrid,
-    DateField,
-    DateInput,
     DeleteButton,
-    Edit,
-    EditButton,
     List,
-    required,
     RichTextField,
     Show,
     ShowButton,
-    SimpleForm,
     SimpleShowLayout,
     TextField,
-    TextInput,
 } from "react-admin";
-
-import RichTextInput from "ra-input-rich-text";
 
 export const ContactList = (props) => {
     return (

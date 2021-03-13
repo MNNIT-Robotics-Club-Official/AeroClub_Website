@@ -127,7 +127,7 @@ const ContactUs = () => {
               <div className="after-logo">
                 <h4> Email : </h4>
                 <br />
-                aeroclubmnnit@mnnit.ac.in
+                aeroclub@mnnit.ac.in
               </div>
             </div>
             <br />
@@ -141,7 +141,7 @@ const ContactUs = () => {
               <div className="after-logo">
                 <h4> Contact : </h4>
                 <br />
-                +91 7390909434 +91 7275195776
+                +91 8295018236 <br />+91 9521818693
               </div>
             </div>
           </div>

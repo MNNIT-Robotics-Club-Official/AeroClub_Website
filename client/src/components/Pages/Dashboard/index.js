@@ -10,10 +10,11 @@ import DashBlogs from "./Blogs/DashBlogs";
 import ComponentsList from "./ComponentsList";
 import { useDispatch } from "react-redux";
 import DashNews from "./News/DashNews";
+import News from "./News/News";
 
 function Dashboard() {
-  const history = useHistory()
-  const dispatch = useDispatch()
+  const history = useHistory();
+  const dispatch = useDispatch();
   document.title = `Dashboard | ${process.env.REACT_APP_BASE_TITLE}`;
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
@@ -34,13 +35,12 @@ function Dashboard() {
           history.push("/user/login");
           return;
         }
-        console.log(data.user);
-        dispatch({ type: 'SET', payload: data.user })
+        dispatch({ type: "SET", payload: data.user });
       });
   }, []);
 
   return (
-    <div className="container" style={{ minHeight: '76vh' }}>
+    <div className="container col-10" style={{ minHeight: "76vh" }}>
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a
