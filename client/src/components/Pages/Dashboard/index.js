@@ -33,13 +33,12 @@ function Dashboard() {
           history.push("/user/login");
           return;
         }
-        console.log(data.user);
         dispatch({ type: 'SET', payload: data.user })
       });
   }, []);
 
   return (
-    <div className="container" style={{ minHeight: '76vh' }}>
+    <div className="container col-10" style={{ minHeight: '76vh' }}>
       <nav>
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           <a

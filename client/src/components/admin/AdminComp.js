@@ -10,6 +10,10 @@ import {
   ProjectList,
   ProjectShow,
 } from "./Project";
+import{ 
+  ContactList,
+  ContactShow
+} from "./Contact";
 import {
   AchievementList,
   AchievementCreate,
@@ -39,6 +43,7 @@ function AdminComp() {
         authProvider={authProvider}
         dataProvider={dataProvider}
         history={history}
+
       >
         <Resource
           name="users"
@@ -89,6 +94,11 @@ function AdminComp() {
           create={WorkshopCreate}
           edit={WorkshopEdit}
           show={WorkshopShow}
+        />
+        <Resource
+          name="Contact"
+          list={ContactList}
+          show={ContactShow}
         />
       </Admin>
     </>

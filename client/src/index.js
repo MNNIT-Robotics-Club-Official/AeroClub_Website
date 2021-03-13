@@ -7,7 +7,8 @@ import ConfigureStore, { history } from "./ConfigureStore";
 import { PersistGate } from 'redux-persist/integration/react'
 import { ConnectedRouter } from "connected-react-router";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import NotFound from "./components/Pages/NotFound";
 
 const store = ConfigureStore().store
 const persistor = ConfigureStore().persistor
@@ -17,12 +18,12 @@ ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ConnectedRouter history={history} >
-          <BrowserRouter >
+          <BrowserRouter basename='/' >
             <App />
           </BrowserRouter>
         </ConnectedRouter>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode >,
   document.getElementById("root")
 );

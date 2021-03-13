@@ -27,7 +27,7 @@ const projectRoutes = require("./routes/project");
 const newsRoutes = require("./routes/news");
 const workshopRoutes = require("./routes/workshop");
 const achievementRoutes = require("./routes/achievement");
-
+const contactRouters = require("./routes/contact");
 // app specific
 app.use(express.json());
 app.use(cors());
@@ -42,6 +42,7 @@ app.use("/api", newsRoutes);
 app.use("/api", userRoutes);
 app.use("/api", workshopRoutes);
 app.use("/api", achievementRoutes);
+app.use("/api", contactRouters);
 
 app.listen(port, () => {
   console.log(`Server Started at ${port}`);

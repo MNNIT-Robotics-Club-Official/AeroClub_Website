@@ -44,7 +44,7 @@ export default function WebTeam() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container alumni-container">
                 <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
                         (member, i) =>
@@ -64,7 +64,7 @@ export default function WebTeam() {
                                     </h5>
                                     <p class="text-center">
                                         {member.branch}
-                                        
+
                                     </p>
                                     <p class="card-text text-center">{member.year} year</p>
                                     <div className="d-flex justify-content-center mt-4">
