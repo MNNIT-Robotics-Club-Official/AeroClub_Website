@@ -81,7 +81,7 @@ router.post("/projects", isSignedIn, (req, res) => {
     project.populate({ path: "members.user", select: "name" }).execPopulate((err, populatedProject) => {
       res.json(populatedProject);
     })
-
+    
   });
 });
 
