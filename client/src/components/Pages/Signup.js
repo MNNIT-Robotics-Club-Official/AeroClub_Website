@@ -15,6 +15,7 @@ function Signup() {
   useEffect(() => {
     document.title = `Signup | ${process.env.REACT_APP_BASE_TITLE}`;
     if (localStorage.getItem("jwtToken")) history.push("/404");
+    toast.warn('Acount Signup is available only for MNNIT Students...!')
   }, []);
 
   const handleSubmit = (e) => {
@@ -46,6 +47,21 @@ function Signup() {
         }
       });
   };
+
+  const passwordToggle = () => {
+    const eye = document.getElementById('eye')
+    if (eye.classList.contains('fa-eye')) {
+      eye.classList.remove('fa-eye')
+      eye.classList.add('fa-eye-slash')
+      document.getElementById('inputPassword').type = 'password'
+    }
+    else {
+      eye.classList.remove('fa-eye-slash')
+      eye.classList.add('fa-eye')
+      document.getElementById('inputPassword').type = 'text'
+    }
+  }
+
 
   return (
     <div className="login">
@@ -96,7 +112,7 @@ function Signup() {
                     required
                     ref={password}
                   />
-                  <label htmlFor="inputPassword">Password</label>
+                  <label htmlFor="inputPassword" >Password</label><i className="fa fa-eye-slash float-right" id='eye' onClick={passwordToggle}></i>
                   <em style={{ fontSize: "x-small" }}>
                     * password must between 8-15 characters containing at least
                     one lowercase and one uppercase letter, one numeric digit,
@@ -105,7 +121,7 @@ function Signup() {
                 </div>
                 <div className="form-label-group">
                   <input
-                    type="password"
+                    type="text"
                     id="inputretypePassword"
                     className="form-control"
                     placeholder="Retype Password"

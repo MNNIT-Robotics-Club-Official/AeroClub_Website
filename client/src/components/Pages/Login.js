@@ -9,7 +9,6 @@ function Login() {
   const password = useRef();
   const history = useHistory();
 
-
   useEffect(() => {
     document.title = `Login | ${process.env.REACT_APP_BASE_TITLE}`;
     if (localStorage.getItem("jwtToken")) history.push("/404");
@@ -39,6 +38,20 @@ function Login() {
         }
       });
   };
+
+  const passwordToggle = () => {
+    const eye = document.getElementById('eye')
+    if (eye.classList.contains('fa-eye')) {
+      eye.classList.remove('fa-eye')
+      eye.classList.add('fa-eye-slash')
+      document.getElementById('inputPassword').type = 'password'
+    }
+    else {
+      eye.classList.remove('fa-eye-slash')
+      eye.classList.add('fa-eye')
+      document.getElementById('inputPassword').type = 'text'
+    }
+  }
 
   return (
     <div className="login">
@@ -78,7 +91,7 @@ function Login() {
                     required
                     ref={password}
                   />
-                  <label htmlFor="inputPassword">Password</label>
+                  <label htmlFor="inputPassword" >Password</label><i className="fa fa-eye-slash float-right" id='eye' onClick={passwordToggle}></i>
                 </div>
                 <button
                   className="btn btn-lg btn-dark btn-block text-uppercase l1"
