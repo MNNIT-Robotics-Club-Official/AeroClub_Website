@@ -14,18 +14,21 @@ export default function WebTeam() {
         {
             name: "Abhinav Anand",
             year: "2nd",
+            branch: "Information Technology",
             photo: f1,
             linkedinId: "https://www.linkedin.com/in/abhinav-anand-33b7a3204/",
         },
         {
             name: "Ishan Gupta",
             year: "2nd",
+            branch: "Computer Science and Engg.",
             photo: f2,
             linkedinId: "https://www.linkedin.com/in/ishan-gupta100/",
         },
         {
             name: "Parnab Ghosh",
             year: "2nd",
+            branch: "Electronics and Comm. Engg.",
             photo: f3,
             linkedinId: "https://www.linkedin.com/in/parnab-ghosh-57326118b/",
         },
@@ -41,13 +44,13 @@ export default function WebTeam() {
                 </div>
             </div>
 
-            <div className="container">
+            <div className="container alumni-container">
                 <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
                         (member, i) =>
                             <div
                                 class="card card-item shadow"
-                                style={{ width: "17rem", minHeight: "29rem" }}
+                                style={{ width: "17rem", minHeight: "29rem", height: "35rem" }}
                                 key={i}
                             >
                                 <img
@@ -59,6 +62,10 @@ export default function WebTeam() {
                                     <h5 class="card-title text-center text-uppercase">
                                         {member.name}
                                     </h5>
+                                    <p class="text-center">
+                                        {member.branch}
+
+                                    </p>
                                     <p class="card-text text-center">{member.year} year</p>
                                     <div className="d-flex justify-content-center mt-4">
                                         <a href={member.linkedinId} target="_blank">

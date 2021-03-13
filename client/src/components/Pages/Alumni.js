@@ -86,6 +86,7 @@ export default function Alumni() {
       presentLocation: "Kharagpur",
       yourContactInformationEmail: "vaibhavjha904@gmail.com",
       yourContactInformationPhoneNumber: 8310731383,
+      yourLinkedinId: "https://www.linkedin.com/in/vaibhav-jha-49745b166",
       aPhotoForWebsiteOfYourself: f7,
     },
     {
@@ -105,6 +106,7 @@ export default function Alumni() {
       presentOrganisation: "Hero motocorp",
       presentLocation: "Gurgaon",
       yourContactInformationEmail: "sharmaaman0571@gmail.com",
+      yourLinkedinId: "https://www.linkedin.com/in/aman-sharma-910598149",
       yourContactInformationPhoneNumber: "08218289118",
       aPhotoForWebsiteOfYourself: f9,
     },
@@ -175,7 +177,7 @@ export default function Alumni() {
               <div class="panel-body">
                 <div
                   className="container"
-                  style={{ backgroundColor: "#e6e6e6" }}
+
                 >
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
@@ -237,7 +239,7 @@ export default function Alumni() {
               <div class="panel-body">
                 <div
                   className="container"
-                  style={{ backgroundColor: "#e6e6e6" }}
+
                 >
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(
@@ -288,7 +290,7 @@ export default function Alumni() {
                   data-parent="#accordion"
                   href="#collapseThree"
                 >
-                  Batch 2018
+                  2018 & Previous Batches
                 </a>
               </h4>
             </div>
@@ -296,7 +298,7 @@ export default function Alumni() {
               <div class="panel-body">
                 <div
                   className="container"
-                  style={{ backgroundColor: "#e6e6e6" }}
+
                 >
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
                     {members.map(

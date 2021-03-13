@@ -2,14 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
 .style {
-  /* background-color:rgb(255, 255, 255); */
 
   padding: 0;
-  /* background-color:rgba(51, 50, 50, 0.76); */
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: rgba(255, 1, 1, 0.877) !important;
+  color: rgba(252, 99, 99, 0.877) !important;
 }
 .navbar-light .navbar-nav .nav-link {
   color: rgb(31, 31, 31) !important;
@@ -71,22 +69,34 @@
 
 @media (max-width: 1050px) {
   .right-btn {
-    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+  }
+  .dropdown .dropdown-menu {
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    
+    max-height: 0;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
   }
 }
 
-.dropdown .dropdown-menu {
+/* .dropdown .dropdown-menu {
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
 
-  max-height: 0;
+  max-height: auto;
   display: block;
   overflow: hidden;
   opacity: 0;
-}
+} */
 
 .logoimg {
   height: 50px;
