@@ -42,6 +42,13 @@ export default function DashProfile() {
   }, [user]);
 
   const handleSaveChange = () => {
+
+    if (parseInt(regis_no[4]) === 7) {
+      toast.warn('Invalid registration number !')
+      return
+    }
+
+
     if (year <= 4) {
       setDisabled(true);
       setLoading(true);
