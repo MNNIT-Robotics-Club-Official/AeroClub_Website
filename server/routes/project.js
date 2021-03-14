@@ -4,11 +4,12 @@ const { Project, Member } = require("../models/project");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 const { json } = require("express");
 const User = require("../models/user");
+const ObjectId = require("mongodb").ObjectId;
 
 // fetching all projects
 router.get("/projects", isSignedIn, isAdmin, (req, res) => {
   res.setHeader("Content-Range", "projects 0-10/20");
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+  res.setHeader("Access-Control-Expose-Headers", "Content-Range");
 
   Project.find({})
     .then((projects) => {
@@ -21,12 +22,12 @@ router.get("/projects", isSignedIn, isAdmin, (req, res) => {
 
 router.get("/projects/approved", (req, res) => {
   Project.find({ approved: true, status: "Completed" })
-    .populate({ path: 'members.user', select: 'name' })
+    .populate({ path: "members.user", select: "name" })
     .exec((err, projects) => {
       if (err) {
         return res.status(400).json({
-          error: err.message
-        })
+          error: err.message,
+        });
       }
       res.json(projects);
     });
@@ -34,20 +35,19 @@ router.get("/projects/approved", (req, res) => {
 
 // fetching a projects with id
 router.get("/projects/:id", (req, res) => {
-
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
     return res.json({ error: "not found !" });
   }
 
   Project.findOne({ _id: req.params.id })
-    .populate({ path: 'members.user' })
+    .populate({ path: "members.user" })
     .then((project) => {
       if (project.open) {
         res.json(project.transform());
       } else {
         isSignedIn(req, res, () => {
           res.json(project.transform());
-        })
+        });
       }
     })
     .catch((e) => console.log(e));
@@ -57,31 +57,33 @@ router.get("/projects/:id", (req, res) => {
 router.post("/projects", isSignedIn, (req, res) => {
   req.body.leader = req.user.id;
   const project = new Project(req.body);
-  project.members.push(
-    new Member({ user: req.user.id, accepted: true, leader: true })
-  );
+  if (req.user.role === "User") {
+    project.members.push(
+      new Member({ user: req.user.id, accepted: true, leader: true })
+    );
+  }
 
   project.save((err, project) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         err: err.message,
       });
     }
-    User.findById(req.user.id)
-      .exec((err, user) => {
-        user.projects.push(project._id);
-        user.save((err, user) => {
-          if (err) {
-            return res.status(400).json({
-              err: err.message,
-            });
-          }
-        });
-      })
-    project.populate({ path: "members.user", select: "name" }).execPopulate((err, populatedProject) => {
-      res.json(populatedProject);
-    })
-    
+    let userIds = project.members.map((member) => member.user);
+    User.updateMany(
+      { _id: { $in: userIds } },
+      { $push: { projects: project._id } },
+      (err, users) => {
+        if (err) {
+          console.log(err);
+          return res.status(400).json({
+            err: err.message,
+          });
+        }
+        res.json(project.transform());
+      }
+    );
   });
 });
 
@@ -97,16 +99,49 @@ router.put("/projects/:id", isSignedIn, isAdmin, (req, res) => {
           error: "Project cannot be updated !",
         });
       }
-      return res.json(project.transform());
+      const userIds_old = project.members.map((member) => member.user);
+      const userIds_new = req.body.members.map((member) => member.user);
+      const diff = userIds_old
+        .concat(userIds_new)
+        .filter((item) => !userIds_old.includes(item) || !userIds_new.includes(item));
+      User.updateMany(
+        { _id: { $in: userIds_new } },
+        { $addToSet: { projects: project._id } },
+        (err, users) => {
+          if (err) {
+            console.log(err);
+            return res.status(400).json({
+              err: err.message,
+            });
+          } 
+        }
+      );
+      User.updateMany(
+        { _id: { $in: diff } },
+        { $pull: { projects: { _id: project._id } } },
+        (err, users) => {
+          if (err) {
+            console.log(err);
+            return res.status(400).json({
+              err: err.message,
+            });
+          } 
+        }
+      );
+      res.json(project.transform())
     }
   );
 });
 
 // deleting a project
 router.delete("/projects/:id", isSignedIn, isAdmin, (req, res) => {
-  Project.findByIdAndDelete(req.params.id, (err, project) => {
+  Project.findById(req.params.id, (err, project) => {
     if (err) return res.status(500).send(err);
-    return res.json({ project });
+    if (project) {
+      project.remove(() => {
+        return res.json(project);
+      });
+    }
   });
 });
 module.exports = router;
@@ -149,14 +184,17 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
             error: "Cannot add project to member.",
           });
         }
-        updatedProject.populate({
-          path: "members.user", select: "name"
-        }).execPopulate((err, populatedProject) => {
-          res.json({
-            msg: "Member added successfully",
-            updatedProject: populatedProject
+        updatedProject
+          .populate({
+            path: "members.user",
+            select: "name",
+          })
+          .execPopulate((err, populatedProject) => {
+            res.json({
+              msg: "Member added successfully",
+              updatedProject: populatedProject,
+            });
           });
-        })
       });
     });
   });
