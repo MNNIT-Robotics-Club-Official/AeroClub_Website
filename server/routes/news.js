@@ -22,6 +22,7 @@ router.get('/news/public', (req, res) => {
 
     News.find({ private: false }).sort('-createdAt')
         .then(news => {
+            console.log(news)
             let arr = []
             news.forEach(singleNews => arr.push(singleNews.transform()))
             res.json(arr)
