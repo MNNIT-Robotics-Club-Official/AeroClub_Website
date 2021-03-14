@@ -56,9 +56,13 @@ body{
   }
 
   .about-image{
-    background: url('../images/utils/about.jpg') center center no-repeat;
-    background-size: cover;
+    background: url('../images/utils/Capture.PNG') center center no-repeat;
+    /* background-size: cover; */
+    background-size: contain;
     background-position: center;
+    /* height:20rem; */
+    width: auto;
+    z-index: 999;
   }
 
   .abttxt{
