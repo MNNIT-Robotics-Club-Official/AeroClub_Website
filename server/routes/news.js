@@ -4,10 +4,10 @@ const News = require('../models/news')
 const { isSignedIn, isAdmin } = require('../middleware/auth')
 
 // fetching all news
-router.get('/news',isSignedIn, isAdmin, (req, res) => {
+router.get('/news', isSignedIn, isAdmin, (req, res) => {
     res.setHeader('Content-Range', 'news 0-10/20')
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
-    
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+
     News.find({}).sort('-createdAt')
         .then(news => {
             let arr = []
@@ -18,11 +18,11 @@ router.get('/news',isSignedIn, isAdmin, (req, res) => {
 })
 
 router.get('/news/public', (req, res) => {
-    res.setHeader('Content-Range', 'news 0-10/20')
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
-    
-    News.find({private: false}).sort('-createdAt')
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+
+    News.find({ private: false }).sort('-createdAt')
         .then(news => {
+            console.log(news)
             let arr = []
             news.forEach(singleNews => arr.push(singleNews.transform()))
             res.json(arr)
@@ -30,11 +30,10 @@ router.get('/news/public', (req, res) => {
         .catch(e => console.log(e))
 })
 
-router.get('/news/private',isSignedIn, (req, res) => {
-    res.setHeader('Content-Range', 'news 0-10/20')
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
-    
-    News.find({private: true}).sort('-createdAt')
+router.get('/news/private', isSignedIn, (req, res) => {
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+
+    News.find({ private: true }).sort('-createdAt')
         .then(news => {
             let arr = []
             news.forEach(singleNews => arr.push(singleNews.transform()))
@@ -44,7 +43,7 @@ router.get('/news/private',isSignedIn, (req, res) => {
 })
 
 // fetching a news with id
-router.get('/news/:id',isSignedIn, isAdmin, (req, res) => {
+router.get('/news/:id', isSignedIn, isAdmin, (req, res) => {
     News.findOne({ _id: req.params.id })
         .then(news => {
             res.json(news.transform())

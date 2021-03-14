@@ -117,7 +117,7 @@ function Dashboard() {
             aria-controls="nav-news"
             aria-selected="false"
           >
-            News
+            Updates
           </a>
         </div>
       </nav>
