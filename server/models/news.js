@@ -11,6 +11,11 @@ const newsSchema = new mongoose.Schema({
     },
     publishedAt: {
         type: Date
+    },
+    private: {
+        type: Boolean,
+        default: false,
+        required: true
     }
 }, { timestamps: true })
 

@@ -89,6 +89,7 @@ function Login() {
                     className="form-control"
                     placeholder="Password"
                     required
+                    maxLength={30}
                     ref={password}
                   />
                   <label htmlFor="inputPassword" >Password</label><i className="fa fa-eye-slash float-right" id='eye' onClick={passwordToggle}></i>
@@ -104,7 +105,7 @@ function Login() {
                 <div className="para">
                   <p>
                     <Link
-                      to="/user/forgotpassword"
+                      to="/user/forgetpassword"
                       style={{ textDecoration: "none" }}
                       className="l1"
                     >

@@ -23,7 +23,7 @@ router.post(
       throw new Error("Invalid email type !");
     }),
     check("password", "password should be between 3-30 characters").isLength({
-      min: 3,
+      min: 8,
       max: 30
     }),
     body("password").custom((password) => {

@@ -22,10 +22,6 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    teamname: {
-      type: String,
-      required: true,
-    },
     description: {
       type: String,
       required: true,
@@ -70,6 +66,16 @@ projectSchema.method("transform", function () {
   delete obj._id;
   return obj;
 });
-const Project = mongoose.model("Project", projectSchema);
 
+projectSchema.pre('remove', function (next) {
+  let userIds = this.members.map(member => member.user)
+  this.model('User').update(
+    { _id: { $in: userIds } },
+    { $pull: { projects: this._id } },
+    { multi: true },
+    next
+  );
+});
+
+const Project = mongoose.model("Project", projectSchema);
 module.exports = { Member, Project };

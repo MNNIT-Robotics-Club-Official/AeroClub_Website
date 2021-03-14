@@ -1,8 +1,8 @@
 const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
+const blog = require('../models/blog')
 const notification = require("../models/notifications");
-const { findById } = require("../models/user");
 
 exports.getAllUsers = (req, res) => {
   res.setHeader("Content-Range", "users 0-10/20");
@@ -34,7 +34,9 @@ exports.getSingleUser = (req, res) => {
 exports.deleteUser = (req, res) => {
   user.findByIdAndDelete(req.params.id, (err, user) => {
     if (err) return res.status(500).send(err);
-    return res.json({ user });
+    blog.deleteMany({ postedBy: user._id }).then(blogs => {
+      return res.json({ user });
+    })
   });
 };
 

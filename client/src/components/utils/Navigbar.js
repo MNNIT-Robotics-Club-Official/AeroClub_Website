@@ -15,7 +15,7 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const handleLogout = () => {
-    fetch(`/api/signout`, {
+    fetch(`${process.env.REACT_APP_SERVER}/api/signout`, {
       method: "post",
     })
       .then((res) => res.json())
@@ -24,9 +24,9 @@ const Login = () => {
         localStorage.removeItem("role");
         dispatch({ type: "CLEAR" });
         setLoggedIn(false);
-        toast.success(data.message);
         history.push("/");
         window.location.reload();
+        toast.success(data.message);
       });
   };
 
