@@ -23,7 +23,7 @@ const Login = () => {
         toast.success(data.message);
         localStorage.removeItem("jwtToken");
         localStorage.removeItem("role");
-        localStorage.removeItem('persist:root')
+        localStorage.removeItem("persist:root")
         dispatch({ type: "CLEAR" });
         setLoggedIn(false);
         history.push("/");

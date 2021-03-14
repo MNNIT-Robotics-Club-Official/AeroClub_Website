@@ -30,19 +30,19 @@ const userReducer = (user = null, action) => {
         ...user,
         projects: new_proj_arr
       };
-      case "ACCEPT_INVITE": 
+    case "ACCEPT_INVITE":
       return {
         ...user,
         projects: [...user.projects, action.payload]
       }
-      
+
     case "CREATE_PROJECT":
       return {
         ...user,
         projects: [...user.projects, action.payload]
       }
     case "CLEAR":
-      return null;
+      return undefined;
     default:
       return user;
   }
