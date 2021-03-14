@@ -42,7 +42,7 @@ const userReducer = (user = null, action) => {
         projects: [...user.projects, action.payload]
       }
     case "CLEAR":
-      return undefined;
+      return null;
     default:
       return user;
   }
