@@ -38,6 +38,7 @@ import Coordinators from "./components/Pages/Coordinators.js";
 import Nontech from "./components/Pages/Nontech.js";
 import ResearchThemes from "./components/utils/ResearchThemes.js";
 import Sponsors from "./components/Pages/Sponsor";
+import Sponsorhome from "./components/Pages/Sponsorhome";
 import Achievements from "./components/Pages/Achievements.js";
 import Collaboration from "./components/Pages/Collaboration.js";
 import Spinoff from "./components/Pages/Spinoff.js";
