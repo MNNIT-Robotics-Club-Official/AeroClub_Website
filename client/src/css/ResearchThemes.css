@@ -7,6 +7,15 @@
     }
 .card-text {
     font-size: small;
+    font-family: "Roboto";
     /* text-align: center; */
 }
+}
+
+.card-text {
+    font-family: "Roboto";
+}
+
+.card-body:hover {
+    background-color: rgb(77, 77, 77);
 }

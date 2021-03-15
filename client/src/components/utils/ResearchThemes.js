@@ -11,7 +11,7 @@ const ResearchThemes = () => {
       >
         Research Themes
       </div>
-      <div className="jumbotron" style={{marginBottom:"0", background:"rgba(0, 0, 0, 0)"}}>
+      <div className="jumbotron" style={{ marginBottom: "0", background: "rgba(0, 0, 0, 0)" }}>
         <div
           className="miniSep"
           style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
@@ -79,28 +79,30 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card" style={{ marginBottom: "1rem" }}>
+              <div className="card" style={{ marginBottom: "1rem", borderRadius: "10px", background: "rgb(255,255,255)" }}>
                 <div
                   className="card-body"
-                  style={{ background: "rgb(204, 67, 67)" }}
+                  style={{ background: "rgb(0,0,0)", borderRadius: "10px", margin: "10px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
                     Perception
                   </h5>
                   {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                   <p className="card-text" style={{ color: "white" }}>
-                    Perception using Sensors
-                    <br />
-                    GPS Based Navigation
-                    <br />
-                    Deep Learning
-                    <br />
-                    Object Detection, Tracking and Avoidance
-                    <br />
-                    Computer Vision
-                    <br />
-                    Sensor Fusion
-                    <br />
+                    <ul style={{ margin: "5px" }}>
+                      <li>Perception using Sensors</li>
+                      {/* <br /> */}
+                      <li>GPS Based Navigation</li>
+                      {/* <br /> */}
+                      <li>Deep Learning</li>
+                      {/* <br /> */}
+                      <li>Object Detection, Tracking and Avoidance</li>
+                      {/* <br /> */}
+                      <li>Computer Vision</li>
+                      {/* <br /> */}
+                      <li>Sensor Fusion</li>
+                      {/* <br /> */}
+                    </ul>
                   </p>
                 </div>
               </div>
