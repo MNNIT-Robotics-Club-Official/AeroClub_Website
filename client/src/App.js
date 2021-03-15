@@ -18,7 +18,6 @@ import SingleProject from "./components/Pages/SingleProject";
 import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
-import EventHome from "./Animations/EventsHome";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ForgetPassword from "./components/Pages/ForgetPassword";
@@ -109,7 +108,7 @@ function App() {
               <Featuredproject />
               <ResearchThemes />
               <Testimonials />
-              <EventHome />
+              <Sponsorhome />
               <ContactUs />
             </Route>
             <Route path="/gallery" exact>

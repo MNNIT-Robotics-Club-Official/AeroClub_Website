@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../../Animations/Loading";
-import "../../css/Alumni.css";
+// import "../../css/Alumni.css";
 
 export default function Achievements() {
   const [data, setData] = useState([]);

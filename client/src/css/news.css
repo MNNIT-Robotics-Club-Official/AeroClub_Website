@@ -64,6 +64,11 @@
 .panel-default>.panel-heading a[aria-expanded="true"] {
     color: rgb(29, 29, 29);
     background-color: #dadada;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 15px;
+    margin-bottom: 0;
+    border-top-left-radius: 15px;
 }
 
 .panel-collapse {
@@ -71,8 +76,12 @@
     opacity: 1;
     color: white;
     padding: 10px;
-    /* margin: 5px; */
-    border-top-left-radius: 20px;
+    margin-bottom: 10px;
+    border-bottom-left-radius: 15px;
     /* border-top-left-radius: 25px; */
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 15px;
 }
+
+/* .panel-title{
+    margin-bottom: 0;
+} */

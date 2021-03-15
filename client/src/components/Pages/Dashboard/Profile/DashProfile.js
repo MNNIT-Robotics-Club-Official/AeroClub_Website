@@ -175,7 +175,7 @@ export default function DashProfile() {
         </button>
         </>
       )}
-      <button className="btn btn-success mr-1 my-1">Resources</button>
+      <a className="btn btn-success mr-1 my-1">Resources</a>
       {user?.role !== "User" && (
         <a className="btn btn-danger mx-1" href="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin">
           Go to Admin Panel
