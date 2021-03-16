@@ -6,6 +6,7 @@ import ImageResize from "quill-image-resize";
 import "react-quill/dist/quill.snow.css";
 import "../../../../css/CreateBlog.css";
 import "../../../../css/SingleBlog.css";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../../../grobalVars"
 import { Button, Container, Jumbotron, Tab, Tabs } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 Quill.register("modules/imageResize", ImageResize);
@@ -57,7 +58,7 @@ export default function CreateBlog() {
       return;
     }
 
-    fetch(`${process.env.REACT_APP_SERVER}/api/blogs`, {
+    fetch(`${REACT_APP_SERVER}/api/blogs`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,

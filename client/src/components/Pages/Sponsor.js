@@ -8,10 +8,11 @@ import cosmo3d from "../../images/Sponsors/cosmo3d.png";
 import knowhow from "../../images/Sponsors/knowhow.png";
 import pcb from "../../images/Sponsors/pcb.png";
 import ultratech from "../../images/Sponsors/ultra.png";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 export default function Ṣponsors() {
   useEffect(() => {
-    document.title = `Sponsors | ${process.env.REACT_APP_BASE_TITLE}`;
+    document.title = `Sponsors | ${REACT_APP_BASE_TITLE}`;
   }, [])
 
 

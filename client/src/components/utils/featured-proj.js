@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/featured-proj.css";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 
 export default function Featuredproject() {
+  const [projects, SetProjects] = useState([]);
+  useEffect(() => {
+    fetch(`${REACT_APP_SERVER}/api/projects/featured`, {
+      method: "get",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        return SetProjects(data);
+      });
+  }, []);
   return (
     <div className="cont featured-proj">
       <div className="main">
@@ -44,21 +56,22 @@ export default function Featuredproject() {
               </div>
             </div>
           </li>
-          <li className="cards_item" data-aos="fade-up">
-            <div className="card">
-              <div className="card_image">
-                <img src="https://picsum.photos/500/300/?image=11" />
+          {projects.map((project) => (
+            <li className="cards_item" data-aos="fade-up">
+              <div className="card">
+                <div className="card_image">
+                  <img src="https://picsum.photos/500/300/?image=11" />
+                </div>
+                <div className="card_content">
+                  <h2 className="card_title">{project.title}</h2>
+                  <p className="card_text">
+                    {project.objective}
+                  </p>
+                  <button className="btns card_btns" href={`projects/${project._id}`}>Read More</button>
+                </div>
               </div>
-              <div className="card_content">
-                <h2 className="card_title">Card Grid Layout</h2>
-                <p className="card_text">
-                  Demo of pixel perfect pure CSS simple responsive card grid
-                  layout
-                </p>
-                <button className="btns card_btns">Read More</button>
-              </div>
-            </div>
-          </li>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

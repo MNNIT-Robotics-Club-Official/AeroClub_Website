@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
-
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 export default function Achievements() {
   const [data, setData] = useState([]);
-  document.title = `Achievements | ${process.env.REACT_APP_BASE_TITLE}`;
+  document.title = `Achievements | ${REACT_APP_BASE_TITLE}`;
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER}/api/achievement/year`, {
+    fetch(`${REACT_APP_SERVER}/api/achievement/year`, {
       method: "get",
     })
       .then((res) => res.json())

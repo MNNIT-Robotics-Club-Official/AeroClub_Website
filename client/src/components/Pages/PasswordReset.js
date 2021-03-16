@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "../../css/Login.css";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 function PasswordReset() {
 
@@ -12,8 +13,8 @@ function PasswordReset() {
   const { token } = useParams();
 
   useEffect(() => {
-    document.title = `Reset Password | ${process.env.REACT_APP_BASE_TITLE}`;
-    fetch(`${process.env.REACT_APP_SERVER}/api/resetverify`, {
+    document.title = `Reset Password | ${REACT_APP_BASE_TITLE}`;
+    fetch(`${REACT_APP_SERVER}/api/resetverify`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${token}`,

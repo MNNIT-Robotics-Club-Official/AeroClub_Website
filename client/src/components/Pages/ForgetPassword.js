@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 import "../../css/Login.css";
 
 function ForgetPassword() {
   useEffect(() => {
-    document.title = `Forget Password | ${process.env.REACT_APP_BASE_TITLE}`;
+    document.title = `Forget Password | ${REACT_APP_BASE_TITLE}`;
   }, [])
 
   const email = useRef();
@@ -15,7 +15,7 @@ function ForgetPassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${process.env.REACT_APP_SERVER}/api/forget-password`, {
+    fetch(`${REACT_APP_SERVER}/api/forget-password`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

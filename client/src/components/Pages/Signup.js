@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import "../../css/Login.css";
 import { toast } from "react-toastify";
 import m from "../../images/utils/logo-aero2.png";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 function Signup() {
 
@@ -13,7 +14,7 @@ function Signup() {
   const history = useHistory();
 
   useEffect(() => {
-    document.title = `Signup | ${process.env.REACT_APP_BASE_TITLE}`;
+    document.title = `Signup | ${REACT_APP_BASE_TITLE}`;
     if (localStorage.getItem("jwtToken")) history.push("/404");
     toast.warn('Account Signup is available only for MNNIT Students...!')
   }, []);
@@ -26,7 +27,7 @@ function Signup() {
       return;
     }
 
-    fetch(`${process.env.REACT_APP_SERVER}/api/signup`, {
+    fetch(`${REACT_APP_SERVER}/api/signup`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

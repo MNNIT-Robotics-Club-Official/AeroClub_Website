@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../grobalVars"
 import "../css/Eventhome.css";
 export default function EventHome() {
   const [news, SetNews] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER}/api/news/public`, {
+    fetch(`${REACT_APP_SERVER}/api/news/public`, {
       method: "get",
     })
       .then((res) => res.json())

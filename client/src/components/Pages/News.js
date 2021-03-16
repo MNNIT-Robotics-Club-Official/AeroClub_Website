@@ -4,6 +4,7 @@ import { Container, Jumbotron } from "react-bootstrap";
 import { animateScroll as scroll } from "react-scroll";
 import createHistory from "history/createBrowserHistory";
 import Loading from "../../Animations/Loading";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 export default function News() {
 
@@ -11,8 +12,8 @@ export default function News() {
   const [eventKey, setEventKey] = useState("");
 
   useEffect(() => {
-    document.title = `Updates | ${process.env.REACT_APP_BASE_TITLE}`;
-    fetch(`${process.env.REACT_APP_SERVER}/api/news/public`, {
+    document.title = `Updates | ${REACT_APP_BASE_TITLE}`;
+    fetch(`${REACT_APP_SERVER}/api/news/public`, {
       method: "get",
     })
       .then((res) => res.json())
