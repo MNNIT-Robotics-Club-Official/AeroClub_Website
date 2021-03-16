@@ -64,7 +64,7 @@ export default function News() {
                     eventKey={singleNews.id}
                     style={{ fontSize: "1.3rem" }}>
                     <h4 className="panel-title">
-                      <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${singleNews.id}`} aria-expanded="true" aria-controls={`collapse${singleNews.id}`} >
+                      <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${singleNews.id}`} aria-expanded="false" aria-controls={`collapse${singleNews.id}`} >
                         {/* <div> */}
                           {singleNews.title}
                           
