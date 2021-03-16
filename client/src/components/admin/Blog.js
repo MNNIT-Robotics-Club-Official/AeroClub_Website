@@ -10,7 +10,6 @@ import {
   DeleteButton,
   Edit,
   EditButton,
-  ImageField,
   List,
   ReferenceField,
   ReferenceInput,
@@ -76,15 +75,17 @@ export const BlogCreate = (props) => {
           ]}
         />
         <ReferenceInput label="Posted By" source="postedBy" reference="users">
-          <SelectInput optionText="name" />
+          <SelectInput optionText="email" />
         </ReferenceInput>
-        <TextInput source="pic" label="Image Link" />
         <DateInput
           source="publishedAt"
           label="Published At"
           defaultValue={new Date()}
         />
         <BooleanInput source="accepted" />
+        <ReferenceInput label="Accepted By" source="acceptedBy" reference="users">
+          <SelectInput optionText="email" />
+        </ReferenceInput>
       </SimpleForm>
     </Create>
   );
@@ -96,8 +97,6 @@ export const BlogShow = (props) => {
       <SimpleShowLayout>
         <TextField source="title" label="Title" />
         <RichTextField source="body" label="Body" />
-        <TextField source="postedBy" label="Posted By" />
-        <ImageField source="pic" label="Image" />
         <ReferenceField
           label="Posted By"
           source="postedBy"
@@ -107,6 +106,14 @@ export const BlogShow = (props) => {
           <ChipField source="name" />
         </ReferenceField>
         <BooleanField source="accepted" />
+        <ReferenceField
+          label="Accepted By"
+          source="acceptedBy"
+          reference="users"
+          linkType="show"
+        >
+          <ChipField source="name" />
+        </ReferenceField>
       </SimpleShowLayout>
     </Show>
   );
@@ -138,15 +145,17 @@ export const BlogEdit = (props) => {
           ]}
         />
         <ReferenceInput label="Posted By" source="postedBy" reference="users">
-          <SelectInput optionText="name" />
+          <SelectInput optionText="email" />
         </ReferenceInput>
-        <TextInput source="pic" label="Image Link" />
         <DateInput
           source="publishedAt"
           label="Published At"
           validate={required()}
         />
         <BooleanInput source="accepted" />
+        <ReferenceInput label="Accepted By" source="acceptedBy" reference="users">
+          <SelectInput optionText="email" />
+        </ReferenceInput>
       </SimpleForm>
     </Edit>
   );

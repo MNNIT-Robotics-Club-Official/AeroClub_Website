@@ -19,26 +19,6 @@ export default function DashProfile() {
       setRegis_no(user.registration_no);
       setYear(user.year);
       setLinkedin(user.linkedin_url);
-
-      user.notifications.forEach((notification) => {
-        toast.success(notification.message);
-
-        fetch(`${REACT_APP_SERVER}/api/my/deleteNotification`, {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-          },
-          body: JSON.stringify({
-            id: notification._id,
-          }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.error) toast.warn(data.error);
-            else dispatch({ type: "SET", payload: data.User });
-          });
-      });
     }
   }, [user]);
 

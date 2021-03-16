@@ -9,7 +9,6 @@ const {
   getAllUsers,
   getSingleUser,
   deleteUser,
-  deleteNotification,
   updateProfileFromAdmin,
 } = require("../middleware/user");
 const router = express.Router();
@@ -23,6 +22,5 @@ router.get("/my/issue", isSignedIn, getMyRequests);
 router.post("/my/details", isSignedIn, getMyDetails);
 router.get("/my/invites/accept/:projectId", isSignedIn, acceptInvite);
 router.get("/my/invites", isSignedIn, getMyInvites);
-router.post("/my/deleteNotification", isSignedIn, deleteNotification);
 
 module.exports = router;

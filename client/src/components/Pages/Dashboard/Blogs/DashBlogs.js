@@ -10,7 +10,6 @@ import {
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../../../grobalVars"
 
 export default function DashBlogs() {
   const user = useSelector(state => state.user);
@@ -28,21 +27,6 @@ export default function DashBlogs() {
       toast.warn("You must be logged in !");
       return;
     }
-
-    fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
-      method: "post",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.error) {
-          localStorage.removeItem("jwtToken");
-          toast.warn(data.error);
-          history.push("/user/login");
-        }
-      });
   }, []);
 
   return (

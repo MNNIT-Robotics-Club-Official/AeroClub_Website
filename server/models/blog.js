@@ -11,9 +11,6 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    pic: {
-      type: String,
-    },
     postedBy: {
       type: ObjectId,
       ref: "User",
@@ -25,6 +22,10 @@ const blogSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    acceptedBy: {
+      type: ObjectId,
+      ref: 'User',
+    }
   },
   { timestamps: true }
 );
@@ -34,6 +35,15 @@ blogSchema.method("transform", function () {
   obj.id = obj._id;
   delete obj._id;
   return obj;
+});
+
+blogSchema.pre('remove', function (next) {
+  this.model('User').updateOne(
+    { _id: { $in: this.postedBy } },
+    { $pull: { blogs: this._id } },
+    { multi: true },
+    next
+  );
 });
 
 module.exports = mongoose.model("Blog", blogSchema);
