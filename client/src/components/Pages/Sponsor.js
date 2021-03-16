@@ -9,6 +9,7 @@ import knowhow from "../../images/Sponsors/knowhow.png";
 import pcb from "../../images/Sponsors/pcb.png";
 import ultratech from "../../images/Sponsors/ultra.png";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+import tsaw from "../../images/Sponsors/tsawlogo.png";
 
 export default function Ṣponsors() {
   useEffect(() => {
@@ -206,7 +207,7 @@ export default function Ṣponsors() {
               >
                 <img
                   className="card-img-top mx-auto sponimg"
-                  src="https://tsaw.tech/images/tsawlogo.png"
+                  src={tsaw}
                   alt="tsaw"
                   srcset=""
                 />

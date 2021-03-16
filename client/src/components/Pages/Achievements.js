@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+// import "../../css/Alumni.css";
+
 export default function Achievements() {
   const [data, setData] = useState([]);
   document.title = `Achievements | ${REACT_APP_BASE_TITLE}`;

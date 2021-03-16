@@ -5,7 +5,7 @@
 
 .login {
   height: 100vh;
-  background: url("../images/utils/wave.svg") rgb(59, 179, 249);
+  /* background: url("../images/utils/wave.`svg") rgb(59, 179, 249); */
   background-size: cover;
   background-position: center;
   color: grey;
@@ -26,7 +26,6 @@
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
 }
-
 
 .l1 {
   color: rgb(142, 249, 243);

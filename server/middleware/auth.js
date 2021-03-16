@@ -126,26 +126,24 @@ exports.forgetPassword = (req, res) => {
     });
 
     user.reset_pass_session = true;
-    user.save().then((u) => {
-      // nodemailer
-      mailer.sendMail(
-        {
-          from: process.env.USER,
-          to: req.body.email,
-          subject: "Password-Reset@aeroclubmnnit",
-          html: `<h2>You requested for password reset</h2>
-        <p>Click on this <a href="${process.env.BASE_URL}/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
-        },
-        (err, info) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("Email sent: " + info.response);
-            res.json({ message: "Checkout your registered email !" });
-          }
+    mailer.sendMail(
+      {
+        from: process.env.USER,
+        to: req.body.email,
+        subject: "Password-Reset@aeroclubmnnit",
+        html: `<h2>You requested for password reset</h2>
+      <p>Click on this <a href="${process.env.BASE_URL}/user/resetpassword/${jwtToken}">link</a> to reset password<p>`,
+      },
+      (err, info) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Email sent: " + info.response);
+          res.json({ message: "Checkout your registered email !" });
         }
-      );
-    });
+      }
+    );
+    user.save()
   });
 };
 
@@ -158,9 +156,9 @@ exports.resetPassword = (req, res) => {
     if (err) return res.status(422).json({ error: err });
     const { _id } = payload;
     User.findById(_id).exec((err, user) => {
+      user.reset_pass_session = false;
       if (!user) return res.json({ error: "User does not exists !" });
       user.password = newPassword;
-      user.reset_pass_session = false;
       user.save().then((savedUser) => {
         return res.json({ message: "Password updated successfully !" });
       }).catch(err => {

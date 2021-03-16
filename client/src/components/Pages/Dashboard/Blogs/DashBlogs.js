@@ -47,7 +47,7 @@ export default function DashBlogs() {
 
   return (
     <div className="container">
-      <Accordion>
+      <Accordion className='shadow'>
         {user?.blogs?.map((blog) => (
           <Card className="rounded" key={blog._id}>
             <Card.Header style={{ cursor: "pointer" }}>

@@ -71,14 +71,13 @@ projectSchema.method("transform", function () {
   return obj;
 });
 
-projectSchema.pre('remove', function(next){
-  console.log("pre hook");
+projectSchema.pre('remove', function (next) {
   let userIds = this.members.map(member => member.user)
   this.model('User').update(
-      {_id: {$in: userIds}}, 
-      {$pull: {projects: this._id}}, 
-      {multi: true},
-      next
+    { _id: { $in: userIds } },
+    { $pull: { projects: this._id } },
+    { multi: true },
+    next
   );
 });
 
