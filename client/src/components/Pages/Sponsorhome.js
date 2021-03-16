@@ -141,7 +141,7 @@ export default function Sponsorhome() {
                         </div>
                     </div>
                     <div className='item'>
-                        <div className="card" style={{ width: '15rem' }}>
+                        <div className="card" style={{ width: '12rem' }}>
                             <a
                                 className="card-title text-center"
                                 href=""

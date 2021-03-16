@@ -47,22 +47,29 @@ body{
     justify-content: center;
     -webkit-font-smoothing: antialiased;
   }
+
+  .nopad{
+    padding: 0;
+  }
+
   .Aligner-item {
     width: 80%;
   }
   .col-image {
     background-size: cover;
     background-position:center center;
+    /* padding: 0; */
   }
 
   .about-image{
-    background: url('../images/utils/Capture.PNG') center center no-repeat;
-    /* background-size: cover; */
-    background-size: contain;
-    background-position: center;
-    /* height:20rem; */
+    background: url("../images/utils/Capture.PNG") center center no-repeat;
+    background-size: cover;
+    /* background-size: contain; */
+    /* background-position: center; */
+    padding: 0;
+    height:35rem;
     width: auto;
-    z-index: 999;
+    /* z-index: 999; */
   }
 
   .abttxt{
