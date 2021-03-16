@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section>
       <div className="grid-flex">
-        <div style={{ background: 'red' }} className='col'>
+        <div className='col'>
           <div className="col col-image about-image" data-aos="zoom-in">
           </div>
         </div>
