@@ -33,6 +33,19 @@ router.get("/projects/approved", (req, res) => {
     });
 });
 
+router.get("/projects/featured", (req, res) => {
+  Project.find({ approved: true, status: "Completed", featured: true })
+    .populate({ path: "members.user", select: "name" })
+    .exec((err, projects) => {
+      if (err) {
+        return res.status(400).json({
+          error: err.message,
+        });
+      }
+      res.json(projects);
+    });
+});
+
 // fetching a projects with id
 router.get("/projects/:id", (req, res) => {
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {

@@ -1,0 +1,186 @@
+import React from 'react'
+import "../../css/Eventhome.css";
+import '../../css/Sponsorhome.css'
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import mnnit from "../../images/Sponsors/college.png";
+import cisco from "../../images/Sponsors/cisco.png";
+import teqip from "../../images/Sponsors/teqip3.png";
+import cosmo3d from "../../images/Sponsors/cosmo3d.png";
+import knowhow from "../../images/Sponsors/knowhow.png";
+import pcb from "../../images/Sponsors/pcb.png";
+import ultratech from "../../images/Sponsors/ultratech.png";
+import tsaw from "../../images/Sponsors/tsawlogo.png";
+
+export default function Sponsorhome() {
+    return (
+        <div className="container-fluid" style={{ background: "rgb(29, 29, 29)" }}>
+
+            <div
+                className="pageTitle titleBold headingc white-headingc"
+                style={{ color: "white", marginBottom: "10px" }}
+                data-aos="fade-down"
+            >
+                Our Sponsors
+                    </div>
+            <div className="miniSep"></div>
+            <div className="container sponsor-home my-3">
+                <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplayHoverPause responsive={{
+                    0: {
+                        items: 1
+                    },
+                    570: {
+                        items: 2
+                    },
+                    800: {
+                        items: 3
+                    },
+                    1230: {
+                        items: 4
+                    }
+                }} loop margin={40} nav >
+
+                    <div className='item' style={{width: '8rem'}}>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="http://www.mnnit.ac.in/"
+                                target="_blank"
+                            >
+                                <img
+                                    className="card-img-top mx-auto imgphone"
+                                    src={mnnit}
+                                    alt="mnnit"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item'  style={{width: '8rem'}}>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="https://www.cisco.com/c/m/en_in/thingqbator.html"
+                                target="_blank"
+                            >
+                                <img
+                                    className="card-img-top mx-auto"
+                                    src={cisco}
+                                    alt="cisco"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item'  style={{width: '8rem'}}>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="https://tsaw.tech/index.php"
+                                target="_blank"
+                            >
+                                <img
+                                    className="card-img-top mx-auto"
+                                    src={tsaw}
+                                    alt="tsaw"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item' style={{width: '8rem'}}>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="https://www.facebook.com/cosmo3D.India/"
+                                target="_blank"
+                            >
+                                <img
+
+                                    className="card-img-top mx-auto"
+                                    src={cosmo3d}
+                                    alt="cosmo3d"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="https://www.teqip.in/"
+                                target="_blank"
+                            >
+                                <img
+
+                                    className="card-img-top mx-auto"
+                                    src={teqip}
+                                    alt="teqip"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="https://knowhow3d.in/"
+                                target="_blank"
+                            >
+                                <img
+
+                                    className="card-img-top mx-auto"
+                                    src={knowhow}
+                                    alt="knowhow"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href=""
+                                target="_blank"
+                            >
+                                <img
+
+                                    className="card-img-top mx-auto"
+                                    src={pcb}
+                                    alt="knowhow"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                    <div className='item'>
+                        <div className="card spodes" style={{ width: '15rem' }}>
+                            <a
+                                className="card-title text-center"
+                                href="https://www.ultratechcement.com/"
+                                target="_blank"
+                            >
+                                <img
+
+                                    className="card-img-top mx-auto"
+                                    src={ultratech}
+                                    alt="Ultratech Cement"
+                                    srcset=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </OwlCarousel>
+                <div className='d-flex justify-content-center mt-5 '>
+                    <a href="/sponsors" className="btn btn-danger mx-2">View More</a>
+                    <a href="mailto:aeroclubclub@mnnit.ac.in?subject=Regarding%20sponsoring%20the%20Aero%20Club%20MNNIT&amp;body=We%20would%20like%20to%20sponsor%20the%20Aero%20Club%20MNNIT." target="__blank" className='btn btn-danger'>Sponsor Us</a>
+                </div>
+                div.
+            </div>
+        </div>
+    )
+}

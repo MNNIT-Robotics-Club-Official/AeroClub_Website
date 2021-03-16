@@ -19,10 +19,11 @@ import f15 from "../../images/coordinators&Nontech/Ayan Santania.jpg";
 import f16 from "../../images/coordinators&Nontech/ABHISHEK GAUTAM.jpg";
 import f17 from "../../images/coordinators&Nontech/Karimulla Mohammad.bmp";
 import f18 from "../../images/coordinators&Nontech/Ankur Singh.jpg";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 export default function Coordinators() {
   useEffect(() => {
-    document.title = `Coordinators | ${process.env.REACT_APP_BASE_TITLE}`;
+    document.title = `Coordinators | ${REACT_APP_BASE_TITLE}`;
   }, [])
 
   const members = [

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Button, Container, Jumbotron } from "react-bootstrap";
 import Loading from "../../Animations/Loading";
 import "../../css/SingleBlog.css";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 function Blogs() {
   const [blogs, SetBlogs] = useState([]);
 
   useEffect(() => {
-    document.title = `Blogs | ${process.env.REACT_APP_BASE_TITLE}`;
-    fetch(`${process.env.REACT_APP_SERVER}/api/blogs/toUI`, {
+    document.title = `Blogs | ${REACT_APP_BASE_TITLE}`;
+    fetch(`${REACT_APP_SERVER}/api/blogs/toUI`, {
       method: "get",
     })
       .then((res) => res.json())

@@ -39,6 +39,7 @@ export const ProjectList = (props) => {
         <DateField source="issuedon" label="Issued On" />
         <TextField source="status" />
         <BooleanField source="approved" />
+        <BooleanField source="featured" />
         <ShowButton basePath="/projects" />
         <EditButton basePath="/projects" />
         <DeleteButton basePath="/projects" />
@@ -72,25 +73,7 @@ export const ProjectCreate = (props) => {
             ["clean"],
           ]}
         />
-        <RichTextInput
-          source="objective"
-          label="Objective"
-          toolbar={[
-            ["bold", "italic", "underline", "strike"],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            ["blockquote", "code-block"],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ align: [] }],
-            ["image"],
-            ["clean"],
-          ]}
-        />
+        <TextInput label="Objective" validate={required()} source="objective" />
 
         <TextInput source="pic" label="Image Link" />
         <SelectInput
@@ -114,6 +97,7 @@ export const ProjectCreate = (props) => {
           label="Issued On"
           defaultValue={new Date()}
         />
+        <BooleanInput source="featured" label="Featured" />
         <BooleanInput source="open" />
         <BooleanInput source="approved" />
       </SimpleForm>
@@ -127,7 +111,7 @@ export const ProjectShow = (props) => {
       <SimpleShowLayout>
         <TextField source="title" label="Project Name" />
         <RichTextField source="description" label="Description" />
-        <RichTextField source="objective" label="Objective" />
+        <TextField source="objective" label="Objective" />
 
         <ImageField source="pic" label="Image" />
         <TextField source="status" label="Status" />
@@ -146,6 +130,7 @@ export const ProjectShow = (props) => {
           </Datagrid>
         </ArrayField>
         <DateField source="issuedon" label="Issued On" />
+        <BooleanField source="featured" label="Featured" />
         <BooleanField source="open" />
         <BooleanField source="approved" />
       </SimpleShowLayout>
@@ -184,32 +169,7 @@ export const ProjectEdit = (props) => {
             ["clean"],
           ]}
         />
-        <RichTextInput
-          source="objective"
-          validate={required()}
-          label="Objective"
-          modules={{
-            imageResize: {
-              displaySize: true,
-            },
-          }}
-          toolbar={[
-            ["bold", "italic", "underline", "strike"],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            ["blockquote", "code-block"],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ align: [] }],
-            ["link", "image", "video"],
-            ["clean"],
-          ]}
-        />
-
+        <TextInput label="Objective" validate={required()} source="objective" />
         <TextInput source="pic" label="Image Link" />
         <ArrayInput source="members">
           <SimpleFormIterator>
@@ -221,6 +181,7 @@ export const ProjectEdit = (props) => {
           </SimpleFormIterator>
         </ArrayInput>
         <DateInput source="issuedon" label="Issued On" validate={required()} />
+        <BooleanInput source="featured" label="Featured" />
         <BooleanInput source="open" />
         <BooleanInput source="approved" />
         <SelectInput

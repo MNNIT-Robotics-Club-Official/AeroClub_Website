@@ -4,6 +4,7 @@ import { Container, Jumbotron } from "react-bootstrap";
 import { animateScroll as scroll } from "react-scroll";
 import createHistory from "history/createBrowserHistory";
 import Loading from "../../Animations/Loading";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 import "../../css/news.css";
 
 export default function News() {
@@ -12,8 +13,8 @@ export default function News() {
   const [eventKey, setEventKey] = useState("");
 
   useEffect(() => {
-    document.title = `Updates | ${process.env.REACT_APP_BASE_TITLE}`;
-    fetch(`${process.env.REACT_APP_SERVER}/api/news/public`, {
+    document.title = `Updates | ${REACT_APP_BASE_TITLE}`;
+    fetch(`${REACT_APP_SERVER}/api/news/public`, {
       method: "get",
     })
       .then((res) => res.json())
@@ -56,7 +57,6 @@ export default function News() {
               style={{ margin: "1.5rem" }}>
               {news.map((singleNews, i) => (
                 <div className="panel panel-default" key={singleNews.id}
-                  id={singleNews.id}
                   style={{ padding: "0.15rem" }}
                   data-aos="fade-up"
                   data-aos-duration="1000">
@@ -72,22 +72,21 @@ export default function News() {
                       </a>
                     </h4>
                   </div>
-                  <div id={`collapse${singleNews.id}`} className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne"  eventKey={singleNews.id}>
+                  <div id={`collapse${singleNews.id}`} className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" eventKey={singleNews.id}>
                     <div className="panel-body" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
                     <div className="panel-body">
-                    <em
-                            // className="float-right"
-                            style={{ fontSize: "small" }}
-                          >
-                            --  {new Date(
-                              singleNews.publishedAt
-                            ).toLocaleDateString()}
-                          </em>
+                      <em
+                        style={{ fontSize: "small" }}
+                      >
+                        --  {new Date(
+                        singleNews.publishedAt
+                      ).toLocaleDateString()}
+                      </em>
                     </div>
                   </div>
                 </div>
               ))}
-              
+
             </div>
 
           </Container>

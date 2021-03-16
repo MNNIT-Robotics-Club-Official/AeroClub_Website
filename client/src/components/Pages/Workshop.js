@@ -4,16 +4,17 @@ import { Container, Jumbotron } from "react-bootstrap";
 import "../../css/Event.css";
 import Loading from "../../Animations/Loading";
 import m from "../../images/utils/Jigyasa_logo.png";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 export default function Workshop() {
   useEffect(() => {
-    document.title = `Jiygasa | ${process.env.REACT_APP_BASE_TITLE}`;
+    document.title = `Jiygasa | ${REACT_APP_BASE_TITLE}`;
   }, [])
 
   const [workshops, SetWorkshops] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_SERVER}/api/workshop`, {
+    fetch(`${REACT_APP_SERVER}/api/workshop`, {
       method: "get",
     })
       .then((res) => res.json())

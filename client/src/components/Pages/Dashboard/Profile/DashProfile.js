@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../../../grobalVars"
 
 export default function DashProfile() {
   const user = useSelector(state => state.user);
@@ -22,7 +23,7 @@ export default function DashProfile() {
       user.notifications.forEach((notification) => {
         toast.success(notification.message);
 
-        fetch(`${process.env.REACT_APP_SERVER}/api/my/deleteNotification`, {
+        fetch(`${REACT_APP_SERVER}/api/my/deleteNotification`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",
@@ -51,7 +52,7 @@ export default function DashProfile() {
     if (year <= 4) {
       setDisabled(true);
       setLoading(true);
-      fetch(`${process.env.REACT_APP_SERVER}/api/my/updateProfile`, {
+      fetch(`${REACT_APP_SERVER}/api/my/updateProfile`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -175,7 +176,7 @@ export default function DashProfile() {
         </button>
         </>
       )}
-      <button className="btn btn-success mr-1 my-1">Resources</button>
+      <a className="btn btn-success mr-1 my-1">Resources</a>
       {user?.role !== "User" && (
         <a className="btn btn-danger mx-1" href="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin">
           Go to Admin Panel

@@ -55,6 +55,10 @@ const projectSchema = new mongoose.Schema(
     open: {
       type: Boolean,
       default: false
+    },
+    featured: {
+      type: Boolean,
+      default: false
     }
   },
   { timestamps: true }

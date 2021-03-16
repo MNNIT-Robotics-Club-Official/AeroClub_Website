@@ -10,6 +10,7 @@ import {
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../../../grobalVars"
 
 export default function DashBlogs() {
   const user = useSelector(state => state.user);
@@ -28,7 +29,7 @@ export default function DashBlogs() {
       return;
     }
 
-    fetch(`${process.env.REACT_APP_SERVER}/api/isSignedIn`, {
+    fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
@@ -46,7 +47,7 @@ export default function DashBlogs() {
 
   return (
     <div className="container">
-      <Accordion>
+      <Accordion className='shadow'>
         {user?.blogs?.map((blog) => (
           <Card className="rounded" key={blog._id}>
             <Card.Header style={{ cursor: "pointer" }}>

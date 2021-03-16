@@ -11,7 +11,7 @@ const ResearchThemes = () => {
       >
         Research Themes
       </div>
-      <div className="jumbotron" style={{marginBottom:"0", background:"rgba(0, 0, 0, 0)"}}>
+      <div className="jumbotron" style={{ marginBottom: "0", background: "rgba(0, 0, 0, 0)" }}>
         <div
           className="miniSep"
           style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
@@ -21,7 +21,7 @@ const ResearchThemes = () => {
             className="col-sm-11"
             data-aos="fade-up"
             data-aos-duration="2000"
-            style={{padding:"0 4rem 0 4rem"}}
+            style={{ padding: "0 4rem 0 4rem" }}
           >
             <div
               className="card text-center"
@@ -81,31 +81,31 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius:"10px"}}>
+              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
-                  style={{ background: "rgb(113, 48, 48)", borderRadius:"10px", margin: "2px" }}
+                  style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                  <i class="far fa-eye" style={{paddingRight:"20px"}}></i>
+                    <i class="far fa-eye" style={{ paddingRight: "20px" }}></i>
                        Perception
-                    <hr style={{background :"white"}}></hr>
+                    <hr style={{ background: "white" }}></hr>
                   </h5>
                   {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                   <p className="card-text" style={{ color: "white" }}>
-                  <ul style={{ margin:"5px" }}>
-                    <li>Perception using Sensors</li>
-                    {/* <br /> */}
-                    <li>GPS Based Navigation</li>
-                    {/* <br /> */}
-                    <li>Deep Learning</li>
-                    {/* <br /> */}
-                    <li>Object Detection, Tracking and Avoidance</li>
-                    {/* <br /> */}
-                    <li>Computer Vision</li>
-                    {/* <br /> */}
-                    <li>Sensor Fusion</li>
-                    {/* <br /> */}
+                    <ul style={{ margin: "5px" }}>
+                      <li>Perception using Sensors</li>
+                      {/* <br /> */}
+                      <li>GPS Based Navigation</li>
+                      {/* <br /> */}
+                      <li>Deep Learning</li>
+                      {/* <br /> */}
+                      <li>Object Detection, Tracking and Avoidance</li>
+                      {/* <br /> */}
+                      <li>Computer Vision</li>
+                      {/* <br /> */}
+                      <li>Sensor Fusion</li>
+                      {/* <br /> */}
                     </ul>
                   </p>
                 </div>
@@ -116,30 +116,30 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius:"10px"}}>
+              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
-                  style={{ background: "rgb(113, 48, 48)", borderRadius:"10px", margin: "2px" }}
+                  style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                  <i class="fas fa-laptop-code"  style={{paddingRight:"20px"}}></i>
+                    <i class="fas fa-laptop-code" style={{ paddingRight: "20px" }}></i>
                     Design
-                    <hr style={{background :"white"}}></hr>
+                    <hr style={{ background: "white" }}></hr>
                   </h5>
                   {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                   <p className="card-text" style={{ color: "white" }}>
-                  <ul style={{ margin:"5px" }}>
-                    <li>Computer Aided Design</li>
-                    {/* <br /> */}
-                    <li>Structural Analysis</li>
-                    {/* <br /> */}
-                    <li>Design and Manufacture of RC Aircrafts and Multirotors</li>
-                    {/* <br /> */}
-                    <li>3D Printing</li>
-                    {/* <br /> */}
-                    <li>Materials</li>
-                    {/* <br /> */}
-                    {/* <br /> */}
+                    <ul style={{ margin: "5px" }}>
+                      <li>Computer Aided Design</li>
+                      {/* <br /> */}
+                      <li>Structural Analysis</li>
+                      {/* <br /> */}
+                      <li>Design and Manufacture of RC Aircrafts and Multirotors</li>
+                      {/* <br /> */}
+                      <li>3D Printing</li>
+                      {/* <br /> */}
+                      <li>Materials</li>
+                      {/* <br /> */}
+                      {/* <br /> */}
                     </ul>
                   </p>
                 </div>
@@ -151,25 +151,25 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius:"10px"  }}>
+              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
-                  style={{ background: "rgb(113, 48, 48)", borderRadius:"10px", margin: "2px" }}
+                  style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                  <i class="fa fa-tools"  style={{paddingRight:"20px"}}></i>
+                    <i class="fa fa-tools" style={{ paddingRight: "20px" }}></i>
                     Planning & Control
-                    <hr style={{background :"white"}}></hr>
+                    <hr style={{ background: "white" }}></hr>
                   </h5>
                   {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                   <p className="card-text" style={{ color: "white" }}>
-                  <ul style={{ margin:"5px" }}>
-                    <li>Swarm Intelligence</li>
-                    {/* <br /> */}
-                    <li>Control System Algorithms</li>
-                    {/* <br /> */}
-                    <li>Path Planning</li>
-                    <li>Different Actuators and their Control</li>
+                    <ul style={{ margin: "5px" }}>
+                      <li>Swarm Intelligence</li>
+                      {/* <br /> */}
+                      <li>Control System Algorithms</li>
+                      {/* <br /> */}
+                      <li>Path Planning</li>
+                      <li>Different Actuators and their Control</li>
                     </ul>
                   </p>
                 </div>
@@ -181,88 +181,88 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-            <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius:"10px"}}>
+              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
-                  style={{ background: "rgb(113, 48, 48)", borderRadius:"10px", margin: "2px" }}
+                  style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                  <i class="fas fa-fighter-jet" style={{paddingRight:"20px"}}></i>
+                    <i class="fas fa-fighter-jet" style={{ paddingRight: "20px" }}></i>
                   Aerodynamics
-                    <hr style={{background :"white"}}></hr>
+                    <hr style={{ background: "white" }}></hr>
                   </h5>
                   {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                   <p className="card-text" style={{ color: "white" }}>
-                  <ul style={{ margin:"5px" }}>
-                    <li>CFD Simulations</li>
-                    {/* <br /> */}
-                    <li>Aerofoil Analysis</li>
-                    {/* <br /> */}
-                    <li>Lift and Drag Studies</li>
-                    
-                    {/* <br /> */}
-                    </ul>
-                  </p>
-                </div>
-              </div>
-              </div>
+                    <ul style={{ margin: "5px" }}>
+                      <li>CFD Simulations</li>
+                      {/* <br /> */}
+                      <li>Aerofoil Analysis</li>
+                      {/* <br /> */}
+                      <li>Lift and Drag Studies</li>
 
-              <div
-              className="col-sm-4"
-              data-aos="zoom-in-down"
-              data-aos-duration="1500"
-            >
-            <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius:"10px"}}>
-                <div
-                  className="card-body cardbd"
-                  style={{ background: "rgb(113, 48, 48)", borderRadius:"10px", margin: "2px" }}
-                >
-                  <h5 className="card-title" style={{ color: "white" }}>
-                  <i class="fas fa-bolt" style={{paddingRight:"20px"}}></i>
-                  Power Source
-                    <hr style={{background :"white"}}></hr>
-                  </h5>
-                  {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
-                  <p className="card-text" style={{ color: "white" }}>
-                  <ul style={{ margin:"5px" }}>
-                    <li> Battery Related Studies</li>
-                    {/* <br /> */}
-                    <li>Electronic Speed Controllers</li>
-                    {/* <br /> */}
-                    <li>Propulsion Systems</li>
-                    
-                    {/* <br /> */}
+                      {/* <br /> */}
                     </ul>
                   </p>
                 </div>
               </div>
             </div>
-            
+
             <div
               className="col-sm-4"
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-            <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius:"10px"}}>
+              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
-                  style={{ background: "rgb(113, 48, 48)", borderRadius:"10px", margin: "2px" }}
+                  style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                  <i class="fas fa-microchip" style={{paddingRight:"20px"}}></i>
-                  Electronics
-                    <hr style={{background :"white"}}></hr>
+                    <i class="fas fa-bolt" style={{ paddingRight: "20px" }}></i>
+                  Power Source
+                    <hr style={{ background: "white" }}></hr>
                   </h5>
                   {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
                   <p className="card-text" style={{ color: "white" }}>
-                  <ul style={{ margin:"5px" }}>
-                    <li> Sensors and Microcontrollers</li>
-                    {/* <br /> */}
-                    {/* <li>Electronic Speed Controllers</li> */}
-                    {/* <br /> */}
-                    <li>Embedded systems</li>
-                    
-                    {/* <br /> */}
+                    <ul style={{ margin: "5px" }}>
+                      <li> Battery Related Studies</li>
+                      {/* <br /> */}
+                      <li>Electronic Speed Controllers</li>
+                      {/* <br /> */}
+                      <li>Propulsion Systems</li>
+
+                      {/* <br /> */}
+                    </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="col-sm-4"
+              data-aos="zoom-in-down"
+              data-aos-duration="1500"
+            >
+              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+                <div
+                  className="card-body cardbd"
+                  style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
+                >
+                  <h5 className="card-title" style={{ color: "white" }}>
+                    <i class="fas fa-microchip" style={{ paddingRight: "20px" }}></i>
+                  Electronics
+                    <hr style={{ background: "white" }}></hr>
+                  </h5>
+                  {/* <div className="miniSep" style={{width:'auto',height:'2px', background: 'white' }} ></div> */}
+                  <p className="card-text" style={{ color: "white" }}>
+                    <ul style={{ margin: "5px" }}>
+                      <li> Sensors and Microcontrollers</li>
+                      {/* <br /> */}
+                      {/* <li>Electronic Speed Controllers</li> */}
+                      {/* <br /> */}
+                      <li>Embedded systems</li>
+
+                      {/* <br /> */}
                     </ul>
                   </p>
                 </div>
