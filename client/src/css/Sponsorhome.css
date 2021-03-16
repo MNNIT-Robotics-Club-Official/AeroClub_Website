@@ -1,7 +1,8 @@
 .sponsor-home img{
   height: auto;
-  width: 70%;
+  width: 100%;
 }
+
 
 .owl-carousel .owl-stage {
   display: flex;
@@ -17,6 +18,9 @@
     background: transparent;
 }
 
+.sizelogo{
+    width:50%
+}
 /* .owl-item{
     margin-right: 0;
 } */

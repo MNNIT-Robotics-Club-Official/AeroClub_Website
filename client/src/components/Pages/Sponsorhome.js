@@ -4,7 +4,7 @@ import '../../css/Sponsorhome.css'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import mnnit from "../../images/Sponsors/college.png";
+import mnnit from "../../images/utils/collegelogo.png";
 import cisco from "../../images/Sponsors/cisco.png";
 import teqip from "../../images/Sponsors/teqip3.png";
 import cosmo3d from "../../images/Sponsors/cosmo3d.png";
@@ -41,15 +41,15 @@ export default function Sponsorhome() {
                     }
                 }} loop margin={40} nav >
 
-                    <div className='item' style={{width: '8rem'}}>
-                        <div className="card spodes" style={{ width: '15rem' }}>
+                    <div className='item' >
+                        <div className="card spodes" style={{ width: '9rem' }}>
                             <a
-                                className="card-title text-center"
+                                className="card-title text-center mx-auto"
                                 href="http://www.mnnit.ac.in/"
                                 target="_blank"
                             >
                                 <img
-                                    className="card-img-top mx-auto imgphone"
+                                    className="card-img-top mx-auto imgphone sizelogo"
                                     src={mnnit}
                                     alt="mnnit"
                                     srcset=""
@@ -57,7 +57,7 @@ export default function Sponsorhome() {
                             </a>
                         </div>
                     </div>
-                    <div className='item'  style={{width: '8rem'}}>
+                    <div className='item'>
                         <div className="card spodes" style={{ width: '15rem' }}>
                             <a
                                 className="card-title text-center"
@@ -65,7 +65,7 @@ export default function Sponsorhome() {
                                 target="_blank"
                             >
                                 <img
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto  imgphone"
                                     src={cisco}
                                     alt="cisco"
                                     srcset=""
@@ -73,7 +73,7 @@ export default function Sponsorhome() {
                             </a>
                         </div>
                     </div>
-                    <div className='item'  style={{width: '8rem'}}>
+                    <div className='item'>
                         <div className="card spodes" style={{ width: '15rem' }}>
                             <a
                                 className="card-title text-center"
@@ -81,7 +81,7 @@ export default function Sponsorhome() {
                                 target="_blank"
                             >
                                 <img
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto  imgphone"
                                     src={tsaw}
                                     alt="tsaw"
                                     srcset=""
@@ -89,7 +89,7 @@ export default function Sponsorhome() {
                             </a>
                         </div>
                     </div>
-                    <div className='item' style={{width: '8rem'}}>
+                    <div className='item'>
                         <div className="card spodes" style={{ width: '15rem' }}>
                             <a
                                 className="card-title text-center"
@@ -98,7 +98,7 @@ export default function Sponsorhome() {
                             >
                                 <img
 
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto imgphone"
                                     src={cosmo3d}
                                     alt="cosmo3d"
                                     srcset=""
@@ -107,7 +107,7 @@ export default function Sponsorhome() {
                         </div>
                     </div>
                     <div className='item'>
-                        <div className="card spodes" style={{ width: '15rem' }}>
+                        <div className="card" style={{ width: '15rem' }}>
                             <a
                                 className="card-title text-center"
                                 href="https://www.teqip.in/"
@@ -115,7 +115,7 @@ export default function Sponsorhome() {
                             >
                                 <img
 
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto imgphone"
                                     src={teqip}
                                     alt="teqip"
                                     srcset=""
@@ -124,7 +124,7 @@ export default function Sponsorhome() {
                         </div>
                     </div>
                     <div className='item'>
-                        <div className="card spodes" style={{ width: '15rem' }}>
+                        <div className="card" style={{ width: '15rem' }}>
                             <a
                                 className="card-title text-center"
                                 href="https://knowhow3d.in/"
@@ -132,7 +132,7 @@ export default function Sponsorhome() {
                             >
                                 <img
 
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto imgphone"
                                     src={knowhow}
                                     alt="knowhow"
                                     srcset=""
@@ -141,7 +141,7 @@ export default function Sponsorhome() {
                         </div>
                     </div>
                     <div className='item'>
-                        <div className="card spodes" style={{ width: '15rem' }}>
+                        <div className="card" style={{ width: '15rem' }}>
                             <a
                                 className="card-title text-center"
                                 href=""
@@ -149,7 +149,7 @@ export default function Sponsorhome() {
                             >
                                 <img
 
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto imgphone"
                                     src={pcb}
                                     alt="knowhow"
                                     srcset=""
@@ -166,7 +166,7 @@ export default function Sponsorhome() {
                             >
                                 <img
 
-                                    className="card-img-top mx-auto"
+                                    className="card-img-top mx-auto imgphone"
                                     src={ultratech}
                                     alt="Ultratech Cement"
                                     srcset=""
