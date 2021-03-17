@@ -23,8 +23,10 @@ import {
   TextField,
   TextInput,
 } from "react-admin";
-
 import RichTextInput from "ra-input-rich-text";
+import quill from 'quill'
+import ImageResize from 'quill-image-resize'
+quill.register('modules/imageResize', ImageResize)
 
 export const BlogList = (props) => {
   return (
@@ -58,21 +60,27 @@ export const BlogCreate = (props) => {
         <RichTextInput
           source="body"
           label="Body"
-          toolbar={[
-            ["bold", "italic", "underline", "strike"],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            ["blockquote", "code-block"],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ align: [] }],
-            ["image"],
-            ["clean"],
-          ]}
+          options={{
+            modules: {
+              "imageResize": ImageResize,
+              toolbar: [
+                ["bold", "italic", "underline", "strike"],
+                [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                [{ size: ["small", false, "large", "huge"] }],
+                [{ font: [] }],
+                [{ color: [] }, { background: [] }],
+                [{ list: "ordered" }, { list: "bullet" }],
+                [{ script: "sub" }, { script: "super" }],
+                ["blockquote", "code-block"],
+                [{ indent: "-1" }, { indent: "+1" }],
+                [{ direction: "rtl" }],
+                [{ align: [] }],
+                ["link", "image", "video"],
+                ["clean"],
+              ]
+            },
+          }}
+          validate={required()}
         />
         <ReferenceInput label="Posted By" source="postedBy" reference="users">
           <SelectInput optionText="email" />
@@ -126,23 +134,30 @@ export const BlogEdit = (props) => {
         <TextInput disabled label="Id" source="id" />
         <TextInput source="title" validate={required()} label="Title" />
         <RichTextInput
+          label="Body"
           source="body"
           validate={required()}
-          toolbar={[
-            ["bold", "italic", "underline", "strike"],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            ["blockquote", "code-block"],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ align: [] }],
-            ["link", "image", "video"],
-            ["clean"],
-          ]}
+          options={{
+            modules: {
+              "imageResize": ImageResize,
+              toolbar: [
+                ["bold", "italic", "underline", "strike"],
+                [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                [{ size: ["small", false, "large", "huge"] }],
+                [{ font: [] }],
+                [{ color: [] }, { background: [] }],
+                [{ list: "ordered" }, { list: "bullet" }],
+                [{ script: "sub" }, { script: "super" }],
+                ["blockquote", "code-block"],
+                [{ indent: "-1" }, { indent: "+1" }],
+                [{ direction: "rtl" }],
+                [{ align: [] }],
+                ["link", "image", "video"],
+                ["clean"],
+              ]
+            },
+          }
+          }
         />
         <ReferenceInput label="Posted By" source="postedBy" reference="users">
           <SelectInput optionText="email" />

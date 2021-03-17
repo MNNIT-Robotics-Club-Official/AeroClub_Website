@@ -93,6 +93,7 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
     { $set: { title: req.body.title, body: req.body.body, postedBy: req.body.postedBy, publishedAt: req.body.publishedAt, accepted: req.body.accepted, acceptedBy: req.body.acceptedBy } },
     { new: true },
     (e, blog) => {
+      console.log(blog.body)
       if (e) return res.status(400).json({ error: "Blog cannot be updated !", });
       return res.json(blog.transform());
     }

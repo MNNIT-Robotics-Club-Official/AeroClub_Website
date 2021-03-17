@@ -55,7 +55,7 @@ export default function DashBlogs() {
                     <p className='my-2'><strong>
                       Accepted By :{" "}
                     </strong>
-                      {blog.acceptedBy.name} ( {blog.acceptedBy.email} ) </p>
+                      {blog.acceptedBy?.name} ( {blog.acceptedBy?.email} ) </p>
                     <Button
                       variant="primary mt-2"
                       onClick={() => {

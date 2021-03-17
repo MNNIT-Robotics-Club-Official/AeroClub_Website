@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import ReactQuill, { Quill } from "react-quill";
@@ -12,14 +12,13 @@ import { useSelector, useDispatch } from "react-redux";
 Quill.register("modules/imageResize", ImageResize);
 
 export default function CreateBlog() {
-  document.title = "CreateBlog | Aero Club";
+  document.title = `CreateBlog | ${REACT_APP_BASE_TITLE}`;
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [loading, setLoading] = useState(false);
-
 
   const year = {
     1: "1st year",
