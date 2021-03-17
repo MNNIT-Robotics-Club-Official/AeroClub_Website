@@ -229,7 +229,10 @@ exports.updateMyProfile = (req, res) => {
 exports.getMyDetails = (req, res) => {
   user
     .findById(req.user.id)
-    .populate("blogs")
+    .populate({
+      path: 'blogs',
+      populate: { path: 'acceptedBy', select: 'name email' }
+    })
     .populate("notifications")
     .populate({
       path: "projects",

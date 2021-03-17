@@ -51,14 +51,20 @@ export default function DashBlogs() {
             <Accordion.Collapse eventKey={blog._id}>
               <Card.Body>
                 {blog.accepted ? (
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      history.push(`/blogs/${blog._id}`);
-                    }}
-                  >
-                    Go to blog
+                  <>
+                    <p className='my-2'><strong>
+                      Accepted By :{" "}
+                    </strong>
+                      {blog.acceptedBy.name} ( {blog.acceptedBy.email} ) </p>
+                    <Button
+                      variant="primary mt-2"
+                      onClick={() => {
+                        history.push(`/blogs/${blog._id}`);
+                      }}
+                    >
+                      Go to blog
                   </Button>
+                  </>
                 ) : (
                   <>
                     <Button
