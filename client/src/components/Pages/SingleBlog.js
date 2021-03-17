@@ -37,7 +37,6 @@ function SingleBlog() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         if (data.error) history.push("/404");
         else setBlog(data);
       });
@@ -50,14 +49,14 @@ function SingleBlog() {
       <div
         className="pagesp"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${blog?.pic})`,
+          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4))`,
         }}
       >
         <div className="overlayp">
           <div className="pageTitlep titleBoldp">
             {blog?.title}
             <p className="meta">
-              <em style={{ fontSize: "0.8rem" }}>
+              <em style={{ fontSize: "1rem" }}>
                 Posted by{" "}
                 {blog?.postedBy.linkedin_url !==
                   "https://www.linkedin.com/in/username/" ? (

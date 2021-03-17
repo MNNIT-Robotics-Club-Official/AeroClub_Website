@@ -8,7 +8,7 @@ export default function CompIssue() {
 
   const [components, setComponents] = useState([]);
   const [types, setTypes] = useState([]);
-  const [key, setKey] = useState("electronics");
+  const [key, setKey] = useState("Transmitter And Receiver");
 
   useEffect(() => {
     fetch(`${REACT_APP_SERVER}/api/component/filter`, {

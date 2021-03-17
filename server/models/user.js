@@ -54,12 +54,6 @@ var userSchema = new mongoose.Schema(
         ref: "Blog",
       },
     ],
-    notifications: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Notification",
-      },
-    ],
     issues: [
       {
         type: mongoose.Schema.Types.ObjectId,

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
-const Notification = require("../models/notifications");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 
 // fetching all blogs through admin
@@ -65,7 +64,7 @@ router.post("/blogs", isSignedIn, (req, res) => {
   blog
     .save()
     .then((blog) => {
-      const { id, title, body, pic, postedBy, publishedAt } = blog.transform();
+      const { id, title, body, postedBy, publishedAt } = blog.transform();
       User.findByIdAndUpdate(
         postedBy,
         {
@@ -77,7 +76,6 @@ router.post("/blogs", isSignedIn, (req, res) => {
           res.json({
             id: id.toString(),
             title,
-            pic,
             body,
             postedBy,
             publishedAt,
@@ -92,51 +90,25 @@ router.post("/blogs", isSignedIn, (req, res) => {
 router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
   Blog.findOneAndUpdate(
     { _id: req.params.id },
-    { $set: { title: req.body.title, body: req.body.body, postedBy: req.body.postedBy, pic: req.body.pic, publishedAt: req.body.publishedAt, accepted: req.body.accepted } },
+    { $set: { title: req.body.title, body: req.body.body, postedBy: req.body.postedBy, publishedAt: req.body.publishedAt, accepted: req.body.accepted, acceptedBy: req.body.acceptedBy } },
     { new: true },
     (e, blog) => {
-      if (e) {
-        return res.status(400).json({
-          error: "Blog cannot be updated !",
-        });
-      }
-
-      if (blog.accepted === req.body.accepted) {
-        return res.json(blog.transform());
-      }
-
-      const message = blog.accepted
-        ? `Blog (title : ${blog.title}) accepted !`
-        : `Blog (title : ${blog.title}) denied !`;
-
-      const notification = new Notification({
-        from: req.user.id,
-        to: blog.postedBy,
-        message,
-      });
-
-      notification.save().then((savedNotification) => {
-        User.findByIdAndUpdate(
-          blog.postedBy._id,
-          {
-            $push: { notifications: savedNotification },
-          },
-          { new: true, useFindAndModify: false },
-          (e, savedUser) => {
-            if (e) return res.status(422).json({ error: e });
-            return res.json(blog.transform());
-          }
-        );
-      });
+      console.log(blog.body)
+      if (e) return res.status(400).json({ error: "Blog cannot be updated !", });
+      return res.json(blog.transform());
     }
   );
 });
 
 // deleting a blog
 router.delete("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
-  Blog.findByIdAndDelete(req.params.id, (err, blog) => {
+  Blog.findById(req.params.id, (err, blog) => {
     if (err) return res.status(500).send(err);
-    return res.json({ blog });
+    if (blog) {
+      blog.remove(() => {
+        return res.json(blog);
+      });
+    }
   });
 });
 
