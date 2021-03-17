@@ -49,25 +49,26 @@ body{
   }
 
   .nopad{
-    padding: 0;
+    padding: 0 !important;
   }
 
   .Aligner-item {
     width: 80%;
   }
   .col-image {
+    background: url("../images/utils/banner.jpg") center center no-repeat;
     background-size: cover;
     background-position:center center;
     /* padding: 0; */
   }
 
   .about-image{
-    background: url("../images/utils/Capture.PNG") center center no-repeat;
+    background: url("../images/utils/banner.jpg") center center no-repeat;
     background-size: cover;
     /* background-size: contain; */
     /* background-position: center; */
     padding: 0;
-    height:35rem;
+    height:36rem;
     width: auto;
     /* z-index: 999; */
   }

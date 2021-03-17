@@ -25,7 +25,7 @@ export default function Sponsorhome() {
                 Our Sponsors
                     </div>
             <div className="miniSep"></div>
-            <div className="container sponsor-home my-3">
+            <div className="container sponsor-home my-3 nopad">
                 <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplayHoverPause responsive={{
                     0: {
                         items: 1
