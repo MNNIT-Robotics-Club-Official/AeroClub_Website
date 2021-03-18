@@ -140,7 +140,7 @@ Aeroclub organises an RC Airshow where professional aeromodellers amuse the audi
                                 <li className="cards_item" data-aos="fade-up">
                                     <div className="card">
                                         <div className="card_image">
-                                            <img src={Phantom} style={{marginBottom:"2px"}}/>
+                                            <img className="evavishkar" src={Phantom} style={{marginBottom:"2px"}}/>
                                         </div>
                                         <div className="card_content">
                                             <h2 className="card_title">Phantom</h2>
