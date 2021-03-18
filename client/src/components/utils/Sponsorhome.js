@@ -52,7 +52,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto imgphone sizelogo"
                                     src={mnnit}
                                     alt="mnnit"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -68,7 +68,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto  imgphone"
                                     src={cisco}
                                     alt="cisco"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -84,7 +84,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto  imgphone"
                                     src={tsaw}
                                     alt="tsaw"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -101,7 +101,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto imgphone"
                                     src={cosmo3d}
                                     alt="cosmo3d"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -118,7 +118,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto imgphone"
                                     src={teqip}
                                     alt="teqip"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -135,7 +135,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto imgphone"
                                     src={knowhow}
                                     alt="knowhow"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -152,7 +152,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto imgphone"
                                     src={pcb}
                                     alt="knowhow"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>
@@ -169,7 +169,7 @@ export default function Sponsorhome() {
                                     className="card-img-top mx-auto imgphone"
                                     src={ultratech}
                                     alt="Ultratech Cement"
-                                    srcset=""
+                                    srcSet=""
                                 />
                             </a>
                         </div>

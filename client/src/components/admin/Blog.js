@@ -24,9 +24,7 @@ import {
   TextInput,
 } from "react-admin";
 import RichTextInput from "ra-input-rich-text";
-import quill from 'quill'
 import ImageResize from 'quill-image-resize'
-quill.register('modules/imageResize', ImageResize)
 
 export const BlogList = (props) => {
   return (

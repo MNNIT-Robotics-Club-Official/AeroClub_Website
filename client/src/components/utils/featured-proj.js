@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import "../../css/featured-proj.css";
-import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
+import OwlCarousel from 'react-owl-carousel';
+import { REACT_APP_SERVER } from "../../grobalVars";
 
 export default function Featuredproject() {
   const [projects, SetProjects] = useState([]);
@@ -9,10 +11,7 @@ export default function Featuredproject() {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        return SetProjects(data);
-      });
+      .then((data) => SetProjects(data));
   }, []);
   return (
     <div className="cont featured-proj">
@@ -25,57 +24,48 @@ export default function Featuredproject() {
           Featured Projects
         </div>
         <div className="miniSep" style={{ marginBottom: "20px" }}></div>
-        <ul className="cards">
-          <li className="cards_item" data-aos="fade-up">
-            <div className="card">
-              <div className="card_image">
-                <img src="https://picsum.photos/500/300/?image=10" />
-              </div>
-              <div className="card_content">
-                <h2 className="card_title">Card Grid Layout</h2>
-                <p className="card_text">
-                  Demo of pixel perfect pure CSS simple responsive card grid
-                  layout
-                </p>
-                <button className="btns card_btns">Read More</button>
-              </div>
-            </div>
-          </li>
-          <li className="cards_item" data-aos="zoom-up">
-            <div className="card">
-              <div className="card_image">
-                <img src="https://picsum.photos/500/300/?image=5" />
-              </div>
-              <div className="card_content">
-                <h2 className="card_title">Card Grid Layout</h2>
-                <p className="card_text">
-                  Demo of pixel perfect pure CSS simple responsive card grid
-                  layout
-                </p>
-                <button className="btns card_btns">Read More</button>
-              </div>
-            </div>
-          </li>
-          {projects.map((project) => (
-            <li className="cards_item" data-aos="fade-up">
-              <div className="card">
-                <div className="card_image">
-                  <img src="https://picsum.photos/500/300/?image=11" />
-                </div>
-                <div className="card_content">
-                  <h2 className="card_title">{project.title}</h2>
-                  <p className="card_text">
-                    {project.objective}
-                  </p>
-                  <button className="btns card_btns" href={`projects/${project._id}`}>Read More</button>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="container">
+          <ul className="cards">
+            {
+              projects.length && (
+                <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplayHoverPause loop responsive={{
+                  0: {
+                    items: 1
+                  },
+                  700: {
+                    items: 2
+                  },
+                }} >
+                  {projects.map((project) => (
+                    <div className='item' key={project._id} style={{ margin: 'auto' }}>
+                      <li className="cards_item" data-aos="fade-up" style={{ width: '100%' }}>
+                        <div className="card">
+                          <div className="card_image">
+                            <img src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
+                          </div>
+                          <div className="card_content" style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }}>
+                            <h2 className="card_title">{project.title}</h2>
+                            <p className="card_text">
+                              {project.objective}
+                            </p>
+                            <Button
+                              className="btns card_btns"
+                              variant="danger"
+                              href={`projects/${project._id}`}
+                              style={{ marginTop: 10 }}
+                            >
+                              Read More
+                  </Button>
+                          </div>
+                        </div>
+                      </li>
+                    </div>
+                  ))}
+                </OwlCarousel>
+              )}
+          </ul>
+        </div>
       </div>
     </div>
   );
 }
-
-//   export default Featuredproject;
