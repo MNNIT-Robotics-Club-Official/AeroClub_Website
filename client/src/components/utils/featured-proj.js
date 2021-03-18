@@ -15,7 +15,7 @@ export default function Featuredproject() {
   }, []);
   return (
     <div className="cont featured-proj">
-      <div className="main">
+      <div className="container-fluid">
         <div
           className="pageTitle titleBold headingc white-headingc"
           data-aos="fade-down"
@@ -40,24 +40,26 @@ export default function Featuredproject() {
               }} >
                 {projects.map((project) => (
                   <div className='item' key={project._id} style={{ margin: 'auto' }}>
-                    <li className="cards_item" data-aos="fade-up" style={{ width: '100%' }}>
+                    <li className="cards_item" data-aos="fade-up" style={{ width: '100%' }} data-aos="flip-left">
                       <div className="card">
                         <div className="card_image">
-                          <img src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
+                          <img className="evfeatured" src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                         </div>
-                        <div className="card_content" style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }}>
-                          <h2 className="card_title">{project.title}</h2>
-                          <p className="card_text">
+                        <div className="card_content forphone forphone1" style={{ width: '100%'}}>
+                          <h2 className="card_title forphone forphone2" style={{ width: '100%'}}>{project.title}</h2>
+                          <p className="card_text forphone forphone3" style={{ width: '100%'}}>
                             {project.objective}
                           </p>
+                          {/* <div className="card-footer text-center"> */}
                           <Button
                             className="btns card_btns"
                             variant="danger"
                             href={`projects/${project._id}`}
-                            style={{ marginTop: 10 }}
+                            style={{ marginTop: 10}}
                           >
                             Read More
                   </Button>
+                  {/* </div> */}
                         </div>
                       </div>
                     </li>

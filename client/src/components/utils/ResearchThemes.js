@@ -81,7 +81,7 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+              <div className="card cardhgt phoneheight" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
@@ -116,7 +116,7 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+              <div className="card cardhgt phoneheight" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
@@ -151,7 +151,7 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+              <div className="card cardhgt phoneheight" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
@@ -181,7 +181,7 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+              <div className="card cardhgt phoneheight" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
@@ -212,7 +212,7 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+              <div className="card cardhgt phoneheight" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
@@ -243,7 +243,7 @@ const ResearchThemes = () => {
               data-aos="zoom-in-down"
               data-aos-duration="1500"
             >
-              <div className="card cardhgt" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
+              <div className="card cardhgt phoneheight" style={{ marginBottom: "1rem", borderRadius: "10px" }}>
                 <div
                   className="card-body cardbd"
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
