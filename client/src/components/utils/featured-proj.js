@@ -45,9 +45,9 @@ export default function Featuredproject() {
                         <div className="card_image">
                           <img src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                         </div>
-                        <div className="card_content" style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }}>
-                          <h2 className="card_title">{project.title}</h2>
-                          <p className="card_text">
+                        <div className="card_content" style={{ width: '100%', maxHeight: '17rem', minHeight: '17rem' }}>
+                          <h2 className="card_title" style={{ minHeight: '3rem' }}>{project.title}</h2>
+                          <p className="card_text my-3" style={{ minHeight: '6rem' }}>
                             {project.objective}
                           </p>
                           <Button
