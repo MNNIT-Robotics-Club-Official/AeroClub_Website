@@ -76,40 +76,41 @@ export default function Workshop() {
           margin: "auto",
           paddingBottom: "1rem",
         }}
+        className='my-5'
       >
-        <Container>
-          <div className="container">
-            <Accordion>
-              {workshops.map((singlews) => (
-                <Card key={singlews.id}>
-                  <Card.Header style={{ cursor: "pointer" }}>
-                    <Accordion.Toggle as={Card.Header} eventKey={singlews.id}>
-                      <div>
-                        {singlews.name}
-                        <em
-                          className="float-right"
-                          style={{ fontSize: "10px" }}
-                        >
-                          -on
-                          {new Date(singlews.date).toLocaleDateString()}
-                        </em>
-                        <div
-                          dangerouslySetInnerHTML={{ __html: singlews.about }}
-                        ></div>
-                      </div>
-                    </Accordion.Toggle>
-                  </Card.Header>
-                  <Accordion.Collapse eventKey={singlews.id}>
-                    <Card.Body
-                      dangerouslySetInnerHTML={{ __html: singlews.brochure }}
-                    ></Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              ))}
-            </Accordion>
-          </div>
-        </Container>
-      </Jumbotron>
+        <div className="container col-11">
+          <h4 className="my-3 titleBold d-flex justify-content-center topic">
+            <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>Workshop Updates</p>
+          </h4>
+          <div
+            className="miniSep"
+            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+          ></div>
+          <Accordion>
+            {workshops.map((singlews) => (
+              <Card key={singlews.id} className='rounded shadow'>
+                <Card.Header style={{ cursor: "pointer" }}>
+                  <Accordion.Toggle as={Card.Header} eventKey={singlews.id}>
+                    {singlews.name}
+                  </Accordion.Toggle>
+                </Card.Header>
+                <Accordion.Collapse eventKey={singlews.id}>
+                  <Card.Body>
+                    <div className="my-3 mx-3" style={{ fontSize: 'small' }}>
+                      Published on {new Date(singlews.date).toLocaleDateString()}
+                    </div>
+                    <div
+                      className='mx-3'
+                      dangerouslySetInnerHTML={{ __html: singlews.about }}
+                    ></div>
+                    <a href={singlews.brochure} className='mx-3' target='_blank'>Brochure Link</a>
+                  </Card.Body>
+                </Accordion.Collapse>
+              </Card>
+            ))}
+          </Accordion>
+        </div>
+      </Jumbotron >
     </>
   );
 }
