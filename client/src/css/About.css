@@ -87,7 +87,38 @@ body{
   }
 
   .col-text div p {
-      font-size: small;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .nopad{
+    padding: 0 !important;
+  }
+
+  .Aligner-item {
+    width: 80%;
+  }
+  .col-image {
+    background: url("../images/utils/banner.jpg") center center no-repeat;
+    background-size: cover;
+    background-position:center center;
+    /* padding: 0; */
+  }
+
+  .about-image{
+    background: url("../images/utils/banner.jpg") center center no-repeat;
+    background-size: cover;
+    /* background-size: contain; */
+    /* background-position: center; */
+    padding: 0;
+    height:36rem;
+    width: auto;
+    /* z-index: 999; */
+  }
+
+  .abttxt{
       text-align: justify;
     }
   .col-left {

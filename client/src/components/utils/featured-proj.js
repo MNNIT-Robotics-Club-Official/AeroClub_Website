@@ -24,47 +24,48 @@ export default function Featuredproject() {
           Featured Projects
         </div>
         <div className="miniSep" style={{ marginBottom: "20px" }}></div>
-        <div className="container">
-          <ul className="cards">
-            {
-              projects.length && (
-                <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplayHoverPause loop responsive={{
-                  0: {
-                    items: 1
-                  },
-                  700: {
-                    items: 2
-                  },
-                }} >
-                  {projects.map((project) => (
-                    <div className='item' key={project._id} style={{ margin: 'auto' }}>
-                      <li className="cards_item" data-aos="fade-up" style={{ width: '100%' }}>
-                        <div className="card">
-                          <div className="card_image">
-                            <img src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
-                          </div>
-                          <div className="card_content" style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }}>
-                            <h2 className="card_title">{project.title}</h2>
-                            <p className="card_text">
-                              {project.objective}
-                            </p>
-                            <Button
-                              className="btns card_btns"
-                              variant="danger"
-                              href={`projects/${project._id}`}
-                              style={{ marginTop: 10 }}
-                            >
-                              Read More
-                  </Button>
-                          </div>
+        <ul className="cards">
+          {
+            projects.length && (
+              <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplayHoverPause loop responsive={{
+                0: {
+                  items: 1
+                },
+                700: {
+                  items: 2
+                },
+                1000: {
+                  items: 3
+                }
+              }} >
+                {projects.map((project) => (
+                  <div className='item' key={project._id} style={{ margin: 'auto' }}>
+                    <li className="cards_item" data-aos="fade-up" style={{ width: '100%' }}>
+                      <div className="card">
+                        <div className="card_image">
+                          <img src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                         </div>
-                      </li>
-                    </div>
-                  ))}
-                </OwlCarousel>
-              )}
-          </ul>
-        </div>
+                        <div className="card_content" style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }}>
+                          <h2 className="card_title">{project.title}</h2>
+                          <p className="card_text">
+                            {project.objective}
+                          </p>
+                          <Button
+                            className="btns card_btns"
+                            variant="danger"
+                            href={`projects/${project._id}`}
+                            style={{ marginTop: 10 }}
+                          >
+                            Read More
+                  </Button>
+                        </div>
+                      </div>
+                    </li>
+                  </div>
+                ))}
+              </OwlCarousel>
+            )}
+        </ul>
       </div>
     </div>
   );
