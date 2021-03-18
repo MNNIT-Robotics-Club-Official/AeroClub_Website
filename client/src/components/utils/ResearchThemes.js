@@ -87,7 +87,7 @@ const ResearchThemes = () => {
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                    <i class="far fa-eye" style={{ paddingRight: "20px" }}></i>
+                    <i className="far fa-eye" style={{ paddingRight: "20px" }}></i>
                        Perception
                     <hr style={{ background: "white" }}></hr>
                   </h5>
@@ -122,7 +122,7 @@ const ResearchThemes = () => {
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                    <i class="fas fa-laptop-code" style={{ paddingRight: "20px" }}></i>
+                    <i className="fas fa-laptop-code" style={{ paddingRight: "20px" }}></i>
                     Design
                     <hr style={{ background: "white" }}></hr>
                   </h5>
@@ -157,7 +157,7 @@ const ResearchThemes = () => {
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                    <i class="fa fa-tools" style={{ paddingRight: "20px" }}></i>
+                    <i className="fa fa-tools" style={{ paddingRight: "20px" }}></i>
                     Planning & Control
                     <hr style={{ background: "white" }}></hr>
                   </h5>
@@ -187,7 +187,7 @@ const ResearchThemes = () => {
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                    <i class="fas fa-fighter-jet" style={{ paddingRight: "20px" }}></i>
+                    <i className="fas fa-fighter-jet" style={{ paddingRight: "20px" }}></i>
                   Aerodynamics
                     <hr style={{ background: "white" }}></hr>
                   </h5>
@@ -218,7 +218,7 @@ const ResearchThemes = () => {
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                    <i class="fas fa-bolt" style={{ paddingRight: "20px" }}></i>
+                    <i className="fas fa-bolt" style={{ paddingRight: "20px" }}></i>
                   Power Source
                     <hr style={{ background: "white" }}></hr>
                   </h5>
@@ -249,7 +249,7 @@ const ResearchThemes = () => {
                   style={{ background: "rgb(113, 48, 48)", borderRadius: "10px", margin: "2px" }}
                 >
                   <h5 className="card-title" style={{ color: "white" }}>
-                    <i class="fas fa-microchip" style={{ paddingRight: "20px" }}></i>
+                    <i className="fas fa-microchip" style={{ paddingRight: "20px" }}></i>
                   Electronics
                     <hr style={{ background: "white" }}></hr>
                   </h5>
