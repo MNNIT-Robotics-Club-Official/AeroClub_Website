@@ -29,6 +29,7 @@ import {
 } from "react-admin";
 
 import RichTextInput from "ra-input-rich-text";
+import ImageResize from 'quill-image-resize'
 
 export const ProjectList = (props) => {
   return (
@@ -57,21 +58,26 @@ export const ProjectCreate = (props) => {
         <RichTextInput
           source="description"
           label="Description"
-          toolbar={[
-            ["bold", "italic", "underline", "strike"],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            ["blockquote", "code-block"],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ align: [] }],
-            ["image"],
-            ["clean"],
-          ]}
+          options={{
+            modules: {
+              "imageResize": ImageResize,
+              toolbar: [
+                ["bold", "italic", "underline", "strike"],
+                [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                [{ size: ["small", false, "large", "huge"] }],
+                [{ font: [] }],
+                [{ color: [] }, { background: [] }],
+                [{ list: "ordered" }, { list: "bullet" }],
+                [{ script: "sub" }, { script: "super" }],
+                ["blockquote", "code-block"],
+                [{ indent: "-1" }, { indent: "+1" }],
+                [{ direction: "rtl" }],
+                [{ align: [] }],
+                ["link", "image", "video"],
+                ["clean"],
+              ]
+            },
+          }}
         />
         <TextInput label="Objective" validate={required()} source="objective" />
 
@@ -153,21 +159,26 @@ export const ProjectEdit = (props) => {
               displaySize: true,
             },
           }}
-          toolbar={[
-            ["bold", "italic", "underline", "strike"],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            ["blockquote", "code-block"],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ align: [] }],
-            ["link", "image", "video"],
-            ["clean"],
-          ]}
+          options={{
+            modules: {
+              "imageResize": ImageResize,
+              toolbar: [
+                ["bold", "italic", "underline", "strike"],
+                [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                [{ size: ["small", false, "large", "huge"] }],
+                [{ font: [] }],
+                [{ color: [] }, { background: [] }],
+                [{ list: "ordered" }, { list: "bullet" }],
+                [{ script: "sub" }, { script: "super" }],
+                ["blockquote", "code-block"],
+                [{ indent: "-1" }, { indent: "+1" }],
+                [{ direction: "rtl" }],
+                [{ align: [] }],
+                ["link", "image", "video"],
+                ["clean"],
+              ]
+            },
+          }}
         />
         <TextInput label="Objective" validate={required()} source="objective" />
         <TextInput source="pic" label="Image Link" />

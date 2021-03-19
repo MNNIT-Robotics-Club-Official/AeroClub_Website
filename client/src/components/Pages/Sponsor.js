@@ -19,7 +19,7 @@ export default function Ṣponsors() {
 
   return (
     <>
-      <Loading />
+      <Loading time={2} />
       <div className=" pagesg">
         <div className="overlayg">
           <div className="pageTitleg titleBoldg">Sponsors</div>
@@ -42,9 +42,9 @@ export default function Ṣponsors() {
               class="btn btn-outline-dark btn-lg"
               // data-toggle="collapse"
               href="#collapseExample1"
-              // role="button"
-              // aria-expanded="false"
-              // aria-controls="collapseExample1"
+            // role="button"
+            // aria-expanded="false"
+            // aria-controls="collapseExample1"
             >
               About Us
               </a>

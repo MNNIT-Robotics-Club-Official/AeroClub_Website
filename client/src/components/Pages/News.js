@@ -65,27 +65,28 @@ export default function News() {
                     style={{ fontSize: "1.3rem" }}>
                     <h4 className="panel-title">
                       <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${singleNews.id}`} aria-expanded="false" aria-controls={`collapse${singleNews.id}`} >
+                        {/* <div> */}
                         {singleNews.title}
+
+                        {/* </div> */}
                       </a>
                     </h4>
                   </div>
                   <div id={`collapse${singleNews.id}`} className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" eventKey={singleNews.id}>
-                    <div className="panel-body" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
-                    <div className="panel-body">
+                    <div className="panel-body my-3 mx-4">
                       <em
                         style={{ fontSize: "small" }}
                       >
-                        --  {new Date(
+                        Published on ~ {new Date(
                         singleNews.publishedAt
                       ).toLocaleDateString()}
                       </em>
                     </div>
+                    <div className="panel-body my-5 mx-4" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
                   </div>
                 </div>
               ))}
-
             </div>
-
           </Container>
         </Jumbotron>
       </div>

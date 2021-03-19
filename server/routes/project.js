@@ -126,7 +126,7 @@ router.put("/projects/:id", isSignedIn, isAdmin, (req, res) => {
             return res.status(400).json({
               err: err.message,
             });
-          } 
+          }
         }
       );
       User.updateMany(
@@ -138,7 +138,7 @@ router.put("/projects/:id", isSignedIn, isAdmin, (req, res) => {
             return res.status(400).json({
               err: err.message,
             });
-          } 
+          }
         }
       );
       res.json(project.transform())
@@ -157,7 +157,6 @@ router.delete("/projects/:id", isSignedIn, isAdmin, (req, res) => {
     }
   });
 });
-module.exports = router;
 
 //Invite member to the project
 router.post("/projects/invite", isSignedIn, (req, res) => {
@@ -212,3 +211,5 @@ router.post("/projects/invite", isSignedIn, (req, res) => {
     });
   });
 });
+
+module.exports = router;

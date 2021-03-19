@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loading from "../../Animations/Loading";
+import "../../css/news.css";
 import "../../css/Alumni.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 // import "../../css/Alumni.css";
@@ -50,7 +51,7 @@ export default function Achievements() {
                 className={`panel-collapse collapse ${i === 0 ? "show" : null}`}
               >
                 <div className="panel-body">
-                  <div className="container">
+                  <div className="container" style={{color:"white"}}>
                     {datum.achievements.map((achievement) => (
                       <div className="ml-2 ml-md-5" key={achievement._id}>
                         <ul style={{ listStyle: "initial" }}>
@@ -70,7 +71,7 @@ export default function Achievements() {
                                 Team members :{" "}
                               </p>
                               {achievement.team.map((member) => (
-                                <p className="d-inline">{member.name}, </p>
+                                <p className="d-block"><ul><li>{member.name}</li></ul> </p>
                               ))}
                             </div>
                           </li>

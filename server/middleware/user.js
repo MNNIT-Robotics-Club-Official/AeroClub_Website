@@ -2,7 +2,6 @@ const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
 const user = require("../models/user");
 const blog = require('../models/blog')
-const notification = require("../models/notifications");
 
 exports.getAllUsers = (req, res) => {
   res.setHeader("Content-Range", "users 0-10/20");
@@ -230,7 +229,10 @@ exports.updateMyProfile = (req, res) => {
 exports.getMyDetails = (req, res) => {
   user
     .findById(req.user.id)
-    .populate("blogs")
+    .populate({
+      path: 'blogs',
+      populate: { path: 'acceptedBy', select: 'name email' }
+    })
     .populate("notifications")
     .populate({
       path: "projects",
@@ -295,32 +297,6 @@ exports.acceptInvite = (req, res) => {
       });
     });
   });
-};
-
-exports.deleteNotification = (req, res) => {
-  user
-    .findByIdAndUpdate(
-      req.user.id,
-      {
-        $pull: { notifications: req.body.id },
-      },
-      { new: true, useFindAndModify: false }
-    )
-    .populate("blogs")
-    .populate("notifications")
-    .populate({
-      path: "projects",
-      populate: { path: "members.user", select: "name" },
-    })
-    .exec((e, updatedUser) => {
-      if (e) return res.status(422).json({ error: e });
-
-      notification
-        .findByIdAndRemove(req.body.id)
-        .then((deletedNotification) => {
-          return res.json({ User: updatedUser.transform() });
-        });
-    });
 };
 
 exports.updateProfileFromAdmin = (req, res) => {

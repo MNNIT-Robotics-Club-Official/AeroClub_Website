@@ -17,7 +17,7 @@ function Blogs() {
   }, []);
 
   const [page, SetPage] = useState(1);
-  const blogs_per_page = 3;
+  const blogs_per_page = 5;
   const no_of_pages = Math.ceil(blogs.length / blogs_per_page);
   const year = {
     1: "1st year",
@@ -49,16 +49,18 @@ function Blogs() {
 
       <div style={{ background: "white", overflow: "hidden", minHeight: '36vh' }} >
         <Loading time={2} />
-        <div>
+        <div className='my-5'>
           {blogs
             .slice((page - 1) * blogs_per_page, page * blogs_per_page)
-            .map((blog) => (
+            .map((blog, i) => (
               <Jumbotron
+                className='shadow my-3 rounded'
                 fluid
                 style={{
-                  background: "white",
+                  background: `${i % 2 === 0 ? 'rgb(137, 54 ,54)' : 'rgb(36 ,22 ,22)'}`,
                   width: "80vw",
                   margin: "auto",
+                  color: 'white',
                   paddingBottom: "1rem",
                 }}
                 key={blog._id}
@@ -90,13 +92,12 @@ function Blogs() {
                     See More
                   </Button>
                 </Container>
-                <hr />
               </Jumbotron>
             ))}
           {!blogs.length && (
             <h3 className="text-center mt-5">No blogs available...!</h3>
           )}
-          <div className="float-right mr-5 mb-5">
+          <div className="float-right mr-5 my-5">
             {page > 1 && (
               <Button
                 variant="danger"

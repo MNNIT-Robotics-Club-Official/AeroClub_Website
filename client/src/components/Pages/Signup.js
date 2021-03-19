@@ -16,7 +16,6 @@ function Signup() {
   useEffect(() => {
     document.title = `Signup | ${REACT_APP_BASE_TITLE}`;
     if (localStorage.getItem("jwtToken")) history.push("/404");
-    toast.warn('Account Signup is available only for MNNIT Students...!')
   }, []);
 
   const handleSubmit = (e) => {
@@ -92,6 +91,7 @@ function Signup() {
               >
                 Account Signup
               </h5>
+              <p className='text-center'>( Only for MNNIT Students )</p>
               <form className="form-signin">
                 <div className="form-label-group">
                   <input

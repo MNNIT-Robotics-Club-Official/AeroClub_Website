@@ -223,7 +223,7 @@ export default function Coordinators() {
         </div>
       </div>
 
-      <div className="pageTitle my-5 titleBold header white-heading padtop">
+      {/* <div className="pageTitle my-5 titleBold header white-heading padtop">
         Senior Coordinators
       </div>
       <div className="container alumni-container">
@@ -255,7 +255,7 @@ export default function Coordinators() {
               )
           )}
         </div>
-      </div>
+      </div> */}
 
       <div className="pageTitle my-5 titleBold header white-heading padtop">
         Junior Coordinators
