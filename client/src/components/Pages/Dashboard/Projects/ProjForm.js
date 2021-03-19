@@ -17,7 +17,7 @@ export default function ProjForm(props) {
       onSubmit={(e) => {
         e.preventDefault();
         setLoading(true);
-        fetch(`${REACT_APP_SERVER}/api/projects`, {
+        fetch(`${REACT_APP_SERVER}/api/projects/user`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",

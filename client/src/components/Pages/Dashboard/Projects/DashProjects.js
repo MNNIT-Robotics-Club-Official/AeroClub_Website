@@ -47,16 +47,16 @@ export default function Dashprojects(props) {
                 </span>
               );
             return (
-              <Card key={project.id}>
+              <Card key={project._id}>
                 <Card.Header style={{ cursor: "pointer" }}>
-                  <Accordion.Toggle as={Card.Header} eventKey={project.id}>
+                  <Accordion.Toggle as={Card.Header} eventKey={project._id}>
                     <div>
                       {project.title}
                       <em className="float-right">{badge}</em>
                     </div>
                   </Accordion.Toggle>
                 </Card.Header>
-                <Accordion.Collapse eventKey={project.id}>
+                <Accordion.Collapse eventKey={project._id}>
                   <Card.Body>
                     <div className="p-3">
                       <div>
@@ -106,7 +106,7 @@ export default function Dashprojects(props) {
                 <MyVerticallyCenteredModal
                   show={modalShow}
                   onHide={() => setModalShow(false)}
-                  projectId={project.id}
+                  projectId={project._id}
                 />
               </Card>
             );
@@ -149,7 +149,7 @@ function MyVerticallyCenteredModal(props) {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-            fetch(`/api/projects/invite`, {
+            fetch(`${REACT_APP_SERVER}/api/projects/invite`, {
               method: "post",
               headers: {
                 "Content-Type": "application/json",
@@ -160,6 +160,7 @@ function MyVerticallyCenteredModal(props) {
                 projectId: projectId,
               }),
             }).then((res) => {
+              console.log(res);
               props.onHide();
               if (res.status == 200) {
                 toast.success("USER INVITED");

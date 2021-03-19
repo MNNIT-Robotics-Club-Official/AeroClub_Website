@@ -36,6 +36,10 @@ var userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    canSignIn: {
+      type: Boolean,
+      default: true
+    },
     salt: String,
     role: {
       type: String,

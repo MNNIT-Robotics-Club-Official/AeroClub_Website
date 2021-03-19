@@ -10,10 +10,23 @@ const {
   getSingleUser,
   deleteUser,
   updateProfileFromAdmin,
+  createUserFromAdmin,
 } = require("../middleware/user");
+const { check, body } = require("express-validator");
 const router = express.Router();
 
 router.get("/users", getAllUsers);
+router.post(
+  "/users",
+  isSignedIn,
+  isAdmin,
+  [
+    body('name', 'name is not present').exists(),
+    body('email', 'Invalid email').exists().isEmail(),
+    body('registration_no', 'registration_no is not present').exists()
+  ],
+  createUserFromAdmin
+);
 router.get("/users/:id", getSingleUser);
 router.delete("/users/:id", isSignedIn, isAdmin, deleteUser);
 router.post("/my/updateProfile", isSignedIn, updateMyProfile);
