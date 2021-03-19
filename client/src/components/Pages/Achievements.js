@@ -48,7 +48,7 @@ export default function Achievements() {
               </div>
               <div
                 id={`collapse${datum._id}`}
-                className={`panel-collapse collapse ${i === 0 ? "show" : null}`}
+                className={`panel-collapse chcolor collapse ${i === 0 ? "show" : null}`}
               >
                 <div className="panel-body">
                   <div className="container" style={{color:"white"}}>
@@ -58,7 +58,7 @@ export default function Achievements() {
                           <li className="my-5 achievement">
                             <div
                               className="font-weight-bold"
-                              style={{ fontSize: "large" }}
+                              style={{ fontSize: "large", color:"white" }}
                               dangerouslySetInnerHTML={{
                                 __html: achievement.desc,
                               }}

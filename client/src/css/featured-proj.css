@@ -114,8 +114,10 @@ img {
   font-size: 0.85rem !important;
 }
 
+
+
 .evavishkar{
-  height: 34vh;
+  height: 35vh;
 }
 
 .evavishkar:hover {
@@ -205,6 +207,7 @@ img {
   .phoneheight {
     height: auto !important;
   }
+  
 }
 
 @media (min-width: 56rem) {
