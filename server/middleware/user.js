@@ -1,13 +1,13 @@
 const ComponentsIssue = require("../models/issue");
 const { Project } = require("../models/project");
-const user = require("../models/user");
-const blog = require('../models/blog')
+const User = require("../models/user");
+const blog = require("../models/blog");
+const { validationResult } = require("express-validator");
 
 exports.getAllUsers = (req, res) => {
   res.setHeader("Content-Range", "users 0-10/20");
   res.setHeader("Access-Control-Expose-Headers", "Content-Range");
-  user
-    .find({})
+  User.find({})
     .sort("-createdAt")
     .then((users) => {
       let arr = [];
@@ -17,12 +17,36 @@ exports.getAllUsers = (req, res) => {
     .catch((e) => console.log(e));
 };
 
+exports.createUserFromAdmin = (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({
+      error: errors.array()[0].msg,
+    });
+  }
+  const { name, email, year, linkedin_url, registration_no } = req.body;
+  const password = process.env.secretPassword;
+  const user = new User({
+    name: name,
+    email: email,
+    year: year,
+    registration_no: registration_no,
+    linkedin_url: linkedin_url,
+    password: password,
+    canSignIn: false,
+    confirmed: true,
+  });
+  user.save((err, newUser) => {
+    if (!newUser)
+      return res.status(400).json({ error: "Email address already exists !" });
+    res.json(newUser.transform());
+  });
+};
 exports.getSingleUser = (req, res) => {
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
     return res.json({ error: "not found !" });
   }
-  user
-    .findById(req.params.id)
+  User.findById(req.params.id)
     .then((user) => {
       if (!user) return res.json({ error: "not found !" });
       res.json(user.transform());
@@ -31,11 +55,11 @@ exports.getSingleUser = (req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-  user.findByIdAndDelete(req.params.id, (err, user) => {
+  User.findByIdAndDelete(req.params.id, (err, user) => {
     if (err) return res.status(500).send(err);
-    blog.deleteMany({ postedBy: user._id }).then(blogs => {
+    blog.deleteMany({ postedBy: user._id }).then((blogs) => {
       return res.json({ user });
-    })
+    });
   });
 };
 
@@ -208,9 +232,19 @@ exports.getMyInvites = (req, res) => {
 };
 
 exports.updateMyProfile = (req, res) => {
-
   user
-    .findOneAndUpdate({ _id: req.user.id }, { $set: { name: req.body.name, year: req.body.year, registration_no: req.body.regis_no, linkedin_url: req.body.linkedin } }, { new: true })
+    .findOneAndUpdate(
+      { _id: req.user.id },
+      {
+        $set: {
+          name: req.body.name,
+          year: req.body.year,
+          registration_no: req.body.regis_no,
+          linkedin_url: req.body.linkedin,
+        },
+      },
+      { new: true }
+    )
     .populate("blogs")
     .populate({
       path: "projects",
@@ -230,8 +264,8 @@ exports.getMyDetails = (req, res) => {
   user
     .findById(req.user.id)
     .populate({
-      path: 'blogs',
-      populate: { path: 'acceptedBy', select: 'name email' }
+      path: "blogs",
+      populate: { path: "acceptedBy", select: "name email" },
     })
     .populate("notifications")
     .populate({
@@ -277,7 +311,7 @@ exports.acceptInvite = (req, res) => {
           error: "Cannot accept invite, try again",
         });
       }
-      user.findById(req.user.id).exec((err, user) => {
+      User.findById(req.user.id).exec((err, user) => {
         user.projects.push(projectId);
         user.projects.push(projectId);
         user.save((err, updatedUser) => {
@@ -287,12 +321,13 @@ exports.acceptInvite = (req, res) => {
               error: "Cannot accept invite, try again",
             });
           }
-          updatedProject.populate({ path: "members.user", select: "name" })
+          updatedProject
+            .populate({ path: "members.user", select: "name" })
             .execPopulate((err, populatedProject) => {
               res.json({
-                project: populatedProject
+                project: populatedProject,
               });
-            })
+            });
         });
       });
     });
@@ -300,14 +335,20 @@ exports.acceptInvite = (req, res) => {
 };
 
 exports.updateProfileFromAdmin = (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $set: { name: req.body.name, email: req.body.email, role: req.body.role, canSignIn: req.body.canSignIn, linkedin_url: req.body.linkedin_url },
+    },
+    { new: true }
+  )
+    .then((updatedUser) => {
+      if (!updatedUser)
+        return res.status(400).json({
+          error: "User cannot be updated !",
+        });
 
-  user.findOneAndUpdate({ _id: req.params.id }, { $set: { name: req.body.name, email: req.body.email, role: req.body.role } }, { new: true }).then(updatedUser => {
-    if (!updatedUser)
-      return res.status(400).json({
-        error: "User cannot be updated !",
-      });
-
-    return res.json(updatedUser.transform());
-  })
+      return res.json(updatedUser.transform());
+    })
     .catch((e) => console.log(e));
-}
+};

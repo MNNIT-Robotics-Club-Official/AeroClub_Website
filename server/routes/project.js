@@ -70,12 +70,6 @@ router.get("/projects/:id", (req, res) => {
 router.post("/projects", isSignedIn, (req, res) => {
   req.body.leader = req.user.id;
   const project = new Project(req.body);
-  if (req.user.role === "User") {
-    project.members.push(
-      new Member({ user: req.user.id, accepted: true, leader: true })
-    );
-  }
-
   project.save((err, project) => {
     if (err) {
       console.log(err);
@@ -100,6 +94,38 @@ router.post("/projects", isSignedIn, (req, res) => {
   });
 });
 
+// creating a project
+router.post("/projects/user", isSignedIn, (req, res) => {
+  req.body.leader = req.user.id;
+  const project = new Project(req.body);
+  project.members.push(
+    new Member({ user: req.user.id, accepted: true, leader: true })
+  );
+
+  project.save((err, project) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({
+        err: err.message,
+      });
+    }
+    let userIds = project.members.map((member) => member.user);
+    User.updateMany(
+      { _id: { $in: userIds } },
+      { $push: { projects: project._id } },
+      (err, users) => {
+        if (err) {
+          console.log(err);
+          return res.status(400).json({
+            err: err.message,
+          });
+        }
+        res.json(project);
+      }
+    );
+  });
+});
+
 // updating a project
 router.put("/projects/:id", isSignedIn, isAdmin, (req, res) => {
   Project.findOneAndReplace(
@@ -116,7 +142,9 @@ router.put("/projects/:id", isSignedIn, isAdmin, (req, res) => {
       const userIds_new = req.body.members.map((member) => member.user);
       const diff = userIds_old
         .concat(userIds_new)
-        .filter((item) => !userIds_old.includes(item) || !userIds_new.includes(item));
+        .filter(
+          (item) => !userIds_old.includes(item) || !userIds_new.includes(item)
+        );
       User.updateMany(
         { _id: { $in: userIds_new } },
         { $addToSet: { projects: project._id } },
@@ -141,7 +169,7 @@ router.put("/projects/:id", isSignedIn, isAdmin, (req, res) => {
           }
         }
       );
-      res.json(project.transform())
+      res.json(project.transform());
     }
   );
 });

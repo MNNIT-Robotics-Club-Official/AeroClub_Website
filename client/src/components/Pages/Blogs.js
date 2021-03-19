@@ -57,7 +57,7 @@ function Blogs() {
                 className='shadow my-3 rounded'
                 fluid
                 style={{
-                  background: `${i % 2 === 0 ? '#601c1c' : 'rgb(36 ,22 ,22)'}`,
+                  background: `${i % 2 === 0 ? 'rgb(137, 54 ,54)' : 'rgb(36 ,22 ,22)'}`,
                   width: "80vw",
                   margin: "auto",
                   color: 'white',

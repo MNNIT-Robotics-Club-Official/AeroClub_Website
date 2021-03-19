@@ -27,7 +27,7 @@ export default function Featuredproject() {
         <ul className="cards">
           {
             projects.length && (
-              <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplayHoverPause loop responsive={{
+              <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplay HoverPauseloop responsive={{
                 0: {
                   items: 1
                 },
@@ -45,9 +45,9 @@ export default function Featuredproject() {
                         <div className="card_image">
                           <img className="evfeatured" src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                         </div>
-                        <div className="card_content forphone forphone1" style={{ width: '100%'}}>
-                          <h2 className="card_title forphone forphone2" style={{ width: '100%'}}>{project.title}</h2>
-                          <p className="card_text forphone forphone3" style={{ width: '100%'}}>
+                        <div className="card_content forphone forphone1" style={{ width: '100%' }}>
+                          <h2 className="card_title forphone forphone2" style={{ width: '100%' }}>{project.title}</h2>
+                          <p className="card_text forphone forphone3" style={{ width: '100%' }}>
                             {project.objective}
                           </p>
                           {/* <div className="card-footer text-center"> */}
@@ -55,11 +55,11 @@ export default function Featuredproject() {
                             className="btns card_btns"
                             variant="danger"
                             href={`projects/${project._id}`}
-                            style={{ marginTop: 10}}
+                            style={{ marginTop: 10 }}
                           >
                             Read More
                   </Button>
-                  {/* </div> */}
+                          {/* </div> */}
                         </div>
                       </div>
                     </li>

@@ -108,7 +108,7 @@ export default function Workshop() {
                 </div>
                 <div id={`collapse${singleNews.id}`} className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" eventKey={singleNews.id}>
 
-                  <a className="panel-body" dangerouslySetInnerHTML={{ __html: singleNews.brochure }} style={{color:"white"}}></a>
+                  <a className="panel-body" dangerouslySetInnerHTML={{ __html: singleNews.brochure }} style={{color:"white"}}>Brochure Link</a>
 
                 </div>
               </div>
@@ -127,6 +127,7 @@ export default function Workshop() {
           margin: "auto",
           paddingBottom: "1rem",
         }}
+        className='my-5'
       >
         <Container>
           <div className="container">
