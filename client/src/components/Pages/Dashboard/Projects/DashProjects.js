@@ -47,16 +47,16 @@ export default function Dashprojects(props) {
                 </span>
               );
             return (
-              <Card key={project._id}>
+              <Card key={project.id}>
                 <Card.Header style={{ cursor: "pointer" }}>
-                  <Accordion.Toggle as={Card.Header} eventKey={project._id}>
+                  <Accordion.Toggle as={Card.Header} eventKey={project.id}>
                     <div>
                       {project.title}
                       <em className="float-right">{badge}</em>
                     </div>
                   </Accordion.Toggle>
                 </Card.Header>
-                <Accordion.Collapse eventKey={project._id}>
+                <Accordion.Collapse eventKey={project.id}>
                   <Card.Body>
                     <div className="p-3">
                       <div>
@@ -106,7 +106,7 @@ export default function Dashprojects(props) {
                 <MyVerticallyCenteredModal
                   show={modalShow}
                   onHide={() => setModalShow(false)}
-                  projectId={project._id}
+                  projectId={project.id}
                 />
               </Card>
             );

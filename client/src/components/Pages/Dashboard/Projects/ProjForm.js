@@ -112,9 +112,10 @@ export default function ProjForm(props) {
         }}
         value={formData.description}
         onChange={(e) => {
+          console.log(e);
           setformData((prev) => ({
             ...prev,
-            description: e.target.value,
+            description: e
           }));
         }}
       />
