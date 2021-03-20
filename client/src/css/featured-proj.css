@@ -206,7 +206,6 @@ img {
   .phoneheight {
     height: auto !important;
   }
-  
 }
 
 @media (min-width: 56rem) {
@@ -215,8 +214,14 @@ img {
   }
   .avishkar_cont {
     height: 20vh !important;
+  } 
+}
+
+@media only screen and (max-width:900px)
+{
+  .pagesp .image{
+    display: none;
   }
-  
 }
 
 .cardproj {
