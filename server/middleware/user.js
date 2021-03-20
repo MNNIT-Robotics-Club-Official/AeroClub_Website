@@ -261,7 +261,7 @@ exports.updateMyProfile = (req, res) => {
     .catch((e) => console.log(e));
 };
 exports.getMyDetails = (req, res) => {
-  user
+  User
     .findById(req.user.id)
     .populate({
       path: "blogs",
