@@ -114,6 +114,8 @@ img {
   font-size: 0.85rem !important;
 }
 
+
+
 .evavishkar{
   height: 17rem;
 }
@@ -205,6 +207,7 @@ img {
   .phoneheight {
     height: auto !important;
   }
+  
 }
 
 @media (min-width: 56rem) {
