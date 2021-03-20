@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 9500;
 require("dotenv").config();
-
+app.use(cors());
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -30,7 +30,7 @@ const achievementRoutes = require("./routes/achievement");
 const contactRouters = require("./routes/contact");
 // app specific
 app.use(express.json());
-app.use(cors());
+
 
 //Adding routes to the app
 app.use("/api", authRoutes);
