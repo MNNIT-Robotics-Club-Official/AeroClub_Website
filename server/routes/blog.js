@@ -64,7 +64,7 @@ router.post("/blogs", isSignedIn, (req, res) => {
   blog
     .save()
     .then((blog) => {
-      const { id, title, body, postedBy, publishedAt } = blog.transform();
+      const { id, title, body, postedBy, publishedAt, pic } = blog.transform();
       User.findByIdAndUpdate(
         postedBy,
         {
@@ -77,6 +77,7 @@ router.post("/blogs", isSignedIn, (req, res) => {
             id: id.toString(),
             title,
             body,
+            pic,
             postedBy,
             publishedAt,
           });
@@ -90,7 +91,7 @@ router.post("/blogs", isSignedIn, (req, res) => {
 router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
   Blog.findOneAndUpdate(
     { _id: req.params.id },
-    { $set: { title: req.body.title, body: req.body.body, postedBy: req.body.postedBy, publishedAt: req.body.publishedAt, accepted: req.body.accepted, acceptedBy: req.body.acceptedBy } },
+    { $set: { title: req.body.title, body: req.body.body, pic: req.body.pic, postedBy: req.body.postedBy, publishedAt: req.body.publishedAt, accepted: req.body.accepted, acceptedBy: req.body.acceptedBy } },
     { new: true },
     (e, blog) => {
       if (e) return res.status(400).json({ error: "Blog cannot be updated !", });

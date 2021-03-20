@@ -55,7 +55,6 @@ function Projects() {
           style={{ overflow: "hidden", minHeight: "31.7vh" }}
         >
           <ul className="cards">
-            <Loading time={2} />
             {projects
               .slice((page - 1) * projects_per_page, page * projects_per_page)
               .map((project) =>
@@ -69,9 +68,8 @@ function Projects() {
                       <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                         <h2 className="card_title forphone forphone2" style={{ width: '100%' }}>{project.title}</h2>
                         <p className="card_text forphone forphone3 mb-5" style={{ width: '100%' }}>
-                          {project.objective} <br /> <br />
-                          By {project.teamname} <br /> <br />
-                           Project Status : {project.status}
+                          <strong>OBJECTIVE</strong> : {project.objective} <br /> <br />
+                          <strong>STATUS</strong> : {project.status}
                         </p>
                         <Button
                           className="btns card_btns"
@@ -101,7 +99,7 @@ function Projects() {
                   SetPage((page) => page - 1);
                 }}
               >
-                <i class="fa fa-angle-double-left"></i> Previous
+                <i className="fa fa-angle-double-left"></i> Previous
               </Button>
             )}
             {page < no_of_pages && (
@@ -112,7 +110,7 @@ function Projects() {
                   SetPage((page) => page + 1);
                 }}
               >
-                Next <i class="fa fa-angle-double-right"></i>
+                Next <i className="fa fa-angle-double-right"></i>
               </Button>
             )}
           </div>
