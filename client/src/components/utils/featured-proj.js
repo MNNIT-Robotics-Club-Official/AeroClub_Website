@@ -50,7 +50,6 @@ export default function Featuredproject() {
                           <p className="card_text forphone forphone3" style={{ width: '100%' }}>
                             {project.objective}
                           </p>
-                          {/* <div className="card-footer text-center"> */}
                           <Button
                             className="btns card_btns"
                             variant="danger"
@@ -59,7 +58,6 @@ export default function Featuredproject() {
                           >
                             Read More
                   </Button>
-                          {/* </div> */}
                         </div>
                       </div>
                     </li>

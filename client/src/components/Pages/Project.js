@@ -22,7 +22,7 @@ function Projects() {
       .then((data) => {
         if (data.error) {
           localStorage.removeItem("jwtToken");
-          return ;
+          return;
         }
         setsignedin(true);
       });
@@ -38,7 +38,7 @@ function Projects() {
   }, []);
 
   const [page, SetPage] = useState(1);
-  const projects_per_page = 1;
+  const projects_per_page = 4;
   const no_of_pages = Math.ceil(projects.length / projects_per_page);
 
   return (
@@ -60,39 +60,19 @@ function Projects() {
               .slice((page - 1) * projects_per_page, page * projects_per_page)
               .map((project) =>
                 project.open || signedin ? (
-                  <li
-                    className="cards_item"
-                    data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-duration="1500"
-                  >
+                  <li className="cards_item" data-aos="fade-up" data-aos="flip-left" data-aos-easing="linear"
+                    data-aos-duration="1500">
                     <div className="card cardproj">
                       <div className="card_image">
-                        <img src={project.pic} />
+                        <img className="evfeatured" src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                       </div>
-                      <div className="card_content">
-                        <h2 className="card_title" style={{ fontSize: 23 }}>
-                          {project.title}
-                        </h2>
-                        <p
-                          className="card_text"
-                          style={{ marginTop: 0, marginBottom: 0 }}
-                        >
-                          By {project.teamname}
+                      <div className="card_content forphone forphone1" style={{ width: '100%' }}>
+                        <h2 className="card_title forphone forphone2" style={{ width: '100%' }}>{project.title}</h2>
+                        <p className="card_text forphone forphone3 mb-5" style={{ width: '100%' }}>
+                          {project.objective} <br /> <br />
+                          By {project.teamname} <br /> <br />
+                           Project Status : {project.status}
                         </p>
-                        <p
-                          className="card_text"
-                          style={{ marginTop: 0, marginBottom: 0 }}
-                        >
-                          Project Status : {project.status}
-                        </p>
-                        <p
-                          className="card_text"
-                          style={{ marginTop: 0, marginBottom: 0 }}
-                        >
-                          Issued on {new Date(project.issuedon).toDateString()}
-                        </p>
-
                         <Button
                           className="btns card_btns"
                           variant="danger"
@@ -100,7 +80,7 @@ function Projects() {
                           style={{ marginTop: 10 }}
                         >
                           Read More
-                        </Button>
+                  </Button>
                       </div>
                     </div>
                   </li>

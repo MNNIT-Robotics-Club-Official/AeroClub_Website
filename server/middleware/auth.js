@@ -22,19 +22,23 @@ exports.signup = (req, res) => {
     mailer.sendMail({
       from: process.env.USER,
       to: req.body.email,
-      subject: "Confirmation@aeroclubmnnit",
+      subject: "Activate your account",
       html: `
       <h2>Hello ${req.body.name},</h2>
-      <p style='font-size:1rem;'>Heartiest welcome from <strong>Aeroclub MNNIT</strong>. 
+      <p style='font-size:1rem;'>Heartiest welcome from <strong>Aeroclub MNNIT</strong>.
       We hope you have an exciting and adrenaline-packed experience throughout your stay with us.
       You're just a step away from completion.</p>
       
-      <h4><a href="${process.env.BASE_URL}/user/confirm/${jwtToken}">Click Here</a> to confirm registration</h4>
+      <h4><a href="${process.env.BASE_URL}/user/confirm/${jwtToken}">Click Here</a> to confirm your registration.</h4>
       
       <br/>
       <p class='float-left'>
       Team Aeroclub
       </p>
+      <p class='float-left'>
+      If you think it's not you, just ignore this email.
+      </p>
+      
      `
     });
     res
