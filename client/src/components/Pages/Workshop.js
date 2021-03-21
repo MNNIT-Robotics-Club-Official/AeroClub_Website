@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Accordion, Card } from "react-bootstrap";
 import { Container, Jumbotron } from "react-bootstrap";
 import "../../css/Event.css";
-import { Link } from 'react-bootstrap';
 import Loading from "../../Animations/Loading";
 import m from "../../images/utils/Jigyasa_logo.png";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
-import def from "../../images/utils/default_workshop.png"
 
 export default function Workshop() {
   useEffect(() => {
@@ -23,7 +20,7 @@ export default function Workshop() {
       .then((data) => SetWorkshops(data));
   }, []);
 
-  
+
 
   return (
     <>
@@ -33,9 +30,7 @@ export default function Workshop() {
           <div className="containere ">
             <h1 className="titlee">
               <div className="pageTitlee titleBolde">
-                {/* <div><img src={`${baseURL}/images/utils/Prosang.jpg`} alt="prosang" srcset="" style={{alignItems:'center', width: '12%'}} /></div> */}
                 Jigyasa
-                {/* </div> */}
               </div>
             </h1>
             <div className="content-wrapper">
@@ -81,156 +76,58 @@ export default function Workshop() {
           paddingBottom: "1rem",
         }}>
         <Container id="workshop" activeKey={workshops}
-            onSelect={(e) => SetWorkshops(e)}>
+          onSelect={(e) => SetWorkshops(e)}>
 
-      <div class="d-flex justify-content-start my-3 mx-4">
-        <h3 class="">Present Workshops</h3>
-      </div>
-      
-      {workshops.map((singleNews, i) => (
-      <div className="card mb-5 mx-4 workshop_card" data-aos="zoom-in-up"
-      data-aos-duration="2000">
-        <div className="row">
-          {/* Assigning column for image */}
-          <div className="col-md-2 image text-center">
-
-            <img className="img-fluid" src={singleNews.pic} onError={(e)=>{e.target.onerror = null; e.target.src=def }} 
-              
-            />
+          <div class="d-flex justify-content-start my-3 mx-4">
+            <h3 class="">Present Workshops</h3>
           </div>
-          {/* Details of Workshop */}
-          <div className="col-md-10">
-            <div className="card-body">
-              {/* Workshop Title */}
-              <h5 className="card-title">{singleNews.name}</h5>
-              <br />
-              {/* for date */}
-              <span className="object">Target Audience : </span>
-              <span className="value"  dangerouslySetInnerHTML={{ __html: singleNews.target }}></span><br />
-              <span className="object">Description :</span>
-              <span className="value"  dangerouslySetInnerHTML={{ __html: singleNews.description }}></span><br />
-              <div className="value" dangerouslySetInnerHTML={{ __html: singleNews.about }}></div>
-              <div className="object">
-                        <em
-                          style={{ fontSize: "small" }}
-                        >
-                          --  {new Date(
-                          singleNews.date
-                        ).toLocaleDateString()}
-                        </em>
-                      </div><br />
-              {/* Link for discription of Workshop */}
-              <a  href={singleNews.brochure} download>
-                <p className="card-text">Download Brochure</p>
-              </a>
-              {/* <br> */}
-              {/* Date of posting */}
-              <div className="row edits">
-                {/* <p class="card-text"><small>Posted on March 20, 2021</small></p> */}
-                <div className="ml-auto">
+
+          {workshops.map((singleNews, i) => (
+            <div className="card mb-5 mx-4 workshop_card shadow" data-aos="zoom-in-up"
+              data-aos-duration="2000">
+              <div className="row">
+                {/* Assigning column for image */}
+                <div className="col-md-2 image text-center">
+
+                  <img className="img-fluid" src={singleNews.pic || 'https://lh3.googleusercontent.com/T9bjg12M_QXvpPvs4eYdw3VkmrgX0pGTWzFIyyzqQQ_XO_IUetQVyZBxNE80yTLYP0ft3it_S2_sMiY6p7IN7QZa156zFCVqg2qlhQR99MY0hdh83lfWCO3Ymy_nILhckIJj8LOm=w2400'} />
+                </div>
+                {/* Details of Workshop */}
+                <div className="col-md-10">
+                  <div className="card-body">
+                    {/* Workshop Title */}
+                    <h5 className="card-title">{singleNews.name}</h5>
+                    <br />
+                    {/* for date */}
+                    <span className="object">Target Audience : </span>
+                    <span className="value" dangerouslySetInnerHTML={{ __html: singleNews.target }}></span><br />
+                    <span className="object">Description :</span>
+                    <span className="value" dangerouslySetInnerHTML={{ __html: singleNews.description }}></span><br />
+                    <div className="value" dangerouslySetInnerHTML={{ __html: singleNews.about }}></div>
+                    <div className="object">
+                      <em
+                        style={{ fontSize: "small" }}
+                      >
+                        --  {new Date(
+                        singleNews.date
+                      ).toLocaleDateString()}
+                      </em>
+                    </div><br />
+                    {/* Link for discription of Workshop */}
+                    <a href={singleNews.brochure} download>
+                      <p className="card-text">Download Brochure</p>
+                    </a>
+                    {/* Date of posting */}
+                    <div className="row edits">
+                      <div className="ml-auto">
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      ))}
-      </Container>
+          ))}
+        </Container>
       </Jumbotron>
-
-      {/* <Jumbotron
-        fluid
-        style={{
-          background: "white",
-          width: "100%",
-          margin: "auto",
-          paddingBottom: "1rem",
-        }}>
-        <Container>
-          <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true" activeKey={workshops}
-            onSelect={(e) => SetWorkshops(e)}
-            style={{ margin: "1.5rem" }}>
-            {workshops.map((singleNews, i) => (
-              <div className="panel panel-default" key={singleNews.id}
-                style={{ padding: "0.15rem" }}
-                data-aos="fade-up"
-                data-aos-duration="1000">
-                <div className="panel-heading" role="tab" id="headingOne"
-                  eventKey={singleNews.id}
-                  style={{ fontSize: "1.3rem" }}>
-                  <h6 className="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href={`#collapse${singleNews.id}`} aria-expanded="false" aria-controls={`collapse${singleNews.id}`} >
-                      {singleNews.title}
-                      <div className="panel-body" dangerouslySetInnerHTML={{ __html: singleNews.about }} style={{width: "70%"}}></div>
-                      <div className="panel-body">
-                        <em
-                          style={{ fontSize: "small" }}
-                        >
-                          --  {new Date(
-                          singleNews.date
-                        ).toLocaleDateString()}
-                        </em>
-                      </div>
-                    </a>
-                    
-                  </h6>
-                </div>
-                <div id={`collapse${singleNews.id}`} className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" eventKey={singleNews.id}>
-
-                  <a className="panel-body" dangerouslySetInnerHTML={{ __html: singleNews.brochure }} style={{color:"white"}}>Brochure Link</a>
-
-                </div>
-              </div>
-            ))}
-
-          </div>
-
-        </Container>
-      </Jumbotron> */}
-
-      {/* <Jumbotron
-        fluid
-        style={{
-          background: "white",
-          width: "100%",
-          margin: "auto",
-          paddingBottom: "1rem",
-        }}
-        className='my-5'
-      >
-        <Container>
-          <div className="container">
-            <Accordion>
-              {workshops.map((singlews) => (
-                <Card key={singlews.id}>
-                  <Card.Header style={{ cursor: "pointer" }}>
-                    <Accordion.Toggle as={Card.Header} eventKey={singlews.id}>
-                      <div>
-                        {singlews.name}
-                        <em
-                          className="float-right"
-                          style={{ fontSize: "10px" }}
-                        >
-                          -on
-                          {new Date(singlews.date).toLocaleDateString()}
-                        </em>
-                        <div
-                          dangerouslySetInnerHTML={{ __html: singlews.about }}
-                        ></div>
-                      </div>
-                    </Accordion.Toggle>
-                  </Card.Header>
-                  <Accordion.Collapse eventKey={singlews.id}>
-                    <Card.Body
-                      dangerouslySetInnerHTML={{ __html: singlews.brochure }}
-                    ></Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              ))}
-            </Accordion>
-          </div>
-        </Container>
-      </Jumbotron> */}
     </>
   );
 }

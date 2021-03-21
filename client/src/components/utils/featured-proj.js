@@ -27,7 +27,7 @@ export default function Featuredproject() {
         <div className="container col-11">
           <ul className="cards">
             {
-              projects.length && (
+              projects.length ? (
                 <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplay HoverPauseloop responsive={{
                   0: {
                     items: 1
@@ -64,7 +64,9 @@ export default function Featuredproject() {
                     </div>
                   ))}
                 </OwlCarousel>
-              )}
+              ) :
+                <p className='text-center'> Loading ...!</p>
+            }
           </ul>
         </div>
       </div>

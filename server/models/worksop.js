@@ -15,7 +15,7 @@ const workshopSchema = new mongoose.Schema({
     },
     pic: {
         type: String,
-        required: false
+        default: ''
     },
     brochure: {
         type: String,
