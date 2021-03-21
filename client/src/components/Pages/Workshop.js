@@ -6,6 +6,7 @@ import {Link} from 'react-bootstrap';
 import Loading from "../../Animations/Loading";
 import m from "../../images/utils/Jigyasa_logo.png";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+import def from "../../images/utils/default_workshop.png"
 
 export default function Workshop() {
   useEffect(() => {
@@ -22,6 +23,7 @@ export default function Workshop() {
       .then((data) => SetWorkshops(data));
   }, []);
 
+  
 
   return (
     <>
@@ -77,6 +79,72 @@ export default function Workshop() {
           margin: "auto",
           paddingBottom: "1rem",
         }}>
+        <Container id="workshop" activeKey={workshops}
+            onSelect={(e) => SetWorkshops(e)}>
+
+      <div class="d-flex justify-content-start my-3 mx-4">
+        <h3 class="">Present Workshops</h3>
+      </div>
+      
+      {workshops.map((singleNews, i) => (
+      <div className="card mb-5 mx-4 workshop_card" data-aos="zoom-in-up"
+      data-aos-duration="2000">
+        <div className="row">
+          {/* Assigning column for image */}
+          <div className="col-md-2 image text-center">
+
+            <img className="img-fluid" src={singleNews.pic} onError={(e)=>{e.target.onerror = null; e.target.src=def }} 
+              
+            />
+          </div>
+          {/* Details of Workshop */}
+          <div className="col-md-10">
+            <div className="card-body">
+              {/* Workshop Title */}
+              <h5 className="card-title">{singleNews.name}</h5>
+              <br />
+              {/* for date */}
+              <span className="object">Target Audience : </span>
+              <span className="value"  dangerouslySetInnerHTML={{ __html: singleNews.target }}></span><br />
+              <span className="object">Description :</span>
+              <span className="value"  dangerouslySetInnerHTML={{ __html: singleNews.description }}></span><br />
+              <div className="value" dangerouslySetInnerHTML={{ __html: singleNews.about }}></div>
+              <div className="object">
+                        <em
+                          style={{ fontSize: "small" }}
+                        >
+                          --  {new Date(
+                          singleNews.date
+                        ).toLocaleDateString()}
+                        </em>
+                      </div><br />
+              {/* Link for discription of Workshop */}
+              <a  href={singleNews.brochure} download>
+                <p className="card-text">Download Brochure</p>
+              </a>
+              {/* <br> */}
+              {/* Date of posting */}
+              <div className="row edits">
+                {/* <p class="card-text"><small>Posted on March 20, 2021</small></p> */}
+                <div className="ml-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      ))}
+      </Container>
+      </Jumbotron>
+
+      {/* <Jumbotron
+        fluid
+        style={{
+          background: "white",
+          width: "100%",
+          margin: "auto",
+          paddingBottom: "1rem",
+        }}>
         <Container>
           <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true" activeKey={workshops}
             onSelect={(e) => SetWorkshops(e)}
@@ -117,7 +185,7 @@ export default function Workshop() {
           </div>
 
         </Container>
-      </Jumbotron>
+      </Jumbotron> */}
 
       {/* <Jumbotron
         fluid

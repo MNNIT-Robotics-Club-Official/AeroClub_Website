@@ -25,8 +25,8 @@ router.post("/workshop",isSignedIn, isAdmin,(req, res)=>{
 
     const workshop = new Workshop(req.body)
     workshop.save().then(workshop => {
-        const {id, about, brochure, date} = workshop.transform();
-        res.json({id: id.toString(), about: about, brochure: brochure, date:date});
+        const {id, target, description, about, brochure, date} = workshop.transform();
+        res.json({id: id.toString(), target: target, description: description, about: about, brochure: brochure, date:date});
     })
     .catch(err => {
         console.log(err.message);

@@ -6,6 +6,18 @@ const workshopSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    target: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: false
+    },
+    pic: {
+        type: String,
+        required: false
+    },
     brochure: {
         type: String,
         required: true
