@@ -1,5 +1,4 @@
-var mongoose = require('mongoose')
-const { stringify } = require('uuid')
+const mongoose = require('mongoose')
 
 const workshopSchema = new mongoose.Schema({
     name: {
@@ -17,11 +16,11 @@ const workshopSchema = new mongoose.Schema({
     date: {
         type: Date
     }
-},{timestamps:true})
+}, { timestamps: true })
 workshopSchema.method('transform', function () {
     let obj = this.toObject()
     obj.id = obj._id;
     delete obj._id;
     return obj;
 });
-module.exports = mongoose.model("Workshop",workshopSchema);
+module.exports = mongoose.model("Workshop", workshopSchema);
