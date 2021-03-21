@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 import { Container, Jumbotron } from "react-bootstrap";
 import "../../css/Event.css";
-import {Link} from 'react-bootstrap';
+import { Link } from 'react-bootstrap';
 import Loading from "../../Animations/Loading";
 import m from "../../images/utils/Jigyasa_logo.png";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
@@ -72,6 +72,7 @@ export default function Workshop() {
       </section>
 
       <Jumbotron
+        className='mb-5'
         fluid
         style={{
           background: "white",

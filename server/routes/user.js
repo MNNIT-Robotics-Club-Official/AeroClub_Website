@@ -35,5 +35,4 @@ router.get("/my/issue", isSignedIn, getMyRequests);
 router.post("/my/details", isSignedIn, getMyDetails);
 router.get("/my/invites/accept/:projectId", isSignedIn, acceptInvite);
 router.get("/my/invites", isSignedIn, getMyInvites);
-
 module.exports = router;

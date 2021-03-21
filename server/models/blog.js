@@ -15,6 +15,10 @@ const blogSchema = new mongoose.Schema(
       type: ObjectId,
       ref: "User",
     },
+    pic: {
+      type: String,
+      default: ''
+    },
     publishedAt: {
       type: Date,
     },

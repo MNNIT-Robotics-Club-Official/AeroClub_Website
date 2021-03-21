@@ -27,15 +27,15 @@ function SingleProject() {
     <div>
       <Loading time={1.5} />
       <div
-        className=" pagesp"
+        className="pagesp d-flex"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4)), url(${project?.pic})`,
+          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4))`,
         }}
       >
         <div className="overlayp">
           <div className="pageTitlep titleBoldp">
             {project?.title}
-            <h5 style={{ fontSize: "1rem" }}>By {project?.teamname}</h5>
+            <h5 style={{ fontSize: "1rem" }}></h5>
             <span className="meta">
               <em style={{ fontSize: "0.8rem" }}>
                 Issued on {new Date(project?.issuedon).toLocaleDateString()}
@@ -43,6 +43,12 @@ function SingleProject() {
             </span>
           </div>
         </div>
+        {
+          project?.pic &&
+          <div className="image" style={{ width: '30rem' }}>
+            <img src={project?.pic} alt="img" style={{ width: '100%', height: '100%' }} />
+          </div>
+        }
       </div>
 
       <Jumbotron

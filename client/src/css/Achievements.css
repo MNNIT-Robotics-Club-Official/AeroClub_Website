@@ -1,0 +1,53 @@
+.achievements-container{
+    margin: 4rem auto !important;
+}
+
+.achievements-container .panel-collapse{
+    background-color: black;
+}
+
+.card-body .desc{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.team{
+    font-weight: 700;
+    color: red;
+}
+
+.team a{
+    color: red;
+}
+
+@media only screen and (max-width:800px)
+{
+    .card-body .desc{
+        font-weight: bold;
+        font-size: large;
+    }
+    .team{
+        font-weight: 700;
+        color: red;
+    }
+}
+@media only screen and (max-width:800px)
+{
+    .card-body .desc{
+        font-weight: bold;
+        font-size: medium;
+    }
+    .team{
+        font-size: small;
+    }
+}
+@media only screen and (max-width:800px)
+{
+    .card-body .desc{
+        font-weight: bold;
+        font-size: medium;
+    }
+    .team{
+        font-size: small;
+    }
+}

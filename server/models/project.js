@@ -32,6 +32,7 @@ const projectSchema = new mongoose.Schema(
     },
     pic: {
       type: String,
+      default: ''
     },
     status: {
       type: String,
