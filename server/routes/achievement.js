@@ -9,7 +9,7 @@ router.get("/achievement", (req, res) => {
   res.setHeader("Access-Control-Expose-Headers", "Content-Range");
 
   Achievement.find({})
-    .sort("-year")
+    .sort("-date")
     .then((achievements) => {
       let arr = [];
       achievements.forEach((achievement) => arr.push(achievement.transform()));
@@ -17,6 +17,7 @@ router.get("/achievement", (req, res) => {
     })
     .catch((e) => console.log(e));
 });
+
 //group achievements by their year
 router.get("/achievement/year", (req, res) => {
   res.setHeader("Access-Control-Expose-Headers", "Content-Range");
@@ -24,9 +25,9 @@ router.get("/achievement/year", (req, res) => {
   Achievement.aggregate(
     [
       {
-        $group: { _id: "$year", achievements: { $push: "$$ROOT" },year: {$first: "$year"} },
+        $group: { _id: "$year", achievements: { $push: "$$ROOT" }, year: { $first: "$year" } },
       },
-      { 
+      {
         $sort: { "year": -1 }
       },
     ],

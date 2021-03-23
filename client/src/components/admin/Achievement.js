@@ -66,7 +66,7 @@ export const AchievementCreate = (props) => {
             <TextInput source='lurl' label='Linkedin URL' />
           </SimpleFormIterator>
         </ArrayInput>
-        <NumberInput source="year" label="Year" required={true} />
+        <DateInput source="date" label="Date" required={true} defaultValue={new Date()} />
       </SimpleForm>
     </Create>
   );
@@ -101,7 +101,7 @@ export const AchievementEdit = (props) => {
             <TextInput source='lurl' label='Linkedin URL' />
           </SimpleFormIterator>
         </ArrayInput>
-        <NumberInput source="year" label="Year" required={true} />
+        <DateInput source="date" label="Date" required={true} defaultValue={new Date()} />
       </SimpleForm>
     </Edit>
   );
@@ -118,7 +118,7 @@ export const AchievementShow = (props) => {
             <TextField source='lurl' label='Linkedin URL' />
           </Datagrid>
         </ArrayField>
-        <NumberField source="year" label="Year" />
+        <DateField source="date" label="Date" />
       </SimpleShowLayout>
     </Show>
   );

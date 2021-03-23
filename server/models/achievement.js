@@ -7,8 +7,8 @@ const achievementSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    year: {
-      type: Number,
+    date: {
+      type: Date,
       required: true,
     },
     team: [
