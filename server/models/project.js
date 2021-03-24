@@ -22,6 +22,10 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    overview: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -30,6 +34,7 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    compTech: [String],
     pic: {
       type: String,
       default: ''
@@ -53,13 +58,19 @@ const projectSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    open: {
+    home: {
       type: Boolean,
       default: false
     },
     featured: {
       type: Boolean,
       default: false
+    },
+    acknowledgement: {
+      type: String
+    },
+    ytID: {
+      type: String
     }
   },
   { timestamps: true }

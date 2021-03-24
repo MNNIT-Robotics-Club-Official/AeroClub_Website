@@ -7,7 +7,7 @@ import { REACT_APP_SERVER } from "../../grobalVars";
 export default function Featuredproject() {
   const [projects, SetProjects] = useState([]);
   useEffect(() => {
-    fetch(`${REACT_APP_SERVER}/api/projects/featured`, {
+    fetch(`${REACT_APP_SERVER}/api/projects/featured_home`, {
       method: "get",
     })
       .then((res) => res.json())

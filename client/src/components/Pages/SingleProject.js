@@ -3,86 +3,133 @@ import { useHistory, useParams } from "react-router-dom";
 import "../../css/SingleProject.css";
 import Loading from "../../Animations/Loading";
 import { Container, Jumbotron } from "react-bootstrap";
-import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 
 function SingleProject() {
   const { projectId } = useParams();
   const [project, setProject] = useState(undefined);
+  const [isSignedIn, setisSignedIn] = useState(false);
   const history = useHistory();
-
+  const [more, setmore] = useState(false);
 
   useEffect(() => {
     document.title = `Project-${projectId} | ${REACT_APP_BASE_TITLE}`;
+
     fetch(`${REACT_APP_SERVER}/api/projects/${projectId}`, {
       method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.error) history.push("/404");
         setProject(data);
+        console.log(data);
       });
   }, []);
 
   return (
-    <div>
-      <Loading time={1.5} />
-      <div
-        className="pagesp d-flex"
-        style={{
-          background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4))`,
-        }}
-      >
-        <div className="overlayp">
-          <div className="pageTitlep titleBoldp">
-            {project?.title}
-            <h5 style={{ fontSize: "1rem" }}></h5>
-            <span className="meta">
-              <em style={{ fontSize: "0.8rem" }}>
-                Issued on {new Date(project?.issuedon).toLocaleDateString()}
-              </em>
-            </span>
+    <div className="my-5">
+      <div className="mb-4">
+        <h1 className="text-center px-5">{project?.title}</h1>
+        <div
+          style={{
+            background: "black",
+            width: "400px",
+            height: "5px",
+            borderRadius: "5px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          {" "}
+        </div>
+      </div>
+      <div className="container">
+        <div>
+          <h3>Aim</h3>
+          <p className="px-5">{project?.objective}</p>
+        </div>
+        <div>
+          <h3>Components and Technologies Used</h3>
+          <div className="d-flex px-5 flex-wrap">
+            {project?.compTech?.map((x) => (
+              <div
+                className="d-inline px-3 py-2 m-1"
+                style={{
+                  border: "2px solid #dec3c3",
+                  borderRadius: "100px",
+                  background: "#fff7f7",
+                }}
+              >
+                {x}
+              </div>
+            ))}
           </div>
         </div>
-        {
-          project?.pic &&
-          <div className="image" style={{ width: '30rem' }}>
-            <img src={project?.pic} alt="img" style={{ width: '100%', height: '100%' }} />
+        <div>
+          <h3>Overview</h3>
+          <p
+            className="px-5"
+            dangerouslySetInnerHTML={{ __html: project?.overview }}
+          ></p>
+        </div>
+        <div>
+          <div>
+            <h3>Project By: </h3>
+            <ul className="px-5">
+              {project?.members?.map((member) =>
+                member.accepted ? (
+                  <li>
+                    {member.user.linkedin_url ? (
+                      <a href={member.user.linkedin_url}>{member.user.name}</a>
+                    ) : (
+                      <span>{member.user.name}</span>
+                    )}
+                  </li>
+                ) : (
+                  <></>
+                )
+              )}
+            </ul>
           </div>
-        }
+        </div>
+        {project?.ytID ? (
+          <div>
+            <iframe
+              width="889px"
+              height="500"
+              src={`https://www.youtube.com/embed/${project?.ytID}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          <></>
+        )}
+
+        <div>
+          <div style={{ display: more ? "block" : "none" }}>
+            <h3>Description</h3>
+            <p
+              className="px-3"
+              dangerouslySetInnerHTML={{ __html: project?.description }}
+            ></p>
+          </div>
+          <div className="d-flex justify-content-center mt-5">
+            {project?.description ? (
+              <a className="btn btn-primary" onClick={(e) => setmore(!more)}>
+                Read {!more ? "More" : "Less"}
+              </a>
+            ) : (
+              <></>
+            )}
+          </div>
+        </div>
       </div>
-
-      <Jumbotron
-        fluid
-        style={{
-          background: "white",
-          width: "100%",
-          margin: "auto",
-          paddingBottom: "1rem",
-          paddingLeft: "2rem",
-        }}
-      >
-        <Container>
-          <h4>Description:</h4>
-          <p dangerouslySetInnerHTML={{ __html: project?.description }}></p>
-          <h4>Objective:</h4>
-          <p dangerouslySetInnerHTML={{ __html: project?.objective }}></p>
-          <p>
-            <img style={{ width: "60vw" }} src={project?.pic} />
-          </p>
-          <h4>Project Status:</h4>
-          <p dangerouslySetInnerHTML={{ __html: project?.status }}></p>
-
-          <h4>Members:</h4>
-          <p>
-            {" "}
-            {project?.members.map(function (d, idx) {
-              console.log(d);
-              return <li key={idx}>{d.user.name}</li>;
-            })}
-          </p>
-        </Container>
-        <hr />
-      </Jumbotron>
     </div>
   );
 }

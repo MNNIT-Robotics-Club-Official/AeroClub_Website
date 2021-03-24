@@ -5,6 +5,7 @@ const { isSignedIn, isAdmin } = require("../middleware/auth");
 const { json } = require("express");
 const User = require("../models/user");
 const ObjectId = require("mongodb").ObjectId;
+const jwt = require("jsonwebtoken");
 
 // fetching all projects
 router.get("/projects", isSignedIn, isAdmin, (req, res) => {
@@ -46,6 +47,19 @@ router.get("/projects/featured", (req, res) => {
     });
 });
 
+router.get("/projects/featured_home", (req, res) => {
+  Project.find({ approved: true, status: "Completed", featured: true, home: true })
+    .populate({ path: "members.user", select: "name" })
+    .exec((err, projects) => {
+      if (err) {
+        return res.status(400).json({
+          error: err.message,
+        });
+      }
+      res.json(projects);
+    });
+});
+
 // fetching a projects with id
 router.get("/projects/:id", (req, res) => {
   if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
@@ -55,12 +69,33 @@ router.get("/projects/:id", (req, res) => {
   Project.findOne({ _id: req.params.id })
     .populate({ path: "members.user" })
     .then((project) => {
-      if (project.open) {
-        res.json(project.transform());
+      const { authorization } = req.headers;
+      if (!authorization) {
+        project.description = undefined;
+        return res.json(project.transform());
       } else {
-        isSignedIn(req, res, () => {
-          res.json(project.transform());
-        });
+        // finding the user with the id
+        const token = authorization.replace("Bearer ", "");
+
+        const payload = jwt.verify(
+          token,
+          process.env.JWT_SECRET,
+          (err, payload) => payload
+        );
+        if (payload) {
+          const { _id } = payload;
+          User.findById(_id).exec((err, user) => {
+            if (!user || !user.confirmed || !user.canSignIn) {
+              project.description = undefined;
+              return res.json(project.transform());
+            } else {
+              return res.json(project.transform());
+            }
+          });
+        } else {
+          project.description = undefined;
+          return res.json(project.transform());
+        }
       }
     })
     .catch((e) => console.log(e));
