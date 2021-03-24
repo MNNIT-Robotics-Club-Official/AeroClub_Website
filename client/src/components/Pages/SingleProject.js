@@ -26,111 +26,106 @@ function SingleProject() {
       .then((data) => {
         if (data.error) history.push("/404");
         setProject(data);
-        console.log(data);
       });
   }, []);
 
   return (
-    <div className="my-5">
-      <div className="mb-4">
-        <h1 className="text-center px-5">{project?.title}</h1>
-        <div
-          style={{
-            background: "black",
-            width: "400px",
-            height: "5px",
-            borderRadius: "5px",
-            marginLeft: "auto",
-            marginRight: "auto",
-          }}
-        >
-          {" "}
+    <>
+      <Loading time={2} />
+      <div className="my-5">
+        <div className="mb-4">
+          <h4 className='my-3' style={{ marginBottom: "0px", textAlign: "center" }}>{project?.title}</h4>
+          <div
+            className="miniSep"
+            style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+          ></div>
         </div>
-      </div>
-      <div className="container">
-        <div>
-          <h3>Aim</h3>
-          <p className="px-5">{project?.objective}</p>
-        </div>
-        <div>
-          <h3>Components and Technologies Used</h3>
-          <div className="d-flex px-5 flex-wrap">
-            {project?.compTech?.map((x) => (
-              <div
-                className="d-inline px-3 py-2 m-1"
-                style={{
-                  border: "2px solid #dec3c3",
-                  borderRadius: "100px",
-                  background: "#fff7f7",
-                }}
-              >
-                {x}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <h3>Overview</h3>
-          <p
-            className="px-5"
-            dangerouslySetInnerHTML={{ __html: project?.overview }}
-          ></p>
-        </div>
-        <div>
+        <div className="container">
           <div>
-            <h3>Project By: </h3>
-            <ul className="px-5">
-              {project?.members?.map((member) =>
-                member.accepted ? (
-                  <li>
-                    {member.user.linkedin_url ? (
-                      <a href={member.user.linkedin_url}>{member.user.name}</a>
-                    ) : (
-                      <span>{member.user.name}</span>
-                    )}
-                  </li>
-                ) : (
-                  <></>
-                )
-              )}
-            </ul>
+            <h3 className='my-3 subheaders'>Aim</h3>
+            <p className="px-5">{project?.objective}</p>
           </div>
-        </div>
-        {project?.ytID ? (
           <div>
-            <iframe
-              width="889px"
-              height="500"
-              src={`https://www.youtube.com/embed/${project?.ytID}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <h3 className='my-3 subheaders'>Components and Technologies Used</h3>
+            <div className="d-flex px-5 flex-wrap">
+              {project?.compTech?.map((x) => (
+                <div
+                  className="d-inline px-3 py-2 m-1"
+                  style={{
+                    border: "2px solid #dec3c3",
+                    borderRadius: "100px",
+                    background: "#fff7f7",
+                  }}
+                >
+                  {x}
+                </div>
+              ))}
+            </div>
           </div>
-        ) : (
-          <></>
-        )}
-
-        <div>
-          <div style={{ display: more ? "block" : "none" }}>
-            <h3>Description</h3>
+          <div className='my-5'>
+            <h3 className='mb-4 subheaders'>Overview</h3>
             <p
-              className="px-3"
-              dangerouslySetInnerHTML={{ __html: project?.description }}
+              className="px-5"
+              dangerouslySetInnerHTML={{ __html: project?.overview }}
             ></p>
           </div>
-          <div className="d-flex justify-content-center mt-5">
-            {project?.description ? (
-              <a className="btn btn-primary" onClick={(e) => setmore(!more)}>
-                Read {!more ? "More" : "Less"}
-              </a>
-            ) : (
-              <></>
-            )}
+          <div>
+            <div>
+              <h3 className='my-3 subheaders'>Project By: </h3>
+              <ul className="px-5">
+                {project?.members?.map((member) =>
+                  member.accepted ? (
+                    <li>
+                      {member.user.linkedin_url ? (
+                        <a href={member.user.linkedin_url}>{member.user.name}</a>
+                      ) : (
+                        <span>{member.user.name}</span>
+                      )}
+                    </li>
+                  ) : (
+                    <></>
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+          {project?.ytID ? (
+            <div className='d-block iframe-container'>
+              <iframe
+                width="889px"
+                height="500"
+                src={`https://www.youtube.com/embed/${project?.ytID}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className='mx-auto d-block responsive-iframe'
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+
+          <div>
+            <div style={{ display: more ? "block" : "none" }}>
+              <h3 className='my-3 subheaders'>Description</h3>
+              <p
+                className="px-3"
+                dangerouslySetInnerHTML={{ __html: project?.description }}
+              ></p>
+            </div>
+            <div className="d-flex justify-content-center mt-5">
+              {project?.description ? (
+                <a className="btn btn-primary" onClick={(e) => setmore(!more)}>
+                  Read {!more ? "More" : "Less"}
+                </a>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
