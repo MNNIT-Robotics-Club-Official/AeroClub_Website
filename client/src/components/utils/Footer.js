@@ -69,7 +69,7 @@ export default function Footer() {
                   <img src={m} alt="mnnit" className='float-right' />
                 </div>
               </div>
-              <br />
+              {/* <br /> */}
               <hr />
             </div>
           )}

@@ -21,7 +21,7 @@ export default function Testimonials() {
         Testimonials
       </div>
       <div className="miniSep" style={{ marginBottom: '30px' }} ></div>
-        <Jumbotron>
+        {/* <Jumbotron> */}
         
         <div id="testimonial4" className="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval={5000} data-duration={2000} data-aos="zoom-in-down">
           <div className="carousel-inner" role="listbox">
@@ -100,7 +100,7 @@ export default function Testimonials() {
             <span className="carousel-control-next-icon" />
           </a>
         </div>
-        </Jumbotron>
+        {/* </Jumbotron> */}
       </div>
       
     </section>
