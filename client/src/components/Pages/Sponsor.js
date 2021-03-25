@@ -77,7 +77,7 @@ export default function Ṣponsors() {
                                                      </button>
               </p>
 
-              <div class="collapse collapsews">
+              <div class="collapse collapsews"  id="collapse12">
                 <div class="card card-body details" >
 
                   <p className="just">We ask for support suitable to your capability. This support can be in the form of:<br></br><br></br>
@@ -101,7 +101,7 @@ export default function Ṣponsors() {
                                                      </button>
               </p>
 
-              <div class="collapse collapsews">
+              <div class="collapse collapsews" id="collapse13">
                 <div class="card card-body details" >
 
                   <p className="just">It took centuries to engineer 1st human flight, and just a few years later, we had crossed the solar system. With the advent of drone delivery, air taxis, and privatization of India's space sector, the demand for people who understand flying machines is increasing exponentially. However, not many people are ready for the same. Aeroclub MNNIT attempts to bridge this gap and utilize engineering students' potential and passion, converting them into leaders who can solve problems in the aerospace sector and beyond.

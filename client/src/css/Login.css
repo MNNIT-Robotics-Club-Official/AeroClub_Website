@@ -5,7 +5,7 @@
 
 .login {
   height: 100vh;
-  background: url("../images/utils/wave.svg") rgb(59, 179, 249);
+  /* background: url("../images/utils/wave.svg") rgb(59, 179, 249); */
   background-size: cover;
   background-position: center;
   color: grey;
@@ -19,7 +19,7 @@
     bottom:50px;
     font-size: 20px;
     background:#495057 !important;
-    color:rgb(142, 249, 243);
+    color:rgb(207, 44, 44);
     padding: 15.5px 14px;
     border-radius: 1rem;
     transition: all 0.3s ease-in-out;
@@ -28,11 +28,11 @@
 }
 
 .l1 {
-  color: rgb(142, 249, 243);
+  color: rgb(206, 47, 47);
 }
 
 .l1:hover {
-  color: rgb(169, 210, 213);
+  color: rgb(77, 198, 255);
 }
 
 .card-signin {
@@ -40,14 +40,23 @@
   position: relative;
   border: 0;
   border-radius: 1rem;
-  background-color: rgb(32, 30, 30) !important;
+  background-color: rgb(248, 248, 248) !important;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.50), 0 15px 12px rgba(0,0,0,0.50);
   background: transparent;
+}
+
+.card-signin {
+  box-shadow: 0 25px 45px rgba(0,0,0,0.50), 0 10px 10px rgba(0,0,0,0.50);
 }
 
 .card-signin .card-title {
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
+}
+
+.logpara {
+  color: #495057;
 }
 
 .card-signin .card-body {
