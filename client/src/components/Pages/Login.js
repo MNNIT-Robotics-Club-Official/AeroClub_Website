@@ -64,8 +64,7 @@ function Login() {
           <div className="card card-signin shadow">
             <div className="card-body">
               <h5
-                className="card-title text-center font-weight-bold"
-                id="heading"
+                className="card-title text-center l2 font-weight-bold"
               >
                 Account login
               </h5>
@@ -84,7 +83,7 @@ function Login() {
                   <label htmlFor="inputEmail">Gsuite Email Address</label>
                 </div>
 
-                <div className="form-label-group">
+                <div className="form-label-group password-grp">
                   <input
                     type="password"
                     id="inputPassword"
@@ -94,10 +93,13 @@ function Login() {
                     maxLength={30}
                     ref={password}
                   />
-                  <label htmlFor="inputPassword" >Password</label><i className="fa fa-eye-slash float-right" id='eye' onClick={passwordToggle}></i>
+                  <label htmlFor="inputPassword" >Password</label>
+                  <span>
+                    <i className="fa fa-eye-slash float-right" id='eye' onClick={passwordToggle}></i>
+                  </span>
                 </div>
                 <button
-                  className="btn btn-lg btn-dark btn-block text-uppercase l1"
+                  className="btn btn-lg btn-danger btn-block text-uppercase l1"
                   type="submit"
                   onClick={handleSubmit}
                 >
@@ -109,7 +111,7 @@ function Login() {
                     <Link
                       to="/user/forgetpassword"
                       style={{ textDecoration: "none" }}
-                      className="l1"
+                      className="l2"
                     >
                       Forgot Password ?
                     </Link>
@@ -119,14 +121,14 @@ function Login() {
                     <Link
                       to="/user/signup"
                       style={{ textDecoration: "none" }}
-                      className="l1"
+                      className="l2"
                     >
                       Signup
                     </Link>
                   </p>
                   <button
                     type="button"
-                    className="btn btn-dark text-uppercase l1"
+                    className="btn btn-danger text-uppercase l1"
                     style={{ width: "100%" }}
                   >
                     <Link
