@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import im1 from "../..//images/utils/logo-aero2.png";
 import { useDispatch } from "react-redux";
+import { REACT_APP_SERVER } from "../../grobalVars";
 
 const Login = () => {
   const history = useHistory();
@@ -15,7 +16,7 @@ const Login = () => {
   const dispatch = useDispatch()
 
   const handleLogout = () => {
-    fetch(`${process.env.REACT_APP_SERVER}/api/signout`, {
+    fetch(`${REACT_APP_SERVER}/api/signout`, {
       method: "post",
     })
       .then((res) => res.json())

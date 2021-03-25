@@ -114,7 +114,7 @@ function Login() {
                       Forgot Password ?
                     </Link>
                   </p>
-                  <p style={{ color: "white" }}>
+                  <p className="logpara">
                     Don't have an account?{" "}
                     <Link
                       to="/user/signup"
