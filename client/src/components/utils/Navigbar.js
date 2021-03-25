@@ -116,7 +116,7 @@ export default function Navigbar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-          <NavDropdown
+            <NavDropdown
               title="Projects"
               id="basic-nav-dropdown"
               onMouseEnter={() => setShow4(true)}
@@ -182,6 +182,9 @@ export default function Navigbar() {
             <Nav.Link eventKey="collaborate" href="/collaborate" className="nav-items">
               Collaborate
             </Nav.Link>
+            <Nav.Link eventKey="sponsors" href="/sponsors" className="nav-items">
+              Sponsors
+            </Nav.Link>
             <NavDropdown
               title="More"
               id="basic-nav-dropdown"
@@ -190,10 +193,6 @@ export default function Navigbar() {
               onTouchEnd={() => setShow2(!show2)}
               show={show2}
             >
-              <NavDropdown.Item eventKey="sponsors" href="/sponsors">
-                Sponsors
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
               <NavDropdown.Item eventKey="spinoff" href="/spinoff">
                 Spinoff
               </NavDropdown.Item>
@@ -202,9 +201,6 @@ export default function Navigbar() {
                 Updates
               </NavDropdown.Item>
             </NavDropdown>
-            {/* <Nav.Link eventKey="sponsors" href="/sponsors" className="nav-items">
-              Sponsors
-            </Nav.Link> */}
           </Nav>
           <Login />
         </Navbar.Collapse>

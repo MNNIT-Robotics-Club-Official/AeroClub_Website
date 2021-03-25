@@ -14,7 +14,7 @@ export default function Featuredproject() {
       .then((data) => SetProjects(data));
   }, []);
   return (
-    <div className="cont featured-proj">
+    <div className="cont featured-proj my-3">
       <div className="container-fluid">
         <div
           className="pageTitle titleBold headingc white-headingc"
@@ -24,11 +24,11 @@ export default function Featuredproject() {
           Featured Projects
         </div>
         <div className="miniSep" style={{ marginBottom: "20px" }}></div>
-        <div className="container col-11">
+        <div className="container col-11 my-5">
           <ul className="cards">
             {
               projects.length ? (
-                <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplay HoverPauseloop responsive={{
+                <OwlCarousel className='owl-theme' autoplay autoplaySpeed={2000} autoplay autoplayHoverPause responsive={{
                   0: {
                     items: 1
                   },

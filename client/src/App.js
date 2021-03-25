@@ -168,7 +168,7 @@ function App() {
             <Route path="/workshop" exact>
               <Workshop />
             </Route>
-            <Route path="/sponsor" exact>
+            <Route path="/sponsors" exact>
               <Sponsors />
             </Route>
             <Route>

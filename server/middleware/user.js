@@ -232,7 +232,7 @@ exports.getMyInvites = (req, res) => {
 };
 
 exports.updateMyProfile = (req, res) => {
-  user
+  User
     .findOneAndUpdate(
       { _id: req.user.id },
       {
