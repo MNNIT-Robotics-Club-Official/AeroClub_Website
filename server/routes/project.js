@@ -22,7 +22,7 @@ router.get("/projects", isSignedIn, isAdmin, (req, res) => {
 });
 
 router.get("/projects/approved", (req, res) => {
-  Project.find({ approved: true, status: "Completed" })
+  Project.find({ approved: true, status: "Completed", featured: false })
     .populate({ path: "members.user", select: "name" })
     .exec((err, projects) => {
       if (err) {

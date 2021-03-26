@@ -125,9 +125,9 @@ export default function Navigbar() {
               onTouchEnd={() => setShow4(!show3)}
               show={show4}
             >
-              <NavDropdown.Item href="/projects">All Projects</NavDropdown.Item>
+              <NavDropdown.Item href="/projects/featured">Flagship Projects</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/projects/featured">Featured Projects</NavDropdown.Item>
+              <NavDropdown.Item href="/projects">Other Projects</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link eventKey="blogs" hresname="nav-items" href="/blogs">
               Blogs
