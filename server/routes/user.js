@@ -12,7 +12,7 @@ const {
   updateProfileFromAdmin,
   createUserFromAdmin,
 } = require("../middleware/user");
-const { check, body } = require("express-validator");
+const { body } = require("express-validator");
 const router = express.Router();
 
 router.get("/users", getAllUsers);
