@@ -116,12 +116,12 @@ export default function Workshop() {
               data-aos-duration="2000">
               <div className="row">
                 {/* Assigning column for image */}
-                <div className="col-md-2 image text-center">
+                <div className="col-md-4 image text-center">
 
                   <img className="img-fluid" src={singleNews.pic || 'https://lh3.googleusercontent.com/T9bjg12M_QXvpPvs4eYdw3VkmrgX0pGTWzFIyyzqQQ_XO_IUetQVyZBxNE80yTLYP0ft3it_S2_sMiY6p7IN7QZa156zFCVqg2qlhQR99MY0hdh83lfWCO3Ymy_nILhckIJj8LOm=w2400'} />
                 </div>
                 {/* Details of Workshop */}
-                <div className="col-md-10">
+                <div className="col-md-8">
                   <div className="card-body">
                     {/* Workshop Title */}
                     <h5 className="card-title">{singleNews.name}</h5>
