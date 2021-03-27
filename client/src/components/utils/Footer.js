@@ -62,14 +62,13 @@ export default function Footer() {
                         <i className="fa fa-caret-right"></i> RoboClub
                       </a>
                     </li>
-                    
+
                   </ul>
                 </div>
                 <div className="col-lg-4 col-md-6 footer-logo float-right">
                   <img src={m} alt="mnnit" className='float-right' />
                 </div>
               </div>
-              {/* <br /> */}
               <hr />
             </div>
           )}
