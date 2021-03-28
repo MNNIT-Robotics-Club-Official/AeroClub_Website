@@ -83,7 +83,7 @@
   border: 2px solid rgb(204, 67, 67);
   border-radius: 5px;
   margin: auto;
-  width:70%;
+  width:58rem;
   font-size: smaller;
   align-items: center;
 }
@@ -155,6 +155,10 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .just{
+    text-align: justify;
+    font-size: x-small;
+  }
   .sponabt {
     /* text-decoration:none; */
     font-size: 1.2rem;
