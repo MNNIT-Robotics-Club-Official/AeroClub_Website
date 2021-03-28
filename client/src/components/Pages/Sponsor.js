@@ -55,7 +55,7 @@ export default function Ṣponsors() {
               </p>
 
               <div className="collapse collapsews" id="collapse11">
-                <div className="card card-body details" >
+                <div className="card card-body details" style={{ width: '1100px' }}>
                   <p className="just">AeroClub MNNIT, established in 2018, is a student body under the Student Activity Centre (SAC). Since then, it has been the epicenter of the surging ideas in various aerospace field domains, passing through the students, genuinely prepared to do impactful interdisciplinary work. Here, we work across all the aerospace sector domains ranging from RC planes to design, from aerodynamic analysis to autonomous drones, from biomimicking to astronomy, and various others (Link), catalyzed by abstract classes, open discussions, and projects.
                   Speaking of achievements, our club has won accolades in many national level competitions (Link) and completed a diverse range of projects (Link) and, most importantly, emphasized innovation with state-of-the-art projects like drone automation, RC planes, etc.
                   We are proud to say that our club is the birthplace of a fully functional startup, TSAW (Link). Also, our club's prosperity resulted in an offshoot, Astrowing(Link) itself, which focuses entirely upon the field of astronomy and theoretical sciences. The club, in these years, has achieved enormous growth, and in the future, we aim to surpass our past achievements.
@@ -79,7 +79,7 @@ export default function Ṣponsors() {
               </p>
 
               <div className="collapse collapsews" id="collapse12">
-                <div className="card card-body details" >
+                <div className="card card-body details" style={{ width: '1100px' }}>
 
                   <p className="just">We ask for support suitable to your capability. This support can be in the form of:<br></br><br></br>
                     <ul>
@@ -103,7 +103,7 @@ export default function Ṣponsors() {
               </p>
 
               <div className="collapse collapsews" id="collapse13">
-                <div className="card card-body details" >
+                <div className="card card-body details" style={{ width: '1100px' }}>
 
                   <p className="just">It took centuries to engineer 1st human flight, and just a few years later, we had crossed the solar system. With the advent of drone delivery, air taxis, and privatization of India's space sector, the demand for people who understand flying machines is increasing exponentially. However, not many people are ready for the same. Aeroclub MNNIT attempts to bridge this gap and utilize engineering students' potential and passion, converting them into leaders who can solve problems in the aerospace sector and beyond.
                   </p>
@@ -118,7 +118,7 @@ export default function Ṣponsors() {
 
         <div
           className="d-flex flex-wrap mx-auto justify-content-center align-items-center"
-          style={{ width: "80%" }}
+          style={{ width: "90%" }}
         >
 
 

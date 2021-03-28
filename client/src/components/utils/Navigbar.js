@@ -141,7 +141,7 @@ export default function Navigbar() {
               {
                 loggedIn ?
                   <NavDropdown.Item href="/user/dashboard" eventKey="dasboard">
-                    Dashboard  <PermIdentity className='ml-3' />
+                    <PermIdentity className='mr-1' /> Dashboard
                   </NavDropdown.Item>
                   :
                   <NavDropdown.Item href="/user/login" eventKey="login">

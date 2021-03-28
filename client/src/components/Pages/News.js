@@ -36,7 +36,7 @@ export default function News() {
             paddingBottom: "1rem",
             minHeight: '25rem'
           }}>
-          <Container className='col-11'>
+          <Container className='col-11 my-5'>
             <div className="panel-group news-container" id="accordion" role="tablist" aria-multiselectable="true"
               style={{ margin: "1.5rem" }}>
               {news.map((singleNews, i) => (
