@@ -46,7 +46,7 @@ function SingleBlog() {
     <div>
       <Loading time={2} />
       <div
-        className="pagesp"
+        className="pagesp singleblog-pagesp"
         style={{
           background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4))`,
         }}
@@ -111,8 +111,8 @@ function SingleBlog() {
           }
 
           <div dangerouslySetInnerHTML={{ __html: blog?.body }} className='my-5'></div>
+          <hr />
         </Container>
-        <hr />
       </Jumbotron>
     </div>
   );

@@ -13,12 +13,7 @@ function Blogs() {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => {
-
-        console.log(data)
-        SetBlogs(data)
-      }
-      );
+      .then((data) => SetBlogs(data));
   }, []);
 
   const [page, SetPage] = useState(1);
@@ -49,12 +44,12 @@ function Blogs() {
       <Loading time={2} />
       <div className="cont">
         <h3 className="my-3 titleBold d-flex justify-content-center topic">
-              <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>BLOGS</p>
-            </h3>
-            <div
-              className="miniSep"
-              style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
-            ></div>
+          <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>BLOGS</p>
+        </h3>
+        <div
+          className="miniSep"
+          style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
+        ></div>
 
         <div
           className="main"
@@ -64,15 +59,15 @@ function Blogs() {
             {blogs
               .slice((page - 1) * blogs_per_page, page * blogs_per_page)
               .map(blog => (
-                <li className="cards_item" data-aos="fade-up" data-aos="flip-left" data-aos-easing="linear"
+                <li className="cards_item" data-aos="fade-up" data-aos="flip-left" data-aos-easing="linear" key={blog._id}
                   data-aos-duration="1500">
                   <div className="card cardproj">
                     <div className="card_image">
-                      <img className="evfeatured" src={blog.pic || 'https://lh3.googleusercontent.com/PPRLO6cS9pz1oyVlPhoHBMH3u9LKlLJEBQ7kJMzziAav-C7GEp9vVpJwfky-hsrlR4h0xisARPSzF19VIPmRb31Wpf6xScPJKOggnz4rPDqSJG9FPr9m-BMyDr9zrABeZ8VsDcm9=w2400'} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
+                      <img className="evfeatured" src={blog.pic || 'https://lh3.googleusercontent.com/PPRLO6cS9pz1oyVlPhoHBMH3u9LKlLJEBQ7kJMzziAav-C7GEp9vVpJwfky-hsrlR4h0xisARPSzF19VIPmRb31Wpf6xScPJKOggnz4rPDqSJG9FPr9m-BMyDr9zrABeZ8VsDcm9=w2400'} style={{ width: '100%', minHeight: '16rem' }} />
                     </div>
                     <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                       <h2 className="card_title forphone forphone2" style={{ width: '100%', minHeight: '4rem' }}>{blog.title}</h2>
-                      <p className="card_text forphone" style={{ width: '100%', height: '5rem' }}>
+                      <p className="card_text forphone" style={{ width: '100%', height: '2rem' }}>
                         <i className="fa fa-user mr-3 ml-1"></i> by{" "}
                         {
                           branch[blog.postedBy.registration_no[4]] === 'NA' || blog.postedBy.year === -1 || blog.postedBy.linkedin_url ===
@@ -97,8 +92,8 @@ function Blogs() {
                               </div>
                             </OverlayTrigger>
                         }
-                        <br />
-                        <i className="fa fa-calendar mr-3 ml-1"></i> {new Date(blog.publishedAt).toLocaleDateString()}
+                        {/* <br />
+                        <i className="fa fa-calendar mr-3 ml-1"></i> {new Date(blog.publishedAt).toLocaleDateString()} */}
                       </p>
                       <Button
                         className="btns card_btns"
