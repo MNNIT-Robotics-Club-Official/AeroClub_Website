@@ -8,7 +8,7 @@ import cosmo3d from "../../images/Sponsors/cosmo3d.png";
 import knowhow from "../../images/Sponsors/knowhow.png";
 import pcb from "../../images/Sponsors/pcb.png";
 import ultratech from "../../images/Sponsors/ultra.png";
-import alumni from '../../images/Sponsors/alumni.png'
+import alumni from '../../images/Sponsors/alumni2.PNG';
 import { REACT_APP_BASE_TITLE } from "../../grobalVars"
 import tsaw from "../../images/Sponsors/tsawlogo.png";
 
@@ -379,8 +379,8 @@ export default function Ṣponsors() {
                 target="_blank"
               >
                 <img
-                  className="card-img-top mx-auto imgphone sponimg"
-                  src={mnnit}
+                  className="card-img-top mx-auto imgphone alumnilogowdth sponimg "
+                  src={alumni}
                   alt="mnnit"
                   srcSet=""
                 />
@@ -414,7 +414,7 @@ export default function Ṣponsors() {
                 <img
 
                   className="card-img-top mx-auto sponimg"
-                  src={alumni}
+                  src={ultratech}
                   alt="alumni"
                   srcSet=""
                 />
