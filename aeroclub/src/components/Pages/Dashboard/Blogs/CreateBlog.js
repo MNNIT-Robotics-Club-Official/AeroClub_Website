@@ -7,8 +7,9 @@ import "react-quill/dist/quill.snow.css";
 import "../../../../css/CreateBlog.css";
 import "../../../../css/SingleBlog.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../../../grobalVars"
-import { Button, Container, Jumbotron, Tab, Tabs } from "react-bootstrap";
+import { Button, Container, Jumbotron, OverlayTrigger, Tab, Tabs } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { Tooltip } from "bootstrap";
 Quill.register("modules/imageResize", ImageResize);
 
 export default function CreateBlog() {
@@ -161,7 +162,7 @@ export default function CreateBlog() {
             </Button>
           </Tab>
           <Tab eventKey="preview" title="Preview">
-            <div>
+            {/* <div>
               <div
                 className="pagesp"
                 style={{
@@ -205,6 +206,76 @@ export default function CreateBlog() {
                   <p dangerouslySetInnerHTML={{ __html: body }}></p>
                 </Container>
                 <hr />
+              </Jumbotron>
+            </div> */}
+            <div>
+              <div
+                className="pagesp singleblog-pagesp"
+                style={{
+                  background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,.4))`,
+                }}
+              >
+                <div className="overlayp">
+                  <div className="pageTitlep titleBoldp container col-11 pl-0">
+                    <div className='blog-title'>
+                      {title}
+                    </div>
+                    <p className="meta">
+                      <div className='mt-5 postedBy-info'>
+                        <i className="fa fa-user mr-3 ml-1"></i> by{" "}
+                        {
+                          branch[user?.registration_no[4]] === 'NA' || user?.year === -1 || user?.linkedin_url ===
+                            "https://www.linkedin.com/in/username/" ?
+                            <>
+                              {user?.name}
+                            </>
+                            :
+                            <OverlayTrigger
+                              placement="right"
+                              delay={{ show: 250, hide: 400 }}
+                              overlay={
+                                <Tooltip id={`tooltip-${user?.id}`}>
+                                  Branch - {branch[user?.registration_no[4]]} <br />
+                                  {year[user?.year]}
+                                </Tooltip>}
+                            >
+                              <div className='d-inline'>
+                                <a href={user?.linkedin_url} target="_blank" style={{ textDecoration: 'none' }}>
+                                  {user?.name}
+                                </a>
+                              </div>
+                            </OverlayTrigger>
+                        }
+                        <br />
+                        <i className="fa fa-calendar mr-3 ml-1"></i>
+                        {new Date(Date.now()).toLocaleDateString()}
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <Jumbotron
+                fluid
+                style={{
+                  background: "white",
+                  width: "100%",
+                }}
+                className="my-4"
+              >
+                <Container className="col-10 col-md-10 col-lg-11 singleblog-contents">
+                  {
+                    pic &&
+                    <>
+                      <hr />
+                      <div className="image mx-auto" style={{ maxWidth: '30rem' }}>
+                        <img src={pic} alt="img" style={{ width: '100%', height: '100%' }} className='my-3' />
+                      </div>
+                      <hr />
+                    </>
+                  }
+                  <div dangerouslySetInnerHTML={{ __html: body }} className='my-5'></div>
+                  <hr />
+                </Container>
               </Jumbotron>
             </div>
           </Tab>
