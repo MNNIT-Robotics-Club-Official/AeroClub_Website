@@ -55,7 +55,7 @@ function Blogs() {
           className="main"
           style={{ overflow: "hidden", minHeight: "31.7vh" }}
         >
-          <ul className="cards">
+          <ul className="cards mx-auto">
             {blogs
               .slice((page - 1) * blogs_per_page, page * blogs_per_page)
               .map(blog => (
