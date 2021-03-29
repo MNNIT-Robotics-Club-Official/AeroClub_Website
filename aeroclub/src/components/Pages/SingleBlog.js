@@ -109,7 +109,6 @@ function SingleBlog() {
               <hr />
             </>
           }
-
           <div dangerouslySetInnerHTML={{ __html: blog?.body }} className='my-5'></div>
           <hr />
         </Container>
