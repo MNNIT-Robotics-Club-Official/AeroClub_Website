@@ -80,7 +80,6 @@ exports.Adminlogin = (req, res) => {
         error: "Email or password do not match !",
       });
     }
-
     res.json({ role: user.role, message: "Admin loggedIn successfully !" });
   });
 };
@@ -106,7 +105,7 @@ exports.signin = (req, res) => {
       return res.status(400).json({
         error: "You need to verify your email before login !",
       });
-    if(!user.canSignIn)
+    if (!user.canSignIn)
       return res.status(401).json({ error: "Your account is temporarily suspended!" });
 
     if (!user.autheticate(password)) {
@@ -198,11 +197,11 @@ exports.isSignedIn = (req, res, next) => {
       .exec((err, user) => {
         if (!user)
           return res.status(401).json({ error: "You must be logged in !" });
-        if(!user.confirmed)
+        if (!user.confirmed)
           return res.status(401).json({ error: "You must confirm your account first!" });
-        if(!user.canSignIn)
+        if (!user.canSignIn)
           return res.status(401).json({ error: "Your account is temporarily suspended!" });
-        
+
         req.user = user.transform()
         next();
       });
