@@ -9,9 +9,9 @@ const workshopSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
+    prerequisites: {
         type: String,
-        required: false
+        required: true
     },
     pic: {
         type: String,
@@ -26,7 +26,8 @@ const workshopSchema = new mongoose.Schema({
         required: true
     },
     date: {
-        type: Date
+        type: Date,
+        required: true
     }
 }, { timestamps: true })
 workshopSchema.method('transform', function () {
