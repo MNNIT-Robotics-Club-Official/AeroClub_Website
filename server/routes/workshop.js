@@ -1,7 +1,7 @@
 const express = require('express')
 const { isSignedIn, isAdmin } = require('../middleware/auth')
 const router = express.Router()
-const Workshop = require('../models/worksop')
+const Workshop = require('../models/workshop')
 
 router.get("/workshop", (req, res) => {
     res.setHeader('Content-Range', 'workshops 0-10/20')
@@ -25,8 +25,8 @@ router.post("/workshop", isSignedIn, isAdmin, (req, res) => {
 
     const workshop = new Workshop(req.body)
     workshop.save().then(workshop => {
-        const { id, target, description, about, brochure, date } = workshop.transform();
-        res.json({ id: id.toString(), target: target, description: description, about: about, brochure: brochure, date: date });
+        const { id, target, prerequisites, about, brochure, date } = workshop.transform();
+        res.json({ id: id.toString(), target, prerequisites, about, brochure, date });
     })
         .catch(err => {
             console.log(err.message);

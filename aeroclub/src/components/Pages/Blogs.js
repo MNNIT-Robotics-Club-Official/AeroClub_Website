@@ -17,7 +17,7 @@ function Blogs() {
   }, []);
 
   const [page, SetPage] = useState(1);
-  const blogs_per_page = 5;
+  const blogs_per_page = 6;
   const no_of_pages = Math.ceil(blogs.length / blogs_per_page);
   const year = {
     1: "1st year",
@@ -55,7 +55,7 @@ function Blogs() {
           className="main"
           style={{ overflow: "hidden", minHeight: "31.7vh" }}
         >
-          <ul className="cards">
+          <ul className="cards mx-auto">
             {blogs
               .slice((page - 1) * blogs_per_page, page * blogs_per_page)
               .map(blog => (
