@@ -57,7 +57,7 @@ function FeaturedProjects() {
             {projects
               .slice((page - 1) * projects_per_page, page * projects_per_page)
               .map((project) =>
-                project.open || signedin ? (
+                 (
                   <li className="cards_item" data-aos="fade-up" data-aos="flip-left" data-aos-easing="linear"
                     data-aos-duration="1500" key={project._id}>
                     <div className="card cardproj">
@@ -81,8 +81,6 @@ function FeaturedProjects() {
                       </div>
                     </div>
                   </li>
-                ) : (
-                  <div></div>
                 )
               )}
           </ul>
