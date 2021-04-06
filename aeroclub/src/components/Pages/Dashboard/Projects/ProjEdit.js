@@ -20,14 +20,14 @@ export default function ProjEdit(props) {
           className="btn btn-danger px-5"
           type="button"
           data-toggle="collapse"
-          data-target="#collapseExample"
+          data-target="#collapseprojedit"
           aria-expanded="false"
-          aria-controls="collapseExample"
+          aria-controls="collapseprojedit"
         >
           Edit
         </button>
       </p>
-      <div className="collapse" id="collapseExample">
+      <div className="collapse" id="collapseprojedit">
         <div className="card card-body border border-dark">
           <form
             onSubmit={(e) => {
@@ -240,9 +240,9 @@ export default function ProjEdit(props) {
               type="submit"
               className="btn btn-danger"
               data-toggle="collapse"
-              data-target="#collapseExample"
+              data-target="#collapseprojedit"
               aria-expanded="false"
-              aria-controls="collapseExample"
+              aria-controls="collapseprojedit"
             >
               {loading ? "loading..." : "Save"}
             </button>

@@ -32,7 +32,7 @@ export default function Dashprojects() {
   return (
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
-        <Accordion>
+        <Accordion className='mt-2 mb-5'>
           {user?.projects?.map((project) => {
             let badge;
             const leaders = project?.members?.map((m) => {
@@ -121,19 +121,8 @@ export default function Dashprojects() {
               </Card>
             );
           })}
-          <Card key="newProj">
-            <Card.Header style={{ cursor: "pointer" }}>
-              <Accordion.Toggle as={Card.Header} eventKey="newProj">
-                <h6>Create New Project</h6>
-              </Accordion.Toggle>
-            </Card.Header>
-            <Accordion.Collapse eventKey="newProj">
-              <Card.Body>
-                <ProjForm />
-              </Card.Body>
-            </Accordion.Collapse>
-          </Card>
         </Accordion>
+        <ProjForm />
       </div>
     </div>
   );
