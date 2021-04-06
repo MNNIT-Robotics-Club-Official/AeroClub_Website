@@ -50,7 +50,7 @@ export default function ProjForm() {
             });
             setCompTech([])
             res.json().then((data) => {
-              dispatch({ type: "UPDATE_PROJECT", payload: data });
+              dispatch({ type: "CREATE_PROJECT", payload: data });
               setLoading(false);
             });
           })
