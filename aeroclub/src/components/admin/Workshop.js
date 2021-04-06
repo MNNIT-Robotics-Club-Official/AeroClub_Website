@@ -1,8 +1,5 @@
 import React from "react";
 import {
-    ArrayField,
-    ArrayInput,
-    SimpleFormIterator,
     Create,
     Datagrid,
     DateField,
@@ -10,7 +7,6 @@ import {
     DeleteButton,
     Edit,
     EditButton,
-    ImageField,
     List,
     required,
     RichTextField,
@@ -20,253 +16,106 @@ import {
     SimpleShowLayout,
     TextField,
     TextInput,
-    BooleanInput,
-    BooleanField,
-    SelectInput,
-    ReferenceInput,
-    ReferenceField,
-    ChipField,
-    SingleFieldList,
+    UrlField,
+    ImageField,
 } from "react-admin";
 
 import RichTextInput from "ra-input-rich-text";
-import ImageResize from "quill-image-resize";
-import TextArrayField from "./TextArrayField";
+import ImageResize from 'quill-image-resize'
 
-export const ProjectList = (props) => {
+export const WorkshopList = (props) => {
     return (
         <List {...props}>
             <Datagrid>
                 <TextField source="id" />
-                <TextField source="title" />
-                <DateField source="issuedon" label="Issued On" />
-                <TextField source="status" />
-                <BooleanField source="approved" />
-                <BooleanField source="featured" />
-                <ShowButton basePath="/projects" />
-                <EditButton basePath="/projects" />
-                <DeleteButton basePath="/projects" />
+                <TextField source="name" />
+                <DateField source="date" label="Date" />
+                <ShowButton basePath='/workshop' />
+                <EditButton basePath="/workshop" />
+                <DeleteButton basePath="/workshop" />
             </Datagrid>
         </List>
     );
 };
 
-export const ProjectCreate = (props) => {
+export const WorkshopCreate = (props) => {
     return (
         <Create {...props}>
-            <SimpleForm redirect="/projects">
-                <TextInput source="title" label="Project Name" />
-                <TextInput label="Objective" validate={required()} source="objective" />
-                <RichTextInput
-                    source="overview"
-                    label="Overview"
-                    options={{
-                        modules: {
-                            imageResize: ImageResize,
-                            toolbar: [
-                                ["bold", "italic", "underline", "strike"],
-                                [{ header: [1, 2, 3, 4, 5, 6, false] }],
-                                [{ size: ["small", false, "large", "huge"] }],
-                                [{ font: [] }],
-                                [{ color: [] }, { background: [] }],
-                                [{ list: "ordered" }, { list: "bullet" }],
-                                [{ script: "sub" }, { script: "super" }],
-                                ["blockquote", "code-block"],
-                                [{ indent: "-1" }, { indent: "+1" }],
-                                [{ direction: "rtl" }],
-                                [{ align: [] }],
-                                ["link", "image", "video"],
-                                ["clean"],
-                            ],
-                        },
-                    }}
-                />
-                <RichTextInput
-                    source="description"
-                    label="Description"
-                    options={{
-                        modules: {
-                            imageResize: ImageResize,
-                            toolbar: [
-                                ["bold", "italic", "underline", "strike"],
-                                [{ header: [1, 2, 3, 4, 5, 6, false] }],
-                                [{ size: ["small", false, "large", "huge"] }],
-                                [{ font: [] }],
-                                [{ color: [] }, { background: [] }],
-                                [{ list: "ordered" }, { list: "bullet" }],
-                                [{ script: "sub" }, { script: "super" }],
-                                ["blockquote", "code-block"],
-                                [{ indent: "-1" }, { indent: "+1" }],
-                                [{ direction: "rtl" }],
-                                [{ align: [] }],
-                                ["link", "image", "video"],
-                                ["clean"],
-                            ],
-                        },
-                    }}
-                />
-
-                <TextInput source="pic" label="Image Link" />
-                <SelectInput
-                    source="status"
-                    choices={[
-                        { id: "Ongoing", name: "Ongoing" },
-                        { id: "Completed", name: "Completed" },
-                    ]}
-                />
-                <ArrayInput source="members">
-                    <SimpleFormIterator>
-                        <ReferenceInput label="User" source="user" reference="users">
-                            <SelectInput optionText="name" />
-                        </ReferenceInput>
-                        <BooleanInput source="accepted" label="Accepted" />
-                        <BooleanInput source="leader" label="Leader" />
-                    </SimpleFormIterator>
-                </ArrayInput>
-                <ArrayInput source="compTech" label="Components and technologies used">
-                    <SimpleFormIterator>
-                        <TextInput label="" />
-                    </SimpleFormIterator>
-                </ArrayInput>
+            <SimpleForm redirect="/workshop">
+                <TextInput source="name" label="Name" validate={required()} />
+                <TextInput source="target" label="Target Audience" validate={required()} />
+                <TextInput source="prerequisites" label="Prerequisites" validate={required()} />
+                <TextInput source="pic" label="Image Link ( Optional )" />
+                <TextInput source="brochure" label="Brochure Link" validate={required()} />
+                <RichTextInput source="about" label="About" validate={required()}
+                    toolbar={[['bold', 'italic', 'underline', 'strike'],
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    [{ 'font': [] }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    [{ 'script': 'sub' }, { 'script': 'super' }],
+                    ['blockquote', 'code-block'],
+                    [{ 'indent': '-1' }, { 'indent': '+1' }],
+                    [{ 'direction': 'rtl' }],
+                    [{ 'align': [] }],
+                    ['image'],
+                    ['clean']]} />
                 <DateInput
-                    source="issuedon"
-                    label="Issued On"
+                    source="date"
+                    label="Date"
                     defaultValue={new Date()}
                 />
-                <TextInput source="ytID" label="Youtube Embed ID" />
-                <BooleanInput source="featured" label="Featured" />
-                <BooleanInput source="home" />
-                <BooleanInput source="approved" />
             </SimpleForm>
         </Create>
     );
 };
 
-export const ProjectShow = (props) => {
+export const WorkshopShow = (props) => {
     return (
-        <Show {...props} title="Project Show">
+        <Show {...props} title="Workshop Show">
             <SimpleShowLayout>
-                <TextField source="title" label="Project Name" />
-                <TextField source="objective" label="Objective" />
-                <RichTextField source="overview" label="Overview" />
-                <RichTextField source="description" label="Description" />
+                <TextField source="name" label="Name" />
+                <TextField source="target" label="Target Audience" />
+                <TextField source="prerequisites" label="Prerequisites" />
                 <ImageField source="pic" label="Image" />
-                <TextField source="status" label="Status" />
-                <ArrayField source="members">
-                    <Datagrid>
-                        <ReferenceField
-                            label="Name"
-                            source="user._id"
-                            reference="users"
-                            linkType="show"
-                        >
-                            <ChipField source="name" />
-                        </ReferenceField>
-                        <BooleanField source="accepted" />
-                        <BooleanField source="leader" />
-                    </Datagrid>
-                </ArrayField>
-                <DateField source="issuedon" label="Issued On" />
-                <BooleanField source="featured" label="Featured" />
-                <TextArrayField source='compTech' label='Components and Technologies used'>
-                    <SingleFieldList>
-                        <ChipField source='id' />
-                    </SingleFieldList>
-                </TextArrayField>
-                <BooleanField source="home" />
-                <BooleanField source="approved" />
+                <UrlField source="brochure" label="Brochure Link" target="_blank" />
+                <RichTextField source="about" label="About" />
+                <DateField source="date" label="date" />
             </SimpleShowLayout>
         </Show>
     );
 };
 
-export const ProjectEdit = (props) => {
+export const WorkshopEdit = (props) => {
     return (
-        <Edit title="Edit Project" {...props}>
-            <SimpleForm redirect="/projects">
+        <Edit title="Edit Workshop" {...props}>
+            <SimpleForm redirect="/workshop">
                 <TextInput disabled label="Id" source="id" />
-                <TextInput source="title" validate={required()} label="Project Name" />
-                <TextInput label="Objective" validate={required()} source="objective" />
-                <RichTextInput
-                    source="overview"
-                    label="Overview"
-                    options={{
-                        modules: {
-                            imageResize: ImageResize,
-                            toolbar: [
-                                ["bold", "italic", "underline", "strike"],
-                                [{ header: [1, 2, 3, 4, 5, 6, false] }],
-                                [{ size: ["small", false, "large", "huge"] }],
-                                [{ font: [] }],
-                                [{ color: [] }, { background: [] }],
-                                [{ list: "ordered" }, { list: "bullet" }],
-                                [{ script: "sub" }, { script: "super" }],
-                                ["blockquote", "code-block"],
-                                [{ indent: "-1" }, { indent: "+1" }],
-                                [{ direction: "rtl" }],
-                                [{ align: [] }],
-                                ["link", "image", "video"],
-                                ["clean"],
-                            ],
-                        },
-                    }}
+                <TextInput source="name" validate={required()} label="Name" />
+                <TextInput source="target" validate={required()} label="Target Audience" />
+                <TextInput source="prerequisites" label="Prerequisites" validate={required()} />
+                <TextInput source="pic" label="Image Link ( Optional ) " />
+                <TextInput source="brochure" validate={required()} label="brochure link" />
+                <RichTextInput source="about" label="About" validate={required()}
+                    toolbar={[['bold', 'italic', 'underline', 'strike'],
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    [{ 'size': ['small', false, 'large', 'huge'] }],
+                    [{ 'font': [] }],
+                    [{ 'color': [] }, { 'background': [] }],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    [{ 'script': 'sub' }, { 'script': 'super' }],
+                    ['blockquote', 'code-block'],
+                    [{ 'indent': '-1' }, { 'indent': '+1' }],
+                    [{ 'direction': 'rtl' }],
+                    [{ 'align': [] }],
+                    ['link', 'image', 'video'],
+                    ['clean']]}
                 />
-                <RichTextInput
-                    source="description"
+                <DateInput
+                    source="date"
+                    label="Date"
                     validate={required()}
-                    label="Description"
-                    modules={{
-                        imageResize: {
-                            displaySize: true,
-                        },
-                    }}
-                    options={{
-                        modules: {
-                            imageResize: ImageResize,
-                            toolbar: [
-                                ["bold", "italic", "underline", "strike"],
-                                [{ header: [1, 2, 3, 4, 5, 6, false] }],
-                                [{ size: ["small", false, "large", "huge"] }],
-                                [{ font: [] }],
-                                [{ color: [] }, { background: [] }],
-                                [{ list: "ordered" }, { list: "bullet" }],
-                                [{ script: "sub" }, { script: "super" }],
-                                ["blockquote", "code-block"],
-                                [{ indent: "-1" }, { indent: "+1" }],
-                                [{ direction: "rtl" }],
-                                [{ align: [] }],
-                                ["link", "image", "video"],
-                                ["clean"],
-                            ],
-                        },
-                    }}
-                />
-                <TextInput source="pic" label="Image Link" />
-                <ArrayInput source="members">
-                    <SimpleFormIterator>
-                        <ReferenceInput label="User" source="user._id" reference="users">
-                            <SelectInput optionText="name" />
-                        </ReferenceInput>
-                        <BooleanInput source="accepted" label="Accepted" />
-                        <BooleanInput source="leader" label="Leader" />
-                    </SimpleFormIterator>
-                </ArrayInput>
-                <ArrayInput source="compTech" label="Components and technologies used">
-                    <SimpleFormIterator>
-                        <TextInput label="" />
-                    </SimpleFormIterator>
-                </ArrayInput>
-                <DateInput source="issuedon" label="Issued On" validate={required()} />
-                <TextInput source="ytID" label="Youtube Embed ID" />
-                <BooleanInput source="featured" label="Featured" />
-                <BooleanInput source="home" />
-                <BooleanInput source="approved" />
-                <SelectInput
-                    source="status"
-                    choices={[
-                        { id: "Ongoing", name: "Ongoing" },
-                        { id: "Completed", name: "Completed" },
-                    ]}
                 />
             </SimpleForm>
         </Edit>
