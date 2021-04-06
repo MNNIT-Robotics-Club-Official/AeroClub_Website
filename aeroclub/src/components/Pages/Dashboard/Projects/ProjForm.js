@@ -50,7 +50,7 @@ export default function ProjForm() {
             });
             setCompTech([])
             res.json().then((data) => {
-              dispatch({ type: "CREATE_PROJECT", payload: data });
+              dispatch({ type: "UPDATE_PROJECT", payload: data });
               setLoading(false);
             });
           })
@@ -132,7 +132,6 @@ export default function ProjForm() {
         }}
         value={formData.overview}
         onChange={(e) => {
-          console.log(e);
           setformData((prev) => ({
             ...prev,
             overview: e,
@@ -170,7 +169,6 @@ export default function ProjForm() {
         }}
         value={formData.description}
         onChange={(e) => {
-          console.log(e);
           setformData((prev) => ({
             ...prev,
             description: e,
@@ -241,7 +239,7 @@ export default function ProjForm() {
         </div>
       </div>
 
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary" >
         {loading ? "loading..." : "Submit"}
       </button>
     </form>

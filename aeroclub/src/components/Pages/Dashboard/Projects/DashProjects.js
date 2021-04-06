@@ -4,11 +4,12 @@ import { toast } from "react-toastify";
 import ProjForm from "./ProjForm";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { REACT_APP_SERVER } from "../../../../grobalVars"
+import { REACT_APP_SERVER } from "../../../../grobalVars";
+import ProjEdit from "./ProjEdit";
 
 export default function Dashprojects() {
   const [modalShow, setModalShow] = React.useState(false);
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   const history = useHistory();
 
   useEffect(() => {
@@ -34,6 +35,10 @@ export default function Dashprojects() {
         <Accordion>
           {user?.projects?.map((project) => {
             let badge;
+            const leaders = project?.members?.map((m) => {
+              if (m.leader) return m.user._id;
+            });
+            let isCurLeader = leaders?.includes(user.id);
             if (project.status === "Ongoing")
               badge = (
                 <span class="badge badge-pill badge-warning">
@@ -61,7 +66,7 @@ export default function Dashprojects() {
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {user.id === project.leader ? (
+                        {isCurLeader ? (
                           <Button
                             onClick={() => {
                               setModalShow(true);
@@ -99,6 +104,11 @@ export default function Dashprojects() {
                             );
                           })}
                         </ul>
+                        {isCurLeader && project.status === "Ongoing" ? (
+                          <ProjEdit project={project} />
+                        ) : (
+                          <></>
+                        )}
                       </div>
                     </div>
                   </Card.Body>
@@ -164,7 +174,10 @@ function MyVerticallyCenteredModal(props) {
               if (res.status == 200) {
                 toast.success("USER INVITED");
                 res.json().then((data) => {
-                  dispatch({ type: "INVITE_USER", payload: data.updatedProject })
+                  dispatch({
+                    type: "INVITE_USER",
+                    payload: data.updatedProject,
+                  });
                 });
               } else {
                 res.json().then((data) => {
