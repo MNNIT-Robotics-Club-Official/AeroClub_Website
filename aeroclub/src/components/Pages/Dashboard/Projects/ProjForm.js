@@ -84,20 +84,58 @@ export default function ProjForm() {
           }}
         />
       </div>
-      <div className="form-floating mb-3">
-        <label htmlFor="objective">Objective *</label>
-
-        <input
-          type="text"
-          className="form-control"
-          id="objective"
-          required
-          value={formData.objective}
-          onChange={(e) => {
-            setformData((prev) => ({
-              ...prev,
-              objective: e.target.value,
-            }));
+      <div className="collapse my-4" id="collapsenewproj">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setLoading(true);
+            fetch(`${REACT_APP_SERVER}/api/projects/user`, {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+              },
+              body: JSON.stringify({
+                title: formData.title,
+                description: formData.description,
+                objective: formData.objective,
+                overview: formData.overview,
+                pic: formData.pic,
+                ytID: formData.ytID,
+                compTech,
+              }),
+            })
+              .then((res) => {
+                setformData({
+                  title: "",
+                  overview: "",
+                  description: "",
+                  objective: "",
+                  pic: "",
+                  ytID: "",
+                });
+                setCompTech([]);
+                res.json().then((data) => {
+                  dispatch({ type: "CREATE_PROJECT", payload: data });
+                  toast.success("Project Created !");
+                  document
+                    .getElementById("collapsenewproj")
+                    .classList.remove("show");
+                  setLoading(false);
+                });
+              })
+              .catch((err) => {
+                setLoading(false);
+                setformData({
+                  title: "",
+                  overview: "",
+                  description: "",
+                  objective: "",
+                  pic: "",
+                  ytID: "",
+                });
+                setCompTech([]);
+              });
           }}
         />
       </div>
