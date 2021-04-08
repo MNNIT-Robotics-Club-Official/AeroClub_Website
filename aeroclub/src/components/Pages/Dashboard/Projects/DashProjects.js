@@ -79,7 +79,7 @@ export default function Dashprojects() {
                         )}
 
                         <ul>
-                          {project?.members?.map((member) => {
+                          {project?.members?.map((member, i) => {
                             let badge;
                             if (member.accepted && member.leader) {
                               badge = <span>👑</span>;
@@ -97,7 +97,7 @@ export default function Dashprojects() {
                               );
                             }
                             return (
-                              <li>
+                              <li key={i}>
                                 {member.user?.name}
                                 <em className="float-right">{badge}</em>
                               </li>
