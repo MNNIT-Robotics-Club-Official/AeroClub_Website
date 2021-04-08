@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import { useDispatch } from "react-redux";
 import { REACT_APP_SERVER } from "../../../../grobalVars";
-import { AddCircleOutline, RemoveCircleOutline } from '@material-ui/icons';
+import { AddCircleOutline, RemoveCircleOutline } from "@material-ui/icons";
 
 export default function ProjForm() {
   const [formData, setformData] = useState({
@@ -14,7 +14,7 @@ export default function ProjForm() {
     ytID: "",
   });
 
-  const [compTech, setCompTech] = useState([])
+  const [compTech, setCompTech] = useState([]);
 
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export default function ProjForm() {
             overview: formData.overview,
             pic: formData.pic,
             ytID: formData.ytID,
-            compTech
+            compTech,
           }),
         })
           .then((res) => {
@@ -48,7 +48,7 @@ export default function ProjForm() {
               pic: "",
               ytID: "",
             });
-            setCompTech([])
+            setCompTech([]);
             res.json().then((data) => {
               dispatch({ type: "CREATE_PROJECT", payload: data });
               setLoading(false);
@@ -64,7 +64,7 @@ export default function ProjForm() {
               pic: "",
               ytID: "",
             });
-            setCompTech([])
+            setCompTech([]);
           });
       }}
     >
@@ -104,7 +104,7 @@ export default function ProjForm() {
       <label htmlFor="overview">Overview *</label>
       <ReactQuill
         className="mb-3"
-        id='overview'
+        id="overview"
         modules={{
           toolbar: [
             ["bold", "italic", "underline", "strike"],
@@ -141,7 +141,7 @@ export default function ProjForm() {
       <label htmlFor="description">Description *</label>
       <ReactQuill
         className="mb-3"
-        id='description'
+        id="description"
         modules={{
           toolbar: [
             ["bold", "italic", "underline", "strike"],
@@ -193,7 +193,10 @@ export default function ProjForm() {
         />
       </div>
       <div className="form-floating mb-3">
-        <label htmlFor="embed">Youtube Embed ID ( eg : 2JyW4yAyTl0 ) </label>
+        <label htmlFor="embed">
+          Youtube Embed ID ( eg : https://www.youtube.com/watch?v=
+          <b>xr5BEMrvU2A</b> ){" "}
+        </label>
         <input
           type="text"
           className="form-control"
@@ -210,36 +213,43 @@ export default function ProjForm() {
       </div>
       <div className="form-floating mb-3">
         <label htmlFor="embed">Components and Technologies Used </label>
-        {
-          compTech.map((ct, i) => (
-            <div className='d-flex align-items-center'>
-              <input
-                type="text"
-                className="form-control my-2 mr-2"
-                id={`ct${i}`}
-                required
-                value={ct}
-                onChange={e => {
-                  setCompTech(
-                    compTech.map((item, x) => (
-                      x === i ? e.target.value : item
-                    )
-                    ))
-                }}
-              />
-              <div className="comptech-remove d-flex" style={{ cursor: 'pointer' }} onClick={() => setCompTech(prev => prev.filter(item => prev.indexOf(item) !== i))} >
-                <RemoveCircleOutline /> Remove
-              </div>
+        {compTech.map((ct, i) => (
+          <div className="d-flex align-items-center">
+            <input
+              type="text"
+              className="form-control my-2 mr-2"
+              id={`ct${i}`}
+              required
+              value={ct}
+              onChange={(e) => {
+                setCompTech(
+                  compTech.map((item, x) => (x === i ? e.target.value : item))
+                );
+              }}
+            />
+            <div
+              className="comptech-remove d-flex"
+              style={{ cursor: "pointer" }}
+              onClick={() =>
+                setCompTech((prev) =>
+                  prev.filter((item) => prev.indexOf(item) !== i)
+                )
+              }
+            >
+              <RemoveCircleOutline /> Remove
             </div>
-
-          ))
-        }
-        <div className="comptech-add" style={{ cursor: 'pointer' }} onClick={() => setCompTech(prev => [...prev, ''])}>
+          </div>
+        ))}
+        <div
+          className="comptech-add"
+          style={{ cursor: "pointer" }}
+          onClick={() => setCompTech((prev) => [...prev, ""])}
+        >
           <AddCircleOutline /> Add
         </div>
       </div>
 
-      <button type="submit" className="btn btn-primary" >
+      <button type="submit" className="btn btn-primary">
         {loading ? "loading..." : "Submit"}
       </button>
     </form>

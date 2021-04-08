@@ -17,7 +17,7 @@ export default function ProjEdit(props) {
     <div>
       <p className="d-flex justify-content-center">
         <button
-          className="btn btn-danger px-5"
+          className="btn btn-danger px-4"
           type="button"
           data-toggle="collapse"
           data-target="#collapseExample"

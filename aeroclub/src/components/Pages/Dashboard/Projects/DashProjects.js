@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { REACT_APP_SERVER } from "../../../../grobalVars";
 import ProjEdit from "./ProjEdit";
+import ProjPreview from "./ProjPreview";
 
 export default function Dashprojects() {
   const [modalShow, setModalShow] = React.useState(false);
@@ -104,11 +105,10 @@ export default function Dashprojects() {
                             );
                           })}
                         </ul>
-                        {isCurLeader && project.status === "Ongoing" ? (
+                        {isCurLeader && project.status === "Ongoing" && (
                           <ProjEdit project={project} />
-                        ) : (
-                          <></>
                         )}
+                        <ProjPreview project={project} />
                       </div>
                     </div>
                   </Card.Body>
