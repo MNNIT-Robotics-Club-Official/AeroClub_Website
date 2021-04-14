@@ -108,7 +108,7 @@ export default function ProjPreview({ project }) {
                   <div className="d-flex justify-content-center mt-5">
                     {project?.description ? (
                       <button
-                        className="btn btn-primary"
+                        className="btn btn-danger"
                         type="button"
                         data-toggle="collapse"
                         data-target="#collapse11"

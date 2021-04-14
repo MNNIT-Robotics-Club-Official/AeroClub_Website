@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import { useDispatch } from "react-redux";
 import { REACT_APP_SERVER } from "../../../../grobalVars";
 import { AddCircleOutline, RemoveCircleOutline } from "@material-ui/icons";
+import { toast } from "react-toastify";
 
 export default function ProjEdit(props) {
   const [formData, setformData] = useState({});
@@ -39,12 +40,13 @@ export default function ProjEdit(props) {
                   "Content-Type": "application/json",
                   Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, compTech }),
               })
                 .then((res) => {
                   res.json().then((data) => {
                     data._id = data.id;
                     delete data.id;
+                    toast.success("Project Updated !");
                     dispatch({ type: "UPDATE_PROJECT", payload: data });
                     setLoading(false);
                   });
