@@ -12,6 +12,7 @@ import {
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import CreateBlog from "./CreateBlog";
 
 export default function DashBlogs() {
   const user = useSelector(state => state.user);
@@ -71,7 +72,7 @@ export default function DashBlogs() {
                     </strong>
                       {blog.acceptedBy?.name} ( {blog.acceptedBy?.email} ) </p>
                     <Button
-                      variant="primary mt-2"
+                      variant="danger mt-2"
                       onClick={() => {
                         history.push(`/blogs/${blog._id}`);
                       }}
@@ -82,7 +83,7 @@ export default function DashBlogs() {
                 ) : (
                   <>
                     <Button
-                      variant="primary"
+                      variant="danger"
                       data-toggle="collapse"
                       data-target={`#preview${blog._id}`}
                       aria-expanded="false"
@@ -173,11 +174,7 @@ export default function DashBlogs() {
           user?.blogs.length === 0 && <h3 className="text-center mt-5">No blogs created...!</h3>
         }
       </Accordion>
-      <div className="d-flex justify-content-center align-items-center mt-5">
-        <Button size="lg" href="/user/createblog" variant="danger">
-          Create Blog
-        </Button>
-      </div>
+      <CreateBlog />
     </div>
   );
 }

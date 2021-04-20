@@ -67,9 +67,7 @@ export default function ProjForm() {
                 res.json().then((data) => {
                   dispatch({ type: "CREATE_PROJECT", payload: data });
                   toast.success("Project Created !");
-                  document
-                    .getElementById("collapsenewproj")
-                    .classList.remove("show");
+                  document.getElementById("collapsenewproj").classList.remove("show");
                   setLoading(false);
                 });
               })
@@ -271,7 +269,7 @@ export default function ProjForm() {
           </div>
 
           <div className="d-flex justify-content-center">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-danger">
               {loading ? "loading..." : "Submit"}
             </button>
           </div>
