@@ -173,6 +173,25 @@ router.post("/projects/user", isSignedIn, (req, res) => {
 
 // updating a project
 router.put("/projects/:id", isSignedIn, (req, res) => {
+  Project.findOne({ _id: req.params.id })
+    .then((project) => {
+      const leaders = project.members.map((m) => {
+        if (m.leader) return m.user;
+      });
+      if (
+        !(
+          req.user.role === "Admin" ||
+          req.user.role === "Super-Admin" ||
+          leaders.includes(req.user.id)
+        )
+      ) {
+        return res.status(403).json({
+          error: "You are not ADMIN nor member of project, Access denied",
+        });
+      }
+    })
+    .catch((e) => console.log(e));
+
   Project.findOneAndReplace(
     { _id: req.params.id },
     req.body,
@@ -185,14 +204,7 @@ router.put("/projects/:id", isSignedIn, (req, res) => {
           error: "Project cannot be updated !",
         });
       }
-      const leaders = project.members.map((m) => {
-        if (m.leader) return m.user._id;
-      });
-      if (!(req.user.role === "Admin" || leaders.includes(req.user.id))) {
-        return res.status(403).json({
-          error: "You are not ADMIN nor member of project, Access denied",
-        });
-      }
+
       const userIds_old = project.members.map((member) => member.user);
       const userIds_new = req.body.members.map((member) => member.user);
       const diff = userIds_old
