@@ -232,19 +232,18 @@ exports.getMyInvites = (req, res) => {
 };
 
 exports.updateMyProfile = (req, res) => {
-  User
-    .findOneAndUpdate(
-      { _id: req.user.id },
-      {
-        $set: {
-          name: req.body.name,
-          year: req.body.year,
-          registration_no: req.body.regis_no,
-          linkedin_url: req.body.linkedin,
-        },
+  User.findOneAndUpdate(
+    { _id: req.user.id },
+    {
+      $set: {
+        name: req.body.name,
+        year: req.body.year,
+        registration_no: req.body.regis_no,
+        linkedin_url: req.body.linkedin,
       },
-      { new: true }
-    )
+    },
+    { new: true }
+  )
     .populate("blogs")
     .populate({
       path: "projects",
@@ -261,8 +260,7 @@ exports.updateMyProfile = (req, res) => {
     .catch((e) => console.log(e));
 };
 exports.getMyDetails = (req, res) => {
-  User
-    .findById(req.user.id)
+  User.findById(req.user.id)
     .populate({
       path: "blogs",
       populate: { path: "acceptedBy", select: "name email" },
@@ -313,7 +311,6 @@ exports.acceptInvite = (req, res) => {
       }
       User.findById(req.user.id).exec((err, user) => {
         user.projects.push(projectId);
-        user.projects.push(projectId);
         user.save((err, updatedUser) => {
           if (err) {
             console.log(err);
@@ -338,7 +335,13 @@ exports.updateProfileFromAdmin = (req, res) => {
   User.findOneAndUpdate(
     { _id: req.params.id },
     {
-      $set: { name: req.body.name, email: req.body.email, role: req.body.role, canSignIn: req.body.canSignIn, linkedin_url: req.body.linkedin_url },
+      $set: {
+        name: req.body.name,
+        email: req.body.email,
+        role: req.body.role,
+        canSignIn: req.body.canSignIn,
+        linkedin_url: req.body.linkedin_url,
+      },
     },
     { new: true }
   )
