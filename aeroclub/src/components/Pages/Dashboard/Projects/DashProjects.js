@@ -193,7 +193,7 @@ function MyVerticallyCenteredModal(props) {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
-          <Button variant="danger" type="submit">
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>

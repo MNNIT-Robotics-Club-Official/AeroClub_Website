@@ -128,10 +128,14 @@
   text-align: justify;
 }
 
+<<<<<<< HEAD
+/* ul {
+=======
 .remul {
+>>>>>>> 27397e6b3ddecd3d49629fd7a8bbb74edc6d0bbd
   list-style-type: none;
   padding-inline-start: 0;
-}
+} */
 
 .titleBolde {
   font-weight: 600;
