@@ -16,7 +16,13 @@ router.get("/projects", isSignedIn, isAdmin, (req, res) => {
       projects.forEach((project) => arr.push(project.transform()));
       res.json(arr);
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      res.status(400).json({
+        success: false,
+        msg: "Cannot get projects.",
+      });
+    });
 });
 
 router.get("/projects/approved", (req, res) => {
@@ -101,7 +107,13 @@ router.get("/projects/:id", (req, res) => {
         }
       }
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      res.status(400).json({
+        success: false,
+        msg: "Cannot get project.",
+      });
+    });
 });
 
 // creating a project
@@ -190,9 +202,15 @@ router.put("/projects/:id", isSignedIn, (req, res) => {
         });
       }
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      res.status(400).json({
+        success: false,
+        msg: "Cannot update project.",
+      });
+    });
 
-  Project.findOneAndReplace(
+  Project.findOneAndUpdate(
     { _id: req.params.id },
     req.body,
     {
