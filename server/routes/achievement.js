@@ -15,7 +15,13 @@ router.get("/achievement", (req, res) => {
       achievements.forEach((achievement) => arr.push(achievement.transform()));
       res.json(arr);
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      res.status(400).json({
+        success: false,
+        msg: "Cannot get achievements.",
+      });
+    });
 });
 
 //group achievements by their year
@@ -25,10 +31,14 @@ router.get("/achievement/year", (req, res) => {
   Achievement.aggregate(
     [
       {
-        $group: { _id: "$year", achievements: { $push: "$$ROOT" }, year: { $first: "$year" } },
+        $group: {
+          _id: "$year",
+          achievements: { $push: "$$ROOT" },
+          year: { $first: "$year" },
+        },
       },
       {
-        $sort: { "year": -1 }
+        $sort: { year: -1 },
       },
     ],
     (e, achievements) => {
@@ -49,7 +59,13 @@ router.get("/achievement/:id", (req, res) => {
     .then((achievement) => {
       res.json(achievement.transform());
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      res.status(400).json({
+        success: false,
+        msg: "Cannot get achievement.",
+      });
+    });
 });
 
 // creating a achievement
@@ -60,7 +76,13 @@ router.post("/achievement", isSignedIn, isAdmin, (req, res) => {
     .then((achievement) => {
       res.json(achievement.transform());
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      res.status(400).json({
+        success: false,
+        msg: "Cannot create achievement.",
+      });
+    });
 });
 
 // updating a achievement

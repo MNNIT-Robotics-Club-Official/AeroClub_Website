@@ -278,7 +278,26 @@ exports.getMyDetails = (req, res) => {
       res.json({ user: user.transform() });
     });
 };
-
+exports.rejectInvite = (req, res) => {
+  const projectId = req.params.projectId;
+  const userId = req.user.id;
+  Project.findOneAndUpdate(
+    { _id: projectId },
+    { $pull: { members: { user: userId } } },
+    {
+      returnOriginal: false,
+    },
+    (e, project) => {
+      if (e) {
+        return res.status(400).json({
+          success: false,
+          msg: "Not rejected",
+        });
+      }
+      res.json(project);
+    }
+  );
+};
 exports.acceptInvite = (req, res) => {
   const projectId = req.params.projectId;
   const userId = req.user.id;
