@@ -1,26 +1,5 @@
 const Component = require("../models/component");
-let multer = require('multer');
-const DIR = '../public/component';
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, DIR);
-  },
-  filename: (req, file, cb) => {
-    const fileName = file.originalname.toLowerCase().split(' ').join('-');
-    cb(null, fileName)
-  }
-});
-exports.upload = multer({
-  storage: storage,
-  fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
-      cb(null, true);
-    } else {
-      cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-    }
-  }
-});
+const { drivePicParser } = require("./fileUpload");
 
 exports.getComponentById = (req, res, next, id) => {
   Component.findById(id).exec((err, comp) => {
@@ -36,7 +15,7 @@ exports.getComponentById = (req, res, next, id) => {
 
 exports.getAllComponents = (req, res) => {
   res.setHeader("Content-Range", "component 0-10/20");
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+  res.setHeader("Access-Control-Expose-Headers", "Content-Range");
   Component.find({}).exec((err, components) => {
     if (err) {
       return res.status(400).json({
@@ -51,7 +30,7 @@ exports.getAllComponents = (req, res) => {
 
 exports.getAllComponentsFilter = (req, res) => {
   res.setHeader("Content-Range", "component 0-10/20");
-  res.setHeader('Access-Control-Expose-Headers', 'Content-Range')
+  res.setHeader("Access-Control-Expose-Headers", "Content-Range");
   Component.find({}).exec((err, dataList) => {
     if (err) {
       return res.status(400).json({
@@ -68,11 +47,21 @@ exports.getAllComponentsFilter = (req, res) => {
 };
 
 exports.addComponent = (req, res) => {
+  const pic = req.body.pic;
+  if (pic) {
+    try {
+      req.body.pic = drivePicParser(req.body.pic);
+    } catch (error) {
+      return res.status(400).json({
+        err: error.message,
+      });
+    }
+  }
   const component = new Component({
     name: req.body.name,
     type: req.body.type,
-    image_url: req.file.path,
-    available: req.body.available
+    pic: req.body.pic,
+    available: req.body.available,
   });
   component.save((err, component) => {
     if (err) {
@@ -89,7 +78,16 @@ exports.addComponent = (req, res) => {
 exports.updateComponent = (req, res) => {
   const component = req.component;
   component.available = req.body.available;
-
+  const pic = req.body.pic;
+  if (pic) {
+    try {
+      component.pic = drivePicParser(req.body.pic);
+    } catch (error) {
+      return res.status(400).json({
+        err: error.message,
+      });
+    }
+  }
   component.save((err, updatedComponent) => {
     if (err) {
       return res.status(400).json({
