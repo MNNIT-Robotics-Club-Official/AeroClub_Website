@@ -19,7 +19,7 @@ router.get("/blogs", isSignedIn, isAdmin, (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot get blogs.",
+        message: "Cannot get blogs.",
       });
     });
 });
@@ -36,7 +36,7 @@ router.get("/blogs/toUI", (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot create blog.",
+        message: "Cannot create blog.",
       });
     });
 });
@@ -56,7 +56,7 @@ router.get("/blogs/:id", (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot get blog.",
+        message: "Cannot get blog.",
       });
     });
 });
@@ -77,7 +77,7 @@ router.get("/blogstoUI/:id", (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot get blog.",
+        message: "Cannot get blog.",
       });
     });
 });
@@ -112,7 +112,7 @@ router.post("/blogs", isSignedIn, (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot create blog.",
+        message: "Cannot create blog.",
       });
     });
 });
@@ -126,7 +126,7 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
     (e, blog) => {
       if (e) {
         return res.status(400).json({
-          error: "Project cannot be updated !",
+          message: "Project cannot be updated !",
         });
       }
       const old_pb = blog.postedBy;
@@ -139,7 +139,7 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
             if (e) {
               console.log(e);
               return res.status(400).json({
-                error: "Posted By cannot be updated !",
+                message: "Posted By cannot be updated !",
               });
             }
           }
@@ -151,7 +151,7 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
             if (e) {
               console.log(e);
               return res.status(400).json({
-                error: "Posted By cannot be updated !",
+                message: "Posted By cannot be updated !",
               });
             }
           }
@@ -165,7 +165,7 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
 // deleting a blog
 router.delete("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
   Blog.findById(req.params.id, (err, blog) => {
-    if (err) return res.status(500).send(err);
+    if (err) return res.status(500).json({ message: err.message });
     if (blog) {
       blog.remove(() => {
         return res.json(blog);

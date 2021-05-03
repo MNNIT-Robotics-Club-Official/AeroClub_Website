@@ -19,7 +19,7 @@ router.get("/achievement", (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot get achievements.",
+        message: "Cannot get achievements.",
       });
     });
 });
@@ -45,7 +45,7 @@ router.get("/achievement/year", (req, res) => {
       if (e) {
         console.log(e);
         res.status(400).json({
-          msg: "Internal server error",
+          message: "Internal server error",
         });
       }
       res.json(achievements);
@@ -63,7 +63,7 @@ router.get("/achievement/:id", (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot get achievement.",
+        message: "Cannot get achievement.",
       });
     });
 });
@@ -80,7 +80,7 @@ router.post("/achievement", isSignedIn, isAdmin, (req, res) => {
       console.log(e);
       res.status(400).json({
         success: false,
-        msg: "Cannot create achievement.",
+        message: "Cannot create achievement.",
       });
     });
 });
@@ -94,7 +94,7 @@ router.put("/achievement/:id", isSignedIn, isAdmin, (req, res) => {
     (e, achievement) => {
       if (e) {
         return res.status(400).json({
-          error: "achievement cannot be updated !",
+          message: "achievement cannot be updated !",
         });
       }
       return res.json(achievement.transform());
@@ -105,7 +105,7 @@ router.put("/achievement/:id", isSignedIn, isAdmin, (req, res) => {
 // deleting a achievement
 router.delete("/achievement/:id", isSignedIn, isAdmin, (req, res) => {
   Achievement.findByIdAndDelete(req.params.id, (err, achievement) => {
-    if (err) return res.status(500).send(err);
+    if (err) return res.status(500).json({ message: err.message });
     return res.json({ achievement });
   });
 });

@@ -5,6 +5,9 @@ const blog = require("../models/blog");
 const { validationResult } = require("express-validator");
 
 exports.getAllUsers = (req, res) => {
+  return res.status(400).json({
+    message: "yoyo test complete.",
+  });
   res.setHeader("Content-Range", "users 0-10/20");
   res.setHeader("Access-Control-Expose-Headers", "Content-Range");
   User.find({})
