@@ -1,11 +1,17 @@
 const { request } = require("express");
 const express = require("express");
+const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 9500;
 require("dotenv").config();
+
+// app specific
 app.use(cors());
+app.use(morgan("tiny"));
+app.use(express.json());
+
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -28,9 +34,6 @@ const newsRoutes = require("./routes/news");
 const workshopRoutes = require("./routes/workshop");
 const achievementRoutes = require("./routes/achievement");
 const contactRouters = require("./routes/contact");
-// app specific
-app.use(express.json());
-
 
 //Adding routes to the app
 app.use("/api", authRoutes);
