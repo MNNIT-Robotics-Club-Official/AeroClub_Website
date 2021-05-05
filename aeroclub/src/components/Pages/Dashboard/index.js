@@ -31,6 +31,8 @@ function Dashboard() {
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
+          localStorage.removeItem('role')
+          localStorage.removeItem('jwtToken')
           toast.warn(data.error);
           history.push("/user/login");
           return;

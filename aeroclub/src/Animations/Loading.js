@@ -1,18 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../css/Loading.css";
 
-function Loading({ time, confirmation }) {
+function Loading({ time, confirmation, fetching = 2 }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, (time + 1) * 1000);
+    if (fetching === 2) {
+      const timeout = setTimeout(() => {
+        setLoading(false);
+      }, (time + 1) * 1000);
 
-    return () => {
-      clearTimeout(timeout);
-    };
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
   }, []);
+
+  useEffect(() => {
+    if (!fetching) {
+      const timeout = setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [fetching])
 
   if (loading)
     return (

@@ -9,6 +9,7 @@ function SingleProject() {
   const { projectId } = useParams();
   const [project, setProject] = useState(undefined);
   const history = useHistory();
+  const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
 
@@ -36,13 +37,14 @@ function SingleProject() {
         else {
           document.title = `${data.title} | ${REACT_APP_BASE_TITLE}`;
           setProject(data);
+          setFetching(0)
         }
       });
   }, []);
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={2} fetching={fetching} />
       <div className="my-5">
         <div className="mb-4">
           <h4 className='my-3' style={{ marginBottom: "0px", textAlign: "center" }}>{project?.title}</h4>

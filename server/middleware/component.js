@@ -1,7 +1,4 @@
 const Component = require("../models/component");
-<<<<<<< HEAD
-const { drivePicParser } = require("./fileUpload");
-=======
 let multer = require("multer");
 const DIR = "../public/component";
 const storage = multer.diskStorage({
@@ -28,7 +25,6 @@ exports.upload = multer({
     }
   },
 });
->>>>>>> 23ee20c78e3b7513f2e7e5a372d1b0d0f9dfd8cf
 
 exports.getComponentById = (req, res, next, id) => {
   Component.findById(id).exec((err, comp) => {
@@ -89,11 +85,7 @@ exports.addComponent = (req, res) => {
   const component = new Component({
     name: req.body.name,
     type: req.body.type,
-<<<<<<< HEAD
     pic: req.body.pic,
-=======
-    image_url: req.body.image_url,
->>>>>>> 23ee20c78e3b7513f2e7e5a372d1b0d0f9dfd8cf
     available: req.body.available,
   });
   component.save((err, component) => {
@@ -109,25 +101,9 @@ exports.addComponent = (req, res) => {
 };
 
 exports.updateComponent = (req, res) => {
-<<<<<<< HEAD
-  const component = req.component;
-  component.available = req.body.available;
-  const pic = req.body.pic;
-  if (pic) {
-    try {
-      component.pic = drivePicParser(req.body.pic);
-    } catch (error) {
-      return res.status(400).json({
-        err: error.message,
-      });
-    }
-  }
-  component.save((err, updatedComponent) => {
-=======
   Component.findOneAndUpdate({ _id: req.params.componentId }, req.body, {
     new: true,
   }).exec((err, updatedComponent) => {
->>>>>>> 23ee20c78e3b7513f2e7e5a372d1b0d0f9dfd8cf
     if (err) {
       return res.status(500).json({ message: "Cannot delete component" });
     }

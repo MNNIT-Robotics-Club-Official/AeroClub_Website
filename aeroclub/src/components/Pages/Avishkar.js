@@ -113,7 +113,7 @@ export default function Avishkar() {
           <div
             className="bgBox px-5"
             style={{
-            //   border: "3px solid rgb(204, 67, 67)",
+              //   border: "3px solid rgb(204, 67, 67)",
               borderRadius: "8px",
               margin: "2em",
               fontSize: "14px",
@@ -143,7 +143,7 @@ export default function Avishkar() {
           <div className="cont featured-proj">
             <div className="main px-5">
               <h4 className="px-5" style={{ textAlign: "justify" }}>
-                <span style={{ fontWeight:"bold" , color:"#D73C41"}}>
+                <span style={{ fontWeight: "bold", color: "#D73C41" }}>
                   As a technical club, Aeroclub MNNIT organizes four events
                   competitions during Avishkar under the name Aerodynamix:
                 </span>

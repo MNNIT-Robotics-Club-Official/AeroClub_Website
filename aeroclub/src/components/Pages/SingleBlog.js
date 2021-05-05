@@ -9,6 +9,7 @@ function SingleBlog() {
   const { blogId } = useParams();
   const [blog, setBlog] = useState(undefined);
   const history = useHistory();
+  const [fetching, setFetching] = useState(1)
 
   const year = {
     1: "1st year",
@@ -40,13 +41,14 @@ function SingleBlog() {
         else {
           document.title = `${data.title} | ${REACT_APP_BASE_TITLE}`;
           setBlog(data);
+          setFetching(0)
         }
       });
   }, []);
 
   return (
     <div>
-      <Loading time={2} />
+      <Loading time={2} fetching={fetching} />
       <div
         className="pagesp singleblog-pagesp"
         style={{
