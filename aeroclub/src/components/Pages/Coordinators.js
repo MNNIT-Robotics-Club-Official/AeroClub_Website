@@ -17,7 +17,7 @@ import f13 from "../../images/coordinators&Nontech/Apoorva Dinesh Singh.jpg";
 import f14 from "../../images/coordinators&Nontech/Archit Chaudhary.jpg";
 import f15 from "../../images/coordinators&Nontech/Ayan Santania.jpg";
 import f16 from "../../images/coordinators&Nontech/ABHISHEK GAUTAM.jpg";
-import f17 from "../../images/coordinators&Nontech/Karimulla Mohammad.bmp";
+import f17 from "../../images/coordinators&Nontech/Karimulla Mohammad.jpg";
 import f18 from "../../images/coordinators&Nontech/Ankur Singh.jpg";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars"
 

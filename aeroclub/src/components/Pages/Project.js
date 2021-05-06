@@ -31,8 +31,8 @@ function Projects() {
     })
       .then((res) => res.json())
       .then((data) => {
+        SetProjects(data);
         setFetching(0)
-        return SetProjects(data);
       });
   }, []);
 
