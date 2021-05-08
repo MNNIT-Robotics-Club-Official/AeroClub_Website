@@ -34,6 +34,7 @@ const newsRoutes = require("./routes/news");
 const workshopRoutes = require("./routes/workshop");
 const achievementRoutes = require("./routes/achievement");
 const contactRouters = require("./routes/contact");
+const shareRouter = require("./routes/shareProj");
 
 //Adding routes to the app
 app.use("/api", authRoutes);
@@ -46,6 +47,7 @@ app.use("/api", userRoutes);
 app.use("/api", workshopRoutes);
 app.use("/api", achievementRoutes);
 app.use("/api", contactRouters);
+app.use("/api", shareRouter);
 
 app.listen(port, () => {
   console.log(`Server Started at ${port}`);

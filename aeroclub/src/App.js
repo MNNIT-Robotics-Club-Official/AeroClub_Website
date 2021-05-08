@@ -39,6 +39,7 @@ import Spinoff from "./components/Pages/Spinoff.js";
 import WebTeam from "./components/Pages/WebTeam.js";
 import FeaturedProjects from "./components/Pages/FeaturedProjects.js";
 import Loading from "./Animations/Loading.js";
+import SharedProj from "./components/Pages/SharedProj.js";
 
 function App() {
   useEffect(() => {
@@ -46,8 +47,8 @@ function App() {
     if (hash !== "") {
       let id = hash.replace("#/", "");
       const element = document.getElementById(id);
-      if(element)
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (element)
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
   return (
@@ -117,6 +118,9 @@ function App() {
             </Route>
             <Route path="/spinoff" exact>
               <Spinoff />
+            </Route>
+            <Route path="/sharedProject/:shareId" exact>
+              <SharedProj />
             </Route>
             <Route path="/user/createblog" exact>
               <CreateBlog />

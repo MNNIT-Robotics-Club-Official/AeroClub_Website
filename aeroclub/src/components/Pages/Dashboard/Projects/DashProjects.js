@@ -9,9 +9,11 @@ import ProjEdit from "./ProjEdit";
 import ProjPreview from "./ProjPreview";
 
 export default function Dashprojects() {
+  const dispatch = useDispatch();
   const [modalShow, setModalShow] = React.useState(false);
   const user = useSelector((state) => state.user);
   const history = useHistory();
+  const [resetLoading, setresetLoading] = useState(false);
 
   useEffect(() => {
     fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
@@ -33,17 +35,17 @@ export default function Dashprojects() {
   return (
     <div>
       <div className="container" style={{ minHeight: "60vh" }}>
-        <Accordion className='mt-2 mb-5'>
+        <Accordion className="mt-2 mb-5">
           {user?.projects?.map((project) => {
             let badge;
             const leaders = project?.members?.map((m) => {
               if (m.leader) return m.user._id;
             });
             let isCurLeader = leaders?.includes(user.id);
-            if (project.status === "Ongoing")
+            if (project?.status === "Ongoing")
               badge = (
                 <span class="badge badge-pill badge-warning">
-                  {project.status}
+                  {project?.status}
                 </span>
               );
             else if (project.status === "Completed")
@@ -63,21 +65,51 @@ export default function Dashprojects() {
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey={project._id}>
-                  <Card.Body className='border'>
+                  <Card.Body className="border">
                     <div className="p-3">
                       <div>
                         <div>Members</div>
-                        {isCurLeader ? (
-                          <Button
-                            onClick={() => {
-                              setModalShow(true);
-                            }}
-                          >
-                            Invite
-                          </Button>
-                        ) : (
-                          <span></span>
-                        )}
+                        <div className="d-flex">
+                          {isCurLeader ? (
+                            <Button
+                              className="mx-2"
+                              onClick={() => {
+                                setModalShow(true);
+                              }}
+                            >
+                              Invite
+                            </Button>
+                          ) : (
+                            <span></span>
+                          )}
+                          <div>
+                            <Button
+                              onClick={(e) => {
+                                setresetLoading(true);
+                                fetch(
+                                  `${REACT_APP_SERVER}/api/share/reset/${project._id}`,
+                                  {
+                                    headers: {
+                                      Authorization: `Bearer ${localStorage.getItem(
+                                        "jwtToken"
+                                      )}`,
+                                    },
+                                  }
+                                )
+                                  .then((res) => res.json())
+                                  .then((data) => {
+                                    dispatch({
+                                      type: "RESET_PROJECT_LINK",
+                                      payload: data,
+                                    });
+                                    setresetLoading(false);
+                                  });
+                              }}
+                            >
+                              {resetLoading ? "Loading..." : "Reset Link"}
+                            </Button>
+                          </div>
+                        </div>
 
                         <ul>
                           {project?.members?.map((member, i) => {
@@ -109,6 +141,29 @@ export default function Dashprojects() {
                           <ProjEdit project={project} />
                         )}
                         <ProjPreview project={project} />
+
+                        <button
+                          className="btn btn-success"
+                          onClick={(e) => {
+                            const elem = document.getElementById(
+                              `copyText${project?._id}`
+                            );
+                            elem.select();
+                            elem.setSelectionRange(0, 99999);
+                            document.execCommand("copy");
+                            e.currentTarget.innerHTML = "Link copied !!";
+                          }}
+                          onMouseOut={(e) => {
+                            e.currentTarget.innerHTML = "Copy Share Link !!";
+                          }}
+                        >
+                          Copy Share Link !!
+                        </button>
+                        <input
+                          style={{ opacity: 0 }}
+                          id={`copyText${project?._id}`}
+                          value={`${window.origin}/sharedProject/${project?.shareId}`}
+                        />
                       </div>
                     </div>
                   </Card.Body>
@@ -121,9 +176,9 @@ export default function Dashprojects() {
               </Card>
             );
           })}
-          {
-            user?.projects.length === 0 && <h3 className="text-center mt-5">No Project created...!</h3>
-          }
+          {user?.projects.length === 0 && (
+            <h3 className="text-center mt-5">No Project created...!</h3>
+          )}
         </Accordion>
         <ProjForm />
       </div>
