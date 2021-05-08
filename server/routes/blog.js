@@ -3,6 +3,7 @@ const router = express.Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
+const { drivePicParser } = require("../middleware/fileUpload");
 
 // fetching all blogs through admin
 router.get("/blogs", isSignedIn, isAdmin, (req, res) => {
@@ -15,13 +16,7 @@ router.get("/blogs", isSignedIn, isAdmin, (req, res) => {
       blogs.forEach((blog) => arr.push(blog.transform()));
       res.json(arr);
     })
-    .catch((e) => {
-      console.log(e);
-      res.status(400).json({
-        success: false,
-        message: "Cannot get blogs.",
-      });
-    });
+    .catch((e) => console.log(e));
 });
 
 // fetching all accepted blogs to the frontend
@@ -32,13 +27,7 @@ router.get("/blogs/toUI", (req, res) => {
     .then((blogs) => {
       res.json(blogs);
     })
-    .catch((e) => {
-      console.log(e);
-      res.status(400).json({
-        success: false,
-        message: "Cannot create blog.",
-      });
-    });
+    .catch((e) => console.log(e));
 });
 
 // fetching a blog with id
@@ -52,13 +41,7 @@ router.get("/blogs/:id", (req, res) => {
       if (!blog) return res.json({ error: "not found !" });
       res.json(blog.transform());
     })
-    .catch((e) => {
-      console.log(e);
-      res.status(400).json({
-        success: false,
-        message: "Cannot get blog.",
-      });
-    });
+    .catch((e) => console.log(e));
 });
 
 // fetching a blog with id to the frontend
@@ -73,17 +56,21 @@ router.get("/blogstoUI/:id", (req, res) => {
       if (!blog) return res.json({ error: "not found !" });
       res.json(blog.transform());
     })
-    .catch((e) => {
-      console.log(e);
-      res.status(400).json({
-        success: false,
-        message: "Cannot get blog.",
-      });
-    });
+    .catch((e) => console.log(e));
 });
 
 // creating a blog
 router.post("/blogs", isSignedIn, (req, res) => {
+  const pic = req.body.pic;
+  if (pic) {
+    try {
+      req.body.pic = drivePicParser(req.body.pic);
+    } catch (error) {
+      return res.status(400).json({
+        err: error.message,
+      });
+    }
+  }
   const blog = new Blog(req.body);
   blog
     .save()
@@ -108,29 +95,45 @@ router.post("/blogs", isSignedIn, (req, res) => {
         }
       );
     })
-    .catch((e) => {
-      console.log(e);
-      res.status(400).json({
-        success: false,
-        message: "Cannot create blog.",
-      });
-    });
+    .catch((e) => console.log(e));
 });
 
 // updating a blog
 router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
+  console.log(req.params.id)
+  const pic = req.body.pic;
+  if (pic) {
+    try {
+      req.body.pic = drivePicParser(req.body.pic);
+    } catch (error) {
+      return res.status(400).json({
+        err: error.message,
+      });
+    }
+  }
   Blog.findOneAndUpdate(
     { _id: req.params.id },
-    req.body,
+    {
+      $set: {
+        title: req.body.title,
+        pic: req.body.pic,
+        body: req.body.body,
+        postedBy: req.body.postedBy,
+        publishedAt: req.body.publishedAt,
+        accepted: req.body.accepted,
+        acceptedBy: req.body.acceptedBy,
+      },
+    },
     { returnOriginal: true },
     (e, blog) => {
       if (e) {
         return res.status(400).json({
-          message: "Project cannot be updated !",
+          error: "Project cannot be updated !",
         });
       }
-      const old_pb = blog.postedBy;
+      const old_pb = blog.postedBy.toString();
       const new_pb = req.body.postedBy;
+
       if (old_pb !== new_pb) {
         User.findOneAndUpdate(
           { _id: old_pb },
@@ -139,7 +142,7 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
             if (e) {
               console.log(e);
               return res.status(400).json({
-                message: "Posted By cannot be updated !",
+                error: "Posted By cannot be updated !",
               });
             }
           }
@@ -151,13 +154,13 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
             if (e) {
               console.log(e);
               return res.status(400).json({
-                message: "Posted By cannot be updated !",
+                error: "Posted By cannot be updated !",
               });
             }
           }
         );
       }
-      res.json(blog);
+      res.json(blog.transform());
     }
   );
 });
@@ -165,10 +168,10 @@ router.put("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
 // deleting a blog
 router.delete("/blogs/:id", isSignedIn, isAdmin, (req, res) => {
   Blog.findById(req.params.id, (err, blog) => {
-    if (err) return res.status(500).json({ message: err.message });
+    if (err) return res.status(500).send(err);
     if (blog) {
       blog.remove(() => {
-        return res.json(blog);
+        return res.json(blog.transform());
       });
     }
   });

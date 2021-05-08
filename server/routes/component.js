@@ -8,7 +8,6 @@ const {
   deleteComponent,
   getComponentById,
   getAllComponentsFilter,
-  upload,
 } = require("../middleware/component");
 const { isSignedIn, isAdmin } = require("../middleware/auth");
 

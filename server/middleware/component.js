@@ -72,10 +72,20 @@ exports.getAllComponentsFilter = (req, res) => {
 };
 
 exports.addComponent = (req, res) => {
+  const pic = req.body.pic;
+  if (pic) {
+    try {
+      req.body.pic = drivePicParser(req.body.pic);
+    } catch (error) {
+      return res.status(400).json({
+        err: error.message,
+      });
+    }
+  }
   const component = new Component({
     name: req.body.name,
     type: req.body.type,
-    image_url: req.body.image_url,
+    pic: req.body.pic,
     available: req.body.available,
   });
   component.save((err, component) => {

@@ -6,6 +6,7 @@ import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
 function Blogs() {
   const [blogs, SetBlogs] = useState([]);
+  const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
     document.title = `Blogs | ${REACT_APP_BASE_TITLE}`;
@@ -13,7 +14,10 @@ function Blogs() {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => SetBlogs(data));
+      .then((data) => {
+        SetBlogs(data)
+        setFetching(0)
+      });
   }, []);
 
   const [page, SetPage] = useState(1);
@@ -41,7 +45,7 @@ function Blogs() {
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={2} fetching={fetching} />
       <div className="cont">
         <h3 className="my-3 titleBold d-flex justify-content-center topic">
           <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>BLOGS</p>
@@ -68,7 +72,7 @@ function Blogs() {
                     <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                       <h2 className="card_title forphone forphone2" style={{ width: '100%', minHeight: '4rem' }}>{blog.title}</h2>
                       <p className="card_text forphone" style={{ width: '100%', height: '2rem' }}>
-                        <i className="fa fa-user mr-3 ml-1"></i> by{" "}
+                        <i className="fa fa-user mr-3 ml-1"></i> By{" "}
                         {
                           branch[blog.postedBy.registration_no[4]] === 'NA' || blog.postedBy.year === -1 || blog.postedBy.linkedin_url ===
                             "https://www.linkedin.com/in/username/" ?
@@ -109,9 +113,6 @@ function Blogs() {
               )
               )}
           </ul>
-          {!blogs.length && (
-            <h3 className="text-center mt-5">No blogs available...!</h3>
-          )}
           <div className="float-right mr-5 mb-3 mt-5">
             {page > 1 && (
               <Button

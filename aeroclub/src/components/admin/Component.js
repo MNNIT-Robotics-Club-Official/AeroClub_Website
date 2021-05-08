@@ -38,7 +38,7 @@ export const ComponentList = (props) => {
         <TextField source="id" />
         <TextField source="name" />
         <TextField source="type" label="Type" />
-        <ImageField source="image_url" label="Image" />
+        <ImageField source="pic" label="Image" />
         <TextField source="available" />
         <TextField source="issued" />
         <EditButton basePath="/component" />
@@ -59,7 +59,7 @@ export const ComponentCreate = (props) => {
           validate={[required()]}
           label="Type"
         />
-        <TextInput source="image_url" label="Image" validate={[required()]} />
+        <TextInput source="pic" label="Image" validate={[required()]} />
         <NumberInput source="available" validate={[required(), number()]} />
       </SimpleForm>
     </Create>
@@ -77,7 +77,7 @@ export const ComponentEdit = (props) => {
           validate={[required()]}
           label="Type"
         />
-        <TextInput source="image_url" label="Image" validate={[required()]} />
+        <TextInput source="pic" label="Image" validate={[required()]} />
         <NumberInput source="available" validate={[required(), number()]} />
       </SimpleForm>
     </Edit>
@@ -91,7 +91,7 @@ export const ComponentShow = (props) => {
         <TextField source="id" />
         <TextField source="name" />
         <TextField source="type" label="Type" />
-        <TextInput source="image_url" label="Image" validate={[required()]} />
+        <TextInput source="pic" label="Image" validate={[required()]} />
         <TextField source="available" />
         <TextField source="issued" />
       </SimpleShowLayout>

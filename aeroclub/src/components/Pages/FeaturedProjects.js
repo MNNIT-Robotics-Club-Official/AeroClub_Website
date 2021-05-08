@@ -8,10 +8,10 @@ function FeaturedProjects() {
 
   const [projects, SetProjects] = useState([]);
   const [signedin, setsignedin] = useState(false)
-  document.title = `Projects | ${REACT_APP_BASE_TITLE}`;
+  document.title = `Flagship Projects | ${REACT_APP_BASE_TITLE}`;
+  const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
-
     fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
@@ -24,14 +24,17 @@ function FeaturedProjects() {
           localStorage.removeItem("jwtToken");
           return;
         }
-        setsignedin(true);
+        setsignedin(0);
       });
 
     fetch(`${REACT_APP_SERVER}/api/projects/featured`, {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => SetProjects(data));
+      .then((data) => {
+        SetProjects(data)
+        setFetching(0)
+      });
   }, []);
 
   const [page, SetPage] = useState(1);
@@ -40,7 +43,7 @@ function FeaturedProjects() {
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={2} fetching={fetching} />
       <div className="cont">
         <h3 className="my-3 titleBold d-flex justify-content-center topic">
           <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>FLAGSHIP PROJECTS</p>
@@ -83,9 +86,6 @@ function FeaturedProjects() {
               )
               )}
           </ul>
-          {!projects.length && (
-            <h3 className="text-center mt-5">No projects available...!</h3>
-          )}
           <div className="float-right mr-5 mb-3 mt-5">
             {page > 1 && (
               <Button

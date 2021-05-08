@@ -27,9 +27,6 @@ export default function News() {
             <div className="pageTitleg titleBoldg">Updates</div>
           </div>
         </div>
-        {
-          news.length === 0 && <h4>No Updates Available !</h4>
-        }
         <Jumbotron
           fluid
           style={{
@@ -42,6 +39,9 @@ export default function News() {
           <Container className='col-11 my-5'>
             <div className="panel-group news-container" id="accordion" role="tablist" aria-multiselectable="true"
               style={{ margin: "1.5rem" }}>
+              {
+                news.length === 0 && <h4 className='text-center'>No Updates Available !</h4>
+              }
               {news.map((singleNews, i) => (
                 <div className="panel panel-default" key={singleNews.id}
                   style={{ padding: "0.15rem" }}
