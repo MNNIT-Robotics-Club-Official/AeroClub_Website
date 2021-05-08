@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const path = require("path");
 const port = process.env.PORT || 9500;
 require("dotenv").config();
 
@@ -48,6 +49,12 @@ app.use("/api", workshopRoutes);
 app.use("/api", achievementRoutes);
 app.use("/api", contactRouters);
 app.use("/api", shareRouter);
+
+app.use(express.static("client/build"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Server Started at ${port}`);
