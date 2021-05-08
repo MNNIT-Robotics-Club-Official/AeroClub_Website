@@ -1,16 +1,13 @@
-const { request } = require("express");
 const express = require("express");
-const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
-const port = process.env.PORT || 9500;
+const port = process.env.PORT || 9501;
 require("dotenv").config();
 
 // app specific
 app.use(cors());
-app.use(morgan("tiny"));
 app.use(express.json());
 
 // mongodb
