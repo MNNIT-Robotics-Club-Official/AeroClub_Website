@@ -221,7 +221,7 @@ export default function DashProfile() {
       </Button>
       {user?.role !== "User" && (
         <Button
-          href="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin"
+          href="/76564a9c-4842-49ce-83a4-a0eb4a54c382/admin"
           target="_blank"
           variant="danger"
           className="mx-1"
