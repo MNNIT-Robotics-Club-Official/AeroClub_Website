@@ -43,6 +43,9 @@
 	/* background: #F5F5F5; */
 	overflow-y: scroll;
 	margin-bottom: 25px;
+  scrollbar-width: thin;
+  
+  scrollbar-color: #d13a3a;
 }
 
 .force-overflow
@@ -60,7 +63,7 @@
 #style-2::-webkit-scrollbar
 {
 	width: 8px;
-	background-color: #F5F5F5;
+	background-color: transparent;
 }
 
 #style-2::-webkit-scrollbar-thumb
