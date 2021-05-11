@@ -55,7 +55,7 @@ export default function News() {
                       </a>
                     </h4>
                   </div>
-                  <div id={`collapse${singleNews.id}`} className={`panel-collapse collapse in ${i == 0 ? 'show' : null}`} role="tabpanel" aria-labelledby={singleNews.id}>
+                  <div id={`collapse${singleNews.id}`} className={`panel-collapse hovit collapse in ${i == 0 ? 'show' : null}`} role="tabpanel" aria-labelledby={singleNews.id}>
                     <div className="panel-body my-3 mx-4">
                       <em
                         style={{ fontSize: "small" }}
