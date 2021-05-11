@@ -39,17 +39,19 @@ import Spinoff from "./components/Pages/Spinoff.js";
 import WebTeam from "./components/Pages/WebTeam.js";
 import FeaturedProjects from "./components/Pages/FeaturedProjects.js";
 import Loading from "./Animations/Loading.js";
+import SharedProj from "./components/Pages/SharedProj.js";
 
 function App() {
+
   useEffect(() => {
     const { hash } = window.location;
     if (hash !== "") {
       let id = hash.replace("#/", "");
       const element = document.getElementById(id);
-      if(element)
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (element)
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  });
+  }, []);
   return (
     <div className="App">
       <ToastContainer
@@ -59,7 +61,7 @@ function App() {
         closeOnClick
       />
       <Switch>
-        <Route path="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin" exact>
+        <Route path="/76564a9c-4842-49ce-83a4-a0eb4a54c382/admin" exact>
           {localStorage.getItem("jwtToken") ? (
             <AdminComp />
           ) : (
@@ -117,6 +119,9 @@ function App() {
             </Route>
             <Route path="/spinoff" exact>
               <Spinoff />
+            </Route>
+            <Route path="/sharedProject/:shareId" exact>
+              <SharedProj />
             </Route>
             <Route path="/user/createblog" exact>
               <CreateBlog />

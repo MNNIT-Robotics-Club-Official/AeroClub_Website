@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Loading from '../../Animations/Loading'
 import '../../css/Spinoff.css'
-import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+import { REACT_APP_BASE_TITLE } from "../../grobalVars"
 import tsaw from "../../images/Sponsors/tsawlogo.png";
 
 export default function Spinoff() {

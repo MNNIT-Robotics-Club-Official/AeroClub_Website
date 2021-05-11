@@ -17,7 +17,7 @@ export default function Popup(props) {
       <Modal.Body>
         <div style={{ display: "flex" }}>
           <img
-            src={props.comp.image_url}
+            src={props.comp.pic}
             style={{ width: "150px", height: "150px" }}
           />
           <div>

@@ -6,28 +6,27 @@ import surendra from "../../images/alumni/Surendra Singh Jayant.jpg";
 import maaz from "../../images/alumni/Mohammed Maaz Latifee.jpg";
 import sarita from "../../images/alumni/sarita chaudhary1.jpeg";
 import kishan from "../../images/alumni/Kishan Tiwari.jfif";
-import { Container, Jumbotron } from "react-bootstrap";
 
 export default function Testimonials() {
   return (
 
     <section className="testimonial text-center">
       <div className="container">
-      <div
-        className="pageTitle titleBold headingc white-headingc"
-        data-aos="fade-down"
-        style={{ marginBottom: "0px"}}
-      >
-        Testimonials
+        <div
+          className="pageTitle titleBold headingc white-headingc"
+          data-aos="fade-down"
+          style={{ marginBottom: "0px" }}
+        >
+          Testimonials
       </div>
-      <div className="miniSep" style={{ marginBottom: '30px' }} ></div>
+        <div className="miniSep" style={{ marginBottom: '30px' }} ></div>
         {/* <Jumbotron> */}
-        
+
         <div id="testimonial4" className="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval={5000} data-duration={2000} data-aos="zoom-in-down">
           <div className="carousel-inner" role="listbox">
             <div className="carousel-item active">
               <div className="testimonial4_slide">
-                <img src={surendra} className="img-circle img-responsive" /> 
+                <img src={surendra} className="img-circle img-responsive" />
                 {/* <div className="scrollert" id="stylet-2"> */}
                 <p className="testfont scrollert" id="stylet-2">"This club is one of the best platforms to learn something new & the best part is the implementation of your imagination. As humans, we're always curious to fly like birds; this platform gives you the wings to pursue that. It also has a great career opportunity if we take it further beyond the club. As a club member, you also get to interact with people with different ideas, which helps to enhance your visualization and thinking abilities. Being part of this club was one of the best phases in my college life."</p>
 
@@ -43,7 +42,7 @@ export default function Testimonials() {
                 <img src={shrey} className="img-circle img-responsive" /><p className="testfont scrollert" id="stylet-2">"It was an honor being part of the Aeromodelling Club, MNNIT. I will remember all those priceless moments that I had with my supporting friends, guiding professors, visionary seniors, and enthusiastic juniors throughout my college life. The experiences made me a better person and prepared me in unpredictable ways for my career. I wish I had a time machine to relive all of those memories for eternity. Memories worth being cherished!!"</p>
                 {/* <div className="miniSep" style={{ marginBottom: '25px', width: '70%', height: '3px' }} ></div> */}
                 <h4>Shrey Dixit</h4>
-                <a href="linkedin.com/in/shrey-dixit" target="_blank">
+                <a href="https://linkedin.com/in/shrey-dixit/" target="_blank">
                   <i className="fab fa-linkedin fa-3x mx-2"></i>
                 </a>'
               </div>
@@ -54,7 +53,7 @@ export default function Testimonials() {
                 <p className="testfont scrollert" id="stylet-2">"I remember my 1st day in Aeroclub, where I was assigned to start making my first RC Plane. I mostly remember my happy days with club members while working on various projects and models. I am pleased that Aeroclub seniors have always taught me technical and nontechnical experiences. I am glad that I was one of the members of Aeroclub during my final year"</p>
                 {/* <div className="miniSep" style={{ marginBottom: '25px', width: '70%', height: '3px' }} ></div> */}
                 <h4>Mohammed Maaz Latifee</h4>
-                <a href="linkedin.com/in/mohammed-maaz-latifee-0a3375169" target="_blank">
+                <a href="https://linkedin.com/in/mohammed-maaz-latifee-0a3375169/" target="_blank">
                   <i className="fab fa-linkedin fa-3x mx-2"></i>
                 </a>
               </div>
@@ -65,7 +64,7 @@ export default function Testimonials() {
                 <p className="testfont scrollert" id="stylet-2">"The time I spent while working on my project as a part of Aero Club under Kishan sir was a great learning experience for me, and I think it ended up being a pivotal part of my placement."</p>
                 {/* <div className="miniSep" style={{ marginBottom: '25px', width: '70%', height: '3px' }} ></div> */}
                 <h4>Soumya Khanna</h4>
-                <a href="https://www.linkedin.com/in/soumya-khanna-20169040" target="_blank">
+                <a href="https://www.linkedin.com/in/soumya-khanna-20169040/" target="_blank">
                   <i className="fab fa-linkedin fa-3x mx-2"></i>
                 </a>
               </div>
@@ -102,7 +101,7 @@ export default function Testimonials() {
         </div>
         {/* </Jumbotron> */}
       </div>
-      
+
     </section>
   );
 }

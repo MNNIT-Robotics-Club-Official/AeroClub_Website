@@ -8,6 +8,7 @@ function Projects() {
   const [projects, SetProjects] = useState([]);
   const [signedin, setsignedin] = useState(false);
   document.title = `Projects | ${REACT_APP_BASE_TITLE}`;
+  const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
     fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
@@ -30,8 +31,8 @@ function Projects() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        return SetProjects(data);
+        SetProjects(data);
+        setFetching(0)
       });
   }, []);
 
@@ -41,10 +42,10 @@ function Projects() {
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={2} fetching={fetching} />
       <div className="cont">
         <h3 className="my-3 titleBold d-flex justify-content-center topic">
-          <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>PROJECTS</p>
+          <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>OTHER PROJECTS</p>
         </h3>
         <div
           className="miniSep"
@@ -107,9 +108,6 @@ function Projects() {
                 </li>
               ))}
           </ul>
-          {!projects.length && (
-            <h3 className="text-center mt-5">No projects available...!</h3>
-          )}
           <div className="float-right mr-5 mb-3 mt-5">
             {page > 1 && (
               <Button

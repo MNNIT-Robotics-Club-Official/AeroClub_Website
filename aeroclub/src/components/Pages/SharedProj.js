@@ -1,53 +1,58 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
-import "../../css/SingleProject.css";
+import React, { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
+import { useHistory, useParams } from "react-router";
 import Loading from "../../Animations/Loading";
+import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
-import $ from 'jquery'
+import $ from "jquery";
 
-function SingleProject() {
+function SharedProj() {
+  const { shareId } = useParams();
   const { projectId } = useParams();
   const [project, setProject] = useState(undefined);
   const history = useHistory();
-  const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
-
     $(document).ready(function () {
-      $('#collapsebtn').on('click', function () {
-        var text = $('#collapsebtn').text();
+      $("#collapsebtn").on("click", function () {
+        var text = $("#collapsebtn").text();
         if (text === "Read More") {
-          $(this).html('Read less');
+          $(this).html("Read less");
         } else {
-          $(this).text('Read More');
+          $(this).text("Read More");
         }
       });
     });
 
-    fetch(`${REACT_APP_SERVER}/api/projects/${projectId}`, {
+    fetch(`${REACT_APP_SERVER}/api/share/project/${shareId}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status !== 200) history.push("/404");
+        return res.json();
+      })
       .then((data) => {
-        if (data.error) history.push("/404");
-        else {
-          document.title = `${data.title} | ${REACT_APP_BASE_TITLE}`;
-          setProject(data);
-          setFetching(0)
-        }
+        document.title = `${data.title} | ${REACT_APP_BASE_TITLE}`;
+        console.log(data);
+        setProject(data);
       });
   }, []);
 
   return (
     <>
-      <Loading time={2} fetching={fetching} />
+      <Loading time={2} />
       <div className="my-5">
         <div className="mb-4">
-          <h4 className='my-3' style={{ marginBottom: "0px", textAlign: "center" }}>{project?.title}</h4>
+          <h4
+            className="my-3"
+            style={{ marginBottom: "0px", textAlign: "center" }}
+          >
+            {project?.title}
+          </h4>
           <div
             className="miniSep"
             style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
@@ -55,11 +60,13 @@ function SingleProject() {
         </div>
         <div className="container">
           <div>
-            <h3 className='my-3 subheaders'>Aim</h3>
+            <h3 className="my-3 subheaders">Aim</h3>
             <p className="px-5">{project?.objective}</p>
           </div>
           <div>
-            <h3 className='my-3 subheaders'>Components and Technologies Used</h3>
+            <h3 className="my-3 subheaders">
+              Components and Technologies Used
+            </h3>
             <div className="d-flex px-5 flex-wrap">
               {project?.compTech?.map((x) => (
                 <div
@@ -75,22 +82,24 @@ function SingleProject() {
               ))}
             </div>
           </div>
-          <div className='my-5'>
-            <h3 className='mb-4 subheaders'>Overview</h3>
+          <div className="my-5">
+            <h3 className="mb-4 subheaders">Overview</h3>
             <p
-              className="px-5"
+              className="px-5 ql-editor"
               dangerouslySetInnerHTML={{ __html: project?.overview }}
             ></p>
           </div>
           <div>
             <div>
-              <h3 className='my-3 subheaders'>Project By: </h3>
+              <h3 className="my-3 subheaders">Project By: </h3>
               <ul className="px-5">
                 {project?.members?.map((member) =>
                   member.accepted ? (
                     <li>
                       {member.user.linkedin_url ? (
-                        <a href={member.user.linkedin_url}>{member.user.name}</a>
+                        <a href={member.user.linkedin_url}>
+                          {member.user.name}
+                        </a>
                       ) : (
                         <span>{member.user.name}</span>
                       )}
@@ -103,7 +112,7 @@ function SingleProject() {
             </div>
           </div>
           {project?.ytID ? (
-            <div className='d-block iframe-container'>
+            <div className="d-block iframe-container">
               <iframe
                 width="889px"
                 height="500"
@@ -111,7 +120,7 @@ function SingleProject() {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className='mx-auto d-block responsive-iframe'
+                className="mx-auto d-block responsive-iframe"
               />
             </div>
           ) : (
@@ -121,7 +130,15 @@ function SingleProject() {
           <div>
             <div className="d-flex justify-content-center mt-5">
               {project?.description ? (
-                <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11" id='collapsebtn'>
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapse11"
+                  aria-expanded="false"
+                  aria-controls="collapse11"
+                  id="collapsebtn"
+                >
                   Read More
                 </button>
               ) : (
@@ -129,10 +146,10 @@ function SingleProject() {
               )}
             </div>
             <div class="collapse collapsews" id="collapse11">
-              <div >
-                <h3 className='my-3 subheaders'>Description</h3>
+              <div>
+                <h3 className="my-3 subheaders">Description</h3>
                 <p
-                  className="px-3 ql-editor container"
+                  className="px-3 ql-editor"
                   dangerouslySetInnerHTML={{ __html: project?.description }}
                 ></p>
               </div>
@@ -144,4 +161,4 @@ function SingleProject() {
   );
 }
 
-export default SingleProject;
+export default SharedProj;
