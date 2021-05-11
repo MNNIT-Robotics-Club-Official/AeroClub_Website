@@ -89,7 +89,8 @@ function Projects() {
                         {project.title}
                       </h2>
                       <p
-                        className="card_text forphone forphone3"
+                        className="card_text forphone forphone3 scrollerproj"
+                        id="style-401"
                         style={{ width: "100%" }}
                       >
                         <strong>OBJECTIVE</strong> : {project.objective} <br />{" "}

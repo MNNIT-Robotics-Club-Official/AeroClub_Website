@@ -21,10 +21,10 @@ const ResearchThemes = () => {
         ></div>
         <div className="row justify-content-center">
           <div
-            className="col-sm-11"
+            className="col-sm-4"
             data-aos="fade-up"
             data-aos-duration="2000"
-            style={{ padding: "0 4rem 0 4rem" }}
+            style={{ padding: "0 1rem 1rem 1rem" }}
           >
             <div
               className="card text-center"
@@ -62,7 +62,7 @@ const ResearchThemes = () => {
           <div className="row justify-content-center">
             <div className="col-sm-10" data-aos="fade-up">
               <div
-                className="card text-center"
+                className="text-center"
                 style={{ marginBottom: "0.5rem", width: "auto" }}
               >
                 <div
@@ -76,6 +76,10 @@ const ResearchThemes = () => {
                 >
                   Technologies
                 </div>
+                <div
+          className="miniSep"
+          style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", height: "2px" }}
+        ></div>
               </div>
             </div>
             {/* <div className="row"> */}
