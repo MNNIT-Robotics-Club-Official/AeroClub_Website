@@ -5,10 +5,11 @@ import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 import $ from "jquery";
+import { animateScroll } from "react-scroll";
 
 function SharedProj() {
   const { shareId } = useParams();
-  const { projectId } = useParams();
+  const [fetching, setFetching] = useState(1)
   const [project, setProject] = useState(undefined);
   const history = useHistory();
 
@@ -24,6 +25,8 @@ function SharedProj() {
       });
     });
 
+    animateScroll.scrollToTop()
+
     fetch(`${REACT_APP_SERVER}/api/share/project/${shareId}`, {
       method: "get",
       headers: {
@@ -37,14 +40,14 @@ function SharedProj() {
       })
       .then((data) => {
         document.title = `${data.title} | ${REACT_APP_BASE_TITLE}`;
-        console.log(data);
         setProject(data);
+        setFetching(0)
       });
   }, []);
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={1} fetching={fetching} />
       <div className="my-5">
         <div className="mb-4">
           <h4

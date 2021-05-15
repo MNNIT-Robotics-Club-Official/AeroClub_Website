@@ -102,25 +102,16 @@ img {
   height: 15rem ;
 }
 .forphone2{
-  height: 3.5rem;
-  font-size: 1rem !important;
+  height: 4rem;
 }
 .forphone3{
-  height: 5.9rem;
-  font-size: 0.85rem !important;
+  height: 6rem;
 }
 
 .scrollerproj
 {
-  /* text-align: justify ; */
-	/* margin-left: 15px; */
-	/* float: left; */
-	
 	overflow-y: auto;
-
   scrollbar-width: thin;
-
-
 }
 
 .force-overflow
@@ -188,17 +179,17 @@ img {
   font-size: 14px;
   text-transform: uppercase;
 
-  background-color: rgb(204, 67, 67);
+  background-color: rgb(29, 29, 29);
   font-weight: 400;
   display: block;
   width: 100%;
   cursor: pointer;
-  border: 1px solid rgba(224, 0, 0, 0.884);
-  /* background: transparent; */
+  border: 1px solid rgb(29, 29, 29);
 }
 
 .btns:hover {
-  background-color: rgba(17, 17, 17, 0.856);
+  background-color: rgb(204, 67, 67);
+ font-weight: 700;
 }
 
 .cards {
@@ -231,6 +222,18 @@ img {
   .phoneheight {
     height: auto !important;
   }
+  .card_title{
+    font-size: 1rem !important;
+  }
+  .forphone2{
+    height: 4rem;
+  }
+  .card_text{
+    font-size: 0.7rem !important;
+  }
+  .forphone3{
+    height: 4rem;
+  }
 }
 
 @media (min-width: 56rem) {
@@ -261,26 +264,28 @@ img {
 .card_content {
   padding: 1rem;
   background: transparent;
-  border: 2px solid rgb(204, 67, 67);
   border-radius: 0px 0px 0.5rem 0.5rem;
 }
 
 .card_title {
-  color: rgb(39, 39, 39);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  color: rgb(204, 67, 67);
+  font-size: 1.2rem;
+  font-weight: 600;
   text-transform: capitalize;
-  margin: 0px;
+  margin: 0;
   text-align: center;
+  font-family: sans-serif;
 }
 
 .card_text {
-  color: rgb(204, 67, 67);
-  font-size: 0.975rem;
+  text-align: center;
+  color:rgb(29,29, 29);
+  font-size: .9rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
-  font-weight: 400;
+  font-weight: 500;
+  padding: 0 1.5rem;
+  font-family: revert;
 }
 .made_by {
   font-weight: 400;

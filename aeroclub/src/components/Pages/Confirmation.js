@@ -32,7 +32,7 @@ export default function Confirmation() {
 
   return (
     <div>
-      <Loading time={4} confirmation />
+      <Loading time={3} confirmation />
     </div>
   );
 }

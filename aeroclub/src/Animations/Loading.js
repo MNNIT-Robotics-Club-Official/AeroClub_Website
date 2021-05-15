@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/Loading.css";
+import loadable from '@loadable/component'
 
 function Loading({ time, confirmation, fetching = 2 }) {
   const [loading, setLoading] = useState(true);

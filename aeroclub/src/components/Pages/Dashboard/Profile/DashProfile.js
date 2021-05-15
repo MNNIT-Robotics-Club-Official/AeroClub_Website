@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 import { toast } from "react-toastify";
 import { REACT_APP_SERVER } from "../../../../grobalVars";
 
@@ -23,6 +24,7 @@ export default function DashProfile() {
       setRegis_no(user.registration_no);
       setYear(user.year);
       setLinkedin(user.linkedin_url);
+      animateScroll.scrollToTop()
     }
   }, [user]);
 

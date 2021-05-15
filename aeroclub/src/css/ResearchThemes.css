@@ -28,9 +28,10 @@
 }
 .cardbd {
     font-family: monospace;
+    transition: 0.3s;
 }
 .cardbd:hover {
-    background-color: rgb(230, 230, 230);
+    background-color:#413c3c;
 }
 
 .lststyle {
@@ -39,7 +40,5 @@
   }
 
 .bgchange{
-    background: linear-gradient( 
-        70deg
-         , rgb(0, 0, 0) 0%, rgb(51, 13, 13) 50%, rgb(117, 46, 46) 100%)
+    background: #2d2b2b;
 }
