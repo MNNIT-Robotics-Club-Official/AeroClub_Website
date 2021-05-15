@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
@@ -10,6 +11,7 @@ function Blogs() {
 
   useEffect(() => {
     document.title = `Blogs | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
     fetch(`${REACT_APP_SERVER}/api/blogs/toUI`, {
       method: "get",
     })
@@ -71,7 +73,7 @@ function Blogs() {
                     </div>
                     <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                       <h2 className="card_title forphone forphone2" style={{ width: '100%', minHeight: '4rem' }}>{blog.title}</h2>
-                      <p className="card_text forphone" style={{ width: '100%', height: '2rem' }}>
+                      <p className="card_text forphone" style={{ width: '100%', height: '2rem', textAlign: 'initial' }}>
                         <i className="fa fa-user mr-3 ml-1"></i> By{" "}
                         {
                           branch[blog.postedBy.registration_no[4]] === 'NA' || blog.postedBy.year === -1 || blog.postedBy.linkedin_url ===

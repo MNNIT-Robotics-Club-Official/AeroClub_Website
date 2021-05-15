@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
+import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
@@ -7,10 +8,11 @@ import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 function Projects() {
   const [projects, SetProjects] = useState([]);
   const [signedin, setsignedin] = useState(false);
-  document.title = `Projects | ${REACT_APP_BASE_TITLE}`;
   const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
+    document.title = `Projects | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
     fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
@@ -93,7 +95,7 @@ function Projects() {
                         id="style-401"
                         style={{ width: "100%" }}
                       >
-                        <strong>OBJECTIVE</strong> : {project.objective} <br />{" "}
+                        {project.objective}
                         <br />
                       </p>
                       <Button

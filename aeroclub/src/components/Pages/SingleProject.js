@@ -4,6 +4,7 @@ import "../../css/SingleProject.css";
 import Loading from "../../Animations/Loading";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 import $ from 'jquery'
+import { animateScroll } from "react-scroll";
 
 function SingleProject() {
   const { projectId } = useParams();
@@ -23,6 +24,8 @@ function SingleProject() {
         }
       });
     });
+
+    animateScroll.scrollToTop()
 
     fetch(`${REACT_APP_SERVER}/api/projects/${projectId}`, {
       method: "get",
@@ -44,7 +47,7 @@ function SingleProject() {
 
   return (
     <>
-      <Loading time={2} fetching={fetching} />
+      <Loading time={1} fetching={fetching} />
       <div className="my-5">
         <div className="mb-4">
           <h4 className='my-3' style={{ marginBottom: "0px", textAlign: "center" }}>{project?.title}</h4>

@@ -6,15 +6,17 @@ import Phantom from "../../images/Events/Phantom.PNG";
 import guardian from "../../images/Events/guardian2.PNG";
 import lostinspace from "../../images/Events/lostinspace.PNG";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars";
+import { animateScroll } from "react-scroll";
 
 export default function Avishkar() {
   useEffect(() => {
     document.title = `Avishkar | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
   }, []);
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={1} />
       <section className="section1 pagese ">
         <div className="overlaye">
           <div className="containere ">

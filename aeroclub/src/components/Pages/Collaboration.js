@@ -2,15 +2,17 @@ import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars";
+import { animateScroll } from 'react-scroll'
 
 export default function Collaboration() {
   useEffect(() => {
     document.title = `Collaborate | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
   }, []);
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={1} />
       <div className="pagesa">
         <div className="overlaya">
           <div className="pageTitlea titleBolda">Collaborate</div>

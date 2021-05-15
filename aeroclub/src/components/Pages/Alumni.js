@@ -15,10 +15,12 @@ import f11 from "../../images/alumni/unnamed.jpg";
 import f12 from "../../images/alumni/Kishan Tiwari.jfif";
 import f13 from "../../images/alumni/Aniket Kumar.jpg";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars"
+import { animateScroll } from "react-scroll";
 
 export default function Alumni() {
   useEffect(() => {
     document.title = `Alumni | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
   }, [])
 
   const members = [
@@ -153,7 +155,7 @@ export default function Alumni() {
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={1} />
       <h3 className="my-3 titleBold d-flex justify-content-center topic">
         <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>OUR ALUMNI</p>
       </h3>
