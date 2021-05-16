@@ -15,7 +15,7 @@ export default function Featuredproject() {
   }, []);
   return (
     <div className="cont featured-proj my-3">
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <div
           className="pageTitle titleBold headingc white-headingc"
           data-aos="fade-down"

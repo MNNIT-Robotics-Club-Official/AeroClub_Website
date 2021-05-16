@@ -3,7 +3,7 @@ import "../../css/ResearchThemes.css";
 
 const ResearchThemes = () => {
   return (
-    <div className="container-fluid" style={{ background: "rgb(29, 29, 29)" }}>
+    <div className="container-fluid shad" style={{ background: "rgb(29, 29, 29)" }}>
       <div
         className="pageTitle titleBold headingc white-headingc"
         data-aos="fade-down"
@@ -27,16 +27,16 @@ const ResearchThemes = () => {
             style={{ padding: "0 1rem 1rem 1rem" }}
           >
             <div
-              className="card text-center"
+              className="card text-center shad2"
               style={{ marginBottom: "1.5rem", width: "auto" }}
             >
               <div
-                className="card-header"
+                className="card-header "
                 style={{
                   fontSize: "1.5rem",
                   background: "rgb(56, 55, 55)",
                   color: "white",
-                  border: "3px solid white",
+                  
                 }}
               >
                 Our Domains
@@ -66,10 +66,9 @@ const ResearchThemes = () => {
                 style={{ marginBottom: "0.5rem", width: "auto" }}
               >
                 <div
-                  className="card-header"
+                  className="card-header2"
                   style={{
                     fontSize: "1.5rem",
-                    background: "rgb(29, 29, 29)",
                     color: "white",
                     // border: "3px solid white",
                   }}

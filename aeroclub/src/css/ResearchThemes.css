@@ -22,6 +22,7 @@
     font-family: "Roboto";
 }
 .cardhgt {
+    /* box-shadow: 0px 15px 22px -15px rgb(109 109 109 / 70%); */
     height: 18rem;
     background-color : transparent;
     /* margin: 0 1rem 0 1rem; */
@@ -31,7 +32,7 @@
     transition: 0.3s;
 }
 .cardbd:hover {
-    background-color:#413c3c;
+    background-color:#575252;
 }
 
 .lststyle {
@@ -40,5 +41,17 @@
   }
 
 .bgchange{
-    background: #2d2b2b;
+    box-shadow: 0px 8px 12px -2px rgb(0 0 0 / 75%);
+    background: #2f2f2f;
 }
+
+.card-header2 {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+   
+}
+
+.shad2{
+    box-shadow: 0px 8px 12px -2px rgb(0 0 0 / 75%);
+    /* margin: 20px; */
+  }
