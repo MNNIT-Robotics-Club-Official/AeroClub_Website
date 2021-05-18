@@ -3,12 +3,15 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
+const compression = require('compression')
 const port = process.env.PORT || 9501;
+
 require("dotenv").config();
 
 // app specific
 app.use(cors());
 app.use(express.json());
+app.use(compression())
 
 // mongodb
 mongoose.connect(process.env.MONGO_URI, {

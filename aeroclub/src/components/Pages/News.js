@@ -21,8 +21,7 @@ export default function News() {
         SetNews(data)
         setFetching(0);
       });
-  }
-    , [news]);
+  }, []);
 
   return (
     <>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
@@ -78,7 +79,8 @@ function FeaturedProjects() {
                       <Button
                         className="btns card_btns"
                         variant="danger"
-                        href={`/projects/${project._id}`}
+                        as={Link}
+                        to={`/projects/${project._id}`}
                         style={{ marginTop: 10 }}
                       >
                         Read More
@@ -95,6 +97,7 @@ function FeaturedProjects() {
                 className="mx-1"
                 variant="danger"
                 onClick={() => {
+                  animateScroll.scrollToTop()
                   SetPage((page) => page - 1);
                 }}
               >
@@ -106,6 +109,7 @@ function FeaturedProjects() {
                 variant="danger"
                 className="mx-1"
                 onClick={() => {
+                  animateScroll.scrollToTop()
                   SetPage((page) => page + 1);
                 }}
               >

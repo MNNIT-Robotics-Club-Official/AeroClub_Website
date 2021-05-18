@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
+import { Link } from 'react-router-dom'
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
@@ -104,7 +105,8 @@ function Blogs() {
                       <Button
                         className="btns card_btns"
                         variant="danger"
-                        href={`/blogs/${blog._id}`}
+                        as={Link}
+                        to={`/blogs/${blog._id}`}
                         style={{ marginTop: 10 }}
                       >
                         Read More
@@ -121,6 +123,7 @@ function Blogs() {
                 className="mx-1"
                 variant="danger"
                 onClick={() => {
+                  animateScroll.scrollToTop()
                   SetPage((page) => page - 1);
                 }}
               >
@@ -132,6 +135,7 @@ function Blogs() {
                 variant="danger"
                 className="mx-1"
                 onClick={() => {
+                  animateScroll.scrollToTop()
                   SetPage((page) => page + 1);
                 }}
               >

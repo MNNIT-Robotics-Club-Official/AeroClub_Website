@@ -33,7 +33,7 @@ export default function Footer() {
                   <h6>Quick-Links</h6>
                   <ul className="footer-links">
                     <li>
-                      <a className="hov" href="http://www.mnnit.ac.in/">
+                      <a className="hov" href="http://www.mnnit.ac.in/" target="_blank">
                         <i className="fa fa-caret-right"></i> MNNIT
                       </a>
                     </li>
@@ -58,7 +58,7 @@ export default function Footer() {
                       </a>
                     </li>
                     <li>
-                      <a className="hov" href="https://roboticsclubmnnit.website/">
+                      <a className="hov" href="http://roboticsclub.mnnit.ac.in/" target="_blank">
                         <i className="fa fa-caret-right"></i> RoboClub
                       </a>
                     </li>

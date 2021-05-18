@@ -8,6 +8,7 @@ import { animateScroll } from "react-scroll";
 
 export default function Workshop() {
   const [workshops, SetWorkshops] = useState([]);
+  const [fetching, setFetching] = useState(1)
   useEffect(() => {
     document.title = `Jigyasa | ${REACT_APP_BASE_TITLE}`;
     animateScroll.scrollToTop()
@@ -15,11 +16,14 @@ export default function Workshop() {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => SetWorkshops(data));
+      .then((data) => {
+        SetWorkshops(data)
+        setFetching(0)
+      });
   }, []);
   return (
     <>
-      <Loading time={1} />
+      <Loading time={1} fetching={fetching} />
       <section className="section1 pagese ">
         <div className="overlaye">
           <div className="containere ">

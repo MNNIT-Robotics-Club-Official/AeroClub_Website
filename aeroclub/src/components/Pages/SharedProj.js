@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
@@ -47,7 +46,7 @@ function SharedProj() {
 
   return (
     <>
-      <Loading time={1} fetching={fetching} />
+      <Loading time={2} fetching={fetching} />
       <div className="my-5">
         <div className="mb-4">
           <h4
@@ -100,7 +99,7 @@ function SharedProj() {
                   member.accepted ? (
                     <li>
                       {member.user.linkedin_url ? (
-                        <a href={member.user.linkedin_url}>
+                        <a href={member.user.linkedin_url} target="_blank">
                           {member.user.name}
                         </a>
                       ) : (

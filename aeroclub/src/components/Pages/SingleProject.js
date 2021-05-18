@@ -47,7 +47,7 @@ function SingleProject() {
 
   return (
     <>
-      <Loading time={1} fetching={fetching} />
+      <Loading time={2} fetching={fetching} />
       <div className="my-5">
         <div className="mb-4">
           <h4 className='my-3' style={{ marginBottom: "0px", textAlign: "center" }}>{project?.title}</h4>
@@ -93,7 +93,7 @@ function SingleProject() {
                   member.accepted ? (
                     <li>
                       {member.user.linkedin_url ? (
-                        <a href={member.user.linkedin_url}>{member.user.name}</a>
+                        <a href={member.user.linkedin_url} target="_blank">{member.user.name}</a>
                       ) : (
                         <span>{member.user.name}</span>
                       )}
