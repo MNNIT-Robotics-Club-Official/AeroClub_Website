@@ -27,6 +27,8 @@ body {
   height: 40vh;
   width: 100%;
   margin: 0vh 0vw;
+  background: url("../images/utils/about.jpg") center center no-repeat;
+
   background-size: cover;
   padding-bottom: 0px;
 
