@@ -2,7 +2,6 @@ import React from "react";
 import "../../css/footer.css";
 import { useLocation } from "react-router-dom";
 import { SocialIcon } from "react-social-icons";
-import { Link as Scroll } from "react-scroll";
 import m from "../../images/utils/aerologofix.png";
 
 export default function Footer() {
@@ -48,7 +47,7 @@ export default function Footer() {
                       </a>
                     </li>
                     <li>
-                      <a className="hov" href="/sponsor">
+                      <a className="hov" href="/sponsors">
                         <i className="fa fa-caret-right"></i> Sponsors
                       </a>
                     </li>
@@ -58,7 +57,7 @@ export default function Footer() {
                       </a>
                     </li>
                     <li>
-                      <a className="hov" href="http://roboticsclub.mnnit.ac.in/" target="_blank">
+                      <a className="hov" href="https://roboticsclub.mnnit.ac.in/" target="_blank">
                         <i className="fa fa-caret-right"></i> RoboClub
                       </a>
                     </li>

@@ -69,7 +69,7 @@ function FeaturedProjects() {
                   data-aos-duration="1500" key={project._id}>
                   <div className="card cardproj">
                     <div className="card_image">
-                      <img className="evfeatured" src={project.pic || 'https://lh3.googleusercontent.com/22uNNnzS6tHVU9N-BR3zlu6S_Fg03yb5omXJtTbR7Ixcd_FRL23sNadI2G5X0tkoQAqcjzwMPf5BXDYdtCWtfxcmEN90ybDONZCzQdQiIcnrnIg9oAhrjRjiCqGwXxx8tDsk4yH89A=w2400'} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
+                      <img className="evfeatured" src={project.pic || 'https://lh3.googleusercontent.com/Qc1N9hR-ovN8PDV6J9NOSF82BlUeEDtng33AUNn52x_8RajvRUOabe9C62hmtuWLRgPyjkXv6VbOG7PES8K3ZzWYFxyLuJSGIihC-_tc5kFsEiomcVbB-KWHPwWY3qu_JuhwMxzpAA=w2400'} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                     </div>
                     <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                       <h2 className="card_title forphone forphone2" style={{ width: '100%' }}>{project.title}</h2>
