@@ -8,6 +8,7 @@ import { animateScroll } from "react-scroll";
 
 export default function Workshop() {
   const [workshops, SetWorkshops] = useState([]);
+  const [fetching, setFetching] = useState(1)
   useEffect(() => {
     document.title = `Jigyasa | ${REACT_APP_BASE_TITLE}`;
     animateScroll.scrollToTop()
@@ -15,11 +16,14 @@ export default function Workshop() {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => SetWorkshops(data));
+      .then((data) => {
+        SetWorkshops(data)
+        setFetching(0)
+      });
   }, []);
   return (
     <>
-      <Loading time={1} />
+      <Loading time={1} fetching={fetching} />
       <section className="section1 pagese ">
         <div className="overlaye">
           <div className="containere ">
@@ -134,7 +138,7 @@ export default function Workshop() {
                     className="img-fluid"
                     src={
                       singleNews.pic ||
-                      "https://lh3.googleusercontent.com/T9bjg12M_QXvpPvs4eYdw3VkmrgX0pGTWzFIyyzqQQ_XO_IUetQVyZBxNE80yTLYP0ft3it_S2_sMiY6p7IN7QZa156zFCVqg2qlhQR99MY0hdh83lfWCO3Ymy_nILhckIJj8LOm=w2400"
+                      "https://lh3.googleusercontent.com/KeGUSRLz1rB_jHD09u2KLp7UGC-zTcyFSSrOjv12CNx49f1Irx8OGljn9Az-tFJmaJQ6tuEPG6DCMPQVIyAVhkqGv0ogjyqXsuJQMWYghkvo1yebCArmoa7NO021e3D9LJiNx1ZATQ=w2400"
                     }
                   />
                 </div>

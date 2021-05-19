@@ -33,7 +33,7 @@ export default function WebTeam() {
             year: "2nd",
             branch: "Electronics and Comm. Engg.",
             photo: f3,
-            linkedinId: "https://www.linkedin.com/in/parnab-ghosh-57326118b/",
+            linkedinId: "https://www.linkedin.com/in/parnab-ghosh/",
         },
     ]
 
@@ -55,7 +55,7 @@ export default function WebTeam() {
                         (member, i) =>
                             <div
                                 className="card card-item shadow"
-                                style={{ width: "17rem", minHeight: "29rem", height: "35rem" }}
+                                style={{ width: "17rem", minHeight: '35rem', maxHeight: '35rem' }}
                                 key={i}
                             >
                                 <img

@@ -9,6 +9,7 @@ import SingleProject from "./components/Pages/SingleProject";
 import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
+import Loading from './Animations/Loading'
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ForgetPassword from "./components/Pages/ForgetPassword";
@@ -35,7 +36,6 @@ const About = loadable(() => import("./components/utils/About"));
 const Footer = loadable(() => import("./components/utils/Footer.js"));
 const Sponsorhome = loadable(() => import("./components/utils/Sponsorhome"));
 const ContactUs = loadable(() => import("./components/utils/ContactUs.js"));
-const Loading = loadable(() => import("./Animations/Loading.js"));
 const SharedProj = loadable(() => import("./components/Pages/SharedProj.js"));
 const Landing = loadable(() => import("./Animations/Landing.js"));
 const Testimonials = loadable(() => import("./components/utils/Testimonials"));

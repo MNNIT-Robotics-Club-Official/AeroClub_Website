@@ -52,7 +52,7 @@ function SingleBlog() {
 
   return (
     <div>
-      <Loading time={1} fetching={fetching} />
+      <Loading time={2} fetching={fetching} />
       <div
         className="pagesp singleblog-pagesp"
         style={{
