@@ -41,7 +41,7 @@ export default function News() {
             paddingBottom: "1rem",
             minHeight: '25rem'
           }}>
-          <Container className='col-11 my-5'>
+          <Container className='col-12 my-5'>
             <div className="panel-group news-container" id="accordion" role="tablist" aria-multiselectable="true"
               style={{ margin: "1.5rem" }}>
               {
@@ -61,7 +61,7 @@ export default function News() {
                     </h4>
                   </div>
                   <div id={`collapse${singleNews.id}`} className={`panel-collapse hovit collapse in ${i == 0 ? 'show' : null}`} role="tabpanel" aria-labelledby={singleNews.id}>
-                    <div className="panel-body my-3 mx-4">
+                    <div className="panel-body my-3">
                       <em
                         style={{ fontSize: "small" }}
                       >
@@ -70,7 +70,7 @@ export default function News() {
                       ).toLocaleDateString()}
                       </em>
                     </div>
-                    <div className="panel-body my-5 mx-4" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
+                    <div className="panel-body my-5" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
                   </div>
                 </div>
               ))}
