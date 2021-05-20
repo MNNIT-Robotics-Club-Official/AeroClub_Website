@@ -3,6 +3,7 @@ import Loading from "../../Animations/Loading";
 import "../../css/Alumni.css";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars";
 import { animateScroll } from 'react-scroll'
+import { Link } from 'react-router-dom'
 
 export default function Collaboration() {
   useEffect(() => {
@@ -59,7 +60,7 @@ export default function Collaboration() {
             aerospace sector domains ranging from RC planes to design, from
             aerodynamic analysis to autonomous drones, and then astronomy. We
             are also the birthplace of a fully functional startup,{" "}
-            <a href="https://tsaw.tech/">TSAW</a>. With years of hard work and
+            <a href="https://tsaw.tech/" target="_blank">TSAW</a>. With years of hard work and
             persistence, we have honed our skills in multiple domains in
             aerospace.
           </p>
@@ -85,7 +86,7 @@ export default function Collaboration() {
             passion, and commitment to solving them. We genuinely believe in the
             motto of MNNIT - "Success is born out of action". Since our
             establishment, we have gained expertise in all aspects related to
-            this domain, notably <a href={`/#technologies`}>these</a>.
+            this domain, notably <Link to={`/#technologies`}>these</Link>.
           </p>
         </div>
         <div
