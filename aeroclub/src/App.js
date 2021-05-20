@@ -31,6 +31,7 @@ import Nontech from "./components/Pages/Nontech.js";
 import Sponsors from "./components/Pages/Sponsor";
 import Faculty from "./components/Pages/Faculty.js";
 import FeaturedProjects from "./components/Pages/FeaturedProjects.js";
+import './css/Eventhome.css'
 const Navigbar = loadable(() => import("./components/utils/Navigbar.js"));
 const About = loadable(() => import("./components/utils/About"));
 const Footer = loadable(() => import("./components/utils/Footer.js"));
