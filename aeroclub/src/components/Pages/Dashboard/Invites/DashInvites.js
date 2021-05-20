@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../../../grobalVars";
+import { REACT_APP_SERVER } from "../../../../grobalVars";
 
 export default function Dashprojects(props) {
   const [projects, setProjects] = useState([]);
