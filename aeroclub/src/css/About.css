@@ -4,6 +4,11 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
+.shad{
+  box-shadow: 0px 16px 22px -5px rgba(109, 109, 109, 0.699);
+  /* margin: 20px; */
+}
+
 .col-text {
   height:auto;
 }
@@ -34,15 +39,16 @@ body{
   order: -1;
 }
 .col-text{
-    background-color: rgb(41, 41, 41);
-  display: flex;
+    /* background-color: rgb(41, 41, 41); */
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   -webkit-font-smoothing: antialiased;
 }
 
 .col-text div p {
-  color: rgb(255, 255, 255);
+  padding: 12px;
+  /* color: rgb(255, 255, 255); */
   align-items: center;
   justify-content: center;
   -webkit-font-smoothing: antialiased;
@@ -51,8 +57,13 @@ body{
 .nopad{
   padding: 0 !important;
 }
+.around{
+  /* background-color: rgb(41, 41, 41); */
+  padding: 0rem 1rem 2rem 1rem;
+}
 
 .Aligner-item {
+  margin: auto;
   width: 80%;
 }
 .col-image {

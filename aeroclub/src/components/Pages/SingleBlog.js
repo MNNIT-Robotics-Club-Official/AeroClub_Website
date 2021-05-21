@@ -4,6 +4,7 @@ import "../../css/SingleBlog.css";
 import Loading from "../../Animations/Loading";
 import { Container, Jumbotron, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+import { animateScroll } from "react-scroll";
 
 function SingleBlog() {
   const { blogId } = useParams();
@@ -32,6 +33,9 @@ function SingleBlog() {
   }
 
   useEffect(() => {
+
+    animateScroll.scrollToTop()
+
     fetch(`${REACT_APP_SERVER}/api/blogstoUI/${blogId}`, {
       method: "get",
     })
@@ -102,7 +106,7 @@ function SingleBlog() {
         }}
         className="my-4"
       >
-        <Container className="col-10 col-md-10 col-lg-11 singleblog-contents">
+        <Container className="col-12 col-md-10 col-lg-11 singleblog-contents">
           {
             blog?.pic &&
             <>

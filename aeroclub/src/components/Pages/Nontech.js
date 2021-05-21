@@ -16,10 +16,12 @@ import f12 from "../../images/coordinators&Nontech/Devansh Sethi.jpg";
 import f13 from "../../images/coordinators&Nontech/Hamza Siddiqui.jpg";
 import f14 from "../../images/coordinators&Nontech/Harsh Kumar Singh.jpg";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars"
+import { animateScroll } from "react-scroll";
 
 export default function Nontech() {
   useEffect(() => {
     document.title = `Non-Tech | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
   }, [])
 
   const members = [
@@ -173,7 +175,7 @@ export default function Nontech() {
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={1} />
       <h3 className="my-3 titleBold d-flex justify-content-center topic">
         <p className="" style={{ marginBottom: "0px", textAlign: "center" }}>NON-TECH MEMBERS</p>
       </h3>

@@ -28,6 +28,7 @@ const ContactUs = () => {
 
     if (!name.current.value || !email.current.value || !subject.current.value || !body.current.value) {
       toast.warn('Please specify all the details...!')
+      setLoading(false)
       return
     }
 

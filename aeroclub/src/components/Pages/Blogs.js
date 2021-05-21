@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
+import { Link } from 'react-router-dom'
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 
@@ -10,6 +12,7 @@ function Blogs() {
 
   useEffect(() => {
     document.title = `Blogs | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
     fetch(`${REACT_APP_SERVER}/api/blogs/toUI`, {
       method: "get",
     })
@@ -67,11 +70,11 @@ function Blogs() {
                   data-aos-duration="1500">
                   <div className="card cardproj">
                     <div className="card_image">
-                      <img className="evfeatured" src={blog.pic || 'https://lh3.googleusercontent.com/PPRLO6cS9pz1oyVlPhoHBMH3u9LKlLJEBQ7kJMzziAav-C7GEp9vVpJwfky-hsrlR4h0xisARPSzF19VIPmRb31Wpf6xScPJKOggnz4rPDqSJG9FPr9m-BMyDr9zrABeZ8VsDcm9=w2400'} style={{ width: '100%', minHeight: '16rem' }} />
+                      <img className="evfeatured" src={blog.pic || 'https://lh3.googleusercontent.com/L99OiiIfJs9-r2gT3wIS_yce11s6kcHQ_gAiKkjbxnpjesu6ciqRP9ZTt5Tq8CEyxbY_PHCvSuLFx3UF-dG02PbhP3QaFAi6aL1aAGDTCNzXVGP-rysXXV5Es2xLn8AIwUHYhGx6hw=w2400'} style={{ width: '100%', minHeight: '16rem' }} />
                     </div>
                     <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                       <h2 className="card_title forphone forphone2" style={{ width: '100%', minHeight: '4rem' }}>{blog.title}</h2>
-                      <p className="card_text forphone" style={{ width: '100%', height: '2rem' }}>
+                      <p className="card_text2 forphone" style={{ width: '100%', height: '2rem', textAlign: 'center' }}>
                         <i className="fa fa-user mr-3 ml-1"></i> By{" "}
                         {
                           branch[blog.postedBy.registration_no[4]] === 'NA' || blog.postedBy.year === -1 || blog.postedBy.linkedin_url ===
@@ -102,7 +105,8 @@ function Blogs() {
                       <Button
                         className="btns card_btns"
                         variant="danger"
-                        href={`/blogs/${blog._id}`}
+                        as={Link}
+                        to={`/blogs/${blog._id}`}
                         style={{ marginTop: 10 }}
                       >
                         Read More
@@ -119,6 +123,7 @@ function Blogs() {
                 className="mx-1"
                 variant="danger"
                 onClick={() => {
+                  animateScroll.scrollToTop()
                   SetPage((page) => page - 1);
                 }}
               >
@@ -130,6 +135,7 @@ function Blogs() {
                 variant="danger"
                 className="mx-1"
                 onClick={() => {
+                  animateScroll.scrollToTop()
                   SetPage((page) => page + 1);
                 }}
               >

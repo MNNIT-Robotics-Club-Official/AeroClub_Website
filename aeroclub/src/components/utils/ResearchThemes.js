@@ -3,7 +3,7 @@ import "../../css/ResearchThemes.css";
 
 const ResearchThemes = () => {
   return (
-    <div className="container-fluid" style={{ background: "rgb(29, 29, 29)" }}>
+    <div className="container-fluid shad" style={{ background: "rgb(29, 29, 29)" }}>
       <div
         className="pageTitle titleBold headingc white-headingc"
         data-aos="fade-down"
@@ -21,22 +21,22 @@ const ResearchThemes = () => {
         ></div>
         <div className="row justify-content-center">
           <div
-            className="col-sm-11"
+            className="col-sm-4"
             data-aos="fade-up"
             data-aos-duration="2000"
-            style={{ padding: "0 4rem 0 4rem" }}
+            style={{ padding: "0 1rem 1rem 1rem" }}
           >
             <div
-              className="card text-center"
+              className="card text-center shad2"
               style={{ marginBottom: "1.5rem", width: "auto" }}
             >
               <div
-                className="card-header"
+                className="card-header "
                 style={{
                   fontSize: "1.5rem",
                   background: "rgb(56, 55, 55)",
                   color: "white",
-                  border: "3px solid white",
+                  
                 }}
               >
                 Our Domains
@@ -62,20 +62,23 @@ const ResearchThemes = () => {
           <div className="row justify-content-center">
             <div className="col-sm-10" data-aos="fade-up">
               <div
-                className="card text-center"
+                className="text-center"
                 style={{ marginBottom: "0.5rem", width: "auto" }}
               >
                 <div
-                  className="card-header"
+                  className="card-header2"
                   style={{
                     fontSize: "1.5rem",
-                    background: "rgb(29, 29, 29)",
                     color: "white",
                     // border: "3px solid white",
                   }}
                 >
                   Technologies
                 </div>
+                <div
+          className="miniSep"
+          style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", height: "2px" }}
+        ></div>
               </div>
             </div>
             {/* <div className="row"> */}

@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import "../../css/featured-proj.css";
 import OwlCarousel from 'react-owl-carousel';
 import { REACT_APP_SERVER } from "../../grobalVars";
+import { Link } from "react-router-dom";
 
 export default function Featuredproject() {
   const [projects, SetProjects] = useState([]);
@@ -15,7 +16,7 @@ export default function Featuredproject() {
   }, []);
   return (
     <div className="cont featured-proj my-3">
-      <div className="container-fluid">
+      <div className="container-fluid ">
         <div
           className="pageTitle titleBold headingc white-headingc"
           data-aos="fade-down"
@@ -44,17 +45,18 @@ export default function Featuredproject() {
                       <li className="cards_item" data-aos="fade-up" style={{ width: '100%' }} data-aos="flip-left">
                         <div className="card">
                           <div className="card_image">
-                            <img className="evfeatured" src={project.pic} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
+                            <img className="evfeatured" src={project.pic || 'https://lh3.googleusercontent.com/Qc1N9hR-ovN8PDV6J9NOSF82BlUeEDtng33AUNn52x_8RajvRUOabe9C62hmtuWLRgPyjkXv6VbOG7PES8K3ZzWYFxyLuJSGIihC-_tc5kFsEiomcVbB-KWHPwWY3qu_JuhwMxzpAA=w2400'} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
                           </div>
                           <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                             <h2 className="card_title forphone forphone2" style={{ width: '100%' }}>{project.title}</h2>
-                            <p className="card_text forphone forphone3" style={{ width: '100%' }}>
-                              <strong>OBJECTIVE</strong> : {project.objective} <br /> <br />
+                            <p className="card_text forphone forphone3 scrollerproj" id="style-401" style={{ width: '100%' }}>
+                              {project.objective}
                             </p>
                             <Button
                               className="btns card_btns"
                               variant="danger"
-                              href={`projects/${project._id}`}
+                              as={Link}
+                              to={`/projects/${project._id}`}
                             >
                               Read More
                             </Button>

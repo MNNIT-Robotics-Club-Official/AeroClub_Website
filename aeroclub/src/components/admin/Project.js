@@ -26,13 +26,11 @@ import {
   ReferenceInput,
   ReferenceField,
   ChipField,
-  SingleFieldList,
-  UrlField,
+  SingleFieldList
 } from "react-admin";
 
 import TextArrayField from "./TextArrayField";
 import RichTextQuill from "./RichTextQuill";
-import { REACT_APP_SERVER } from "../../grobalVars";
 import ShareLink from "./ShareLink";
 import ShareField from "./ShareField";
 

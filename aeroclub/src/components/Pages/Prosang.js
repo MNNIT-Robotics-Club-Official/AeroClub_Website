@@ -2,23 +2,18 @@ import React, { useEffect } from "react";
 import Loading from "../../Animations/Loading";
 import "../../css/Event.css";
 import pro from "../../images/utils/Prosangnew.png";
-import Daksha from "../../images/Events/Daksha.jpg"
-import Smarthome from "../../images/Events/Smarthome.jpg"
-import Guardian from "../../images/Events/Guardian.jpg"
-import Blueprint from "../../images/Events/Blueprint.jpg"
-import Idea from "../../images/Events/Idea.jpg"
-import CodeWarz from "../../images/Events/CodeWarz.jpg"
-import { Jumbotron, NavDropdown } from "react-bootstrap";
-import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
+import { REACT_APP_BASE_TITLE } from "../../grobalVars"
+import { animateScroll } from "react-scroll";
 
 export default function Prosang() {
     useEffect(() => {
         document.title = `Prosang | ${REACT_APP_BASE_TITLE}`;
+        animateScroll.scrollToTop()
     }, [])
 
     return (
         <>
-            <Loading time={2} />
+            <Loading time={1} />
             <section className="section1 pagese ">
                 <div className="overlaye">
                     <div className="containere ">

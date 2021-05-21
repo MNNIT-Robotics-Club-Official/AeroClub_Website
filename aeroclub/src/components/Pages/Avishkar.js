@@ -6,15 +6,17 @@ import Phantom from "../../images/Events/Phantom.PNG";
 import guardian from "../../images/Events/guardian2.PNG";
 import lostinspace from "../../images/Events/lostinspace.PNG";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars";
+import { animateScroll } from "react-scroll";
 
 export default function Avishkar() {
   useEffect(() => {
     document.title = `Avishkar | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
   }, []);
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={1} />
       <section className="section1 pagese ">
         <div className="overlaye">
           <div className="containere ">
@@ -85,15 +87,16 @@ export default function Avishkar() {
                   className="bgBox phonev"
                   style={{
                     padding: "2px",
+                    border: "3px solid rgb(204, 67, 67)",
                     borderRadius: "8px",
                     margin: "2em",
                     fontSize: "14px",
                   }}
                 >
-                  <div>
+                  <div style={{ padding: "10px" }}>
                     <p
-                      className="text-gray-700 texte px-5"
-                      style={{ fontSize: "24px" }}
+                      className="text-gray-700 texte"
+                      style={{ fontSize: "16px" }}
                     >
                       <i>
                         Avishkar is MNNIT's annual techno-management festival
@@ -111,16 +114,16 @@ export default function Avishkar() {
           </div>
 
           <div
-            className="bgBox px-5"
+            className="bgBox"
             style={{
-              //   border: "3px solid rgb(204, 67, 67)",
+                border: "3px solid rgb(204, 67, 67)",
               borderRadius: "8px",
               margin: "2em",
               fontSize: "14px",
             }}
           >
             <div style={{ padding: "10px" }} className="texte">
-              <p className="text-gray-700" style={{ fontSize: "24px" }}>
+              <p className="text-gray-700" style={{ fontSize: "16px" }}>
                 <i>
                   All the college departments and technical clubs of MNNIT
                   conduct multiple exciting competitions during Avishkar, which
@@ -130,7 +133,7 @@ export default function Avishkar() {
                   Create"</b> spirit amongst budding technocrats.{" "}
                 </i>
               </p>
-              <p className="text-gray-700" style={{ fontSize: "24px" }}>
+              <p className="text-gray-700" style={{ fontSize: "16px" }}>
                 <i>
                   Apart from these competitions, many inspiring talks by eminent
                   people in the industry and academia and other activities also
@@ -142,14 +145,14 @@ export default function Avishkar() {
           </div>
           <div className="cont featured-proj">
             <div className="main px-5">
-              <h4 className="px-5" style={{ textAlign: "justify" }}>
+              {/* <h4 className="px-5" style={{ textAlign: "justify" }}>
                 <span style={{ fontWeight: "bold", color: "#D73C41" }}>
                   As a technical club, Aeroclub MNNIT organizes four events
                   competitions during Avishkar under the name Aerodynamix:
                 </span>
                 <br></br>
                 <br></br>
-              </h4>
+              </h4> */}
               <ul className="cards">
                 <li
                   className="cards_item"

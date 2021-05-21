@@ -3,24 +3,29 @@ import { Container, Jumbotron } from "react-bootstrap";
 import Loading from "../../Animations/Loading";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 import "../../css/news.css";
+import { animateScroll } from "react-scroll";
 
 export default function News() {
 
   const [news, SetNews] = useState([]);
+  const [fetching, setFetching] = useState(1)
 
   useEffect(() => {
     document.title = `Updates | ${REACT_APP_BASE_TITLE}`;
+    animateScroll.scrollToTop()
     fetch(`${REACT_APP_SERVER}/api/news/public`, {
       method: "get",
     })
       .then((res) => res.json())
-      .then((data) => SetNews(data));
-  }
-    , [news]);
+      .then((data) => {
+        SetNews(data)
+        setFetching(0);
+      });
+  }, []);
 
   return (
     <>
-      <Loading time={2} />
+      <Loading time={2} fetching={fetching} />
       <div>
         <div className="pagesg">
           <div className="overlayg">
@@ -36,7 +41,7 @@ export default function News() {
             paddingBottom: "1rem",
             minHeight: '25rem'
           }}>
-          <Container className='col-11 my-5'>
+          <Container className='col-12 my-5'>
             <div className="panel-group news-container" id="accordion" role="tablist" aria-multiselectable="true"
               style={{ margin: "1.5rem" }}>
               {
@@ -55,8 +60,8 @@ export default function News() {
                       </a>
                     </h4>
                   </div>
-                  <div id={`collapse${singleNews.id}`} className={`panel-collapse collapse in ${i == 0 ? 'show' : null}`} role="tabpanel" aria-labelledby={singleNews.id}>
-                    <div className="panel-body my-3 mx-4">
+                  <div id={`collapse${singleNews.id}`} className={`panel-collapse hovit collapse in ${i == 0 ? 'show' : null}`} role="tabpanel" aria-labelledby={singleNews.id}>
+                    <div className="panel-body my-3">
                       <em
                         style={{ fontSize: "small" }}
                       >
@@ -65,7 +70,7 @@ export default function News() {
                       ).toLocaleDateString()}
                       </em>
                     </div>
-                    <div className="panel-body my-5 mx-4" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
+                    <div className="panel-body my-5" dangerouslySetInnerHTML={{ __html: singleNews.body }}></div>
                   </div>
                 </div>
               ))}

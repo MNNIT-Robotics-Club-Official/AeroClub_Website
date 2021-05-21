@@ -1,8 +1,16 @@
 import React from "react";
+import { animateScroll } from "react-scroll";
 import "../css/Landing.css";
+import { REACT_APP_BASE_TITLE } from "../grobalVars";
 import m from "../images/utils/logo-aero2.png";
 
 class Landing extends React.Component {
+
+  componentDidMount() {
+    document.title = `${REACT_APP_BASE_TITLE}`
+    animateScroll.scrollToTop()
+  }
+
   render() {
     return (
       <div className="container-fluid">

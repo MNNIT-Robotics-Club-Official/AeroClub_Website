@@ -3,13 +3,11 @@ import {
   BooleanInput,
   ChipField,
   Create,
-  CreateButton,
   Datagrid,
   DeleteButton,
   Edit,
   EditButton,
   List,
-  NumberField,
   ReferenceArrayField,
   SelectInput,
   Show,
@@ -19,8 +17,7 @@ import {
   SingleFieldList,
   TextField,
   TextInput,
-  required,
-  NumberInput
+  required
 } from "react-admin";
 import { useSelector } from "react-redux";
 

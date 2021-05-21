@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { animateScroll } from "react-scroll";
 import { toast } from "react-toastify";
 import { REACT_APP_SERVER } from "../../../../grobalVars";
 
@@ -23,6 +24,7 @@ export default function DashProfile() {
       setRegis_no(user.registration_no);
       setYear(user.year);
       setLinkedin(user.linkedin_url);
+      animateScroll.scrollToTop()
     }
   }, [user]);
 
@@ -32,12 +34,14 @@ export default function DashProfile() {
     })
       .then((res) => res.json())
       .then((data) => {
-        localStorage.removeItem("jwtToken");
-        localStorage.removeItem("role");
-        dispatch({ type: "CLEAR" });
-        history.push("/");
-        window.location.reload();
         toast.success(data.message);
+        setTimeout(() => {
+          localStorage.removeItem("jwtToken");
+          localStorage.removeItem("role");
+          dispatch({ type: "CLEAR" });
+          history.push("/");
+          window.location.reload();
+        }, 1000)
       });
   };
 
@@ -221,7 +225,7 @@ export default function DashProfile() {
       </Button>
       {user?.role !== "User" && (
         <Button
-          href="/1208e2fe-b5f6-439b-94e0-aef5dde3b777/admin"
+          href="/76564a9c-4842-49ce-83a4-a0eb4a54c382/admin"
           target="_blank"
           variant="danger"
           className="mx-1"

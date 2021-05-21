@@ -4,6 +4,7 @@ import "../../css/SingleProject.css";
 import Loading from "../../Animations/Loading";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 import $ from 'jquery'
+import { animateScroll } from "react-scroll";
 
 function SingleProject() {
   const { projectId } = useParams();
@@ -23,6 +24,8 @@ function SingleProject() {
         }
       });
     });
+
+    animateScroll.scrollToTop()
 
     fetch(`${REACT_APP_SERVER}/api/projects/${projectId}`, {
       method: "get",
@@ -90,7 +93,7 @@ function SingleProject() {
                   member.accepted ? (
                     <li>
                       {member.user.linkedin_url ? (
-                        <a href={member.user.linkedin_url}>{member.user.name}</a>
+                        <a href={member.user.linkedin_url} target="_blank">{member.user.name}</a>
                       ) : (
                         <span>{member.user.name}</span>
                       )}
