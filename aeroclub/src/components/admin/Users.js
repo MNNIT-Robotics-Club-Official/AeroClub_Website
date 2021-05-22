@@ -17,15 +17,18 @@ import {
   SingleFieldList,
   TextField,
   TextInput,
-  required
+  required,
+  Pagination
 } from "react-admin";
 import { useSelector } from "react-redux";
+
+const PostPagination = props => <Pagination rowsPerPageOptions={[10, 25, 50, 100]} {...props} />;
 
 export const UserList = (props) => {
   const user = useSelector((state) => state.user);
 
   return (
-    <List {...props} bulkActionButtons={false}>
+    <List {...props} bulkActionButtons={false} pagination={<PostPagination />}>
       <Datagrid>
         <TextField source="name" />
         <TextField source="email" />

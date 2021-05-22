@@ -86,7 +86,7 @@ export default function Collaboration() {
             passion, and commitment to solving them. We genuinely believe in the
             motto of MNNIT - "Success is born out of action". Since our
             establishment, we have gained expertise in all aspects related to
-            this domain, notably <Link to={`/#technologies`}>these</Link>.
+            this domain, notably <Link to={{ pathname: '/', state: { scrollToRT: true } }}>these</Link>.
           </p>
         </div>
         <div

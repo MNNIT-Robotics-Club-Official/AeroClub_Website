@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router";
 import { animateScroll } from "react-scroll";
 import "../css/Landing.css";
 import { REACT_APP_BASE_TITLE } from "../grobalVars";
 import m from "../images/utils/logo-aero2.png";
+import Loading from "./Loading";
 
-class Landing extends React.Component {
+const Landing = () => {
 
-  componentDidMount() {
+  const { state } = useLocation()
+
+  useEffect(() => {
     document.title = `${REACT_APP_BASE_TITLE}`
-    animateScroll.scrollToTop()
-  }
+    if (!state?.scrollToRT)
+      animateScroll.scrollToTop()
+  }, [])
 
-  render() {
-    return (
+  return (
+    <>
+      <Loading time={1} />
       <div className="container-fluid">
         <div className="pagesl">
           <div className="landing d-flex align-items-center justify-content-start">
@@ -29,8 +35,9 @@ class Landing extends React.Component {
           </div>
         </div>
       </div>
-    );
-  }
+    </>
+  );
 }
+
 
 export default Landing;
