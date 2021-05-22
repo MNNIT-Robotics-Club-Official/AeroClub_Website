@@ -74,7 +74,7 @@ function Blogs() {
                     </div>
                     <div className="card_content forphone forphone1" style={{ width: '100%' }}>
                       <h2 className="card_title forphone forphone2" style={{ width: '100%', minHeight: '4rem' }}>{blog.title}</h2>
-                      <p className="card_text forphone" style={{ width: '100%', height: '2rem', textAlign: 'initial' }}>
+                      <p className="card_text2 forphone" style={{ width: '100%', height: '2rem', textAlign: 'center' }}>
                         <i className="fa fa-user mr-3 ml-1"></i> By{" "}
                         {
                           branch[blog.postedBy.registration_no[4]] === 'NA' || blog.postedBy.year === -1 || blog.postedBy.linkedin_url ===
