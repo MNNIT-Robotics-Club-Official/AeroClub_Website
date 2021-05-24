@@ -4,7 +4,6 @@ import { animateScroll } from "react-scroll";
 import "../css/Landing.css";
 import { REACT_APP_BASE_TITLE } from "../grobalVars";
 import m from "../images/utils/logo-aero2.png";
-import Loading from "./Loading";
 
 const Landing = () => {
 
@@ -18,7 +17,6 @@ const Landing = () => {
 
   return (
     <>
-      <Loading time={1} />
       <div className="container-fluid">
         <div className="pagesl">
           <div className="landing d-flex align-items-center justify-content-start">

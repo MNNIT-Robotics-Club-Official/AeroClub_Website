@@ -31,6 +31,7 @@ import Sponsors from "./components/Pages/Sponsor";
 import Faculty from "./components/Pages/Faculty.js";
 import FeaturedProjects from "./components/Pages/FeaturedProjects.js";
 import './css/Eventhome.css'
+import Loading from './Animations/Loading.js';
 const Navigbar = loadable(() => import("./components/utils/Navigbar.js"));
 const About = loadable(() => import("./components/utils/About"));
 const Footer = loadable(() => import("./components/utils/Footer.js"));
@@ -100,6 +101,7 @@ function App() {
           <Navigbar />
           <Switch>
             <Route path="/" exact>
+              <Loading time={1} />
               <Landing />
               <About />
               <Featuredproject />

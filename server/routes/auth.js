@@ -17,7 +17,7 @@ const {
 router.post(
   "/signup",
   [
-    check("name", "name should be at least 3 char").isLength({ min: 3 }),
+    check("name", "name should be at least 3 characters").isLength({ min: 3 }),
     body("email").custom((email) => {
       if (/^[A-Za-z0-9._%+-]+@mnnit.ac.in$/.test(email)) return true;
       throw new Error("Invalid email type !");
