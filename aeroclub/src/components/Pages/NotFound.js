@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
 import Particles from "react-particles-js";
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
   useEffect(() => {
@@ -46,9 +47,9 @@ export default function NotFound() {
         <p className="text-center" style={{ fontWeight: "bold" }}>
           The page you are looking for is not found ⚠
         </p>
-        <a className="btn btn-danger" style={{ alignItems: "center" }} href="/">
+        <Link className="btn btn-danger" style={{ alignItems: "center" }} to="/">
           Back to Home
-        </a>
+        </Link>
       </div>
 
     </div>
