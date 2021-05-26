@@ -93,7 +93,7 @@ export default function ProjPreview({ project }) {
                     <iframe
                       width="889px"
                       height="500"
-                      src={`https://www.youtube.com/embed/${project?.ytID}`}
+                      src={`${project?.ytID}`}
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
