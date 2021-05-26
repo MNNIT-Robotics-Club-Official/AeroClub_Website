@@ -4,9 +4,9 @@ import "../../../../css/CreateBlog.css";
 import "../../../../css/SingleBlog.css";
 import { REACT_APP_SERVER } from "../../../../grobalVars"
 import { Button, Container, Jumbotron, OverlayTrigger, Tab, Tabs, Tooltip } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
 import DashQuill from "../DashQuill";
 import { v4 } from 'uuid'
+import { useSelector, useDispatch } from "react-redux";
 
 export default function CreateBlog() {
   const user = useSelector(state => state.user)
@@ -65,7 +65,7 @@ export default function CreateBlog() {
         setPic('')
         document.getElementById('collapsecreateblog').classList.remove('show')
         setLoading(false);
-        dispatch({ type: "UPDATE_BLOG", payload: { ...data, _id: data.id } });
+        dispatch({ type: "CREATE_BLOG", payload: { ...data, _id: data.id } });
         toast.success(
           "Blog has been sent for confirmation...Till then stay tuned !"
         );
@@ -115,7 +115,6 @@ export default function CreateBlog() {
               </div>
               <div className="d-flex justify-content-center align-items-center">
                 <Button
-                  className="create-btn"
                   size='lg'
                   variant="primary"
                   onClick={handleCreateBlog}

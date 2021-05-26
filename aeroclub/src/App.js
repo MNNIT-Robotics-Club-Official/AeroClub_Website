@@ -1,6 +1,6 @@
 import loadable from '@loadable/component'
 import React, { useEffect } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 import AdminComp from "./components/admin/AdminComp.js";
 import Alumni from "./components/Pages/Alumni.js";
 import Login from "./components/Pages/Login";
@@ -9,7 +9,6 @@ import SingleProject from "./components/Pages/SingleProject";
 import Blogs from "./components/Pages/Blogs";
 import SingleBlog from "./components/Pages/SingleBlog";
 import Signup from "./components/Pages/Signup";
-import Loading from './Animations/Loading'
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ForgetPassword from "./components/Pages/ForgetPassword";
@@ -32,6 +31,7 @@ import Sponsors from "./components/Pages/Sponsor";
 import Faculty from "./components/Pages/Faculty.js";
 import FeaturedProjects from "./components/Pages/FeaturedProjects.js";
 import './css/Eventhome.css'
+import Loading from './Animations/Loading.js';
 const Navigbar = loadable(() => import("./components/utils/Navigbar.js"));
 const About = loadable(() => import("./components/utils/About"));
 const Footer = loadable(() => import("./components/utils/Footer.js"));
@@ -45,15 +45,6 @@ const ResearchThemes = loadable(() => import("./components/utils/ResearchThemes.
 
 function App() {
 
-  useEffect(() => {
-    const { hash } = window.location;
-    if (hash !== "") {
-      let id = hash.replace("#/", "");
-      const element = document.getElementById(id);
-      if (element)
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, []);
   return (
     <div className="App">
       <ToastContainer

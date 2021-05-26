@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useLocation } from "react-router";
 import "../../css/ResearchThemes.css";
 
 const ResearchThemes = () => {
+
+  const { state } = useLocation()
+  const researchRef = useRef(null)
+
+  useEffect(() => {
+    if (state?.scrollToRT)
+      researchRef.current.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  }, [])
+
   return (
-    <div className="container-fluid shad" style={{ background: "rgb(29, 29, 29)" }}>
+    <div className="container-fluid shad" ref={researchRef} style={{ background: "rgb(29, 29, 29)" }}>
       <div
         className="pageTitle titleBold headingc white-headingc"
         data-aos="fade-down"
@@ -36,7 +46,7 @@ const ResearchThemes = () => {
                   fontSize: "1.5rem",
                   background: "rgb(56, 55, 55)",
                   color: "white",
-                  
+
                 }}
               >
                 Our Domains
@@ -76,9 +86,9 @@ const ResearchThemes = () => {
                   Technologies
                 </div>
                 <div
-          className="miniSep"
-          style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", height: "2px" }}
-        ></div>
+                  className="miniSep"
+                  style={{ marginBottom: "40px", background: "rgb(204, 67, 67)", height: "2px" }}
+                ></div>
               </div>
             </div>
             {/* <div className="row"> */}
@@ -94,7 +104,7 @@ const ResearchThemes = () => {
                 <div
                   className="card-body cardbd bgchange"
                   style={{
-                    
+
                     borderRadius: "10px",
                     margin: "2px",
                   }}
@@ -139,7 +149,7 @@ const ResearchThemes = () => {
                 <div
                   className="card-body cardbd bgchange"
                   style={{
-                    
+
                     borderRadius: "10px",
                     margin: "2px",
                   }}
@@ -186,7 +196,7 @@ const ResearchThemes = () => {
                 <div
                   className="card-body cardbd bgchange"
                   style={{
-                    
+
                     borderRadius: "10px",
                     margin: "2px",
                   }}
@@ -226,7 +236,7 @@ const ResearchThemes = () => {
                 <div
                   className="card-body cardbd bgchange"
                   style={{
-                    
+
                     borderRadius: "10px",
                     margin: "2px",
                   }}
@@ -267,7 +277,7 @@ const ResearchThemes = () => {
                 <div
                   className="card-body cardbd bgchange"
                   style={{
-                   
+
                     borderRadius: "10px",
                     margin: "2px",
                   }}
@@ -308,7 +318,7 @@ const ResearchThemes = () => {
                 <div
                   className="card-body cardbd bgchange"
                   style={{
-                    
+
                     borderRadius: "10px",
                     margin: "2px",
                   }}
