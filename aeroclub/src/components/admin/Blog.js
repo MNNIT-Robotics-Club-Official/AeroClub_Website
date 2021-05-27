@@ -66,7 +66,7 @@ export const BlogCreate = (props) => {
           defaultValue={new Date()}
         />
         <BooleanInput source="accepted" />
-        <ReferenceInput label="Accepted By" source="acceptedBy" reference="users">
+        <ReferenceInput label="Accepted By" source="acceptedBy" reference="users" >
           <SelectInput optionText="email" validate={required()} />
         </ReferenceInput>
       </SimpleForm>

@@ -26,7 +26,7 @@ import {
   ReferenceInput,
   ReferenceField,
   ChipField,
-  SingleFieldList
+  SingleFieldList,
 } from "react-admin";
 
 import TextArrayField from "./TextArrayField";
