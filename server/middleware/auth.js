@@ -148,7 +148,7 @@ exports.resetPassword = (req, res) => {
   const token = authorization.replace("Bearer ", "");
 
   jwt.verify(token, process.env.FORGET_SECRET, (err, payload) => {
-    if (err) res.status(401).json({ error: 'Unauthorized or Session expired !' });
+    if (err) return res.status(401).json({ error: 'Unauthorized or Session expired !' });
     const { _id } = payload;
 
     User.findById(_id).exec((err, user) => {

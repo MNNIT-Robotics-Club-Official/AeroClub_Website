@@ -46,7 +46,7 @@ export default function NotFound() {
         <p className="text-center" style={{ fontWeight: "bold" }}>
           The page you are looking for is not found ⚠
         </p>
-        <a className="btn btn-danger" style={{ alignItems: "center" }} to="/">
+        <a className="btn btn-danger" style={{ alignItems: "center" }} href="/">
           Back to Home
         </a>
       </div>
