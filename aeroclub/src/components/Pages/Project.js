@@ -5,15 +5,21 @@ import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
+import { useDispatch, useSelector } from 'react-redux'
 
 function Projects() {
   const [projects, SetProjects] = useState([]);
-  const [signedin, setsignedin] = useState(false);
+  const [signedin, setsignedin] = useState(false)
   const [fetching, setFetching] = useState(1)
+  const scrollId = useSelector(state => state.scrollId)
+  const page = useSelector(state => state.page)
+  const dispatch = useDispatch()
+  const projects_per_page = 9;
+  const no_of_pages = Math.ceil(projects.length / projects_per_page);
 
   useEffect(() => {
     document.title = `Projects | ${REACT_APP_BASE_TITLE}`;
-    animateScroll.scrollToTop()
+    if (!scrollId) animateScroll.scrollToTop()
     fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
@@ -39,9 +45,15 @@ function Projects() {
       });
   }, []);
 
-  const [page, SetPage] = useState(1);
-  const projects_per_page = 9;
-  const no_of_pages = Math.ceil(projects.length / projects_per_page);
+  useEffect(() => {
+    if (document.getElementById(scrollId)) {
+      document.getElementById(scrollId).scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'center'
+      });
+    }
+  }, [document.getElementById(scrollId)])
 
   return (
     <>
@@ -69,6 +81,7 @@ function Projects() {
                   data-aos-easing="linear"
                   data-aos-duration="1500"
                   key={project._id}
+                  id={project._id}
                 >
                   <div className="card cardproj">
                     <div className="card_image">
@@ -106,6 +119,7 @@ function Projects() {
                         as={Link}
                         to={`/projects/${project._id}`}
                         style={{ marginTop: 10 }}
+                        onClick={() => dispatch({ type: "SET_ID", payload: project._id })}
                       >
                         Read More
                       </Button>
@@ -121,7 +135,7 @@ function Projects() {
                 variant="danger"
                 onClick={() => {
                   animateScroll.scrollToTop()
-                  SetPage((page) => page - 1);
+                  dispatch({ type: "SET_PAGE", payload: page - 1 })
                 }}
               >
                 <i className="fa fa-angle-double-left"></i> Previous
@@ -133,7 +147,7 @@ function Projects() {
                 className="mx-1"
                 onClick={() => {
                   animateScroll.scrollToTop()
-                  SetPage((page) => page + 1);
+                  dispatch({ type: "SET_PAGE", payload: page + 1 })
                 }}
               >
                 Next <i className="fa fa-angle-double-right"></i>

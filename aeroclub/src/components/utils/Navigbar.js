@@ -4,12 +4,14 @@ import "../../css/navbar.css";
 import im1 from "../..//images/utils/logo-aero2.png";
 import { ExitToApp, PermIdentity } from '@material-ui/icons'
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 export default function Navigbar() {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
   const [show4, setShow4] = useState(false);
+  const dispatch = useDispatch()
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("jwtToken") ? true : false
   );
@@ -51,6 +53,10 @@ export default function Navigbar() {
         variant="light"
         className="style top-bottom"
         id="navbar"
+        onSelect={() => {
+          dispatch({ type: "CLEAR_PAGE" })
+          dispatch({ type: "CLEAR_ID" })
+        }}
       >
         <Navbar.Brand as={Link} to="/" className="title-nav">
           <img className="logoimg" src={im1} />
@@ -66,7 +72,7 @@ export default function Navigbar() {
               onTouchEnd={() => setShow4(!show3)}
               show={show4}
             >
-              <NavDropdown.Item as={Link} eventKey="featuredp" active={false} to="/projects/featured">Flagship Projects</NavDropdown.Item>
+              <NavDropdown.Item as={Link} eventKey="featuredp" active={false} to="/projects/featured" >Flagship Projects</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} eventKey="otherp" active={false} to="/projects">Other Projects</NavDropdown.Item>
             </NavDropdown>

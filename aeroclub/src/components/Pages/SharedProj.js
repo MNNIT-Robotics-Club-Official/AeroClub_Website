@@ -70,8 +70,8 @@ function SharedProj() {
               Components and Technologies Used
             </h3>
             <div className="d-flex px-5 flex-wrap">
-              {project?.compTech?.map((x) => (
-                <div
+              {project?.compTech?.map((x, i) => (
+                <div key={i}
                   className="d-inline px-3 py-2 m-1"
                   style={{
                     border: "2px solid #dec3c3",
@@ -95,9 +95,9 @@ function SharedProj() {
             <div>
               <h3 className="my-3 subheaders">Project By: </h3>
               <ul className="px-5">
-                {project?.members?.map((member) =>
+                {project?.members?.map((member, i) =>
                   member.accepted ? (
-                    <li>
+                    <li key={i}>
                       {member.user.linkedin_url ? (
                         <a href={member.user.linkedin_url} target="_blank">
                           {member.user.name}

@@ -5,17 +5,22 @@ import { animateScroll } from "react-scroll";
 import Loading from "../../Animations/Loading";
 import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars"
-
+import { useDispatch, useSelector } from 'react-redux'
 
 function FeaturedProjects() {
 
   const [projects, SetProjects] = useState([]);
   const [signedin, setsignedin] = useState(false)
   const [fetching, setFetching] = useState(1)
+  const scrollId = useSelector(state => state.scrollId)
+  const page = useSelector(state => state.page)
+  const dispatch = useDispatch()
+  const projects_per_page = 9;
+  const no_of_pages = Math.ceil(projects.length / projects_per_page);
 
   useEffect(() => {
     document.title = `Flagship Projects | ${REACT_APP_BASE_TITLE}`;
-    animateScroll.scrollToTop()
+    if (!scrollId) animateScroll.scrollToTop()
     fetch(`${REACT_APP_SERVER}/api/isSignedIn`, {
       method: "post",
       headers: {
@@ -41,9 +46,15 @@ function FeaturedProjects() {
       });
   }, []);
 
-  const [page, SetPage] = useState(1);
-  const projects_per_page = 9;
-  const no_of_pages = Math.ceil(projects.length / projects_per_page);
+  useEffect(() => {
+    if (document.getElementById(scrollId)) {
+      document.getElementById(scrollId).scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'center'
+      });
+    }
+  }, [document.getElementById(scrollId)])
 
   return (
     <>
@@ -66,7 +77,7 @@ function FeaturedProjects() {
               .map((project) =>
               (
                 <li className="cards_item" data-aos="fade-up" data-aos="flip-left" data-aos-easing="linear"
-                  data-aos-duration="1500" key={project._id}>
+                  data-aos-duration="1500" key={project._id} id={project._id}>
                   <div className="card cardproj">
                     <div className="card_image">
                       <img className="evfeatured" src={project.pic || 'https://lh3.googleusercontent.com/Qc1N9hR-ovN8PDV6J9NOSF82BlUeEDtng33AUNn52x_8RajvRUOabe9C62hmtuWLRgPyjkXv6VbOG7PES8K3ZzWYFxyLuJSGIihC-_tc5kFsEiomcVbB-KWHPwWY3qu_JuhwMxzpAA=w2400'} style={{ width: '100%', maxHeight: '18rem', minHeight: '18rem' }} />
@@ -82,6 +93,7 @@ function FeaturedProjects() {
                         as={Link}
                         to={`/projects/${project._id}`}
                         style={{ marginTop: 10 }}
+                        onClick={() => dispatch({ type: "SET_ID", payload: project._id })}
                       >
                         Read More
                   </Button>
@@ -98,7 +110,7 @@ function FeaturedProjects() {
                 variant="danger"
                 onClick={() => {
                   animateScroll.scrollToTop()
-                  SetPage((page) => page - 1);
+                  dispatch({ type: "SET_PAGE", payload: page - 1 })
                 }}
               >
                 <i className="fa fa-angle-double-left"></i> Previous
@@ -110,7 +122,7 @@ function FeaturedProjects() {
                 className="mx-1"
                 onClick={() => {
                   animateScroll.scrollToTop()
-                  SetPage((page) => page + 1);
+                  dispatch({ type: "SET_PAGE", payload: page + 1 })
                 }}
               >
                 Next <i className="fa fa-angle-double-right"></i>
