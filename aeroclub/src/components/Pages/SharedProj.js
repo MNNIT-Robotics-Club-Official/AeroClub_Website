@@ -5,13 +5,12 @@ import "../../css/featured-proj.css";
 import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 import $ from "jquery";
 import { animateScroll } from "react-scroll";
-
+import {getId} from "../../utilities.js";
 function SharedProj() {
   const { shareId } = useParams();
   const [fetching, setFetching] = useState(1)
   const [project, setProject] = useState(undefined);
   const history = useHistory();
-
   useEffect(() => {
     $(document).ready(function () {
       $("#collapsebtn").on("click", function () {
@@ -118,7 +117,7 @@ function SharedProj() {
               <iframe
                 width="889px"
                 height="500"
-                src={`https://www.youtube.com/embed/${project?.ytID}`}
+                src={`https://www.youtube.com/embed/${getId(project?.ytID)}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
