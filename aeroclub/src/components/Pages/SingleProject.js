@@ -6,6 +6,17 @@ import { REACT_APP_BASE_TITLE, REACT_APP_SERVER } from "../../grobalVars";
 import $ from "jquery";
 import { animateScroll } from "react-scroll";
 
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
+
 function SingleProject() {
   const { projectId } = useParams();
   const [project, setProject] = useState(undefined);
@@ -118,7 +129,7 @@ function SingleProject() {
               <iframe
                 width="889px"
                 height="500"
-                src={`${project?.ytID}`}
+                src={`https://www.youtube.com/embed/${getId(project?.ytID)}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

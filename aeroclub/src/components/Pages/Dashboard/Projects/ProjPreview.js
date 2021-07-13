@@ -1,6 +1,15 @@
 import React from "react";
 import { Accordion, Card, Button, Modal, Form } from "react-bootstrap";
+function getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
 
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
 export default function ProjPreview({ project }) {
   return (
     <div>
@@ -93,7 +102,7 @@ export default function ProjPreview({ project }) {
                     <iframe
                       width="889px"
                       height="500"
-                      src={`${project?.ytID}`}
+                      src={`https://www.youtube.com/embed/${getId(project?.ytID)}`}
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
