@@ -6,7 +6,7 @@ frontend - home,gallery,login,signup,admin-panel,alumni,blogs,projects,component
 
 backend - CRUD for blog,component,projects,users; authentication and authorization for login,signup.
 
-# Steps to run this application your local machine
+# Steps to run this application on your local machine
 
 1) Install nodejs on your machine.
 2) Go to server and aeroclub folder separately and open cmd in respective directories and run "npm install" command ---> it will install all the required packages.
