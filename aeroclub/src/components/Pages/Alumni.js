@@ -14,6 +14,11 @@ import f10 from "../../images/alumni/sarita chaudhary1.jpeg";
 import f11 from "../../images/alumni/unnamed.jpg";
 import f12 from "../../images/alumni/Kishan Tiwari.jfif";
 import f13 from "../../images/alumni/Aniket Kumar.jpg";
+import f14 from "../../images/alumni/Bhuvan Jhumb.jpg";
+import f15 from "../../images/alumni/Apoorva Dinesh Singh.jpg";
+import f16 from "../../images/alumni/Archit Chaudhary.jpg";
+import f17 from "../../images/alumni/Ayan Santania.jpg";
+import f18 from "../../images/alumni/ABHISHEK GAUTAM.jpg";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars"
 import { animateScroll } from "react-scroll";
 
@@ -151,6 +156,56 @@ export default function Alumni() {
       yourContactInformationPhoneNumber: 7905461842,
       aPhotoForWebsiteOfYourself: f13,
     },
+    {
+      name: "Bhuvan Jhamb",
+      yearOfGraduation: 2021,
+      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentLocation: "Indore, Madhya Pradesh",
+      yourLinkedinId: "https://www.linkedin.com/in/bhuvanjhamb",
+      yourContactInformationEmail: "bhuvanjhamb29@gmail.com",
+      yourContactInformationPhoneNumber: 999999999,
+      aPhotoForWebsiteOfYourself: f14,
+    },
+    {
+      name: "Apoorva Dinesh Singh",
+      yearOfGraduation: 2021,
+      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentLocation: "Indore, Madhya Pradesh",
+      yourLinkedinId: "https://www.linkedin.com/in/apoorva-singh-0111",
+      yourContactInformationEmail: "apoorva011199@gmail.com",
+      yourContactInformationPhoneNumber: 999999999,
+      aPhotoForWebsiteOfYourself: f15,
+    },
+    {
+      name: "ARCHIT CHAUDHARY",
+      yearOfGraduation: 2021,
+      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentLocation: "Indore, Madhya Pradesh",
+      yourLinkedinId: "https://www.linkedin.com/in/archit-chaudhary-010a78164/",
+      yourContactInformationEmail: "chaudharyarchit2000@gmail.com",
+      yourContactInformationPhoneNumber: 999999999,
+      aPhotoForWebsiteOfYourself: f16,
+    },
+    {
+      name: "Ayan Kishore",
+      yearOfGraduation: 2021,
+      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentLocation: "Indore, Madhya Pradesh",
+      yourLinkedinId: "https://www.linkedin.com/",
+      yourContactInformationEmail: "ayan.santania@gmail.com",
+      yourContactInformationPhoneNumber: 999999999,
+      aPhotoForWebsiteOfYourself: f17,
+    },
+    {
+      name: "Abhishek Gautam",
+      yearOfGraduation: 2021,
+      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentLocation: "Indore, Madhya Pradesh",
+      yourLinkedinId: "https://www.linkedin.com/in/abhishekgautam01",
+      yourContactInformationEmail: "abhishekgautam689@gmail.com",
+      yourContactInformationPhoneNumber: 999999999,
+      aPhotoForWebsiteOfYourself: f18,
+    }
   ];
 
   return (
@@ -165,6 +220,67 @@ export default function Alumni() {
       ></div>
       <div className="container alumni-container my-5 col-11" style={{ minHeight: '24rem' }}>
         <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div className="panel panel-default">
+            <div className="panel-heading">
+              <h4 className="panel-title">
+                <a
+                  className="accordion-toggle"
+                  data-toggle="collapse"
+                  data-parent="#accordion"
+                  href="#collapse2021"
+                  aria-expanded="true" aria-controls='collapse2021'
+                >
+                  Batch 2021
+                </a>
+              </h4>
+            </div>
+            <div id="collapse2021" className="panel-collapse collapse show">
+              <div className="panel-body">
+                <div className="fluid-container">
+                  <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
+                    {members.map(
+                      (member, i) =>
+                        member.yearOfGraduation === 2021 && (
+                          <div
+                            className="card card-item-1 shadow item-alumni"
+                            style={{ width: "17rem", minHeight: '33rem', maxHeight: '33rem' }}
+                            key={i}
+                          >
+                            <img
+                              className="card-img-top card-alumni"
+                              src={`${member.aPhotoForWebsiteOfYourself}`}
+                              alt="Card image cap"
+                            />
+                            <div className="card-body d-flex flex-column transition: transform 400ms ease-out;">
+                              <h5
+                                className="card-title text-center text-uppercase"
+                                style={{ minHeight: "3rem" }}
+                              >
+                                {member.name}
+                              </h5>
+                              <p
+                                className="card-text text-center"
+                                style={{ minHeight: "2rem" }}
+                              >
+                                {member.presentOrganisation
+                                  ? member.presentOrganisation
+                                  : "Graduated Mechanical Engineer, MNNIT Allahabad"}
+                              </p>
+
+                              <div className="d-flex justify-content-center mt-4">
+                                <a href={member.yourLinkedinId} target="_blank">
+                                  <i className="fab fa-linkedin fa-3x mx-2"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        )
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="panel panel-default">
             <div className="panel-heading">
               <h4 className="panel-title">
