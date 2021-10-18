@@ -159,7 +159,7 @@ export default function Alumni() {
     {
       name: "Bhuvan Jhamb",
       yearOfGraduation: 2021,
-      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentOrganisation: "Software Developer 2 (Robotics), Intel Labs",
       presentLocation: "Indore, Madhya Pradesh",
       yourLinkedinId: "https://www.linkedin.com/in/bhuvanjhamb",
       yourContactInformationEmail: "bhuvanjhamb29@gmail.com",
@@ -169,7 +169,7 @@ export default function Alumni() {
     {
       name: "Apoorva Dinesh Singh",
       yearOfGraduation: 2021,
-      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentOrganisation: "Software Engineer at Arista Networks",
       presentLocation: "Indore, Madhya Pradesh",
       yourLinkedinId: "https://www.linkedin.com/in/apoorva-singh-0111",
       yourContactInformationEmail: "apoorva011199@gmail.com",
@@ -179,7 +179,7 @@ export default function Alumni() {
     {
       name: "ARCHIT CHAUDHARY",
       yearOfGraduation: 2021,
-      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentOrganisation: undefined,
       presentLocation: "Indore, Madhya Pradesh",
       yourLinkedinId: "https://www.linkedin.com/in/archit-chaudhary-010a78164/",
       yourContactInformationEmail: "chaudharyarchit2000@gmail.com",
@@ -189,7 +189,7 @@ export default function Alumni() {
     {
       name: "Ayan Kishore",
       yearOfGraduation: 2021,
-      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentOrganisation: undefined,
       presentLocation: "Indore, Madhya Pradesh",
       yourLinkedinId: "https://www.linkedin.com/",
       yourContactInformationEmail: "ayan.santania@gmail.com",
@@ -199,7 +199,7 @@ export default function Alumni() {
     {
       name: "Abhishek Gautam",
       yearOfGraduation: 2021,
-      presentOrganisation: "John Deere India Pvt. Ltd.",
+      presentOrganisation: "Graduate Engineer Trainee at Hero MotoCorp",
       presentLocation: "Indore, Madhya Pradesh",
       yourLinkedinId: "https://www.linkedin.com/in/abhishekgautam01",
       yourContactInformationEmail: "abhishekgautam689@gmail.com",
