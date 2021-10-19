@@ -11,13 +11,8 @@ import f8 from "../../images/coordinators&Nontech/Prasanna Sneha.jpg";
 import f9 from "../../images/coordinators&Nontech/Ayush.jpg";
 import f10 from "../../images/coordinators&Nontech/Rishabh.jpg";
 import f11 from "../../images/coordinators&Nontech/Harsh Kumar Singh.jpg";
-import f12 from "../../images/coordinators&Nontech/Bhuvan Jhumb.jpg";
-import f13 from "../../images/coordinators&Nontech/Apoorva Dinesh Singh.jpg";
-import f14 from "../../images/coordinators&Nontech/Archit Chaudhary.jpg";
-import f15 from "../../images/coordinators&Nontech/Ayan Santania.jpg";
-import f16 from "../../images/coordinators&Nontech/ABHISHEK GAUTAM.jpg";
-import f17 from "../../images/coordinators&Nontech/Karimulla Mohammad.jpg";
-import f18 from "../../images/coordinators&Nontech/Ankur Singh.jpg";
+import f12 from "../../images/coordinators&Nontech/Karimulla Mohammad.jpg";
+import f13 from "../../images/coordinators&Nontech/Ankur Singh.jpg";
 import { REACT_APP_BASE_TITLE } from "../../grobalVars"
 import loadable from '@loadable/component'
 import { animateScroll } from "react-scroll";
@@ -33,7 +28,7 @@ export default function Coordinators() {
     {
       emailAddress: "amit758000@gmail.com",
       name: "Amit Gupta",
-      year: "2nd",
+      year: "3rd",
       photo: f1,
       linkedinId: "https://www.linkedin.com/in/amit-gupta-0b64991bb/",
       areaOfInterests:
@@ -42,7 +37,7 @@ export default function Coordinators() {
     {
       emailAddress: "sandeepsingh.avanti@gmail.com",
       name: "SANDEEP SINGH",
-      year: "2nd",
+      year: "3rd",
       photo: f2,
       linkedinId: "https://www.linkedin.com/in/sandeep-singh-b020a6168/",
       areaOfInterests: "Drone Automation, Flying, Electronics",
@@ -50,7 +45,7 @@ export default function Coordinators() {
     {
       emailAddress: "devanshsethi77@gmail.com",
       name: "Devansh Sethi",
-      year: "2nd",
+      year: "3rd",
       photo: f3,
       linkedinId: "https://www.linkedin.com/in/devansh-sethi-2a97721b3/",
       areaOfInterests:
@@ -59,7 +54,7 @@ export default function Coordinators() {
     {
       emailAddress: "akanak101@gmail.com",
       name: "Kanak Agrawal",
-      year: "2nd",
+      year: "3rd",
       photo: f4,
       linkedinId: "https://www.linkedin.com/in/kanak-agrawal-03b55b159/",
       areaOfInterests: "Mechanical Design and Analysis, Controls",
@@ -67,7 +62,7 @@ export default function Coordinators() {
     {
       emailAddress: "nitishkumarkushwaha89@gmail.com",
       name: "Nitish Kumar",
-      year: "2nd",
+      year: "3rd",
       photo: f5,
       linkedinId: "https://www.linkedin.com/in/nitish-kumar-9b1b84206/",
       areaOfInterests: "Mechanical Design and Analysis, Aerodynamics",
@@ -75,7 +70,7 @@ export default function Coordinators() {
     {
       emailAddress: "prasannamkumar43@gmail.com",
       name: "Prasannam Kumar Sah",
-      year: "2nd",
+      year: "3rd",
       photo: f6,
       linkedinId: "https://www.linkedin.com/in/prasannam-kumar-sah-a4125b1b2/",
       areaOfInterests: "Drone Automation, Electronics, Aerodynamics",
@@ -83,7 +78,7 @@ export default function Coordinators() {
     {
       emailAddress: "ruchi1112200@gmail.com",
       name: "Ruchi Srivastava",
-      year: "2nd",
+      year: "3rd",
       photo: f7,
       linkedinId: "https://www.linkedin.com/in/ruchi-srivastava-aaa2701b3",
       areaOfInterests:
@@ -92,7 +87,7 @@ export default function Coordinators() {
     {
       emailAddress: "prasannasneha1322@gmail.com",
       name: "Prasanna Sneha",
-      year: "2nd",
+      year: "3rd",
       photo: f8,
       linkedinId: "Prasanna Sneha",
       areaOfInterests: "CAD, Aerodynamics"
@@ -100,7 +95,7 @@ export default function Coordinators() {
     {
       emailAddress: "ayushchaturvedi702@gmail.com",
       name: "Ayush Chaturvedi",
-      year: "2nd",
+      year: "3rd",
       photo: f9,
       areaOfInterests:
         "Design and Manufacturing , Drone Automation (Basics i.e dronekit)",
@@ -108,7 +103,7 @@ export default function Coordinators() {
     {
       emailAddress: "rishabhdwivedi462@gmail.com",
       name: "Rishabh Dwivedi",
-      year: "2nd",
+      year: "3rd",
       photo: f10,
       linkedinId: "https://www.linkedin.com/in/rishabh-dwivedi-8b85491a2",
       areaOfInterests: "CAD, Aerodynamics",
@@ -116,64 +111,24 @@ export default function Coordinators() {
     {
       emailAddress: "harshkumarsingh325@gmail.com",
       name: "Harsh Kumar Singh ",
-      year: "2nd",
+      year: "3rd",
       photo: f11,
       linkedinId: "harshkumarsingh325@gmail.com",
       areaOfInterests: "Drone Automation, Computer Vision, Simulation",
     },
     {
-      emailAddress: "bhuvanjhamb29@gmail.com",
-      name: "Bhuvan Jhamb",
-      year: "Final",
-      photo: f12,
-      linkedinId: "https://www.linkedin.com/in/bhuvanjhamb",
-      areaOfInterests:
-        "Drone Automation, Controls, Path Planning, AI, Simulations",
-    },
-    {
-      emailAddress: "apoorva011199@gmail.com",
-      name: "Apoorva Dinesh Singh ",
-      year: "Final",
-      photo: f13,
-      linkedinId: "https://www.linkedin.com/in/apoorva-singh-0111",
-      areaOfInterests: "Machine Learning, Computer Vision, Path Planning",
-    },
-    {
-      emailAddress: "chaudharyarchit2000@gmail.com",
-      name: "ARCHIT CHAUDHARY",
-      year: "Final",
-      photo: f14,
-      linkedinId: "https://www.linkedin.com/in/archit-chaudhary-010a78164/",
-      areaOfInterests: "Automation, Aerodynamics, Propulsion",
-    },
-    {
-      emailAddress: "ayan.santania@gmail.com",
-      name: "Ayan Kishore",
-      year: "Final",
-      photo: f15,
-      areaOfInterests: "CAD, 3D Printing, Manufacturing",
-    },
-    {
-      emailAddress: "abhishekgautam689@gmail.com",
-      name: "Abhishek Gautam",
-      year: "Final",
-      photo: f16,
-      linkedinId: "https://www.linkedin.com/in/abhishekgautam01",
-      areaOfInterests: "Mechanical Design and Analysis, Controls and Electronics",
-    },
-    {
       emailAddress: "karimulla17999@gmail.com",
       name: "Karimulla Mohammad",
-      year: "2nd",
-      photo: f17,
+      year: "3rd",
+      photo: f12,
       linkedinId: "https://www.linkedin.com/in/karimulla1098/",
       areaOfInterests: "Deep Learning, Path Planning, ROS, AI",
     },
     {
       emailAddress: "as096255@gmail.com",
       name: "Ankur Pratap Singh",
-      year: "2nd",
-      photo: f18,
+      year: "3rd",
+      photo: f13,
       linkedinId: "https://linkedin.com/in/ankur-singh-82496514b/",
       areaOfInterests:
         "Autonomous Systems, Data Science, Computer Vision",
@@ -191,7 +146,7 @@ export default function Coordinators() {
         style={{ marginBottom: "40px", background: "rgb(204, 67, 67)" }}
       ></div>
 
-      <div className="pageTitle my-5 titleBold header white-heading padtop">
+      {/* <div className="pageTitle my-5 titleBold header white-heading padtop">
         Core Coordinators
       </div>
       <div className="fluid-container alumni-container">
@@ -228,8 +183,8 @@ export default function Coordinators() {
               )
           )}
         </div>
-      </div>
-      {/* <div className="pageTitle my-5 titleBold header white-heading padtop">
+      </div> */}
+    <div className="pageTitle my-5 titleBold header white-heading padtop">
         Senior Coordinators
       </div>
       <div className="fluid-container alumni-container">
@@ -266,8 +221,8 @@ export default function Coordinators() {
               )
           )}
         </div>
-      </div> */}
-      <div className="pageTitle my-5 titleBold header white-heading padtop">
+      </div>
+      {/* <div className="pageTitle my-5 titleBold header white-heading padtop">
         Junior Coordinators
       </div>
       <div className="fluid-container alumni-container">
@@ -304,7 +259,7 @@ export default function Coordinators() {
               )
           )}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
