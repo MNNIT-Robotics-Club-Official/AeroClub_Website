@@ -220,7 +220,7 @@ export default function Alumni() {
       ></div>
       <div className="container alumni-container my-5 col-11" style={{ minHeight: '24rem' }}>
         <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div className="panel panel-default">
+          <div className="panel panel-default">
             <div className="panel-heading">
               <h4 className="panel-title">
                 <a
@@ -289,13 +289,13 @@ export default function Alumni() {
                   data-toggle="collapse"
                   data-parent="#accordion"
                   href="#collapse2020"
-                  aria-expanded="true" aria-controls='collapse2020'
+                  aria-expanded="false" aria-controls='collapse2020'
                 >
                   Batch 2020
                 </a>
               </h4>
             </div>
-            <div id="collapse2020" className="panel-collapse collapse show">
+            <div id="collapse2020" className="panel-collapse collapse">
               <div className="panel-body">
                 <div className="fluid-container">
                   <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
