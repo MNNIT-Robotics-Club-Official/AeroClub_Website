@@ -236,16 +236,163 @@ export default function Avishkar() {
               <a
                 className="btn btn-outline-dark btn-lg"
                 data-toggle="collapse"
-                href="#collapseExample1"
+                href="#collapse2021"
                 role="button"
                 aria-expanded="false"
-                aria-controls="collapseExample1"
+                aria-controls="collapse2021"
+              >
+                Avishkar 2021
+              </a>
+            </p>
+            {/* <div className="colarea"> */}
+            <div className="collapse colarea" id="collapse2021">
+              <div className="content yearevent">
+                <div className="sm:flex items-center max-w-screen-xl p-10 sm:p-16 md:p-24">
+                  <div className="sm:w-2/3 sm:mr-10">
+                    <div className="text">
+                      {/* <span className="text-gray-500 border-b-2 border-indigo-600 uppercase">about us</span> */}
+
+                      <h5 className="font-bold text-3xl my-4 sm:text-4xl">
+                        <span className="text-indigo-300 font-bold">
+                          Avishkar 2021 was organised from 26th December - 29th December
+                          2021
+                        </span>
+                      </h5>
+                      <div
+                        className="miniSep"
+                        style={{
+                          marginBottom: "40px",
+                          background: "rgb(204, 67, 67)",
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text">
+                  <h3 className="font-bold text-3xl my-4 sm:text-4xl">
+                    <span className="text-indigo-300 font-bold">
+                      Competitions
+                    </span>
+                  </h3>
+                  <div
+                    className="miniSep"
+                    style={{
+                      marginBottom: "40px",
+                      background: "rgb(204, 67, 67)",
+                    }}
+                  ></div>
+                  <div className="row">
+                    <div className="col-xs-12 col-sm-4">
+                      <div className="card cardev">
+                        {/* <a
+                                                    className="img-card"
+
+                                                >
+                                                    <img src={Smarthome} />
+                                                </a> */}
+                        <div className="card-content cardev-content">
+                          <h4 className="card-title cardev-title">
+                            <a> Phantom</a>
+                          </h4>
+                          <p className="phonetxt">
+                            Aircraft Design event
+                            <br></br>
+                            <br></br>
+                          </p>
+                        </div>
+                        <div className="card-read-more">
+                          <a
+                            href="https://drive.google.com/file/d/10Abr7pmeaTExusBIj7nUfmJrqrONJyfZ/view?usp=sharing"
+                            className="btn btn-link btn-block"
+                          >
+                            Problem Statement
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-4">
+                      <div className="card cardev">
+                        {/* <a
+                                                    className="img-card"
+
+                                                >
+                                                    <img src={Daksha} />
+                                                </a> */}
+                        <div className="card-content cardev-content">
+                          <h4 className="card-title cardev-title">
+                            <a> Guardian</a>
+                          </h4>
+                          <p className="phonetxt">
+                            Drone and Aerial Robotics
+                            <br></br>
+                            <br></br>
+                          </p>
+                        </div>
+                        <div className="card-read-more">
+                          <a
+                            href="https://drive.google.com/file/d/1jQEeNsrdYRg-0XfcKEiw2SbWT9ZBULmn/view?usp=sharing"
+                            className="btn btn-link btn-block"
+                          >
+                            Problem Statement
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-4">
+                      <div className="card cardev">
+                        {/* <a
+                                                    className="img-card"
+
+                                                >
+                                                    <img src={Guardian} />
+                                                </a> */}
+                        <div className="card-content cardev-content">
+                          <h4 className="card-title cardev-title">
+                            <a>Lost in Space</a>
+                          </h4>
+                          <p className="phonetxt">
+                            Quizing Event<br></br>
+                            <br></br>
+                          </p>
+                        </div>
+                        <div className="card-read-more">
+                          <a
+                            href="https://drive.google.com/file/d/1DbkAoBGyDD5eRcRWVCJ-XSouIjnWyf-d/view?usp=sharing"
+                            className="btn btn-link btn-block"
+                          >
+                            Problem Statement
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* </div> */}
+          </div>
+        </div>
+      </section>
+      {/* </Jumbotron> */}
+
+      <section className="wrapper">
+        <div className="container-f">
+        <div>
+            <p className="cent">
+              <a
+                className="btn btn-outline-dark btn-lg"
+                data-toggle="collapse"
+                href="#collapse2020"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapse2020"
               >
                 Avishkar 2020
               </a>
             </p>
             {/* <div className="colarea"> */}
-            <div className="collapse colarea" id="collapseExample1">
+            <div className="collapse colarea" id="collapse2020">
               <div className="content yearevent">
                 <div className="sm:flex items-center max-w-screen-xl p-10 sm:p-16 md:p-24">
                   <div className="sm:w-2/3 sm:mr-10">
@@ -374,7 +521,7 @@ export default function Avishkar() {
           </div>
         </div>
       </section>
-      {/* </Jumbotron> */}
+
       <section className="wrapper">
         <div className="container-f">
           <div>
@@ -382,16 +529,16 @@ export default function Avishkar() {
               <a
                 className="btn btn-outline-dark btn-lg"
                 data-toggle="collapse"
-                href="#collapseExample2"
+                href="#collapse2019"
                 role="button"
                 aria-expanded="false"
-                aria-controls="collapseExample2"
+                aria-controls="collapse2019"
               >
                 Avishkar 2019
               </a>
             </p>
             {/* <div className="colarea"> */}
-            <div className="collapse colarea" id="collapseExample2">
+            <div className="collapse colarea" id="collapse2019">
               <div className="content yearevent">
                 <div className="sm:flex items-center max-w-screen-xl p-10 sm:p-16 md:p-24">
                   <div className="sm:w-2/3 sm:mr-10">
@@ -528,16 +675,16 @@ export default function Avishkar() {
               <a
                 className="btn btn-outline-dark btn-lg"
                 data-toggle="collapse"
-                href="#collapseExample3"
+                href="#collapse2018"
                 role="button"
                 aria-expanded="false"
-                aria-controls="collapseExample3"
+                aria-controls="collapse2018"
               >
                 Avishkar 2018
               </a>
             </p>
             {/* <div className="colarea"> */}
-            <div className="collapse colarea" id="collapseExample3">
+            <div className="collapse colarea" id="collapse2018">
               <div className="content yearevent">
                 <div className="sm:flex items-center max-w-screen-xl p-10 sm:p-16 md:p-24">
                   <div className="sm:w-2/3 sm:mr-10">
