@@ -18,7 +18,7 @@ import Confirmation from "./components/Pages/Confirmation.js";
 import NotFound from "./components/Pages/NotFound.js";
 import News from "./components/Pages/News.js";
 import CreateBlog from "./components/Pages/Dashboard/Blogs/CreateBlog.js";
-import Avishkar from "./components/Pages/Avishkar";
+import Avishkar from "./components/Pages/Avishkar/Avishkar";
 import Prosang from "./components/Pages/Prosang";
 import Workshop from "./components/Pages/Workshop";
 import Achievements from "./components/Pages/Achievements.js";
