@@ -13,16 +13,16 @@ const AvishkarCard =(props)=>{
               <a
                 className="btn btn-outline-dark btn-lg"
                 data-toggle="collapse"
-                href="#collapseExample2"
+                href={"#collapseExample"+props.Year}
                 role="button"
                 aria-expanded="false"
-                aria-controls="collapseExample2"
+                aria-controls={"collapseExample"+props.Year}
               >
                 Avishkar {props.Year}
               </a>
             </p>
             {/* <div className="colarea"> */}
-            <div className="collapse colarea" id="collapseExample2">
+            <div className="collapse colarea" id={"collapseExample"+props.Year}>
               <div className="content yearevent">
                 <div className="sm:flex items-center max-w-screen-xl p-10 sm:p-16 md:p-24">
                   <div className="sm:w-2/3 sm:mr-10">
