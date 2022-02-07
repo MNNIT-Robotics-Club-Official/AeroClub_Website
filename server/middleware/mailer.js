@@ -1,6 +1,7 @@
 require('dotenv').config();
 var nodemailer = require('nodemailer');
 
+// nodemailer Config
 const smtpTransport = {
     host: 'smtp.gmail.com',
     service: "Gmail",

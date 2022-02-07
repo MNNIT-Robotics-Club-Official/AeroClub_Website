@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+//Workshops Model
 const workshopSchema = new mongoose.Schema({
     name: {
         type: String,

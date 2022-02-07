@@ -1,6 +1,8 @@
 var mongoose = require("mongoose");
 const User = require("./user");
 
+// Component Model
+
 var componentSchema = new mongoose.Schema(
   {
     name: {
