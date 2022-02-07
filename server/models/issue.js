@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema;
 
+//Component Issues Model
+
 const ComponentsIssueSchema = new mongoose.Schema(
     {
         component: {
