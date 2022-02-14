@@ -5,7 +5,8 @@ import Member from "./AlumniMemberCard";
 
 const MainCard = (props)=>{
 
-        
+      
+      const LatestYear = new Date().getFullYear() - 1;
     
     return(
       
@@ -18,13 +19,13 @@ const MainCard = (props)=>{
               data-toggle="collapse"
               data-parent="#accordion"
               href={"#collapse"+props.year}
-              aria-expanded="false" aria-controls={'collapse'+props.year}
+              aria-expanded={LatestYear===props.year?"true":"false"} aria-controls={'collapse'+props.year}
             >
               Batch {props.year}
             </a>
           </h4>
         </div>
-        <div id={"collapse"+props.year} className="panel-collapse collapse">
+        <div id={"collapse"+props.year} className={LatestYear===props.year?"panel-collapse collapse show":"panel-collapse collapse"}>
           <div className="panel-body">
             <div className="fluid-container">
               <div className="d-flex flex-wrap m-auto justify-content-center align-items-center">
