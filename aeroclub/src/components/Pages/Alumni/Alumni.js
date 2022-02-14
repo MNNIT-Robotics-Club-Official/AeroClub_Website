@@ -25,11 +25,14 @@ export default function Alumni() {
       >
         
       </div>
-      
+      <div className="container alumni-container my-5 col-11" style={{ minHeight: '24rem' }}>
+         <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true"></div>
         <MainCard year = {2021}/>
         <MainCard year = {2020}/>
         <MainCard year = {2019}/>
         <MainCard year = {2018}/>
+        </div>
+    
 
           
 
