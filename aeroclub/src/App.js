@@ -2,7 +2,7 @@ import loadable from '@loadable/component'
 import React, { useEffect } from "react";
 import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 import AdminComp from "./components/admin/AdminComp.js";
-import Alumni from "./components/Pages/Alumni.js";
+import Alumni from "./components/Pages/Alumni/Alumni.js";
 import Login from "./components/Pages/Login";
 import Projects from "./components/Pages/Project";
 import SingleProject from "./components/Pages/SingleProject";
