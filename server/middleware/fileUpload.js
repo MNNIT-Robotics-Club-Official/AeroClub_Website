@@ -2,6 +2,8 @@ const multer = require("multer");
 const path = require("path");
 const { v4 } = require("uuid");
 const DIR = "./public/images/";
+
+// multer diskStorage for file upload
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, DIR);

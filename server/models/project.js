@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//member Model
 const memberSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -16,6 +17,8 @@ const memberSchema = new mongoose.Schema({
 });
 
 const Member = mongoose.model("Member", memberSchema);
+
+//project Model
 const projectSchema = new mongoose.Schema(
   {
     title: {

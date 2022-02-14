@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+
+// contact model
+
 const contactSchema = new mongoose.Schema({
     name: {
         type: String,
